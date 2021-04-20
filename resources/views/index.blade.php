@@ -113,15 +113,16 @@
                                 <!-- Start Mainmanu Nav -->
                                 <nav class="mainmenu-nav d-none d-lg-block">
                                     <ul class="mainmenu">
-                                        <li class="has-dropdown"><a href="#">Home</a>
+                                        <li><a href="">Home</a></li>
+                                        <!-- <li class="has-dropdown"><a href="#">Home</a>
                                             <ul class="axil-submenu">
-                                                <li><a href="home-01.html">Digital Agency</a></li>
+                                                 <li><a href="home-01.html">Digital Agency</a></li>
                                                 <li><a href="home-02.html">Creative Agency</a></li>
                                                 <li><a href="home-03.html">Personal Portfolio</a></li>
                                                 <li><a href="home-04.html">Home Startup</a></li>
                                                 <li><a href="home-05.html">Corporate Agency</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <li class="has-dropdown"><a href="#">Services</a>
                                             <ul class="axil-submenu">
                                                 <li><a href="services.html">Services</a></li>
@@ -132,12 +133,12 @@
                                         <li><a href="about.html">About Us</a></li>
                                         <li class="has-dropdown"><a href="#">Blog</a>
                                             <ul class="axil-submenu">
-                                                <li><a href="blog.html">Blog List</a></li>
+                                                 <li><a href="blog.html">Blog List</a></li>
                                                 <li><a href="blog-list-two.html">Blog List Two</a></li>
                                                 <li><a href="blog-details.html">Blog Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Pages</a>
+                                        <li class="has-dropdown"><a href="#">Category</a>
                                             <ul class="axil-submenu">
                                                 <li><a href="button.html">Button</a></li>
                                                 <li><a href="typography.html">Typography</a></li>
@@ -192,7 +193,8 @@
                 </div>
                 <div class="menu-item">
                     <ul class="mainmenu-item">
-                        <li class="has-children"><a href="#">Home</a>
+                        <li><a href="">Home</a></li>
+                        <!-- <li class="has-children"><a href="#">Home</a>
                             <ul class="submenu">
                                 <li><a href="home-01.html">Digital Agency</a></li>
                                 <li><a href="home-02.html">Creative Agency</a></li>
@@ -200,7 +202,7 @@
                                 <li><a href="home-04.html">Home Startup</a></li>
                                 <li><a href="home-05.html">Corporate Agency</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="has-children"><a href="#">Services</a>
                             <ul class="submenu">
                                 <li><a href="services.html">Services</a></li>
@@ -273,15 +275,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-12 order-3 order-lg-3">
+                            <div class="col-lg-12 order-3 order-lg-3">
                                 <div class="follow-us">
                                     <ul class="social-share social-share-style-2">
                                         <li><a href="#"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
                                         <li><a href="#"><i class="fab fa-twitter"></i><span>twitter</span></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a></li>
+                                        <li><a href="#"><i class="fab fa-google-plus-g"></i><span>Google+</span></a></li>
                                     </ul>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -405,74 +407,7 @@
             </div>
             <!-- End Case Study Area -->
 
-            <!-- Start Testimonial Area -->
-            <div class="axil-testimonial-area ax-section-gap bg-color-lightest">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title text-center">
-                                <span class="sub-title extra05-color wow" data-splitting>testimonials</span>
-                                <h2 class="title wow" data-splitting>From getting started</h2>
-                                <p class="subtitle-2 wow" data-splitting>In vel varius turpis, non dictum sem. Aenean in
-                                    efficitur ipsum, in
-                                    egestas ipsum. Mauris in mi ac tellus.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-activation">
-                        <div class="row axil-testimonial-single">
-                            <!-- Start Single Testimonial -->
-                            <div class="col-lg-6 mt--60">
-                                <div class="axil-testimonial testimonial active move-up wow">
-                                    <div class="inner">
-                                        <div class="clint-info-wrapper">
-                                            <div class="thumb">
-                                                <img src="assets/images/testimonial/client-01.jpg" alt="Clint Images">
-                                            </div>
-                                            <div class="client-info">
-                                                <h4 class="title">Martha Maldonado</h4>
-                                                <span>Executive Chairman @ Google</span>
-                                            </div>
-                                        </div>
-                                        <div class="description">
-                                            <p class="subtitle-3">Donec metus lorem, vulputate at sapien sit amet,
-                                                auctor
-                                                iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.</p>
-                                            <a class="axil-link-button" href="#">Read Project Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Testimonial -->
-
-                            <!-- Start Single Testimonial -->
-                            <div class="col-lg-6 mt--60">
-                                <div class="axil-testimonial axil-control testimonial move-up wow">
-                                    <div class="inner">
-                                        <div class="clint-info-wrapper">
-                                            <div class="thumb">
-                                                <img src="assets/images/testimonial/client-02.jpg" alt="Clint Images">
-                                            </div>
-                                            <div class="client-info">
-                                                <h4 class="title">Martha Maldonado</h4>
-                                                <span>Executive Chairman @ Google</span>
-                                            </div>
-                                        </div>
-                                        <div class="description">
-                                            <p class="subtitle-3">Donec metus lorem, vulputate at sapien sit amet,
-                                                auctor
-                                                iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.</p>
-                                            <a class="axil-link-button" href="#">Read Project Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Testimonial -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Testimonial Area -->
+            
 
             <!-- Start Brand Area -->
             <div class="axil-brand-area ax-section-gap bg-color-white">
