@@ -6,9 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Services || keystroke Creative Agency Bootstrap4 Template</title>
+    <title>StudyEarth - Projects</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -82,50 +81,16 @@
                                 <!-- Start Mainmanu Nav -->
                                 <nav class="mainmenu-nav d-none d-lg-block">
                                     <ul class="mainmenu">
-                                        <li><a href="">Home</a></li>
-                                        <!-- <li class="has-dropdown"><a href="#">Home</a>
+                                        <li><a href="{{ route('index.view') }}">Home</a></li>
+                                        <li class="has-dropdown"><a href="javascript:void(0)">Projects</a>
                                             <ul class="axil-submenu">
-                                                 <li><a href="home-01.html">Digital Agency</a></li>
-                                                <li><a href="home-02.html">Creative Agency</a></li>
-                                                <li><a href="home-03.html">Personal Portfolio</a></li>
-                                                <li><a href="home-04.html">Home Startup</a></li>
-                                                <li><a href="home-05.html">Corporate Agency</a></li>
-                                            </ul>
-                                        </li> -->
-                                        <li class="has-dropdown"><a href="#">Services</a>
-                                            <ul class="axil-submenu">
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="service-two.html">Services Two</a></li>
-                                                <li><a href="single-service.html">Services Details</a></li>
+                                                <li><a href="#section1">Free Projects</a></li>
+                                                <li><a href="#section2">Paid Projects</a></li>
+                                                <li><a href="#section3">Custom Projects</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li class="has-dropdown"><a href="#">Blog</a>
-                                            <ul class="axil-submenu">
-                                                 <li><a href="blog.html">Blog List</a></li>
-                                                <li><a href="blog-list-two.html">Blog List Two</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Category</a>
-                                            <ul class="axil-submenu">
-                                                <li><a href="button.html">Button</a></li>
-                                                <li><a href="typography.html">Typography</a></li>
-                                                <li><a href="testimonial.html">Testimonial</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="case-study.html">Case Study</a></li>
-                                                <li><a href="single-case-study.html">Case Study Details</a></li>
-                                                <li><a href="comming-soon.html">Comming Soon</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-
+                                        <li><a href="">About Us</a></li>
+                                        <li><a href="">Contact</a></li>
                                     </ul>
                                 </nav>
                                 <!-- End Mainmanu Nav -->
@@ -160,8 +125,7 @@
                                         <form action="#" class="axil-searchbar w-100">
                                             <div class="search-field">
                                                 <input type="text" placeholder="Search Here...">
-                                                <button class="navbar-search-btn" type="button"><i
-                                            class="fal fa-search"></i></button>
+                                                <button class="navbar-search-btn" type="button"><i class="fal fa-search"></i></button>
                                             </div>
                                             <a href="#" class="navbar-search-close"><i class="fal fa-times"></i></a>
                                         </form>
@@ -190,15 +154,6 @@
                 <div class="menu-item">
                     <ul class="mainmenu-item">
                         <li><a href="">Home</a></li>
-                        <!-- <li class="has-children"><a href="#">Home</a>
-                            <ul class="submenu">
-                                <li><a href="home-01.html">Digital Agency</a></li>
-                                <li><a href="home-02.html">Creative Agency</a></li>
-                                <li><a href="home-03.html">Personal Portfolio</a></li>
-                                <li><a href="home-04.html">Home Startup</a></li>
-                                <li><a href="home-05.html">Corporate Agency</a></li>
-                            </ul>
-                        </li> -->
                         <li class="has-children"><a href="#">Services</a>
                             <ul class="submenu">
                                 <li><a href="services.html">Services</a></li>
@@ -212,23 +167,6 @@
                                 <li><a href="blog.html">Blog List</a></li>
                                 <li><a href="blog-list-two.html">Blog List Two</a></li>
                                 <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children"><a href="#">Pages</a>
-                            <ul class="submenu">
-                                <li><a href="button.html">Button</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="testimonial.html">Testimonial</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="case-study.html">Case Study</a></li>
-                                <li><a href="single-case-study.html">Case Study Details</a></li>
-                                <li><a href="comming-soon.html">Comming Soon</a></li>
-                                <li><a href="404.html">404 Page</a></li>
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
@@ -364,13 +302,9 @@
                 <nav class="axil-scroll-nav navbar navbar-example2">
                     <ul class="nav nav-pills justify-content-center sidebar__inner">
                         <li class="nav-item"><a class="nav-link smoth-animation active nav-text" href="#section1">Free Projects</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation nav-text" href="#section2" >Paid Projects</a></li>
+                        <li class="nav-item"><a class="nav-link smoth-animation nav-text" href="#section2">Paid Projects</a></li>
                         <li class="nav-item"><a class="nav-link smoth-animation nav-text" href="#section3">Custom Projects</a>
                         </li>
-                        <!-- <li class="nav-item"><a class="nav-link smoth-animation" href="#section4">Business</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="#section5">Technology</a></li>
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="#section6">Content strategy</a> 
-                        </li>-->
                     </ul>
                 </nav>
                 <!-- End Navigation Nav  -->
@@ -398,13 +332,13 @@
                                                 <div class="image-2"><img src="assets/images/icons/c++.png" alt="Shape Images"></div>
                                             </div>
                                         </div> -->
-                                        <img src="assets/images/icons/c++.png" alt="Icon Images" class="logo_ic">
+                                        <img src="assets/images/icons/c_plus_plus.png" alt="C++ logo" class="logo_ic">
                                         <div class="content">
                                             <h4 class="title"><a href="single-service.html">C++ Projects</a></h4>
                                             <p>We design professional looking yet simple websites. Our designs are
                                                 search engine
                                                 and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Explore More</a>
+                                            <a class="axil-button" data-hover="Learn More" href="{{ route('freeproject.view',['free','c++']) }}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -427,7 +361,7 @@
                                             <p>We design professional looking yet simple websites. Our designs are
                                                 search engine
                                                 and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Explore More</a>
+                                            <a class="axil-button" data-hover="Learn More" href="{{ route('freeproject.view',['free','python']) }}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -435,7 +369,7 @@
                             <!-- End Single Service  -->
 
                             <!-- Start Single Service  -->
-                           <!--  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <!--  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="axil-service text-left axil-control paralax-image">
                                     <div class="inner">
                                         <div class="icon gradient-color-03">
@@ -486,7 +420,7 @@
                                         </div> -->
                                         <img src="assets/images/icons/icon-iot.png" alt="Icon Images" class="logo_ic">
                                         <div class="content">
-                                            <h4 class="title"><a href="paid-project.html">IoT  Projects</a></h4>
+                                            <h4 class="title"><a href="paid-project.html">IoT Projects</a></h4>
                                             <p>We design professional looking yet simple websites. Our designs are
                                                 search engine
                                                 and user friendly. </p>
@@ -622,9 +556,9 @@
                                 </div>
                             </div>
                         </div> -->
-                        <!-- Start Service Wrapper  -->
-                        <!-- <div class="row"> -->
-                            <!-- Start Single Service 
+                <!-- Start Service Wrapper  -->
+                <!-- <div class="row"> -->
+                <!-- Start Single Service 
                             <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="axil-service text-left axil-control paralax-image active">
                                     <div class="inner">
@@ -644,10 +578,10 @@
                                     </div>
                                 </div>
                             </div-->
-                            <!-- End Single Service  -->
+                <!-- End Single Service  -->
 
-                            <!-- Start Single Service  -->
-                            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <!-- Start Single Service  -->
+                <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="axil-service text-left axil-control paralax-image">
                                     <div class="inner">
                                         <div class="icon gradient-color-02">
@@ -666,10 +600,10 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <!-- End Single Service  -->
+                <!-- End Single Service  -->
 
-                            <!-- Start Single Service  -->
-                            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <!-- Start Single Service  -->
+                <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="axil-service text-left axil-control paralax-image">
                                     <div class="inner">
                                         <div class="icon gradient-color-03">
@@ -688,10 +622,10 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <!-- End Single Service  -->
+                <!-- End Single Service  -->
 
-                            <!-- Start Single Service  -->
-                            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <!-- Start Single Service  -->
+                <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="axil-service text-left axil-control paralax-image">
                                     <div class="inner">
                                         <div class="icon gradient-color-02">
@@ -710,174 +644,173 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <!-- End Single Service  -->
+                <!-- End Single Service  -->
 
-                        <!-- </div> -->
-                        <!-- End Service Wrapper  -->
-                    <<!-- /div>
-                </div>  -->
-                <!-- End Navigation Content  -->
-            </div>
-            <!-- Axil Scroll Navigation Area  -->
+                <!-- </div> -->
+                <!-- End Service Wrapper  -->
+                <<!-- /div>
+            </div> -->
+            <!-- End Navigation Content  -->
+    </div>
+    <!-- Axil Scroll Navigation Area  -->
 
-            <!-- Start Call To Action -->
-            <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="axil-call-to-action">
-                                <div class="section-title text-center">
-                                    <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
-                                    <h2 class="title wow" data-splitting>Need a successful project?</h2>
-                                    <a class="axil-button btn-large btn-transparent" href="#"><span
-                                class="button-text">Estimate Project</span><span class="button-icon"></span></a>
-                                    <div class="callto-action">
-                                        <span class="text wow" data-splitting>Or call us now</span>
-                                        <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                    456 7890</a></span>
-                                    </div>
-                                </div>
+    <!-- Start Call To Action -->
+    <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="axil-call-to-action">
+                        <div class="section-title text-center">
+                            <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
+                            <h2 class="title wow" data-splitting>Need a successful project?</h2>
+                            <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
+                            <div class="callto-action">
+                                <span class="text wow" data-splitting>Or call us now</span>
+                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
+                                        456 7890</a></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="shape-group">
-                    <div class="shape shape-01">
-                        <i class="icon icon-shape-14"></i>
-                    </div>
-                    <div class="shape shape-02">
-                        <i class="icon icon-shape-09"></i>
-                    </div>
-                    <div class="shape shape-03">
-                        <i class="icon icon-shape-10"></i>
-                    </div>
-                    <div class="shape shape-04">
-                        <i class="icon icon-shape-11"></i>
+            </div>
+        </div>
+        <div class="shape-group">
+            <div class="shape shape-01">
+                <i class="icon icon-shape-14"></i>
+            </div>
+            <div class="shape shape-02">
+                <i class="icon icon-shape-09"></i>
+            </div>
+            <div class="shape shape-03">
+                <i class="icon icon-shape-10"></i>
+            </div>
+            <div class="shape shape-04">
+                <i class="icon icon-shape-11"></i>
+            </div>
+        </div>
+    </div>
+    <!-- End Call To Action -->
+
+    </main>
+    <!-- End Page Wrapper -->
+
+    <!-- Start Footer Area -->
+    <footer class="axil-footer footer-default theme-gradient-2">
+        <div class="bg_image--2">
+            <!-- Start Social Icon -->
+            <div class="ft-social-icon-wrapper ax-section-gapTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="ft-social-share d-flex justify-content-center liststyle flex-wrap">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- End Call To Action -->
+            <!-- End Social Icon -->
+            <!-- Start Footer Top Area -->
+            <div class="footer-top ax-section-gap">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start Single Widget -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="footer-widget-item axil-border-right">
+                                <h2>Get in touch!</h2>
+                                <p>Fusce varius, dolor tempor interdum tristique, dui urna <br /> bibendum magna, ut ullamcorper purus</p>
+                                <div class="axil-newsletter">
+                                    <form class="newsletter-form" action="#">
+                                        <input type="email" placeholder="Email">
+                                        <a class="axil-button btn-transparent" href="#"><span class="button-text">Subscribe</span><span class="button-icon"></span></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
 
-        </main>
-        <!-- End Page Wrapper -->
+                        <!-- Start Single Widget -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
+                            <div class="footer-widget-item">
+                                <h6 class="title">Services</h6>
+                                <div class="footer-menu-container">
+                                    <ul class="ft-menu liststyle link-hover">
+                                        <li><a href="#">Logo & Branding</a></li>
+                                        <li><a href="#">Website Development</a></li>
+                                        <li><a href="#">Mobile App Development</a></li>
+                                        <li><a href="#">Search Engine Optimization</a></li>
+                                        <li><a href="#">Pay-Per-Click</a></li>
+                                        <li><a href="#">Social Media Marketing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
 
-        <!-- Start Footer Area -->
-        <footer class="axil-footer footer-default theme-gradient-2">
-            <div class="bg_image--2">
-                <!-- Start Social Icon -->
-                <div class="ft-social-icon-wrapper ax-section-gapTop">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul class="ft-social-share d-flex justify-content-center liststyle flex-wrap">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                        <!-- Start Single Widget -->
+                        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                            <div class="footer-widget-item">
+                                <h6 class="title">Resourses</h6>
+                                <div class="footer-menu-container">
+                                    <ul class="ft-menu liststyle link-hover">
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="case-study.html">Case Studies</a></li>
+                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
+
+                        <!-- Start Single Widget -->
+                        <div class="col-xl-1 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                            <div class="footer-widget-item widget-support">
+                                <h6 class="title">Support</h6>
+                                <div class="footer-menu-container">
+                                    <ul class="ft-menu liststyle link-hover">
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="#">Sitemap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Top Area -->
+            <!-- Start Copyright -->
+            <div class="copyright copyright-default">
+                <div class="container">
+                    <div class="row row--0 ptb--20 axil-basic-thine-line">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="inner text-center text-md-left">
+                                <p>© 2020. All rights reserved by Your Company.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="quick-contact">
+                                <ul class="link-hover d-flex justify-content-center justify-content-md-end liststyle">
+                                    <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="#">Terms of Use</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End Social Icon -->
-                <!-- Start Footer Top Area -->
-                <div class="footer-top ax-section-gap">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Start Single Widget -->
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="footer-widget-item axil-border-right">
-                                    <h2>Get in touch!</h2>
-                                    <p>Fusce varius, dolor tempor interdum tristique, dui urna <br /> bibendum magna, ut ullamcorper purus</p>
-                                        <div class="axil-newsletter">
-                                            <form class="newsletter-form" action="#">
-                                                <input type="email" placeholder="Email">
-                                                <a class="axil-button btn-transparent" href="#"><span class="button-text">Subscribe</span><span class="button-icon"></span></a>
-                                            </form>
-                                        </div>
-                                </div>
-                            </div>
-                            <!-- End Single Widget -->
-
-                            <!-- Start Single Widget -->
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
-                                <div class="footer-widget-item">
-                                    <h6 class="title">Services</h6>
-                                    <div class="footer-menu-container">
-                                        <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="#">Logo & Branding</a></li>
-                                            <li><a href="#">Website Development</a></li>
-                                            <li><a href="#">Mobile App Development</a></li>
-                                            <li><a href="#">Search Engine Optimization</a></li>
-                                            <li><a href="#">Pay-Per-Click</a></li>
-                                            <li><a href="#">Social Media Marketing</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Widget -->
-
-                            <!-- Start Single Widget -->
-                            <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
-                                <div class="footer-widget-item">
-                                    <h6 class="title">Resourses</h6>
-                                    <div class="footer-menu-container">
-                                        <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="case-study.html">Case Studies</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Widget -->
-
-                            <!-- Start Single Widget -->
-                            <div class="col-xl-1 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
-                                <div class="footer-widget-item widget-support">
-                                    <h6 class="title">Support</h6>
-                                    <div class="footer-menu-container">
-                                        <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                            <li><a href="#">Sitemap</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Footer Top Area -->
-                <!-- Start Copyright -->
-                <div class="copyright copyright-default">
-                    <div class="container">
-                        <div class="row row--0 ptb--20 axil-basic-thine-line">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="inner text-center text-md-left">
-                                    <p>© 2020. All rights reserved by Your Company.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="quick-contact">
-                                    <ul class="link-hover d-flex justify-content-center justify-content-md-end liststyle">
-                                        <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Copyright -->
             </div>
-        </footer>
-        <!-- End Footer Area -->
+            <!-- End Copyright -->
+        </div>
+    </footer>
+    <!-- End Footer Area -->
     </div>
 
     <!-- JS ============================================ -->
@@ -914,11 +847,12 @@
 
     <script>
         var sidebar = new StickySidebar('.axil-scroll-nav', {
-            topSpacing: 0,
-            bottomSpacing: 0,
-            containerSelector: '.axil-scroll-navigation',
-            innerWrapperSelector: '.sidebar__inner'
+            topSpacing: 0
+            , bottomSpacing: 0
+            , containerSelector: '.axil-scroll-navigation'
+            , innerWrapperSelector: '.sidebar__inner'
         });
+
     </script>
 </body>
 

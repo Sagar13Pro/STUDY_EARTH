@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home 04 || keystroke Creative Agency Bootstrap4 Template</title>
+    <title>StudyEarth</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
+    <meta name="description" content="Education Web">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -24,8 +24,7 @@
 <body>
 
     <div class="main-content">
-
-        <!-- <div id="my_switcher" class="my_switcher">
+        {{-- <div id="my_switcher" class="my_switcher">
             <ul>
                 <li>
                     <a href="javascript: void(0);" data-theme="light" class="setColor light">
@@ -38,7 +37,7 @@
                     </a>
                 </li>
             </ul>
-        </div> -->
+        </div> --}}
         <!-- Start Header -->
         <header class="ax-header haeder-default light-logo-version header-transparent axil-header-sticky">
             <div class="header-wrapper">
@@ -48,33 +47,6 @@
                             <div class="logo">
                                 <a href="home-01.html">
                                     <svg width="247px" height="72px" viewBox="0 0 247 72" version="1.1">
-                                        <!-- Generator: sketchtool 57.1 (101010) - https://sketch.com -->
-                                        <!-- <title>988EC315-517F-4BF2-8EED-A33D37B93CDD</title>
-                                        <desc>Created with sketchtool.</desc>
-                                        <defs>
-                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-                                                <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
-                                                <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
-                                            </linearGradient>
-                                            <rect id="path-2" x="0" y="0" width="60" height="60" rx="14"></rect>
-                                            <filter x="-18.3%" y="-11.7%" width="136.7%" height="136.7%" filterUnits="objectBoundingBox" id="filter-3">
-                                                <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                                                <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-                                                <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
-                                                <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
-                                                <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
-                                                <feMerge>
-                                                    <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                                                    <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
-                                                </feMerge>
-                                            </filter>
-                                            <filter x="-10.8%" y="-4.2%" width="121.7%" height="121.7%" filterUnits="objectBoundingBox">
-                                                <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-                                            </filter>
-                                        </defs> -->
                                         <g id="Home-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g id="Home-04" transform="translate(-309.000000, -38.000000)">
                                                 <g id="Banner">
@@ -108,54 +80,29 @@
                                 </a>
                             </div>
                         </div>
+
                         <div class="col-lg-9 col-md-6 col-sm-6 col-4">
                             <div class="mainmenu-wrapepr">
                                 <!-- Start Mainmanu Nav -->
                                 <nav class="mainmenu-nav d-none d-lg-block">
                                     <ul class="mainmenu">
                                         <li><a href="">Home</a></li>
-                                        <!-- <li class="has-dropdown"><a href="#">Home</a>
+                                        <li class="no-dropdown"><a href="{{ route('projects.view') }}">Projects</a>
+                                            {{-- <ul class="axil-submenu">
+                                                <li><a href="{{ route('projects.view') }}">Free Projects</a></li>
+                                        <li><a href="">Paid Projects</a></li>
+                                        <li><a href="">Custom Projects</a></li>
+                                    </ul> --}}
+                                    </li>
+                                    <li><a href="">About Us</a></li>
+                                    {{-- <li class="has-dropdown"><a href="#">Blog</a>
                                             <ul class="axil-submenu">
-                                                 <li><a href="home-01.html">Digital Agency</a></li>
-                                                <li><a href="home-02.html">Creative Agency</a></li>
-                                                <li><a href="home-03.html">Personal Portfolio</a></li>
-                                                <li><a href="home-04.html">Home Startup</a></li>
-                                                <li><a href="home-05.html">Corporate Agency</a></li>
-                                            </ul>
-                                        </li> -->
-                                        <li class="has-dropdown"><a href="#">Services</a>
-                                            <ul class="axil-submenu">
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="service-two.html">Services Two</a></li>
-                                                <li><a href="single-service.html">Services Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li class="has-dropdown"><a href="#">Blog</a>
-                                            <ul class="axil-submenu">
-                                                 <li><a href="blog.html">Blog List</a></li>
+                                                <li><a href="blog.html">Blog List</a></li>
                                                 <li><a href="blog-list-two.html">Blog List Two</a></li>
                                                 <li><a href="blog-details.html">Blog Details</a></li>
                                             </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Category</a>
-                                            <ul class="axil-submenu">
-                                                <li><a href="button.html">Button</a></li>
-                                                <li><a href="typography.html">Typography</a></li>
-                                                <li><a href="testimonial.html">Testimonial</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="case-study.html">Case Study</a></li>
-                                                <li><a href="single-case-study.html">Case Study Details</a></li>
-                                                <li><a href="comming-soon.html">Comming Soon</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        </li> --}}
+                                    <li><a href="">Contact</a></li>
 
                                     </ul>
                                 </nav>
@@ -193,49 +140,23 @@
                 </div>
                 <div class="menu-item">
                     <ul class="mainmenu-item">
-                        <li><a href="">Home</a></li>
-                        <!-- <li class="has-children"><a href="#">Home</a>
+                        <li><a href="#">Home</a></li>
+                        <li class="has-children"><a href="javascript:void(0)">Projects</a>
                             <ul class="submenu">
-                                <li><a href="home-01.html">Digital Agency</a></li>
-                                <li><a href="home-02.html">Creative Agency</a></li>
-                                <li><a href="home-03.html">Personal Portfolio</a></li>
-                                <li><a href="home-04.html">Home Startup</a></li>
-                                <li><a href="home-05.html">Corporate Agency</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="has-children"><a href="#">Services</a>
-                            <ul class="submenu">
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="service-two.html">Services Two</a></li>
-                                <li><a href="single-service.html">Services Details</a></li>
+                                <li><a href="">Free Projects</a></li>
+                                <li><a href="">Paid Projects</a></li>
+                                <li><a href="">Custom Projects</a></li>
                             </ul>
                         </li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li class="has-children"><a href="#">Blog</a>
+                        <li><a href="">About Us</a></li>
+                        {{-- <li class="has-children"><a href="#">Blog</a>
                             <ul class="submenu">
                                 <li><a href="blog.html">Blog List</a></li>
                                 <li><a href="blog-list-two.html">Blog List Two</a></li>
                                 <li><a href="blog-details.html">Blog Details</a></li>
                             </ul>
-                        </li>
-                        <li class="has-children"><a href="#">Pages</a>
-                            <ul class="submenu">
-                                <li><a href="button.html">Button</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="testimonial.html">Testimonial</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="case-study.html">Case Study</a></li>
-                                <li><a href="single-case-study.html">Case Study Details</a></li>
-                                <li><a href="comming-soon.html">Comming Soon</a></li>
-                                <li><a href="404.html">404 Page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        </li> --}}
+                        <li><a href="">Contact</a></li>
                     </ul>
                 </div>
 
@@ -259,7 +180,7 @@
                                         their
                                         behaviors.</p>
                                     <div class="slider-button wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1300ms">
-                                        <a class="axil-button btn-large btn-solid btn-extra07-color" href="#">
+                                        <a class="axil-button btn-large btn-solid btn-extra07-color" href="javascrit:void(0)">
                                             <span class="button-text">See Our Projects</span>
                                             <span class="button-icon"></span></a>
                                     </div>
@@ -303,23 +224,6 @@
                         </div>
                     </div>
                     <div class="row row--45">
-                        <!-- Start Single Case Study  -->
-                        <!-- <div class="col-lg-12 col-12">
-                            <div class="axil-case-study with-mokup-images theme-gradient-5 move-up wow">
-                                <div class="content">
-                                    <div class="inner">
-                                        <span class="category wow" data-splitting>branding, design</span>
-                                        <h4 class="wow title" data-splitting><a href="single-case-study.html">Godaddy-
-                                                Online platform and website design</a></h4>
-                                    </div>
-                                </div>
-                                <div class="mockup">
-                                    <img class="paralax-image w-100" src="assets/images/about/mokup.png" alt="Mokup Imags">
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- End Single Case Study  -->
-
                         <!-- Start Single Case Study  -->
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="axil-case-study wow">
@@ -378,7 +282,7 @@
                         <!-- End Single Case Study  -->
 
                         <!-- Start Single Case Study  -->
-                       <!--  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <!--  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="axil-case-study move-up wow">
                                 <div class="thumbnail">
                                     <a href="single-case-study.html">
@@ -396,10 +300,8 @@
                         </div> -->
                         <!-- End Single Case Study  -->
                         <div class="col-lg-12">
-                        <div class="view-all-portfolio-button mt--60 text-center">
-                                <a class="axil-button btn-large btn-transparent btn-xl" href="services.html"><span
-                                        class="button-text">Discover More Projects</span><span
-                                        class="button-icon"></span></a>
+                            <div class="view-all-portfolio-button mt--60 text-center">
+                                <a class="axil-button btn-large btn-transparent btn-xl" href="services.html"><span class="button-text">Discover More Projects</span><span class="button-icon"></span></a>
                             </div>
                         </div>
                     </div>
@@ -407,7 +309,7 @@
             </div>
             <!-- End Case Study Area -->
 
-            
+
 
             <!-- Start Brand Area -->
             <div class="axil-brand-area ax-section-gap bg-color-white">
@@ -616,8 +518,8 @@
                                 <div class="axil-ft-address">
                                     <div class="address">
                                         <p><span>A.</span>3078 Simpson Square, Clinton, Oklahoma, <br /> 73601, Londan</p>
-                                            <p><span>T.</span><a href="#">+123 4567 8901</a></p>
-                                            <p><span>E.</span><a href="#">contact@Keystroke.com</a></p>
+                                        <p><span>T.</span><a href="#">+123 4567 8901</a></p>
+                                        <p><span>E.</span><a href="#">contact@Keystroke.com</a></p>
                                     </div>
                                 </div>
                             </div>

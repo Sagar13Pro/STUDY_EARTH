@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 //==================================VIEW=========================================
 Route::get('/', [mainController::class, 'Index'])->name('index.view');
+Route::get('/projects', [mainController::class, 'Project'])->name('projects.view');
+Route::get('/projects/free-project/type={type}/language={name}/', [mainController::class, 'FreeProjectDetails'])->name('freeproject.view');
 //===============================================================================
