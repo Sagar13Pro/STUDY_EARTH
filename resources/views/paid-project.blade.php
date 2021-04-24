@@ -4,20 +4,6 @@
 
 @section('content')
 <div class="main-content">
-    <!-- <div id="my_switcher" class="my_switcher">
-            <ul>
-                <li>
-                    <a href="javascript: void(0);" data-theme="light" class="setColor light">
-                        <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
-                        <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
-                    </a>
-                </li>
-            </ul>
-        </div> -->
     <!-- Start Header -->
     <header class="ax-header haeder-default light-logo-version header-transparent axil-header-sticky">
         <div class="header-wrapper">
@@ -216,81 +202,6 @@
     </div>
     <!-- End Popup Mobile Menu -->
 
-    <!-- Start Sidebar Area  -->
-    <div class="side-nav">
-        <div class="side-nav-inner">
-            <!-- Start Search Bar  -->
-            <form action="#" class="side-nav-search-form">
-                <div class="form-group search-field">
-                    <input type="text" class="search-field" name="search-field" placeholder="Search...">
-                    <button class="side-nav-search-btn"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <!-- End Search Bar  -->
-
-            <!-- Start Side Content  -->
-            <div class="side-nav-content">
-                <div class="row ">
-                    <!-- Start Left Bar  -->
-                    <div class="col-lg-5 col-xl-6 col-12">
-                        <ul class="main-navigation">
-                            <li><a href="home-01.html">Home One</a></li>
-                            <li><a href="home-02.html">Home Two</a></li>
-                            <li><a href="home-03.html">Home Three</a></li>
-                            <li><a href="home-04.html">Home Four</a></li>
-                            <li><a href="home-05.html">Home Five</a></li>
-                        </ul>
-                    </div>
-                    <!-- End Left Bar  -->
-
-                    <!-- Start Right Bar  -->
-                    <div class="col-lg-7 col-xl-6 col-12">
-                        <div class="axil-contact-info-inner">
-
-                            <!-- Start Single Address  -->
-                            <div class="axil-contact-info">
-                                <address class="address">
-                                    <span class="title">Contact Information</span>
-                                    <p>Theodore Lowe, Ap #867-859 <br> Sit Rd, Azusa New York</p>
-                                </address>
-                                <address class="address">
-                                    <span class="title">We're Available 24/ 7. Call Now.</span>
-                                    <p><a class="tel" href="tel:8884562790"><i class="fas fa-phone"></i>(888)
-                                            456-2790</a></p>
-                                    <p><a class="tel" href="tel:12125553333"><i class="fas fa-fax"></i>(121)
-                                            255-53333</a></p>
-                                </address>
-                            </div>
-                            <!-- End Single Address  -->
-
-                            <!-- Start Single Address  -->
-                            <div class="axil-contact-info">
-                                <h5 class="title">Find us here</h5>
-                                <div class="contact-social-share d-flex align-items-center">
-                                    <ul class="social-share style-rounded">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <!-- End Single Address  -->
-                        </div>
-                    </div>
-                    <!-- End Right Bar  -->
-                </div>
-            </div>
-            <!-- End Side Content  -->
-            <!-- End of .side-nav-inner -->
-            <div class="close-sidenav" id="close-sidenav">
-                <button class="close-button"><i class="fal fa-times"></i></button>
-            </div>
-        </div>
-    </div>
-    <!-- End Sidebar Area  -->
-
     <div class="main-wrapper">
         <!-- Start Breadcrumb Area -->
         <div class="axil-breadcrumb-area breadcrumb-style-2 single-service pt--170 pb--70 theme-gradient">
@@ -332,21 +243,8 @@
         <!-- Start Working Process  -->
         <div class="axil-working-process-area ax-section-gap theme-gradient-4">
             <div class="container">
-                <!-- <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title text-center mb--100 mb_sm--40 mb_md--40">
-                                <span class="sub-title extra08-color wow" data-splitting>process</span>
-                                <h2 class="title wow" data-splitting>Our logo design process</h2>
-                                <p class="subtitle-2 wow" data-splitting>Our comprehensive logo design strategy ensures
-                                    a
-                                    perfectly crafted
-                                    logo for your business.</p>
-                            </div>
-                        </div>
-                    </div> -->
                 <div class="row">
                     <div class="col-lg-12">
-
                         <!-- Start Working Process  -->
                         <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                             <div class="thumbnail">
@@ -466,129 +364,6 @@
             </div>
         </div>
         <!-- End Working Process  -->
-
-        <!-- Start Portfolio Area -->
-        <!-- <div class="axil-portfolio-area ax-section-gap bg-color-lightest">
-                <div class="container axil-masonary-wrapper">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="section-title text-center">
-                                <span class="sub-title extra07-color wow" data-splitting>our projects</span>
-                                <h2 class="title wow mb--0" data-splitting>Featured Designs</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="mesonry-list grid-metro3 mt--20"> -->
-        <!-- Start Single Portfolio -->
-        <!-- <div class="portfolio portfolio_style--1 axil-control active portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-01.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">Creative
-                                                        Agency</a></h4>
-                                                <span class="category">ios, design</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-
-        <!-- Start Single Portfolio -->
-        <!-- <div class="portfolio portfolio_style--1 axil-control portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-02.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">Rant bike</a></h4>
-                                                <span class="category">Branding</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-
-        <!-- Start Single Portfolio -->
-        <!--  <div class="portfolio portfolio_style--1 portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-03.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">All Volees</a></h4>
-                                                <span class="category">Web application</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-
-        <!-- Start Single Portfolio -->
-        <!-- <div class="portfolio portfolio_style--1 portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-04.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">Larq</a></h4>
-                                                <span class="category">Branding, design</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-
-        <!-- Start Single Portfolio -->
-        <!-- <div class="portfolio portfolio_style--1 portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-05.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">Rant bike</a></h4>
-                                                <span class="category">Branding</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-
-        <!-- Start Single Portfolio -->
-        <!-- <div class="portfolio portfolio_style--1 portfolio-33-33">
-                                    <div class="inner move-up wow">
-                                        <div class="thumb paralax-image">
-                                            <a href="single-case-study.html"><img src="assets/images/portfolio/portfolio-01.jpg" alt="Portfolio Images"></a>
-                                        </div>
-                                        <div class="port-overlay-info">
-                                            <div class="hover-action">
-                                                <h4 class="title"><a href="single-case-study.html">Creative
-                                                        Agency</a></h4>
-                                                <span class="category">ios, design</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-        <!-- End Single Portfolio -->
-        <!-- </div>
-                            <div class="view-all-portfolio-button mt--60 text-center move-up wow">
-                                <a class="axil-button btn-large btn-transparent" href="#"><span
-                                        class="button-text">Discover
-                                        More Projects</span><span class="button-icon"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        <!-- End Portfolio Area -->
 
         <!-- Start Call To Action -->
         <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
@@ -748,6 +523,8 @@
     </footer>
     <!-- End Footer Area -->
 </div>
+
+
 <!-- Model Area Start-->
 <div class="modal fade bs-example-modal-lg" id="confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">

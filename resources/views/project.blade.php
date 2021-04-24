@@ -10,7 +10,7 @@
 @section('content')
 <div class="main-content">
 
-    <!-- <div id="my_switcher" class="my_switcher">
+    <div id="my_switcher" class="my_switcher">
             <ul>
                 <li>
                     <a href="javascript: void(0);" data-theme="light" class="setColor light">
@@ -23,7 +23,7 @@
                     </a>
                 </li>
             </ul>
-        </div> -->
+        </div>
     <!-- Start Header -->
     <header class="ax-header haeder-default light-logo-version header-transparent axil-header-sticky">
         <div class="header-wrapper">
