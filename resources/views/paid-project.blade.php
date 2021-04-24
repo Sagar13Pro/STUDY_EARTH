@@ -249,7 +249,8 @@
                         <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                             <div class="thumbnail">
                                 <div class="image paralax-image">
-                                    <img src="assets/images/process/9858_.jpg" alt="Process Images">
+                                    <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
+
                                 </div>
                             </div>
                             <!-- <img src="assets/images/process/9858.jpg" alt="Process Images"> -->
@@ -262,7 +263,7 @@
                                         <h3 class="title">IOT based Manhole Detection and Monitoring System</h3>
                                         <p class="subtitle-2">Manholes are not monitored properly in developing countries. These accidents can lead to serious injuries and also death. Hence, here we propose a system to overcome this problem.</p>
                                         <div class="pricing-details">
-                                            <h3 class="mt--20 price-text"><img src="assets/images/icons/rupee.svg" class="rupee" /><img src="assets/images/icons/rupee-28.svg" class="rupee-alt" />32,234/-</h3>
+                                            <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ Asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />32,234/-</h3>
                                         </div>
                                         <a class="axil-button btn-large btn-transparent mt--20" href="#">
                                             <span class="button-text">Purchase Now</span><span class="button-icon"></span>
