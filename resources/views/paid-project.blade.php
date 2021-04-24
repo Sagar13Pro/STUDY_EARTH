@@ -250,7 +250,6 @@
                             <div class="thumbnail">
                                 <div class="image paralax-image">
                                     <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
-
                                 </div>
                             </div>
                             <!-- <img src="assets/images/process/9858.jpg" alt="Process Images"> -->
@@ -263,24 +262,24 @@
                                         <h3 class="title">IOT based Manhole Detection and Monitoring System</h3>
                                         <p class="subtitle-2">Manholes are not monitored properly in developing countries. These accidents can lead to serious injuries and also death. Hence, here we propose a system to overcome this problem.</p>
                                         <div class="pricing-details">
-                                            <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ Asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />32,234/-</h3>
+
+                                            <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ Asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" </div>
+                                                <a class="axil-button btn-large btn-transparent mt--20" href="#">
+                                                    <span class="button-text">Purchase Now</span><span class="button-icon"></span>
+                                                </a>
+                                                <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
+                                                    <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                         </div>
-                                        <a class="axil-button btn-large btn-transparent mt--20" href="#">
-                                            <span class="button-text">Purchase Now</span><span class="button-icon"></span>
-                                        </a>
-                                        <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                            <span class="button-text">More Info</span><span class="button-icon"></span></a>
+
                                     </div>
 
                                 </div>
 
                             </div>
+                            <!-- End Working Process  -->
 
-                        </div>
-                        <!-- End Working Process  -->
-
-                        <!-- Start Working Process  -->
-                        <!-- <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
+                            <!-- Start Working Process  -->
+                            <!-- <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
                                 <div class="content order-2 order-lg-1">
                                     <div class="inner">
                                         <div class="section-title">
@@ -304,10 +303,10 @@
                                     </div>
                                 </div>
                             </div> -->
-                        <!-- End Working Process  -->
+                            <!-- End Working Process  -->
 
-                        <!-- Start Working Process  -->
-                        <!-- <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
+                            <!-- Start Working Process  -->
+                            <!-- <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                                 <div class="thumbnail">
                                     <div class="image paralax-image">
                                         <img src="assets/images/process/process-03.jpg" alt="Process Images">
@@ -331,10 +330,10 @@
                                     </div>
                                 </div>
                             </div> -->
-                        <!-- End Working Process  -->
+                            <!-- End Working Process  -->
 
-                        <!-- Start Working Process  -->
-                        <!-- <div class="axil-working-process text-left mb--100 mb_md--50 mb_sm--40">
+                            <!-- Start Working Process  -->
+                            <!-- <div class="axil-working-process text-left mb--100 mb_md--50 mb_sm--40">
                                 <div class="content order-2 order-lg-1">
                                     <div class="inner">
                                         <div class="section-title">
@@ -358,194 +357,194 @@
                                     </div>
                                 </div>
                             </div> -->
-                        <!-- End Working Process  -->
+                            <!-- End Working Process  -->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Working Process  -->
-
-        <!-- Start Call To Action -->
-        <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="axil-call-to-action">
-                            <div class="section-title text-center">
-                                <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
-                                <h2 class="title wow" data-splitting>Need a successful project?</h2>
-                                <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
-                                <div class="callto-action">
-                                    <span class="text wow" data-splitting>Or call us now</span>
-                                    <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                            456 7890</a></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End Working Process  -->
 
-            <div class="shape-group">
-                <div class="shape shape-01">
-                    <i class="icon icon-shape-14"></i>
-                </div>
-                <div class="shape shape-02">
-                    <i class="icon icon-shape-09"></i>
-                </div>
-                <div class="shape shape-03">
-                    <i class="icon icon-shape-10"></i>
-                </div>
-                <div class="shape shape-04">
-                    <i class="icon icon-shape-11"></i>
-                </div>
-            </div>
-        </div>
-        <!-- End Call To Action -->
-
-    </div>
-
-    <!-- Start Footer Area -->
-    <footer class="axil-footer footer-default theme-gradient-2">
-        <div class="bg_image--2">
-            <!-- Start Social Icon -->
-            <div class="ft-social-icon-wrapper ax-section-gapTop">
+            <!-- Start Call To Action -->
+            <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <ul class="ft-social-share d-flex justify-content-center liststyle flex-wrap">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                            </ul>
+                            <div class="axil-call-to-action">
+                                <div class="section-title text-center">
+                                    <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
+                                    <h2 class="title wow" data-splitting>Need a successful project?</h2>
+                                    <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
+                                    <div class="callto-action">
+                                        <span class="text wow" data-splitting>Or call us now</span>
+                                        <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
+                                                456 7890</a></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Social Icon -->
-            <!-- Start Footer Top Area -->
-            <div class="footer-top ax-section-gap">
-                <div class="container">
-                    <div class="row">
-                        <!-- Start Single Widget -->
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="footer-widget-item axil-border-right">
-                                <h2>Get in touch!</h2>
-                                <p>Fusce varius, dolor tempor interdum tristique, dui urna <br /> bibendum magna, ut ullamcorper purus</p>
-                                <div class="axil-newsletter">
-                                    <form class="newsletter-form" action="#">
-                                        <input type="email" placeholder="Email">
-                                        <a class="axil-button btn-transparent" href="#"><span class="button-text">Subscribe</span><span class="button-icon"></span></a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Widget -->
 
-                        <!-- Start Single Widget -->
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
-                            <div class="footer-widget-item">
-                                <h6 class="title">Services</h6>
-                                <div class="footer-menu-container">
-                                    <ul class="ft-menu liststyle link-hover">
-                                        <li><a href="#">Logo & Branding</a></li>
-                                        <li><a href="#">Website Development</a></li>
-                                        <li><a href="#">Mobile App Development</a></li>
-                                        <li><a href="#">Search Engine Optimization</a></li>
-                                        <li><a href="#">Pay-Per-Click</a></li>
-                                        <li><a href="#">Social Media Marketing</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Widget -->
-
-                        <!-- Start Single Widget -->
-                        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
-                            <div class="footer-widget-item">
-                                <h6 class="title">Resourses</h6>
-                                <div class="footer-menu-container">
-                                    <ul class="ft-menu liststyle link-hover">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="case-study.html">Case Studies</a></li>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Widget -->
-
-                        <!-- Start Single Widget -->
-                        <div class="col-xl-1 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
-                            <div class="footer-widget-item widget-support">
-                                <h6 class="title">Support</h6>
-                                <div class="footer-menu-container">
-                                    <ul class="ft-menu liststyle link-hover">
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a href="#">Sitemap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Widget -->
+                <div class="shape-group">
+                    <div class="shape shape-01">
+                        <i class="icon icon-shape-14"></i>
+                    </div>
+                    <div class="shape shape-02">
+                        <i class="icon icon-shape-09"></i>
+                    </div>
+                    <div class="shape shape-03">
+                        <i class="icon icon-shape-10"></i>
+                    </div>
+                    <div class="shape shape-04">
+                        <i class="icon icon-shape-11"></i>
                     </div>
                 </div>
             </div>
-            <!-- End Footer Top Area -->
-            <!-- Start Copyright -->
-            <div class="copyright copyright-default">
-                <div class="container">
-                    <div class="row row--0 ptb--20 axil-basic-thine-line">
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="inner text-center text-md-left">
-                                <p>© 2020. All rights reserved by Your Company.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="quick-contact">
-                                <ul class="link-hover d-flex justify-content-center justify-content-md-end liststyle">
-                                    <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="#">Terms of Use</a></li>
+            <!-- End Call To Action -->
+
+        </div>
+
+        <!-- Start Footer Area -->
+        <footer class="axil-footer footer-default theme-gradient-2">
+            <div class="bg_image--2">
+                <!-- Start Social Icon -->
+                <div class="ft-social-icon-wrapper ax-section-gapTop">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="ft-social-share d-flex justify-content-center liststyle flex-wrap">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Social Icon -->
+                <!-- Start Footer Top Area -->
+                <div class="footer-top ax-section-gap">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Start Single Widget -->
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="footer-widget-item axil-border-right">
+                                    <h2>Get in touch!</h2>
+                                    <p>Fusce varius, dolor tempor interdum tristique, dui urna <br /> bibendum magna, ut ullamcorper purus</p>
+                                    <div class="axil-newsletter">
+                                        <form class="newsletter-form" action="#">
+                                            <input type="email" placeholder="Email">
+                                            <a class="axil-button btn-transparent" href="#"><span class="button-text">Subscribe</span><span class="button-icon"></span></a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+
+                            <!-- Start Single Widget -->
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
+                                <div class="footer-widget-item">
+                                    <h6 class="title">Services</h6>
+                                    <div class="footer-menu-container">
+                                        <ul class="ft-menu liststyle link-hover">
+                                            <li><a href="#">Logo & Branding</a></li>
+                                            <li><a href="#">Website Development</a></li>
+                                            <li><a href="#">Mobile App Development</a></li>
+                                            <li><a href="#">Search Engine Optimization</a></li>
+                                            <li><a href="#">Pay-Per-Click</a></li>
+                                            <li><a href="#">Social Media Marketing</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+
+                            <!-- Start Single Widget -->
+                            <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                                <div class="footer-widget-item">
+                                    <h6 class="title">Resourses</h6>
+                                    <div class="footer-menu-container">
+                                        <ul class="ft-menu liststyle link-hover">
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="case-study.html">Case Studies</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+
+                            <!-- Start Single Widget -->
+                            <div class="col-xl-1 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                                <div class="footer-widget-item widget-support">
+                                    <h6 class="title">Support</h6>
+                                    <div class="footer-menu-container">
+                                        <ul class="ft-menu liststyle link-hover">
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                            <li><a href="#">Sitemap</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Footer Top Area -->
+                <!-- Start Copyright -->
+                <div class="copyright copyright-default">
+                    <div class="container">
+                        <div class="row row--0 ptb--20 axil-basic-thine-line">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="inner text-center text-md-left">
+                                    <p>© 2020. All rights reserved by Your Company.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="quick-contact">
+                                    <ul class="link-hover d-flex justify-content-center justify-content-md-end liststyle">
+                                        <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Copyright -->
             </div>
-            <!-- End Copyright -->
-        </div>
-    </footer>
-    <!-- End Footer Area -->
-</div>
+        </footer>
+        <!-- End Footer Area -->
+    </div>
 
 
-<!-- Model Area Start-->
-<div class="modal fade bs-example-modal-lg" id="confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body text-center font-18">
-                <h4 class="padding-top-30 mb-30 weight-500">C++ Program for Face Detection using OpenCV</h4>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h5>Requirements for running the program:</h5>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
+    <!-- Model Area Start-->
+    <div class="modal fade bs-example-modal-lg" id="confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center font-18">
+                    <h4 class="padding-top-30 mb-30 weight-500">C++ Program for Face Detection using OpenCV</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h5>Requirements for running the program:</h5>
+                            <p>1) OpenCV must be installed on the local machine.</p>
+                            <p>1) OpenCV must be installed on the local machine.</p>
+                            <p>1) OpenCV must be installed on the local machine.</p>
+                            <p>1) OpenCV must be installed on the local machine.</p>
+                            <p>1) OpenCV must be installed on the local machine.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- /Model Area End -->
-@endsection
+    <!-- /Model Area End -->
+    @endsection
