@@ -18,7 +18,7 @@ class mainController extends Controller
     {
         return view('project');
     }
-    public function FreeProjectDetails($type, $name)
+    public function FreeProjectView($type, $name)
     {
         $getProject = ProjectDetails::where([
             'projectType' => $type,
@@ -27,5 +27,9 @@ class mainController extends Controller
         //dd($getProject);
         $name = ucfirst($name);
         return view('free-project', compact(['getProject', 'name']));
+    }
+    public function PaidProjectView()
+    {
+        return view('paid-project');
     }
 }
