@@ -2,6 +2,7 @@
 
 @section('title','StudyEarth - Projects')
 @section('class','class=position-relative')
+
 @section('data-offset','data-offset=100')
 @section('data-spy','data-spy=scroll')
 @section('data-target','data-target=.navbar-example2')
