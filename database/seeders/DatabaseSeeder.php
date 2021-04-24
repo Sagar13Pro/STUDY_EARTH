@@ -20,27 +20,27 @@ class DatabaseSeeder extends Seeder
         DB::table('project_details')->insert([
             'projectType' => 'free',
             'projectLanguage' => 'C++',
-            'projectTitle' => ,
-            'projectContent' => ,
+            'projectTitle' => '',
+            'projectContent' => '',
         ]);
         DB::table('project_details')->insert([
             'projectType' => 'free',
             'projectLanguage' => 'C++',
-            'projectTitle' => ,
-            'projectContent' => ,
+            'projectTitle' => '',
+            'projectContent' => '',
         ]);
 
         DB::table('project_details')->insert([
             'projectType' => 'free',
             'projectLanguage' => 'python',
-            'projectTitle' => ,
-            'projectContent' => ,
+            'projectTitle' => '',
+            'projectContent' => '',
         ]);
         DB::table('project_details')->insert([
             'projectType' => 'free',
             'projectLanguage' => 'python',
-            'projectTitle' => ,
-            'projectContent' => ,
+            'projectTitle' => '',
+            'projectContent' => '',
         ]);
     }
 }
