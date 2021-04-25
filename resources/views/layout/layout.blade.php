@@ -23,7 +23,7 @@
 <body @yield('class') @yield('data-spy') @yield('data-target') @yield('data-offset')>
     @section('content')
     @show
-
+    @
     <!-- JS ============================================ -->
     <!-- Modernizer JS -->
     <script src="{{ asset('assets/js/vendor/modernizr.min.js') }}"></script>
@@ -54,5 +54,27 @@
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        //Show More And Less Content
+        $(document).ready(function() {
+            $('.showBtn').click(function() {
+                let id = $(this).data('id');
+                console.log(id);
+                if (id != " " || id == 0) {
+                    if ($('#' + id).hasClass('show-less')) {
+                        $('#' + id).removeClass('show-less');
+                        $('#showBtn-' + id).html('Show Less');
+                    } else {
+                        $('#' + id).addClass('show-less');
+                        $('#showBtn-' + id).html('Show More');
+                    }
+                }
+            });
+        });
+
+    </script>
+
+
 </body>
 </html>

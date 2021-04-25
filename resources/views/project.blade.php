@@ -11,19 +11,19 @@
 <div class="main-content">
 
     <div id="my_switcher" class="my_switcher">
-            <ul>
-                <li>
-                    <a href="javascript: void(0);" data-theme="light" class="setColor light">
-                        <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
-                        <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <ul>
+            <li>
+                <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                    <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                    <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
+                </a>
+            </li>
+        </ul>
+    </div>
     <!-- Start Header -->
     <header class="ax-header haeder-default light-logo-version header-transparent axil-header-sticky">
         <div class="header-wrapper">
@@ -294,7 +294,7 @@
             </nav>
             <!-- End Navigation Nav  -->
 
-            <!-- Start Navigation Content  -->
+            <!-- Start Navigation Content FREE -->
             <div id="section1" class="section axil-service-area bg-color-white ax-section-gap">
                 <div class="container">
                     <div class="row">
@@ -308,333 +308,116 @@
                     <!-- Start Service Wrapper  -->
                     <div class="row">
                         <!-- Start Single Service  -->
+                        @if(count($Projects) > 0)
+                        @foreach ($Projects as $key => $free )
+                        @if($free->Type == 'free')
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="axil-service text-left axil-control paralax-image active">
                                 <div class="inner">
-                                    <!-- <div class="icon">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/c++.png" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/c++.png" alt="Shape Images"></div>
-                                            </div>
-                                        </div> -->
-                                    <img src="assets/images/icons/c_plus_plus.png" alt="C++ logo" class="logo_ic">
+                                    <img src="assets/images/icons/{{ $free->ImageName }}" alt="C++ logo" class="logo_ic">
                                     <div class="content">
-                                        <h4 class="title"><a href="single-service.html">C++ Projects</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="{{ route('freeproject.view',['free','c++']) }}">Explore More</a>
+                                        <h4 class="title"><a href="{{ route('freeproject.view',[$free->Type,$free->Language]) }}">{{ $free->Title }}</a></h4>
+                                        <p>{{ $free->Content }}</p>
+                                        <a class="axil-button" data-hover="Learn More" href="{{ route('freeproject.view',[$free->Type,$free->Language]) }}">Explore More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Service  -->
-
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image">
-                                <div class="inner">
-                                    <!-- <div class="icon gradient-color-02">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-02.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div> -->
-                                    <img src="assets/images/icons/python.png" alt="Icon Images" class="logo_ic">
-                                    <div class="content">
-                                        <h4 class="title"><a href="single-service.html">Python Projects</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="{{ route('freeproject.view',['free','python']) }}">Explore More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Service  -->
-
-                        <!-- Start Single Service  -->
-                        <!--  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="axil-service text-left axil-control paralax-image">
-                                    <div class="inner">
-                                        <div class="icon gradient-color-03">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-01.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="single-service.html">Mobile app design</a></h4>
-                                            <p>We design professional looking yet simple websites. Our designs are
-                                                search engine
-                                                and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                        @endif
+                        @endforeach
+                        @else
+                        <div>No Projects THERE</div>
+                        @endif
                         <!-- End Single Service  -->
                     </div>
-                    <!-- End Service Wrapper  -->
                 </div>
             </div>
-            <!-- End Navigation Content  -->
+        </div>
 
-            <!-- Start Navigation Content  -->
-            <div id="section2" class="section axil-service-area bg-color-lightest ax-section-gap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title text-left">
-                                <span class="sub-title extra04-color wow" data-splitting>services</span>
-                                <h2 class="title wow" data-splitting>Paid Projects</h2>
-                            </div>
+        <!-- End Service Wrapper  -->
+        <!-- End Navigation Content  -->
+
+        <!-- Start Navigation Content PAID -->
+        <div id="section2" class="section axil-service-area bg-color-lightest ax-section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-left">
+                            <span class="sub-title extra04-color wow" data-splitting>services</span>
+                            <h2 class="title wow" data-splitting>Paid Projects</h2>
                         </div>
                     </div>
-                    <!-- Start Service Wrapper  -->
-                    <div class="row">
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image active">
-                                <div class="inner">
-                                    <!-- <div class="icon">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-04.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div> -->
-                                    <img src="assets/images/icons/icon-iot.png" alt="Icon Images" class="logo_ic">
-                                    <div class="content">
-                                        <h4 class="title"><a href="paid-project.html">IoT Projects</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view') }}">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Service  -->
-
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image">
-                                <div class="inner">
-                                    <!-- <div class="icon gradient-color-02">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-02.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div> -->
-                                    <img src="assets/images/icons/Android-Logo.png" alt="Icon Images" class="logo_ic">
-                                    <div class="content mt--10">
-                                        <h4 class="title"><a href="single-service.html">Android Projects</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Service  -->
-
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image">
-                                <div class="inner">
-                                    <!-- <div class="icon gradient-color-03">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-01.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div> -->
-                                    <img src="assets/images/icons/php.svg" alt="Icon Images" class="logo_ic">
-                                    <div class="content mt--30">
-                                        <h4 class="title"><a href="single-service.html">PHP Projects</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Service  -->
-
-                    </div>
-                    <!-- End Service Wrapper  -->
                 </div>
-            </div>
-            <!-- End Navigation Content  -->
-
-            <!-- Start Navigation Content  -->
-            <div id="section3" class="section axil-service-area bg-color-white ax-section-gap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title text-left">
-                                <span class="sub-title extra04-color wow" data-splitting>services</span>
-                                <h2 class="title wow" data-splitting>Custome Projects</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Start Service Wrapper  -->
-                    <div class="row">
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image active">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <div class="icon-inner">
-                                            <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                            <div class="image-2"><img src="assets/images/icons/icon-04.svg" alt="Shape Images"></div>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="single-service.html">SEO</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                    </div>
+                <!-- Start Service Wrapper  -->
+                <div class="row">
+                    <!-- Start Single Service  -->
+                    @if(count($Projects) > 0)
+                    @foreach ($Projects as $key => $paid )
+                    @if($paid->Type == 'paid')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="axil-service text-left axil-control paralax-image active">
+                            <div class="inner">
+                                <img src="assets/images/icons/{{ $paid->ImageName }}" alt="Icon Images" class="logo_ic">
+                                <div class="content">
+                                    <h4 class="title"><a href="">{{ $paid->Title }}</a></h4>
+                                    <p>{{ $paid->Content }}</p>
+                                    <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view') }}">Explore More</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Single Service  -->
-
-                        <!-- Start Single Service  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="axil-service text-left axil-control paralax-image">
-                                <div class="inner">
-                                    <div class="icon gradient-color-02">
-                                        <div class="icon-inner">
-                                            <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                            <div class="image-2"><img src="assets/images/icons/icon-02.svg" alt="Shape Images"></div>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="single-service.html">Pay-per click</a></h4>
-                                        <p>We design professional looking yet simple websites. Our designs are
-                                            search engine
-                                            and user friendly. </p>
-                                        <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Service  -->
                     </div>
-                    <!-- End Service Wrapper  -->
+                    @endif
+                    @endforeach
+                    @endif
+                    <!-- End Single Service  -->
                 </div>
+                <!-- End Service Wrapper  -->
             </div>
-            <!-- End Navigation Content  -->
+        </div>
+        <!-- End Navigation Content  -->
 
-            <!-- Start Navigation Content  -->
-            <!-- <div id="section4" class="section axil-service-area bg-color-lightest ax-section-gap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-title text-left">
-                                    <span class="sub-title extra04-color wow" data-splitting>services</span>
-                                    <h2 class="title wow" data-splitting>Business</h2>
+        <!-- Start Navigation Content  -->
+        <div id="section3" class="section axil-service-area bg-color-white ax-section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-left">
+                            <span class="sub-title extra04-color wow" data-splitting>services</span>
+                            <h2 class="title wow" data-splitting>Custom Projects</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Service Wrapper  -->
+                <div class="row">
+                    <!-- Start Single Service  -->
+                    @if(count($Projects))
+                    @foreach ($Projects as $key => $custom )
+                    @if ($custom->Type === 'custom')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="axil-service text-left axil-control paralax-image active">
+                            <div class="inner">
+                                <div class="icon">
+                                    <div class="icon-inner">
+                                        <img src="assets/images/icons/layer.svg" alt="Icon Images">
+                                        <div class="image-2"><img src="assets/images/icons/{{ $custom->ImageName }}" alt="Shape Images"></div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-service.html">{{ $custom->Title }}</a></h4>
+                                    <p>{{ $custom->Content }}</p>
+                                    <a class="axil-button" data-hover="Learn More" href="javascript:void(0)">Learn More</a>
                                 </div>
                             </div>
-                        </div> -->
-            <!-- Start Service Wrapper  -->
-            <!-- <div class="row"> -->
-            <!-- Start Single Service 
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="axil-service text-left axil-control paralax-image active">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-04.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="single-service.html">Digital strategy</a></h4>
-                                            <p>We design professional looking yet simple websites. Our designs are
-                                                search engine
-                                                and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div-->
-            <!-- End Single Service  -->
-
-            <!-- Start Single Service  -->
-            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="axil-service text-left axil-control paralax-image">
-                                    <div class="inner">
-                                        <div class="icon gradient-color-02">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-02.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="single-service.html">Business consulting</a></h4>
-                                            <p>We design professional looking yet simple websites. Our designs are
-                                                search engine
-                                                and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-            <!-- End Single Service  -->
-
-            <!-- Start Single Service  -->
-            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="axil-service text-left axil-control paralax-image">
-                                    <div class="inner">
-                                        <div class="icon gradient-color-03">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-01.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="single-service.html">Content writing</a></h4>
-                                            <p>We design professional looking yet simple websites. Our designs are
-                                                search engine
-                                                and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-            <!-- End Single Service  -->
-
-            <!-- Start Single Service  -->
-            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="axil-service text-left axil-control paralax-image">
-                                    <div class="inner">
-                                        <div class="icon gradient-color-02">
-                                            <div class="icon-inner">
-                                                <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                                <div class="image-2"><img src="assets/images/icons/icon-02.svg" alt="Shape Images"></div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="single-service.html">Reporting</a></h4>
-                                            <p>We design professional looking yet simple websites. Our designs are
-                                                search engine
-                                                and user friendly. </p>
-                                            <a class="axil-button" data-hover="Learn More" href="single-service.html">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-            <!-- End Single Service  -->
-
-            <!-- </div> -->
-            <!-- End Service Wrapper  -->
-            <<!-- /div>
-        </div> -->
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @endif
+                    <!-- End Single Service  -->
+                </div>
+                <!-- End Service Wrapper  -->
+            </div>
+        </div>
         <!-- End Navigation Content  -->
 </div>
 <!-- Axil Scroll Navigation Area  -->

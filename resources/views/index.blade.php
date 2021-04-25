@@ -52,40 +52,28 @@
                             <nav class="mainmenu-nav d-none d-lg-block">
                                 <ul class="mainmenu">
                                     <li><a href="">Home</a></li>
-                                    <li class="no-dropdown"><a href="{{ route('projects.view') }}">Projects</a>
-                                        {{-- <ul class="axil-submenu">
-                                                <li><a href="{{ route('projects.view') }}">Free Projects</a></li>
-                                    <li><a href="">Paid Projects</a></li>
-                                    <li><a href="">Custom Projects</a></li>
-                                </ul> --}}
-                                </li>
-                                <li><a href="">About Us</a></li>
-                                {{-- <li class="has-dropdown"><a href="#">Blog</a>
-                                            <ul class="axil-submenu">
-                                                <li><a href="blog.html">Blog List</a></li>
-                                                <li><a href="blog-list-two.html">Blog List Two</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li> --}}
-                                <li><a href="">Contact</a></li>
-                                <li>    
-                                    <div id="my_switcher" class="my_switcher">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript: void(0);" data-theme="light" class="setColor light">
-                                                    <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
-                                                    <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div> 
-                                </li>
+                                    <li><a href="{{ route('projects.view') }}">Projects</a></li>
+                                    <li><a href="">About Us</a></li>
+                                    <li><a href="">Contact</a></li>
                                 </ul>
                             </nav>
+                            {{-- <li>
+                                <div id="my_switcher" class="my_switcher">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                                                <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                                                <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> --}}
+
                             <!-- End Mainmanu Nav -->
                             <!-- Start Hamburger -->
                             <div class="ax-header-button ml--40 ml_lg--10 d-none d-sm-block">

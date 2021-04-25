@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProjectDetails;
+use App\Models\Projects;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isEmpty;
@@ -16,17 +17,18 @@ class mainController extends Controller
     }
     public function Project()
     {
-        return view('project');
+        $Projects = Projects::all();
+        return view('project', compact('Projects'));
     }
     public function FreeProjectView($type, $name)
     {
-        $getProject = ProjectDetails::where([
+        $getProjectDetails = ProjectDetails::where([
             'projectType' => $type,
             'projectLanguage' => $name
         ])->get();
         //dd($getProject);
         $name = ucfirst($name);
-        return view('free-project', compact(['getProject', 'name']));
+        return view('free-project', compact(['getProjectDetails', 'name']));
     }
     public function PaidProjectView()
     {

@@ -46,50 +46,10 @@
                             <!-- Start Mainmanu Nav -->
                             <nav class="mainmenu-nav d-none d-lg-block">
                                 <ul class="mainmenu">
-                                    <li><a href="">Home</a></li>
-                                    <!-- <li class="has-dropdown"><a href="#">Home</a>
-                                            <ul class="axil-submenu">
-                                                 <li><a href="home-01.html">Digital Agency</a></li>
-                                                <li><a href="home-02.html">Creative Agency</a></li>
-                                                <li><a href="home-03.html">Personal Portfolio</a></li>
-                                                <li><a href="home-04.html">Home Startup</a></li>
-                                                <li><a href="home-05.html">Corporate Agency</a></li>
-                                            </ul>
-                                        </li> -->
-                                    <li class="has-dropdown"><a href="#">Services</a>
-                                        <ul class="axil-submenu">
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="service-two.html">Services Two</a></li>
-                                            <li><a href="single-service.html">Services Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li class="has-dropdown"><a href="#">Blog</a>
-                                        <ul class="axil-submenu">
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="blog-list-two.html">Blog List Two</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-dropdown"><a href="#">Category</a>
-                                        <ul class="axil-submenu">
-                                            <li><a href="button.html">Button</a></li>
-                                            <li><a href="typography.html">Typography</a></li>
-                                            <li><a href="testimonial.html">Testimonial</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            <li><a href="pricing.html">Pricing</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="team-details.html">Team Details</a></li>
-                                            <li><a href="case-study.html">Case Study</a></li>
-                                            <li><a href="single-case-study.html">Case Study Details</a></li>
-                                            <li><a href="comming-soon.html">Comming Soon</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-
+                                    <li><a href="{{ route('index.view') }}">Home</a></li>
+                                    <li><a href="{{ route('projects.view') }}">Projects</a></li>
+                                    <li><a href="">About Us</a></li>
+                                    <li><a href="">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- End Mainmanu Nav -->
@@ -101,14 +61,7 @@
                                 </div>
                                 <!-- End Search Area -->
 
-                                <!-- Start Hamburger -->
-                                <div class="ax-hamburger ml--40 ml_sm--10 d-none d-lg-block">
-                                    <a class="axil-menuToggle ax-hamburger-trigger" id="side-nav-toggler" href="#">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </a>
-                                </div>
+
                                 <!-- End Hamburger -->
 
                                 <!-- Start Menu Bar  -->
