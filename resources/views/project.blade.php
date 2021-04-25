@@ -368,6 +368,8 @@
                     </div>
                     @endif
                     @endforeach
+                    @else
+                    <div>No Projects THERE</div>
                     @endif
                     <!-- End Single Service  -->
                 </div>
@@ -412,6 +414,8 @@
                     </div>
                     @endif
                     @endforeach
+                    @else
+                    <div>No Projects THERE</div>
                     @endif
                     <!-- End Single Service  -->
                 </div>
