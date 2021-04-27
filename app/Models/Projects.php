@@ -18,7 +18,7 @@ class Projects extends Model
     {
         return strtolower($value);
     }
-    public function getLangugaeAttribute($value)
+    public function getLanguageAttribute($value)
     {
         return strtolower($value);
     }
