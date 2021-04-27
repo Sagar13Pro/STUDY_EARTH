@@ -187,9 +187,9 @@
                                             <p class="subtitle-2 show-less" id={{ $key }}>
                                                 {{ $project->projectContent }}
                                                 <div class="show-more-btn">
-                                                    <button type="button" id="showBtn-{{ $key }}" class="btn btn-info showBtn" data-id="{{ $key }}">Show More</button>
+                                                    <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                                 </div>
-                                            </p>
+                                            </p>    
                                         </div>
                                         <a class="axil-button btn-large btn-transparent mt--20" href="#">
                                             <span class="button-text">Download Now</span><span class="button-icon"></span>
@@ -213,7 +213,7 @@
                                             <p class="subtitle-2 show-less" id="{{ $key }}">
                                                 {{ $project->projectContent }}
                                                 <div class="show-more-btn">
-                                                    <button type="button" id="showBtn-{{ $key }}" class="btn btn-info showBtn" data-id="{{ $key }}">Show More</button>
+                                                    <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                                 </div>
                                             </p>
                                         </div>

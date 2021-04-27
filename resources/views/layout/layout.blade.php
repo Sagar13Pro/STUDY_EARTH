@@ -60,14 +60,14 @@
         $(document).ready(function() {
             $('.showBtn').click(function() {
                 let id = $(this).data('id');
-                console.log(id);
+                //console.log(id);
                 if (id != " " || id == 0) {
                     if ($('#' + id).hasClass('show-less')) {
                         $('#' + id).removeClass('show-less');
-                        $('#showBtn-' + id).html('Show Less');
+                        $('#showBtn-' + id).html('Read Less');
                     } else {
                         $('#' + id).addClass('show-less');
-                        $('#showBtn-' + id).html('Show More');
+                        $('#showBtn-' + id).html('Read More');
                     }
                 }
             });
