@@ -34,4 +34,9 @@ class mainController extends Controller
     {
         return view('paid-project');
     }
+
+    public function Cart()
+    {
+        return view('cart');
+    }
 }

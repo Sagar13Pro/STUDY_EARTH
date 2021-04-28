@@ -405,7 +405,7 @@ textarea {
 }
 
 table {
-  border-bottom: 1px solid #ededed;
+  /*border-bottom: 1px solid #ededed;*/
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 14px;
@@ -428,7 +428,7 @@ caption {
 
 th {
   font-weight: bold;
-  text-transform: uppercase;
+  
 }
 
 td {
@@ -14135,7 +14135,7 @@ Contact Form Style
 
 .form-group label {
   position: absolute;
-  left: 0;
+  left: 16px;
   width: 100%;
   top: 9px;
   color: #757589;
@@ -23695,8 +23695,83 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
     margin-left: 0px;
   }
 
+  .bill-details{
+    margin-top: 30px !important;
+  }
 }
 
 .hide-submenu{
   display: none;
+}
+
+
+.multiply_number{
+  width: 50px;
+  font-size: 20px !important;
+  font-family: inherit;
+  color: black;
+  margin-top: 5px; 
+  font-weight: 700 !important;
+  text-align: center;
+}
+
+.cancel_btn{
+  color: #dc3545 !important;
+  border: 1px solid;
+  padding-left: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding-right: 5px;
+  font-weight: 500;
+  font-family: 'Poppins',sans-serif;
+  margin-top: 7px;
+}
+
+.cancel_btn:hover{
+  background-color: #dc3545 !important;
+  color: white !important;
+}
+
+.fill_btn_green{
+  background: #28a745;
+  color : white !important;
+  border: 1px solid;
+  padding-left: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding-right: 5px;
+  font-weight: 500;
+  font-family: 'Poppins',sans-serif;
+  margin-top: 7px;
+}
+
+.fill_btn_denger{
+  background: #dc3545;
+  color: white !important;
+  border: 1px solid;
+  padding-left: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding-right: 5px;
+  font-weight: 500;
+  font-family: 'Poppins',sans-serif;
+  margin-top: 7px; 
+}
+
+.width-100{
+  width: 100% !important;
+}
+
+.table td, .table th {
+  padding: 1.5rem 1rem 0rem 1.5rem !important;
+}
+
+.product_name{
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.font-20{
+  font-size: 20px !important;
 }
