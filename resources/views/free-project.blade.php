@@ -201,13 +201,17 @@
         totalProjects = '{{ count($freeProjects) }}';
         for (let $i = 0; $i < totalProjects; $i++) {
             let contentPara = document.getElementById($i);
-            console.log(contentPara.innerHTML.trim().length);
-            if (contentPara.innerHTML.length >= 445) {
+            console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
+
+            if (contentPara.innerHTML.length > 462) {
                 let addReadMoreBtn = document.getElementById('btn-container-' + $i);
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
+            } else if (contentPara.innerHTML.trim().length == 0) {
+                contentPara.style.height = '0px';
             } else {
                 contentPara.style.height = '100px';
             }
+
         }
         //For Read MORE/LESS button
         $('.showBtn').click(function() {
