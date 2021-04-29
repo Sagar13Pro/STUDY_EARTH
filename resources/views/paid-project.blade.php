@@ -211,14 +211,15 @@
         //Adding Dynamic Read More button
         totalProjects = '{{ count($paidProjects) }}';
         for (let $i = 0; $i < totalProjects; $i++) {
-            console.log($i);
             let contentPara = document.getElementById($i);
+            console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
+
             if (contentPara.innerHTML.length > 462) {
                 let addReadMoreBtn = document.getElementById('btn-container-' + $i);
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
             } else if (contentPara.innerHTML.trim().length == 0) {
                 contentPara.style.height = '0px';
-            } else {
+            } else if (contentPara.innerHTML.trim().length < 200) {
                 contentPara.style.height = '100px';
             }
         }
