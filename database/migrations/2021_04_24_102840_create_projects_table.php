@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('Type');
             $table->string('Language');
-            $table->string('ImageName');
+            $table->string('ImageName')->nullable();
             $table->string('Title');
             $table->string('Content');
             $table->timestamps();

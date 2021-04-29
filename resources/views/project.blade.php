@@ -2,12 +2,14 @@
 
 @section('title','StudyEarth - Projects')
 
-{{-- <body> Paramaters --}}
+{{-- <body> PARAMETERS START --}}
 @section('class','class=position-relative')
 @section('data-offset','data-offset=100')
 @section('data-spy','data-spy=scroll')
 @section('data-target','data-target=.navbar-example2')
+{{-- <body> PARAMETERS END --}}
 
+{{-- NAV LINKS START --}}
 @section('links')
 <li><a href="{{ route('index.view') }}">Home</a></li>
 <li class="has-dropdown">
@@ -21,7 +23,9 @@
 <li><a href="">About Us</a></li>
 <li><a href="">Contact</a></li>
 @endsection
+{{-- NAV LINKS END --}}
 
+{{-- MAIN CONTENT SECTION START--}}
 @section('content')
 <div id="my_switcher" class="my_switcher">
     <ul>
@@ -128,7 +132,7 @@
                     @endif
                     @endforeach
                     @else
-                    <div>No Projects THERE</div>
+                    <div>No Projects Available.</div>
                     @endif
                     <!-- End Single Service  -->
                 </div>
@@ -163,7 +167,7 @@
                             <div class="content">
                                 <h4 class="title"><a href="">{{ $paid->Title }}</a></h4>
                                 <p>{{ $paid->Content }}</p>
-                                <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view') }}">Explore More</a>
+                                <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view',[$paid->Type, $paid->Language]) }}">Explore More</a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +175,7 @@
                 @endif
                 @endforeach
                 @else
-                <div>No Projects THERE</div>
+                <div>No Projects Available.</div>
                 @endif
                 <!-- End Single Service  -->
             </div>
@@ -193,7 +197,7 @@
             </div>
             <!-- Start Service Wrapper  -->
             <div class="row">
-                <!-- Start Single Service  -->
+                <!-- Start Single Service CUSTOM -->
                 @if(count($Projects))
                 @foreach ($Projects as $key => $custom )
                 @if ($custom->Type === 'custom')
@@ -217,7 +221,7 @@
                 @endif
                 @endforeach
                 @else
-                <div>No Projects THERE</div>
+                <div>No Projects Available.</div>
                 @endif
                 <!-- End Single Service  -->
             </div>
@@ -268,3 +272,4 @@
 </main>
 <!-- End Page Wrapper -->
 @endsection
+{{-- MAIN CONTENT SECTION END --}}

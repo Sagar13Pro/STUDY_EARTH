@@ -17,8 +17,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
-                        <img src="{{ asset('assets/images/logo/iot.svg') }}" style="max-width: 200px;">
-                        <h2 class="title">IoT - Projects</h2>
+                        @if (!is_null($projectsImage))
+                        <img src="{{ asset('assets/images/icons/'. $projectsImage) }}" style="max-width: 200px;">
+                        @endif
+                        <h2 class="title">{{ $langName }}- Projects</h2>
                         <!-- <p>We have list of free projects in <code style="font-size: 24px;">c++</code>. </p> -->
                     </div>
                 </div>
@@ -53,7 +55,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Start Working Process  -->
+
+                    @if (count($paidProjects) > 0)
+                    @foreach ($paidProjects as $key => $item)
+                    @if ($key % 2 == 0)
+                    <!-- Start Working Process ODD ONE -->
                     <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
                             <div class="image paralax-image">
@@ -67,10 +73,17 @@
                                     <!-- <span class="process-step-number">1</span> -->
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
-                                    <h3 class="title">IOT based Manhole Detection and Monitoring System</h3>
-                                    <p class="subtitle-2">Manholes are not monitored properly in developing countries. These accidents can lead to serious injuries and also death. Hence, here we propose a system to overcome this problem.</p>
+                                    <h3 class="title">{{ $item->projectTitle }}</h3>
+                                    <div id="description">
+                                        <p class="subtitle-2 show-less" id={{ $key }}>
+                                            {{ $item->projectContent }}
+                                            <div class="show-more-btn hide" id="btn-container-{{ $key }}">
+                                                <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
+                                            </div>
+                                        </p>
+                                    </div>
                                     <div class="pricing-details">
-                                        <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />32600/-
+                                        <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
                                     <a class="axil-button btn-large btn-transparent mt--20" href="#">
                                         <span class="button-text">Purchase Now</span><span class="button-icon"></span>
@@ -82,88 +95,46 @@
                         </div>
                     </div>
                     <!-- End Working Process  -->
-
-                    <!-- Start Working Process  -->
-                    <!-- <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
-                                <div class="content order-2 order-lg-1">
-                                    <div class="inner">
-                                        <div class="section-title">
-                                            <span class="process-step-number">2</span>
-                                            <span class="sub-title extra05-color">our four step
-                                                process</span>
-                                            <h2 class="title">Prototype</h2>
-                                            <p class="subtitle-2">Donec metus lorem, vulputate at sapien
-                                                sit amet, auctor
-                                                iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.
-                                                Aliquam
-                                                tristique libero at dui sodales, et placerat orci lobortis. Maecenas
-                                                ipsum
-                                                neque, elementum id dignissim et, imperdiet vitae mauris.</p>
-                                        </div>
+                    @else
+                    <!-- Start Working Process EVEN ODD -->
+                    <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
+                        <div class="content order-2 order-lg-1">
+                            <div class="inner">
+                                <div class="section-title">
+                                    <span class="sub-title extra04-color">IoT</span>
+                                    <span class="sub-title extra04-color">Python</span>
+                                    <h3 class="title">{{ $item->projectTitle }}</h3>
+                                    <div id="description">
+                                        <p class="subtitle-2 show-less" id={{ $key }}>
+                                            {{ $item->projectContent }}
+                                            <div class="show-more-btn hide" id="btn-container-{{ $key }}">
+                                                <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
+                                            </div>
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="thumbnail order-1 order-lg-2">
-                                    <div class="image paralax-image">
-                                        <img src="assets/images/process/process-02.jpg" alt="Process Images">
+                                    <div class="pricing-details">
+                                        <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
+                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
+                                        <span class="button-text">Purchase Now</span><span class="button-icon"></span>
+                                    </a>
+                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
+                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
-                            </div> -->
+                            </div>
+                        </div>
+                        <div class="thumbnail order-1 order-lg-2">
+                            <div class="image paralax-image">
+                                <img src="{{ asset('assets/images/process/process-02.jpg') }}" alt="Process Images">
+                            </div>
+                        </div>
+                    </div>
                     <!-- End Working Process  -->
-
-                    <!-- Start Working Process  -->
-                    <!-- <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
-                                <div class="thumbnail">
-                                    <div class="image paralax-image">
-                                        <img src="assets/images/process/process-03.jpg" alt="Process Images">
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <div class="section-title">
-                                            <span class="process-step-number">3</span>
-                                            <span class="sub-title extra06-color">our four step
-                                                process</span>
-                                            <h2 class="title">Test</h2>
-                                            <p class="subtitle-2">Donec metus lorem, vulputate at sapien
-                                                sit amet, auctor
-                                                iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.
-                                                Aliquam
-                                                tristique libero at dui sodales, et placerat orci lobortis. Maecenas
-                                                ipsum
-                                                neque, elementum id dignissim et, imperdiet vitae mauris.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                    <!-- End Working Process  -->
-
-                    <!-- Start Working Process  -->
-                    <!-- <div class="axil-working-process text-left mb--100 mb_md--50 mb_sm--40">
-                                <div class="content order-2 order-lg-1">
-                                    <div class="inner">
-                                        <div class="section-title">
-                                            <span class="process-step-number">4</span>
-                                            <span class="sub-title extra07-color">our four step
-                                                process</span>
-                                            <h2 class="title">Build</h2>
-                                            <p class="subtitle-2">Donec metus lorem, vulputate at sapien
-                                                sit amet, auctor
-                                                iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.
-                                                Aliquam
-                                                tristique libero at dui sodales, et placerat orci lobortis. Maecenas
-                                                ipsum
-                                                neque, elementum id dignissim et, imperdiet vitae mauris.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="thumbnail order-1 order-lg-2">
-                                    <div class="image paralax-image">
-                                        <img src="assets/images/process/process-04.jpg" alt="Process Images">
-                                    </div>
-                                </div>
-                            </div> -->
-                    <!-- End Working Process  -->
-
+                    @endif
+                    @endforeach
+                    @else
+                    <div>No Project Available.</div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -232,3 +203,36 @@
 </div>
 <!-- /Model Area End -->
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+    //Show More And Less Content
+    $(document).ready(function() {
+        //Adding Dynamic Read More button
+        totalProjects = '{{ count($paidProjects) }}';
+        for (let $i = 0; $i < totalProjects; $i++) {
+            console.log($i);
+            let contentPara = document.getElementById($i);
+            if (contentPara.innerHTML.length >= 445) {
+                let addReadMoreBtn = document.getElementById('btn-container-' + $i);
+                addReadMoreBtn.setAttribute('class', 'show-more-btn');
+            } else {
+                contentPara.style.height = '100px';
+            }
+        }
+        //For Read MORE/LESS button
+        $('.showBtn').click(function() {
+            let id = $(this).data('id');
+            if (id != " " || id == 0) {
+                if ($('#' + id).hasClass('show-less')) {
+                    $('#' + id).removeClass('show-less');
+                    $('#showBtn-' + id).html('Read Less');
+                } else {
+                    $('#' + id).addClass('show-less');
+                    $('#showBtn-' + id).html('Read More');
+                }
+            }
+        });
+    });
+
+</script>

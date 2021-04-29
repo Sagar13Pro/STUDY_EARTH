@@ -18,8 +18,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
-                        <h2 class="title">{{ $name }} Free Projects</h2>
-                        <p>We have list of free projects in <code style="font-size: 24px;">{{ $name }}</code>. </p>
+                        <h2 class="title">{{ $langName }} Free Projects</h2>
+                        <p>We have list of free projects in <code style="font-size: 24px;">{{ $langName }}</code>. </p>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
@@ -55,15 +55,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    @if(count($getProjectDetails) > 0)
-                    @foreach ($getProjectDetails as $key => $project)
-                    <?php if ($key % 2 == 0) { ?>
+                    @if(count($freeProjects) > 0)
+                    @foreach ($freeProjects as $key => $project)
+                    @if($key % 2 == 0)
                     <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
                             <div class="image paralax-image">
                                 <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
                             </div>
-                        </div>    
+                        </div>
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
@@ -73,10 +73,10 @@
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
                                             {{ $project->projectContent }}
-                                            <div class="show-more-btn">
+                                            <div class="show-more-btn hide" id="btn-container-{{ $key }}">
                                                 <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                             </div>
-                                        </p>    
+                                        </p>
                                     </div>
                                     <a class="axil-button btn-large btn-transparent mt--20" href="#">
                                         <span class="button-text">Download Now</span><span class="button-icon"></span>
@@ -84,12 +84,11 @@
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
                                         <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
-                    <?php } 
-                    else{ ?>
+                    @else
                     <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
@@ -98,14 +97,13 @@
                                     <span class="sub-title extra04-color">Face Detection</span>
                                     <h3 class="title">{{ $project->projectTitle }}</h3>
                                     <div id="description">
-                                        <p class="subtitle-2 show-less" id="{{ $key }}">
+                                        <p class="subtitle-2 show-less" id={{ $key }}>
                                             {{ $project->projectContent }}
-                                            <div class="show-more-btn">
+                                            <div class="show-more-btn hide" id="btn-container-{{ $key }}">
                                                 <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                             </div>
                                         </p>
                                     </div>
-
                                     <a class="axil-button btn-large btn-transparent mt--20" href="#">
                                         <span class="button-text">Download Now</span><span class="button-icon"></span>
                                     </a>
@@ -120,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    @endif
                     <!-- End Working Process  -->
                     @endforeach
                     @else
@@ -194,3 +192,36 @@
 </div>
 <!-- /Model Area End -->
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+    //Show More And Less Content
+    $(document).ready(function() {
+        //Adding Dynamic Read More button 
+        totalProjects = '{{ count($freeProjects) }}';
+        for (let $i = 0; $i < totalProjects; $i++) {
+            let contentPara = document.getElementById($i);
+            console.log(contentPara.innerHTML.trim().length);
+            if (contentPara.innerHTML.length >= 445) {
+                let addReadMoreBtn = document.getElementById('btn-container-' + $i);
+                addReadMoreBtn.setAttribute('class', 'show-more-btn');
+            } else {
+                contentPara.style.height = '100px';
+            }
+        }
+        //For Read MORE/LESS button
+        $('.showBtn').click(function() {
+            let id = $(this).data('id');
+            if (id != " " || id == 0) {
+                if ($('#' + id).hasClass('show-less')) {
+                    $('#' + id).removeClass('show-less');
+                    $('#showBtn-' + id).html('Read Less');
+                } else {
+                    $('#' + id).addClass('show-less');
+                    $('#showBtn-' + id).html('Read More');
+                }
+            }
+        });
+    });
+
+</script>

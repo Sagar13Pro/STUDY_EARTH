@@ -19,6 +19,7 @@ class CreateProjectDetailsTable extends Migration
             $table->string('projectLanguage');
             $table->string('projectTitle');
             $table->longText('projectContent');
+            $table->integer('projectPrice')->nullable();
             $table->timestamps();
         });
     }

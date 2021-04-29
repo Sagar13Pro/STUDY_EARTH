@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //==================================VIEW=========================================
-Route::get('/', [mainController::class, 'Index'])->name('index.view');
-Route::get('/projects', [mainController::class, 'Project'])->name('projects.view');
-Route::get('/projects/free-project/type={type}/language={name}/', [mainController::class, 'FreeProjectView'])->name('freeproject.view');
-Route::get('/projects/paid-project/', [mainController::class, 'PaidProjectView'])->name('paidproject.view');
-Route::get('/cart', [mainController::class, 'Cart'])->name('cart.view');
-//===============================================================================
+Route::get('/', [mainController::class, 'IndexView'])->name('index.view');
+Route::get('/projects', [mainController::class, 'ProjectView'])->name('projects.view');
+Route::get('/projects/free-project/type={type}/language={lang}/', [mainController::class, 'FreeProjectView'])->name('freeproject.view');
+Route::get('/projects/paid-project/type={type}/language={lang}/', [mainController::class, 'PaidProjectView'])->name('paidproject.view');
+Route::get('/cart', [mainController::class, 'CartView'])->name('cart.view');
+//===============================================================================s̄
