@@ -208,8 +208,6 @@
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
             } else if (contentPara.innerHTML.trim().length == 0) {
                 contentPara.style.height = '0px';
-            } else {
-                contentPara.style.height = '100px';
             }
 
         }
