@@ -70,7 +70,7 @@
                                         <li><a href="{{ route('index.view') }}">Home</a></li>
                                         @show
                                         <li class="has-dropdown">
-                                            <a href="javascript:void(0)">Projects</a>
+                                            <a href="{{ route('projects.view') }}">Projects</a>
                                             <ul class="axil-submenu">
                                                 <li><a href="{{ route('projects.view') }}#section1">Free Projects</a></li>
                                                 <li><a href="{{ route('projects.view') }}#section2">Paid Projects</a></li>
@@ -92,7 +92,6 @@
                                                     <li>
                                                         <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
                                                             <i class="far fa-moon"></i>
-
                                                             <span title="Dark Mode"> Dark</span>
                                                         </a>
                                                     </li>
@@ -327,7 +326,6 @@
     <script src="{{ asset('assets/js/youtube.js') }}"></script>
     <script src="{{ asset('assets/js/countdown.js') }}"></script>
     <script src="{{ asset('assets/js/scrollup.js') }}"></script>
-    <script src="{{ asset('assets/js/stickysidebar.js') }}"></script>
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
     <script src="{{ asset('assets/js/contactform.js') }}"></script>
@@ -338,15 +336,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
-    <script>
-        var sidebar = new StickySidebar('.axil-scroll-nav', {
-            topSpacing: 0
-            , bottomSpacing: 0
-            , containerSelector: '.axil-scroll-navigation'
-            , innerWrapperSelector: '.sidebar__inner'
-        });
 
-    </script>
 
 
 </body>

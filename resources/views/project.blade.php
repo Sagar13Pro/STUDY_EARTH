@@ -241,5 +241,16 @@
 
 </main>
 <!-- End Page Wrapper -->
+<script src="{{ asset('assets/js/stickysidebar.js') }}"></script>
+<script>
+    var sidebar = new StickySidebar('.axil-scroll-nav', {
+        topSpacing: 0
+        , bottomSpacing: 0
+        , containerSelector: '.axil-scroll-navigation'
+        , innerWrapperSelector: '.sidebar__inner'
+    });
+
+</script>
+
 @endsection
 {{-- MAIN CONTENT SECTION END --}}

@@ -78,7 +78,7 @@
                                     <div class="pricing-details">
                                         <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="{{ route('cart.view',[$item->id,$item->projectLanguage]) }}">
+                                    <a class="axil-button btn-large btn-transparent mt--20" href="{{ route('cart.view',$item->id) }}">
                                         <span class="button-text">Purchase Now</span><span class="button-icon"></span>
                                     </a>
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
