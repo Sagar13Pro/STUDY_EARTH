@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\ProjectDetails;
 use App\Models\Projects;
 use Exception;
+use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class mainController extends Controller
 {
@@ -41,8 +44,10 @@ class mainController extends Controller
         return view('paid-project', compact('paidProjects', 'projectsImage', 'langName'));
     }
 
-    public function CartView()
+    public function CartView($id = null)
     {
-        return view('cart');
+        $projectFetched = ProjectDetails::where('id', $id)->get();
+
+        return view('cart', compact('projectFetched'));
     }
 }

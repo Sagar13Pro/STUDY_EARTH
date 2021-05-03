@@ -2,13 +2,6 @@
 
 @section('title','StudyEarth - Paid Projects')
 
-@section('links')
-<li><a href="{{ route('index.view') }}">Home</a></li>
-<li class="has-dropdown"><a href="{{ route('projects.view') }}">Projects</a></li>
-<li><a href="">About Us</a></li>
-<li><a href="">Contact</a></li>
-@endsection
-
 @section('content')
 
 <div class="main-wrapper">
@@ -59,7 +52,6 @@
                     <div class="card bill-details">
                         <div class="card-body">
                             <h4 class="mb-3">Billing Amount</h4>
-
                             <ul class="list-group list-group-flush">
                                 <div class="table-responsive">
                                     <table class="table table-borderless width-100">
@@ -80,39 +72,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($projectFetched as $key => $item )
                                             <tr>
-                                                <td class="product_name">C++ Program for Face Detection using OpenCV 1</td>
+                                                <td class="product_name">{{ $item->projectTitle }}</td>
                                                 <td>
-                                                    <input type="text" name="" class="multiply_number" min="1" value="1" id="multiply_number_1" />
-                                                    <a class="fill_btn_denger" id="fill_btn_denger_1"><i class="fas fa-minus"></i></a>
-                                                    <a class="fill_btn_green" id="fill_btn_green_1"><i class="fas fa-plus"></i></a> &nbsp;
+                                                    <input type="text" name="" class="multiply_number" min="1" value="1" id="multiply_number_{{ $item->id }}" readonly />
+                                                    {{-- <a class="fill_btn_denger" id="fill_btn_denger_1"><i class="fas fa-minus"></i></a>
+                                                    <a class="fill_btn_green" id="fill_btn_green_1"><i class="fas fa-plus"></i></a> &nbsp; --}}
                                                 </td>
                                                 <td>
                                                     <span class="product_name font-20 mt--10" id="price_1" data-value="32640">
-                                                        <strong>32,640/-</strong>
+                                                        <strong>{{ $item->projectPrice }}/-</strong>
+                                                        <p id="hidden_amount_1" hidden="">32640</p>
                                                     </span>
                                                 </td>
                                                 <td>
                                                     <a class="cancel_btn" id="cancel_btn_1">Cancel</a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="product_name">C++ Program for Face Detection using OpenCV 2</td>
-                                                <td>
-                                                    <input type="text" name="" class="multiply_number" min="1" value="1" id="multiply_number_2" />
-                                                    <a class="fill_btn_denger" id="fill_btn_denger_2"><i class="fas fa-minus"></i></a>&nbsp;
-                                                    <a class="fill_btn_green" id="fill_btn_green_2"><i class="fas fa-plus"></i></a>
-                                                </td>
-                                                <td>
-                                                    <span class="product_name font-20 mt--10" id="price_2" data-value="32640">
-                                                        <strong>32,640/-</strong>
-                                                    </span>
-                                                    <p id="hidden_amount_1" hidden="">32640</p>
-                                                </td>
-                                                <td>
-                                                    <a class="cancel_btn" id="cancel_btn_2">Cancel</a>
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -122,7 +100,6 @@
                                         <h5 class="mb-0 font-18 ml--25">The total amount of</h5>
                                         <sub class="ml--25">(including TAX)</sub>
                                     </div>
-
                                     <h4 id="total_amount">32,640/-</h4>
                                     <p id="hidden_amount_2" hidden="">32640</p>
                                 </li>

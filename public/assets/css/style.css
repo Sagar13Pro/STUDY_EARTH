@@ -11404,19 +11404,19 @@ ul.mainmenu {
   }
 }
 
-ul.mainmenu > li > a {
+ul.mainmenu > li > a, ul.mainmenu > li> div {
   display: block;
   padding: 24px 20px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-  ul.mainmenu > li > a {
+  ul.mainmenu > li > a , ul.mainmenu > li> div{
     padding: 24px 16px;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  ul.mainmenu > li > a {
+  ul.mainmenu > li > a, ul.mainmenu > li> div {
     padding: 24px 15px;
   }
 }
@@ -17359,13 +17359,10 @@ Accourdion Style Two
 }
 
 .my_switcher {
-  position: fixed;
-  left: 30px;
-  top: 50%;
-  -webkit-transform: translateY(-50%) rotate(90deg);
-      -ms-transform: translateY(-50%) rotate(90deg);
-          transform: translateY(-50%) rotate(90deg);
-  z-index: 99;
+      -webkit-transform:  rotate(90deg); 
+    -ms-transform: translateY(-50%) rotate(90deg);
+    transform: rotate(180deg);
+    z-index: 99;
 }
 
 .my_switcher ul {
@@ -17389,35 +17386,37 @@ Accourdion Style Two
 
 .my_switcher ul li a {
   position: relative;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 700;
-  text-decoration: none;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -webkit-flex-direction: row-reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    text-decoration: none;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* -webkit-box-orient: horizontal; */
+    /* -webkit-box-direction: reverse; */
+    /* -webkit-flex-direction: row-reverse; */
+    -ms-flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
-.my_switcher ul li a img {
-  padding-left: 10px;
+.my_switcher ul li a i {
+    transform: rotate(180deg);
+    margin: 0 4px;
+    line-height: 1px;
 }
 
 .my_switcher ul li a span {
@@ -17439,7 +17438,9 @@ Accourdion Style Two
 .my_switcher ul li a.dark {
   color: #18191A;
 }
-
+.my_switcher > ul > li:hover > a {
+  color: #702FFF;
+}
 /**************************************
 	Template Styles
 ***************************************/
@@ -23774,4 +23775,19 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
 
 .font-20{
   font-size: 20px !important;
+}
+
+.fas {
+  font-size: 1.25rem;
+  margin: 2px auto;
+}
+
+.fas > span {
+  position: relative;
+    top: -0.78rem;
+    font-size: 16px;
+    background-color: #17a2b8;
+    border-radius: 25%;
+    padding: 3px 6px;
+    color: #000;
 }

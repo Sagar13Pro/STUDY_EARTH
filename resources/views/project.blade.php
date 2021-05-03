@@ -9,39 +9,9 @@
 @section('data-target','data-target=.navbar-example2')
 {{-- <body> PARAMETERS END --}}
 
-{{-- NAV LINKS START --}}
-@section('links')
-<li><a href="{{ route('index.view') }}">Home</a></li>
-<li class="has-dropdown">
-    <a href="javascript:void(0)">Projects</a>
-    <ul class="axil-submenu">
-        <li><a href="#section1">Free Projects</a></li>
-        <li><a href="#section2">Paid Projects</a></li>
-        <li><a href="#section3">Custom Projects</a></li>
-    </ul>
-</li>
-<li><a href="">About Us</a></li>
-<li><a href="">Contact</a></li>
-@endsection
-{{-- NAV LINKS END --}}
 
 {{-- MAIN CONTENT SECTION START--}}
 @section('content')
-<div id="my_switcher" class="my_switcher">
-    <ul>
-        <li>
-            <a href="javascript: void(0);" data-theme="light" class="setColor light">
-                <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
-                <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
-            </a>
-        </li>
-    </ul>
-</div>
-
 <!-- Start Page Wrapper -->
 <main class="page-wrappper">
 

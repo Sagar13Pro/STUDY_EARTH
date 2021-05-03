@@ -66,8 +66,42 @@
                                 <!-- Start Mainmanu Nav -->
                                 <nav class="mainmenu-nav d-none d-lg-block">
                                     <ul class="mainmenu">
-                                        @section('links')
+                                        @section('link-home')
+                                        <li><a href="{{ route('index.view') }}">Home</a></li>
                                         @show
+                                        <li class="has-dropdown">
+                                            <a href="javascript:void(0)">Projects</a>
+                                            <ul class="axil-submenu">
+                                                <li><a href="{{ route('projects.view') }}#section1">Free Projects</a></li>
+                                                <li><a href="{{ route('projects.view') }}#section2">Paid Projects</a></li>
+                                                <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="">About Us</a></li>
+                                        <li><a href="">Contact</a></li>
+                                        {{-- DARK/LIGHT MODE --}}
+                                        <li>
+                                            <div id="my_switcher" class="my_switcher">
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                                                            <i class="far fa-sun"></i>
+                                                            <span title="Light Mode"> Light</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                                                            <i class="far fa-moon"></i>
+
+                                                            <span title="Dark Mode"> Dark</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href=""><i class="fas fa-cart-plus"><span>2</span></i></a>
+                                        </li>
                                     </ul>
                                 </nav>
                                 <!-- End Mainmanu Nav -->

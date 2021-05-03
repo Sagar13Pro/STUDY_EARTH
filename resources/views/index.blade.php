@@ -2,11 +2,8 @@
 
 @section('title','StudyEarth')
 
-@section('links')
+@section('link-home')
 <li><a href="javascript:void(0)">Home</a></li>
-<li class="has-dropdown"><a href="{{ route('projects.view') }}">Projects</a></li>
-<li><a href="">About Us</a></li>
-<li><a href="">Contact</a></li>
 @endsection
 
 @section('search-LetTalks')

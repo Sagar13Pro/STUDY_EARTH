@@ -2,13 +2,6 @@
 
 @section('title','StudyEarth - Paid Projects')
 
-@section('links')
-<li><a href="{{ route('index.view') }}">Home</a></li>
-<li class="has-dropdown"><a href="{{ route('projects.view') }}">Projects</a></li>
-<li><a href="">About Us</a></li>
-<li><a href="">Contact</a></li>
-@endsection
-
 @section('content')
 <div class="main-wrapper">
     <!-- Start Breadcrumb Area -->
@@ -70,7 +63,7 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <!-- <span class="process-step-number">1</span> -->
+                                    <span class="process-step-number">1</span>
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
@@ -85,7 +78,7 @@
                                     <div class="pricing-details">
                                         <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
+                                    <a class="axil-button btn-large btn-transparent mt--20" href="{{ route('cart.view',[$item->id,$item->projectLanguage]) }}">
                                         <span class="button-text">Purchase Now</span><span class="button-icon"></span>
                                     </a>
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">

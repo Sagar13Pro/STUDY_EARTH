@@ -2,14 +2,6 @@
 
 @section('title','StudyEarth - Free Projects')
 
-@section('links')
-<li><a href="{{ route('index.view') }}">Home</a></li>
-<li class="has-dropdown"><a href="{{ route('projects.view') }}">Projects</a></li>
-<li><a href="">About Us</a></li>
-<li><a href="">Contact</a></li>
-@endsection
-
-
 @section('content')
 <div class="main-wrapper">
     <!-- Start Breadcrumb Area -->
