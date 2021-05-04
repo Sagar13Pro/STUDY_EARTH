@@ -108,7 +108,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- End Service Wrapper  -->
     <!-- End Navigation Content  -->
@@ -198,6 +197,7 @@
             <!-- End Service Wrapper  -->
         </div>
     </div>
+</div>
     <!-- End Navigation Content  -->
 
     <!-- Axil Scroll Navigation Area  -->

@@ -158,8 +158,72 @@
     </div>
     <!-- End Case Study Area -->
 
-
-
+    <!-- Course Section Start -->
+    <div class="axil-testimonial-area ax-section-gap bg-color-lightest">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span class="sub-title extra05-color wow" data-splitting>Our Courses</span>
+                        <h2 class="title wow" data-splitting>From getting started</h2>
+                        <!-- <p class="subtitle-2 wow" data-splitting>In vel varius turpis, non dictum sem. Aenean in
+                            efficitur ipsum, in
+                            egestas ipsum. Mauris in mi ac tellus.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-card-one bg-white center">
+                        <div class="icon">
+                            <!-- <i class="bx bx-conversation"></i>
+                            <i class='bx bxs-badge-check check-icon'></i> -->
+                            <img src="assets/images/portfolio/boxes-img3.png" alt="box_img_3">
+                        </div>
+                        <h3>
+                            <a href="single-services.html">Engineering Subjects </a>
+                        </h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-card-one bg-white center">
+                        <div class="icon">
+                            <img src="assets/images/portfolio/boxes-img1.png" alt="box_img_1">
+                        </div>
+                        <h3>
+                            <a href="single-services.html">Web Development</a>
+                        </h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-card-one bg-white center">
+                        <div class="icon">
+                            <img src="assets/images/portfolio/boxes-img2.png" alt="box_img_2">
+                        </div>
+                        <h3>
+                            <a href="single-services.html">Mobile App Development</a>
+                        </h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="view-all-portfolio-button mt--60 text-center">
+                    <a class="axil-button btn-large btn-transparent btn-xl" href="services.html">
+                        <span class="button-text">Discover More Courses</span>
+                        <span class="button-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Course section end -->
     <!-- Start Brand Area -->
     <div class="axil-brand-area ax-section-gap bg-color-white">
         <div class="container">

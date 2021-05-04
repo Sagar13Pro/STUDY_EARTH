@@ -99,7 +99,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href=""><i class="fas fa-cart-plus"><span>2</span></i></a>
+                                            <a href=""><i class="far fa-shopping-cart" style="font-size: 22px;"></i><span class="aw-cart-count">0</span></a>
                                         </li>
                                     </ul>
                                 </nav>

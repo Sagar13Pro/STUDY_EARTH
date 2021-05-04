@@ -23791,3 +23791,133 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
     padding: 3px 6px;
     color: #000;
 }
+
+.aw-cart-count{
+  position: absolute;
+  top: 4px;
+  left: 26px;
+  z-index: 2;
+  min-width: 18px;
+  height: 18px;
+  background: #ff6969;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  padding: 0 5px;
+  line-height: 19px;
+  font-size: 14px;
+}
+
+/*Course Section */
+.service-card-one {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  margin-top: 50px;
+}
+
+.service-card-one .icon {
+  position: relative
+}
+
+.service-card-one .icon img {
+  /*background-color: #ececff;*/
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  line-height: 65px;
+  /*border-radius: 50%;*/
+  font-size: 30px;
+  color: #00f;
+  display: inline-block;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.service-card-one .icon .check-icon {
+  position: absolute;
+  background: 0 0;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  margin: 0 0 20px -20px;
+  font-size: 18px
+}
+
+.service-card-one h3 {
+  font-size: 23px;
+  /*font-weight: 600;*/
+}
+
+.service-card-one p {
+  margin-bottom: -6px
+}
+
+.service-card-one.bg-white {
+  padding: 30px
+}
+
+.service-card-one.center {
+  text-align: center
+}
+
+.service-card-one:hover {
+  -webkit-transform: translateY(-15px);
+  transform: translateY(-15px);
+  -webkit-box-shadow: 0 5px 50px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, .08)
+}
+
+@media only screen and (max-width: 767px) {
+.service-card-one.bg-white {
+    padding: 25px 20px
+  }
+
+  .service-card-one .icon i {
+    margin-bottom: 20px
+  }
+
+  .service-card-one h3 {
+    font-size: 18px
+  }
+}
+
+a.explore_more{
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  position: relative;
+  color: #000248;
+  display: inline-block;
+  height: 36px;
+  line-height: 46px;
+  text-decoration: none;
+  padding: 0 0px;
+  z-index: 2;
+  font-size: 16px;
+  border: 0 none;
+  background: #ffffff;
+  font-weight: 600;
+}
+a.explore_more:after {    
+  background: none repeat scroll 0 0 #702FFF !important;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  color: black;
+  line-height: 0;
+  /*color:#702FFF;*/
+}
+a.explore_more:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
