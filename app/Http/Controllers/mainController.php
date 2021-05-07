@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProjectDetails;
+use App\Models\CourseDetails;
 use App\Models\Projects;
 use Exception;
 use GuzzleHttp\Psr7\Uri;
@@ -49,5 +50,15 @@ class mainController extends Controller
         $projectFetched = ProjectDetails::where('id', $id)->get();
 
         return view('cart', compact('projectFetched'));
+    }
+
+    public function FreeCourseView($type, $lang)
+    {
+        $freeCourses = CourseDetails::where([
+            'course_type' => $type,
+            'course_language' => $lang
+        ])->get();
+        $langName = ucfirst($lang);
+        return view('free-course', compact(['freeCourses', 'langName']));
     }
 }

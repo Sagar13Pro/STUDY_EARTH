@@ -22,4 +22,6 @@ Route::get('/projects/paid-project/type={type}/language={lang}/', [mainControlle
 Route::get('/paid-project/cart/{id?}', [mainController::class, 'CartView'])->name('cart.view');
 
 Route::post('/paid-projects/cart/checkout', [mainController::class, 'Checkout'])->name('cart.checkout');
+
+Route::get('/projects/free-course/type={type}/language={lang}/', [mainController::class, 'FreeCourseView'])->name('freecourse.view');
 //===============================================================================
