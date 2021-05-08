@@ -97,7 +97,6 @@ class mainController extends Controller
     //Storing details of user
     public function Store($request)
     {
-        // dd($request->all());
         Validator::make($request->all(), [
             'mobileNoInput' => 'integer|digits:10',
             'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/'
