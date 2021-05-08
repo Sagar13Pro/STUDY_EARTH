@@ -19,9 +19,11 @@ Route::get('/', [mainController::class, 'IndexView'])->name('index.view');
 Route::get('/projects', [mainController::class, 'ProjectView'])->name('projects.view');
 Route::get('/projects/free-project/type={type}/language={lang}/', [mainController::class, 'FreeProjectView'])->name('freeproject.view');
 Route::get('/projects/paid-project/type={type}/language={lang}/', [mainController::class, 'PaidProjectView'])->name('paidproject.view');
-Route::get('/paid-project/cart/{id?}', [mainController::class, 'CartView'])->name('cart.view');
+Route::get('/paid-project/cart/', [mainController::class, 'CartView'])->name('cart.view');
 
-Route::post('/paid-projects/cart/checkout', [mainController::class, 'Checkout'])->name('cart.checkout');
+Route::post('/paid-project/cart/add-product/', [mainController::class, 'AddToCart'])->name('cart.add.product');
+Route::post('/paid-projects/cart/checkout/', [mainController::class, 'Checkout'])->name('cart.checkout');
 
-Route::get('/projects/free-course/type={type}/language={lang}/', [mainController::class, 'FreeCourseView'])->name('freecourse.view');
+//Payment Callback
+Route::post('payment-status', [mainController::class, 'PaymentCallback'])->name('payment.callback');
 //===============================================================================

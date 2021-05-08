@@ -199,7 +199,7 @@
                         <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 col-sm-6">
                     <div class="service-card-one bg-white center">
                         <div class="icon">
@@ -514,3 +514,38 @@
     <!-- End Copyright -->
 </footer>
 @endsection
+<script type="text/javascript">
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0
+                , v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return encodeURIComponent(v.toString(16));
+
+        });
+    }
+
+    let device = getCookie('device');
+    if (device == null && device == undefined) {
+        device = uuidv4();
+    }
+    let CookieExpireDate = new Date();
+    CookieExpireDate.getMonth() == 11 ? CookieExpireDate.setMonth(0) : CookieExpireDate.setMonth(CookieExpireDate.getMonth() + 1);
+    console.log(CookieExpireDate.toUTCString());
+    document.cookie = 'device=' + device + ';expires=' + CookieExpireDate.toUTCString() + ';domain;path=/'
+
+</script>

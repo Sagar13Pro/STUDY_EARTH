@@ -1,0 +1,47 @@
+"id","projectType","projectLanguage","projectTitle","projectContent","projectPrice","created_at","updated_at"
+1,"free","c++","OpenCV C++ Program for Face Detection","This program uses the OpenCV library to detect faces in a live stream from webcam or in a video file stored in the local machine. This program detects faces in real time and tracks it. It uses pre-trained XML classifiers for the same. The classifiers used in this program have facial features trained in them. Different classifiers can be used to detect different objects.
+Requirements for running the program:
+1) OpenCV must be installed on the local machine.
+2) Paths to the classifier XML files must be given before the execution of the program. These XML files can be found in the OpenCV directory “opencv/data/haarcascades”.
+3) Use 0 in capture.open(0) to play webcam feed.
+4) For detection in a local video provide the path to the video.(capture.open(“path_to_video”)).",NULL,NULL,NULL
+2,"free","c++","OpenGL program for Simple Ball Game
+OK","OpenGL is a cross-language, cross-platform API for rendering 2D and 3D Vector Graphics. Using this, we can make a lot of design as well as animations. Below is a simple Game made using OpenGL.
+
+Description : In this, a ball is moving starting from middle and goes to up-left in starting. But, then it collides with wall and changes direction but speed remain same. Consequently, it comes to downward direction where it should be catched on a rectangle (which is capable of moving in horizontal direction) in order to continue.",NULL,NULL,NULL
+3,"free","c++","Student Data Management in C++","Databases are being used in every aspect of our lives right now. Trillions of bytes of data are being stored in servers around the world. SQL is one of the most basic methods to use such a database. But have you ever thought about using C++ to maintain such a database. In this post, we will talk about implementing different views on a text file according to the type of user and edit accordingly.
+The data stored using this code are: 
+1) Registration number 
+2) Name 
+3) Marks in CSE1001 
+4) Marks in CSE1002 
+5) Proctor ID",NULL,NULL,NULL
+4,"free","python","Make Notepad using Tkinter","Let’s see how to create a simple notepad in Python using Tkinter. This notepad GUI will consist of various menu like file and edit, using which all functionalities like saving the file, opening a file, editing, cut and paste can be done.
+
+Now for creating this notepad, Python 3 and Tkinter should already be installed in your system. You can download suitable python package as per system requirement. After you have successfully installed python you need to install Tkinter (a Python’s GUI package).",NULL,NULL,NULL
+5,"free","python","Tracking bird migration using Python-3","",NULL,NULL,NULL
+6,"free","python","Cartooning an Image using OpenCV – Python","Computer Vision as you know (or even if you don’t) is a very powerful tool with immense possibilities. So, when I set up to prepare a comic of one of my friend’s college life, I soon realized that I needed something that would reduce my efforts of actually painting it but will retain the quality and I came up with the following solution.",NULL,NULL,NULL
+7,"free","python","Implementing Web Scraping in Python with BeautifulSoup","There are mainly two ways to extract data from a website:
+
+Use the API of the website (if it exists). For example, Facebook has the Facebook Graph API which allows retrieval of data posted on Facebook.
+Access the HTML of the webpage and extract useful information/data from it. This technique is called web scraping or web harvesting or web data extraction.
+This article discusses the steps involved in web scraping using the implementation of a Web Scraping framework of Python called Beautiful Soup.
+
+Steps involved in web scraping:
+Send an HTTP request to the URL of the webpage you want to access. The server responds to the request by returning the HTML content of the webpage. For this task, we will use a third-party HTTP library for python-requests.
+Once we have accessed the HTML content, we are left with the task of parsing the data. Since most of the HTML data is nested, we cannot extract data simply through string processing. One needs a parser which can create a nested/tree structure of the HTML data. There are many HTML parser libraries available but the most advanced one is html5lib.
+Now, all we need to do is navigating and searching the parse tree that we created, i.e. tree traversal. For this task, we will be using another third-party python library, Beautiful Soup. It is a Python library for pulling data out of HTML and XML files.",NULL,NULL,NULL
+8,"free","python","Computer Vision module application for finding a target in a live camera","For most of us, who are big fans of all those action movies, and games like Modern Warfare, Black Ops, and so on, it has always been a dream to have the opportunity of saying “Target acquired…Waiting for approval”.Team Alpha you are permitted to fire,Mission is a go. Let’s blow it guys!!! Hurrah!” Of course, well, you can’t always get what you want-But, at least now, I can get you close enough to your dream. All you need for this lesson is Python 2.7, cv2 module and it would be great if you have a nice video recorder with the help of wh",NULL,NULL,NULL
+9,"free","python","OpenCV Python program for Vehicle detection in a Video frame","The objective of the program given is to detect object of interest(Car) in video frames and to keep tracking the same object. This is an example of how to detect vehicles in Python.
+
+Why Vehicle Detection?
+
+The startling losses both in human lives and finance caused by vehicle accidents.
+Detecting vehicles in images acquired from a moving platform is a challenging problem.",NULL,NULL,NULL
+10,"free","c++","Creating a PortScanner in C","",NULL,NULL,NULL
+11,"paid","iot","IOT based Manhole Detection and Monitoring System","Manholes are not monitored properly in developing countries. These accidents can lead to serious injuries and also death. Hence, here we propose a system to overcome this problem.",33545,NULL,NULL
+12,"paid","iot","IOT Smart Garbage Segregation Dustbin Level Indicator System","An important step in grabage recycling is garbage segregation. To ensure people dispose garbage in segregated way this raspberry pi based project provides and innovative way to do it.",36500,NULL,NULL
+13,"paid","iot","IOT Wheelchair Fall Detector & Alert","A useful IOT project to help the elderly/disabled send automatic alert if they fall so help arrives instantly. Using microcontroller based circuitry with interfaced sensors.",31405,NULL,NULL
+14,"paid","iot","IOT Temperature Mask Scan Entry System","Manual mask and temperature is a tiring an not accurate system for large crowds. So here we automate the system using thermal sensors and camera for automatic safety check entry.",62430,NULL,NULL
+15,"paid","iot","IOT Smart Dustbin","In this smart age why should your dustbin be dumb. Just tap your feet to open the bin & get IOT status of bin garbage levels through wifi using the IOT smart dustbin project.",34600,NULL,NULL
+16,"paid","iot","IOT Instant Contactless Covid Testing Booth Automation","In view of current pandemic covid testing plays a key role in fighting the pandemic. Covid teting is done in covid testing booths that provide a safe covid testing environment. ",36505,NULL,NULL

@@ -63,7 +63,7 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="process-step-number">1</span>
+                                    <span class="process-step-number">{{ $key  }}</span>
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
@@ -78,11 +78,17 @@
                                     <div class="pricing-details">
                                         <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="{{ route('cart.view',$item->id) }}">
-                                        <span class="button-text">Purchase Now</span><span class="button-icon"></span>
-                                    </a>
+                                    <button type="button" class="axil-button btn-large btn-transparent mt--20 add-to-cart" data-product-id={{ $item->id }}>
+                                        <span class="button-text">Add To Cart</span><span class="button-icon"></span>
+                                    </button>
+                                    <form id="add-to-cart-form-{{ $item->id }}" class="hide" action="{{ route('cart.add.product') }}" method="POST">
+                                        @csrf
+                                        <input type="text" name="id" value="{{ $item->id }}">
+                                    </form>
+
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
+                                        <span class="button-text">More Info</span><span class="button-icon"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +100,7 @@
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
+                                    <span class="process-step-number">{{ $key }}</span>
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
@@ -108,9 +115,13 @@
                                     <div class="pricing-details">
                                         <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
-                                        <span class="button-text">Purchase Now</span><span class="button-icon"></span>
-                                    </a>
+                                    <button type="button" class="axil-button btn-large btn-transparent mt--20 add-to-cart" data-product-id={{ $item->id }}>
+                                        <span class="button-text">Add To Cart</span><span class="button-icon"></span>
+                                    </button>
+                                    <form id="add-to-cart-form-{{ $item->id }}" class="hide" action="{{ route('cart.add.product') }}" method="POST">
+                                        @csrf
+                                        <input type="text" name="id" value="{{ $item->id }}">
+                                    </form>
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
                                         <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
@@ -146,8 +157,7 @@
                             <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
                             <div class="callto-action">
                                 <span class="text wow" data-splitting>Or call us now</span>
-                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                        456 7890</a></span>
+                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)456 7890</a></span>
                             </div>
                         </div>
                     </div>
@@ -205,8 +215,7 @@
         totalProjects = '{{ count($paidProjects) }}';
         for (let $i = 0; $i < totalProjects; $i++) {
             let contentPara = document.getElementById($i);
-            console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
-
+            //console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
             if (contentPara.innerHTML.length > 462) {
                 let addReadMoreBtn = document.getElementById('btn-container-' + $i);
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
@@ -228,6 +237,16 @@
                     $('#showBtn-' + id).html('Read More');
                 }
             }
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function() {
+            let product_id = $(this).data('product-id');
+            console.log(product_id);
+            document.getElementById('add-to-cart-form-' + product_id).submit();
         });
     });
 

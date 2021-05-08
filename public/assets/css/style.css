@@ -14205,7 +14205,6 @@ Contact Form Style
 }
 
 .form-group.focused span.focus-border {
-  width: 100%;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
@@ -23920,4 +23919,8 @@ a.explore_more:after {
 a.explore_more:hover:after { 
   width: 100%; 
   left: 0; 
+}
+
+.asterik{
+  color: #f00;
 }

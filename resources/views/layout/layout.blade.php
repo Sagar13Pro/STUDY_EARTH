@@ -31,9 +31,8 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-8 header-left">
                             <div class="logo">
-                                <a href="home-01.html">
+                                <a href="{{ route('index.view') }}">
                                     <svg width="281px" height="60px" viewBox="0 0 281 60" version="1.1">
-                                        <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
                                         <title>Logo</title>
                                         <desc>Created with Sketch.</desc>
                                         <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -41,9 +40,7 @@
                                                 <g>
                                                     <g id="logo" transform="translate(315.000000, 40.000000)">
                                                         <text id="Keystroke-Startup-la" font-family="DMSans-Bold, DM Sans" font-size="20" font-weight="bold" fill="#000248">
-                                                            <tspan x="75" y="24">Keystroke</tspan>
-                                                            <tspan x="175.14" y="24.5001221" font-family="DMSans-Regular, DM Sans" font-weight="normal"></tspan>
-                                                            <tspan x="76.16" y="49.5001221" font-family="DMSans-Regular, DM Sans" font-size="18" font-weight="normal">Startup template</tspan>
+                                                            <tspan x="75" y="35">StudyEarth</tspan>
                                                         </text>
                                                         <g id="Favicon">
                                                             <rect id="Base" fill="#702FFF" x="0" y="0" width="60" height="60" rx="14"></rect>
@@ -99,7 +96,17 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href=""><i class="far fa-shopping-cart" style="font-size: 22px;"></i><span class="aw-cart-count">0</span></a>
+                                            @php
+                                            use App\Models\Customer;
+                                            if(isset($_COOKIE['device'])){
+                                            $customerProductCount = Customer::where('device',$_COOKIE['device'])->count();
+                                            }
+                                            @endphp
+                                            <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
+                                                @if($customerProductCount ?? '' > 0)
+                                                <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+                                                @endif
+                                            </a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -334,10 +341,7 @@
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-
-
-
-
+    @section('scripts')
+    @show
 </body>
 </html>

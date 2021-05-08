@@ -184,8 +184,8 @@
 </div>
 <!-- /Model Area End -->
 @endsection
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
     //Show More And Less Content
     $(document).ready(function() {

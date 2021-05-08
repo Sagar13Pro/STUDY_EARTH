@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
+use App\Models\Customer;
 use App\Models\ProjectDetails;
-use App\Models\CourseDetails;
 use App\Models\Projects;
+use App\Models\User;
 use Exception;
-use GuzzleHttp\Psr7\Uri;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+use Illuminate\Support\Facades\Validator;
 
 class mainController extends Controller
 {
@@ -20,7 +20,7 @@ class mainController extends Controller
     public function ProjectView()
     {
         $Projects = Projects::all();
-        return view('project', compact('Projects'));
+        return view('projects.project', compact('Projects'));
     }
     public function FreeProjectView($type, $lang)
     {
@@ -29,7 +29,7 @@ class mainController extends Controller
             'projectLanguage' => $lang
         ])->get();
         $langName = ucfirst($lang);
-        return view('free-project', compact(['freeProjects', 'langName']));
+        return view('projects.free-project', compact(['freeProjects', 'langName']));
     }
     public function PaidProjectView($type, $lang)
     {
@@ -42,23 +42,96 @@ class mainController extends Controller
             $projectsImage = Projects::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
         }
         $langName = strtoupper($lang);
-        return view('paid-project', compact('paidProjects', 'projectsImage', 'langName'));
+        return view('projects.paid-project', compact('paidProjects', 'projectsImage', 'langName'));
     }
 
     public function CartView($id = null)
     {
-        $projectFetched = ProjectDetails::where('id', $id)->get();
-
+        $projectFetched = ProjectDetails::select('*')
+            ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
+            ->where('customers.device', $_COOKIE['device'])
+            ->get();
         return view('cart', compact('projectFetched'));
     }
-
-    public function FreeCourseView($type, $lang)
+    //Adding to Cart
+    public function AddToCart(Request $request)
     {
-        $freeCourses = CourseDetails::where([
-            'course_type' => $type,
-            'course_language' => $lang
-        ])->get();
-        $langName = ucfirst($lang);
-        return view('free-course', compact(['freeCourses', 'langName']));
+        if (isset($_COOKIE['device'])) {
+
+            if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
+                try {
+                    $addToCart = Customer::create([
+                        'device' => $_COOKIE['device'],
+                        'project_details_id' => $request->id,
+                    ]);
+                    if ($addToCart) {
+                        return back();
+                    }
+                } catch (Exception $error) {
+                    dd('Error Occured while creating customer', $error);
+                }
+            } else {
+                dd('Already in your cart');
+            }
+        } else {
+            dd('No cookie');
+        }
+    }
+    //Checkout for cart
+    public function Checkout(Request $request)
+    {
+        $stored = $this->Store($request);
+        if ($stored) {
+            $payment = PaytmWallet::with('receive');
+            $payment->prepare([
+                'order' => rand(0, 1000000),
+                'user' => $request->fnameInput . ' ' . $request->lnameInput,
+                'mobile_number' => $request->mobileNoInput,
+                'email' => $request->emailInput,
+                'amount' => $request->amount,
+                'callback_url' => route('payment.callback')
+            ]);
+            return $payment->receive();
+        }
+    }
+    //Storing details of user
+    public function Store($request)
+    {
+        // dd($request->all());
+        Validator::make($request->all(), [
+            'mobileNoInput' => 'integer|digits:10',
+            'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/'
+        ])->validated();
+
+        try {
+            $user = User::create([
+                'firstName' => $request->fnameInput,
+                'lastName' => $request->lnameInput,
+                'email' => $request->emailInput,
+                'mobileNo' => $request->mobileNoInput,
+                'address' => $request->addressInput
+            ]);
+
+            if ($user) {
+                return true;
+            }
+        } catch (Exception $error) {
+            dd($error);
+            return false;
+        }
+    }
+
+    public function PaymentCallback()
+    {
+        $transaction = PaytmWallet::with('receive');
+        $response = $transaction->response();
+        dd($transaction);
+        if ($transaction->isSuccessful()) {
+            dd("done");
+        } else if ($transaction->isFailed()) {
+            dd('failed');
+        } else if ($transaction->isOpen()) {
+            dd('open');
+        }
     }
 }
