@@ -78,6 +78,26 @@ class mainController extends Controller
             dd('No cookie');
         }
     }
+    //Removing From Cart
+    public function RemoveFromCart(Request $request)
+    {
+        if (isset($_COOKIE['device'])) {
+            if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
+                try {
+                    $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->delete();
+                    if ($removeFromCart == 0) {
+                        return back();
+                    }
+                } catch (Exception $error) {
+                    dd('Error Occured while removing customer from cart', $error);
+                }
+            } else {
+                dd('Already delete from your cart');
+            }
+        } else {
+            dd('No cookie');
+        }
+    }
     //Checkout for cart
     public function Checkout(Request $request)
     {
@@ -126,14 +146,13 @@ class mainController extends Controller
     {
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
-        $toMail = 'akashtarapara222@gmail.com';
         $data = [];
         $email = session('session_email');
         if ($transaction->isSuccessful()) {
-            // Mail::send('mail',$data, function ($message) use ($toMail) {
-            //     $message->to($toMail)
-            //         ->subject('invoice');
-            // });
+            Mail::send('mail',$data, function ($message) use ($email) {
+                $message->to($email)
+                    ->subject('invoice');
+            });
             //$user_id = DB::table('user')->where('email', $email)->value('id');
             $user_id = User::where('email' , $email)->value('id');
             $customers_model = Customer::where('device' , $cookie)->update(['payment_status'=> 'paid','user_id'=>$user_id]);
