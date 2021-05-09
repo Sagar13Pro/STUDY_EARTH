@@ -50,7 +50,7 @@ class mainController extends Controller
     {
         $projectFetched = ProjectDetails::select('*')
             ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-            ->where([['customers.device', $_COOKIE['device']],['payment_status','unpaid']])
+            ->where([['customers.device', $_COOKIE['device']],['customers.payment_status','unpaid']])
             ->get();
         return view('cart', compact('projectFetched'));
     }
