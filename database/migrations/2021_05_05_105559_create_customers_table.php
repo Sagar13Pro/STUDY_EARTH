@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->string('device')->index();
             $table->foreignId('project_details_id')->constrained();
             $table->foreignId('user_id')->nullable(true)->constrained('users');
+            $table->enum('difficulty', ['unpaid', 'paid']);
             $table->timestamps();
         });
     }

@@ -99,7 +99,7 @@
                                             @php
                                             use App\Models\Customer;
                                             if(isset($_COOKIE['device'])){
-                                            $customerProductCount = Customer::where('device',$_COOKIE['device'])->count();
+                                            $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
                                             }
                                             @endphp
                                             <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>

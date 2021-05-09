@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lastName');
             $table->string('email')->unique();
             $table->bigInteger('mobileNo');
+            $table->string('address');
             $table->timestamps();
         });
     }

@@ -25,5 +25,5 @@ Route::post('/paid-project/cart/add-product/', [mainController::class, 'AddToCar
 Route::post('/paid-projects/cart/checkout/', [mainController::class, 'Checkout'])->name('cart.checkout');
 
 //Payment Callback
-Route::post('payment-status', [mainController::class, 'PaymentCallback'])->name('payment.callback');
+Route::post('payment-status/{cookie}', [mainController::class, 'PaymentCallback'])->name('payment.callback');
 //===============================================================================

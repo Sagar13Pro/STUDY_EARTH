@@ -9,6 +9,7 @@ use App\Models\Projects;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class mainController extends Controller
@@ -49,7 +50,7 @@ class mainController extends Controller
     {
         $projectFetched = ProjectDetails::select('*')
             ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-            ->where('customers.device', $_COOKIE['device'])
+            ->where([['customers.device', $_COOKIE['device']],['payment_status','unpaid']])
             ->get();
         return view('cart', compact('projectFetched'));
     }
@@ -85,12 +86,13 @@ class mainController extends Controller
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
-                'user' => $request->fnameInput . ' ' . $request->lnameInput,
+                'user' => $request->fnameInput . $request->lnameInput,
                 'mobile_number' => $request->mobileNoInput,
                 'email' => $request->emailInput,
                 'amount' => $request->amount,
-                'callback_url' => route('payment.callback')
+                'callback_url' => route('payment.callback',$_COOKIE['device'])
             ]);
+            session()->put('session_email',$request->emailInput);
             return $payment->receive();
         }
     }
@@ -120,12 +122,23 @@ class mainController extends Controller
         }
     }
 
-    public function PaymentCallback()
+    public function PaymentCallback($cookie)
     {
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
-        dd($transaction);
+        $toMail = 'akashtarapara222@gmail.com';
+        $data = [];
+        $email = session('session_email');
         if ($transaction->isSuccessful()) {
+            // Mail::send('mail',$data, function ($message) use ($toMail) {
+            //     $message->to($toMail)
+            //         ->subject('invoice');
+            // });
+            //$user_id = DB::table('user')->where('email', $email)->value('id');
+            $user_id = User::where('email' , $email)->value('id');
+            $customers_model = Customer::where('device' , $cookie)->update(['payment_status'=> 'paid','user_id'=>$user_id]);
+
+            
             dd("done");
         } else if ($transaction->isFailed()) {
             dd('failed');
