@@ -74,6 +74,7 @@
                                                 <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                             </div>
                                         </p>
+                                        <form action="{{ $key }}"></form>
                                     </div>
                                     <div class="pricing-details">
                                         <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->projectPrice }}/-

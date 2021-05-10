@@ -24,6 +24,8 @@ Route::get('/paid-project/cart/', [mainController::class, 'CartView'])->name('ca
 Route::post('/paid-project/cart/add-product/', [mainController::class, 'AddToCart'])->name('cart.add.product');
 Route::post('/paid-projects/cart/checkout/', [mainController::class, 'Checkout'])->name('cart.checkout');
 
+Route::post('/paid-project/cart/remove-product/{id?}', [mainController::class, 'RemoveFromCart'])->name('cart.remove.product');
+
 //Payment Callback
 Route::post('payment-status/{cookie}', [mainController::class, 'PaymentCallback'])->name('payment.callback');
 //===============================================================================

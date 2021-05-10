@@ -87,7 +87,7 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <a class="cancel_btn" id="cancel_btn_1">Cancel</a>
+                                                        <a class="cancel_btn" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -119,6 +119,10 @@
                 </div>
             </form>
             <!--Grid row-->
+            {{-- Cancel-product-form --}}
+            <form id="cancel-product-form" action="" method="POST">
+                @csrf
+            </form>
         </div>
     </div>
 
@@ -166,77 +170,16 @@
         });
 
     </script>
-    {{-- <script>
-        jQuery(document).ready(function() {
-            var all_price = jQuery(".product_name");
-            var total_amount = 0;
-            for (var i = 1; i < all_price.length; i++) {
-                if (i % 2 != 0) {
-                    total_amount = total_amount + parseFloat(all_price[i].attributes['data-value'].value);
-                }
-            }
-            jQuery("#total_amount")[0].innerHTML = total_amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "/-";
-
-            //After Click + button
-            jQuery(".fill_btn_green").click(function() {
-
-                var id = this.id.slice(-1);
-                var current_qnt = jQuery('#multiply_number_' + id).val();
-                if (current_qnt >= 1) {
-
-                    var current_price = jQuery("#hidden_amount_" + id)[0].innerHTML;
-
-                    current_qnt++;
-
-                    document.getElementById("multiply_number_" + id).value = current_qnt;
-
-                    var total_price = current_price * current_qnt;
-
-                    jQuery("#price_" + id)[0].children[0].innerHTML = total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "/-";
-                    jQuery("#price_" + id)[0].attributes['data-value'].value = total_price;
-
-                    var all_price = jQuery(".product_name");
-                    var total_amount = 0;
-                    for (var i = 1; i < all_price.length; i++) {
-                        if (i % 2 != 0) {
-                            total_amount = total_amount + parseFloat(all_price[i].attributes['data-value'].value);
-                        }
-                    }
-
-                    jQuery("#total_amount")[0].innerHTML = total_amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "/-";
-                }
-            });
-
-            //After Click - button
-            jQuery(".fill_btn_denger").click(function() {
-                var id = this.id.slice(-1);
-                var current_qnt = jQuery('#multiply_number_' + id).val();
-                if (current_qnt > 1) {
-                    var current_price = jQuery("#hidden_amount_" + id)[0].innerHTML;
-                    current_qnt--;
-
-                    var total_price = current_price * current_qnt;
-                    document.getElementById("multiply_number_" + id).value = current_qnt;
-
-                    jQuery("#price_" + id)[0].children[0].innerHTML = total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "/-";
-
-                    jQuery("#price_" + id)[0].attributes['data-value'].value = total_price;
-
-                    var all_price = jQuery(".product_name");
-                    var total_amount = 0;
-                    for (var i = 1; i < all_price.length; i++) {
-                        if (i % 2 != 0) {
-                            total_amount = parseFloat(all_price[i].attributes['data-value'].value) + total_amount;
-                        }
-                    }
-
-                    jQuery("#total_amount")[0].innerHTML = total_amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "/-";
-                } else {
-                    current_qnt == 1;
-                    document.getElementById("multiply_number_" + id).value = current_qnt;
-                }
+    {{-- Script for Cancel --}}
+    <script>
+        $(document).ready(function() {
+            $('.cancel_btn').click(function() {
+                const id = $(this).data('id');
+                let url = "{{ route('cart.remove.product', ':id') }}";
+                url = url.replace(':id', id);
+                $('#cancel-product-form').attr('action', url).submit();
             });
         });
 
-    </script> --}}
+    </script>
     @endsection

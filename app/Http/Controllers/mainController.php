@@ -50,7 +50,7 @@ class mainController extends Controller
     {
         $projectFetched = ProjectDetails::select('*')
             ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-            ->where([['customers.device', $_COOKIE['device']],['customers.payment_status','unpaid']])
+            ->where([['customers.device', $_COOKIE['device']], ['customers.payment_status', 'unpaid']])
             ->get();
         return view('cart', compact('projectFetched'));
     }
@@ -58,7 +58,6 @@ class mainController extends Controller
     public function AddToCart(Request $request)
     {
         if (isset($_COOKIE['device'])) {
-
             if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
                 try {
                     $addToCart = Customer::create([
@@ -85,7 +84,7 @@ class mainController extends Controller
             if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
                 try {
                     $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->delete();
-                    if ($removeFromCart == 0) {
+                    if ($removeFromCart == 1) {
                         return back();
                     }
                 } catch (Exception $error) {
@@ -106,13 +105,13 @@ class mainController extends Controller
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
-                'user' => $request->fnameInput . $request->lnameInput,
+                'user' => $request->fnameInput . ' ' . $request->lnameInput,
                 'mobile_number' => $request->mobileNoInput,
                 'email' => $request->emailInput,
                 'amount' => $request->amount,
-                'callback_url' => route('payment.callback',$_COOKIE['device'])
+                'callback_url' => route('payment.callback', $_COOKIE['device'])
             ]);
-            session()->put('session_email',$request->emailInput);
+            session()->put('session_email', $request->emailInput);
             return $payment->receive();
         }
     }
@@ -149,15 +148,15 @@ class mainController extends Controller
         $data = [];
         $email = session('session_email');
         if ($transaction->isSuccessful()) {
-            Mail::send('mail',$data, function ($message) use ($email) {
+            Mail::send('mail', $data, function ($message) use ($email) {
                 $message->to($email)
                     ->subject('invoice');
             });
             //$user_id = DB::table('user')->where('email', $email)->value('id');
-            $user_id = User::where('email' , $email)->value('id');
-            $customers_model = Customer::where('device' , $cookie)->update(['payment_status'=> 'paid','user_id'=>$user_id]);
+            $user_id = User::where('email', $email)->value('id');
+            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid', 'user_id' => $user_id]);
 
-            
+
             dd("done");
         } else if ($transaction->isFailed()) {
             dd('failed');
