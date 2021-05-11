@@ -23924,3 +23924,11 @@ a.explore_more:hover:after {
 .asterik{
   color: #f00;
 }
+
+.no-project-text{ 
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 1px;
+  color: #212529;
+  font-family: 'Poppins';
+}

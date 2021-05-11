@@ -121,44 +121,6 @@
         </div>
     </div>
     <!-- End Working Process  -->
-
-    <!-- Start Call To Action -->
-    <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="axil-call-to-action">
-                        <div class="section-title text-center">
-                            <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
-                            <h2 class="title wow" data-splitting>Need a successful project?</h2>
-                            <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
-                            <div class="callto-action">
-                                <span class="text wow" data-splitting>Or call us now</span>
-                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                        456 7890</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="shape-group">
-            <div class="shape shape-01">
-                <i class="icon icon-shape-14"></i>
-            </div>
-            <div class="shape shape-02">
-                <i class="icon icon-shape-09"></i>
-            </div>
-            <div class="shape shape-03">
-                <i class="icon icon-shape-10"></i>
-            </div>
-            <div class="shape shape-04">
-                <i class="icon icon-shape-11"></i>
-            </div>
-        </div>
-    </div>
-    <!-- End Call To Action -->
 </div>
 
 <!-- Model Area Start-->

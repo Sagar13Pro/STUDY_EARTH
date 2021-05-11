@@ -1,4 +1,7 @@
-<!doctype html>
+@php
+use App\Models\Customer;
+@endphp
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
@@ -96,28 +99,26 @@
                                             </div>
                                         </li>
                                         <li>
-                                            @php
-                                            use App\Models\Customer;
-                                            if(isset($_COOKIE['device'])){
-                                            $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
-                                            }
-                                            @endphp
-                                            <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
-                                                @if($customerProductCount ?? '' > 0)
-                                                <span class="aw-cart-count">{{ $customerProductCount  }}</span>
-                                                @endif
-                                            </a>
+                                            
                                         </li>
                                     </ul>
                                 </nav>
                                 <!-- End Mainmanu Nav -->
                                 @section('search-LetTalks')
                                 <div class="axil-header-extra d-flex align-items-center">
-                                    <!-- Start Search Area -->
                                     <div class="ax-search-area ml--40 ml_sm--10">
-                                        <a class="search-trigger" href="#"><i class="fas fa-search"></i></a>
+                                        @php
+                                            
+                                        if(isset($_COOKIE['device'])){
+                                        $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+                                        }
+                                        @endphp
+                                        <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
+                                            @if($customerProductCount ?? '' > 0)
+                                            <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+                                            @endif
+                                        </a>
                                     </div>
-                                    <!-- End Search Area -->
                                     <!-- Start Menu Bar  -->
                                     <div class="ax-menubar popup-navigation-activation d-block d-lg-none ml_sm--20 ml_md--20">
                                         <div>
@@ -125,17 +126,7 @@
                                         </div>
                                     </div>
                                     <!-- End Menu Bar  -->
-                                    <!-- Start Search Area  -->
-                                    <div class="axil-search-area">
-                                        <form action="#" class="axil-searchbar w-100">
-                                            <div class="search-field">
-                                                <input type="text" placeholder="Search Here...">
-                                                <button class="navbar-search-btn" type="button"><i class="fal fa-search"></i></button>
-                                            </div>
-                                            <a href="#" class="navbar-search-close"><i class="fal fa-times"></i></a>
-                                        </form>
-                                    </div>
-                                    <!-- End Search Area  -->
+                                    
                                 </div>
                                 @show
                             </div>
@@ -161,23 +152,50 @@
                 </div>
                 <div class="menu-item">
                     <ul class="mainmenu-item">
-                        <li><a href="">Home</a></li>
-                        <li class="has-children"><a href="#">Services</a>
+                     @section('link-home')
+                        <li><a href="{{ route('index.view') }}">Home</a></li>
+                        @show
+                        <li class="has-children">
+                            <a href="{{ route('projects.view') }}">Projects</a>
                             <ul class="submenu">
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="service-two.html">Services Two</a></li>
-                                <li><a href="single-service.html">Services Details</a></li>
+                                <li><a href="{{ route('projects.view') }}#section1">Free Projects</a></li>
+                                <li><a href="{{ route('projects.view') }}#section2">Paid Projects</a></li>
+                                <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
                             </ul>
                         </li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li class="has-children"><a href="#">Blog</a>
-                            <ul class="submenu">
-                                <li><a href="blog.html">Blog List</a></li>
-                                <li><a href="blog-list-two.html">Blog List Two</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact</a></li>
+                        <!-- {{-- DARK/LIGHT MODE --}}
+                        <li>
+                            <div id="my_switcher" class="my_switcher">
+                                <ul>
+                                    <li>
+                                        <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                                            <i class="far fa-sun"></i>
+                                            <span title="Light Mode"> Light</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                                            <i class="far fa-moon"></i>
+                                            <span title="Dark Mode"> Dark</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> -->
+                        <!-- <li>
+                            @php
+                            if(isset($_COOKIE['device'])){
+                            $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+                            }
+                            @endphp
+                            <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
+                                @if($customerProductCount ?? '' > 0)
+                                <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+                                @endif
+                            </a>
+                        </li>    -->
                     </ul>
                 </div>
             </div>
