@@ -84,6 +84,7 @@ class mainController extends Controller
             if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
                 try {
                     $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->delete();
+
                     if ($removeFromCart == 1) {
                         return back();
                     }

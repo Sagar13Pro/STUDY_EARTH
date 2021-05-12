@@ -88,6 +88,10 @@
                                                     </td>
                                                     <td>
                                                         <a class="cancel_btn" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
+                                                        <form id="remove-from-cart-{{ $item->id }}" class="hide" action="{{ route('cart.remove.product') }}" method="POST">
+                                                            @csrf
+                                                            <input type="text" class="hide" name="id" value="{{ $item->id }}">
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -127,6 +131,18 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.remove-from-cart').click(function() {
+                let product_id = $(this).data('product-id');
+                console.log(product_id);
+                document.getElementById('remove-from-cart-' + product_id).submit();
+            });
+        });
+
+    </script>
+
     <script>
         $(document).ready(function() {
             let hasError = null;
