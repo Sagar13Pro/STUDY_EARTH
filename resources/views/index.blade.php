@@ -1,3 +1,6 @@
+@php
+use App\Models\Customer;
+@endphp
 @extends('layout.layout')
 
 @section('title','StudyEarth')
@@ -7,6 +10,24 @@
 @endsection
 
 @section('search-LetTalks')
+<div class="ax-search-area ml--40 ml_sm--10">
+    @php
+        
+    if(isset($_COOKIE['device'])){
+    $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+    }
+    @endphp
+    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px;"></i>
+        @if($customerProductCount ?? '' > 0)
+        <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+        @endif
+    </a>
+</div>
+<div class="ax-menubar popup-navigation-activation d-block d-lg-none ml_sm--20 ml_md--20">
+    <div>
+        <i></i>
+    </div>
+</div>
 <div class="ax-header-button ml--40 ml_lg--10 d-none d-sm-block">
     <a class="axil-button btn-solid btn-extra02-color" href="#"><span class="button-text">Let's Talk</span><span class="button-icon"></span></a>
 </div>
@@ -224,47 +245,6 @@
         </div>
     </div>
     <!-- Course section end -->
-    <!-- Start Brand Area -->
-    <div class="axil-brand-area ax-section-gap bg-color-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="section-title">
-                        <span class="sub-title extra06-color wow" data-splitting>clients</span>
-                        <h2 class="title wow" data-splitting>I’ve built solutions for...</h2>
-                        <p class="subtitle-2 wow" data-splitting>Nulla facilisi. Nullam in magna id dolor
-                            blandit
-                            rutrum eget.</p>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12 col-12">
-                    <div class="axil-brand-logo-wrapper mt_md--30 mt_sm--30">
-                        <ul class="brand-list liststyle d-flex flex-wrap justify-content-center">
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-01.png" alt="Brand Logo Images">
-                                </a></li>
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-02.png" alt="Brand Logo Images">
-                                </a></li>
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-03.png" alt="Brand Logo Images">
-                                </a></li>
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-04.png" alt="Brand Logo Images">
-                                </a></li>
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-05.png" alt="Brand Logo Images">
-                                </a></li>
-                            <li><a href="#">
-                                    <img src="assets/images/brand/brand-06.png" alt="Brand Logo Images">
-                                </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Brand Area -->
 
     <!-- Start Blog Area -->
     <div class="axil-blog-area ax-section-gap bg-color-lightest">

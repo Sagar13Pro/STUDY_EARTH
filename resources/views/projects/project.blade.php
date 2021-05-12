@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title text-left">
-                            <span class="sub-title extra04-color wow" data-splitting>service</span>
+                            <span class="sub-title extra04-color wow" data-splitting>Free Projects</span>
                             <h2 class="title wow" data-splitting>Free Projects</h2>
                         </div>
                     </div>
@@ -102,142 +102,113 @@
                     @endif
                     @endforeach
                     @else
-                    <div>No Projects Available.</div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <p class="no-project-text wow">No Projects Available</p>
+                    </div>
                     @endif
                     <!-- End Single Service  -->
                 </div>
             </div>
         </div>
 
-    <!-- End Service Wrapper  -->
-    <!-- End Navigation Content  -->
+        <!-- End Service Wrapper  -->
+        <!-- End Navigation Content  -->
 
-    <!-- Start Navigation Content PAID -->
-    <div id="section2" class="section axil-service-area bg-color-lightest ax-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-left">
-                        <span class="sub-title extra04-color wow" data-splitting>services</span>
-                        <h2 class="title wow" data-splitting>Paid Projects</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Start Service Wrapper  -->
-            <div class="row">
-                <!-- Start Single Service  -->
-                @if(count($Projects) > 0)
-                @foreach ($Projects as $key => $paid )
-                @if($paid->Type == 'paid')
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="axil-service text-left axil-control paralax-image active">
-                        <div class="inner">
-                            <img src="assets/images/icons/{{ $paid->ImageName }}" alt="Icon Images" class="logo_ic">
-                            <div class="content">
-                                <h4 class="title"><a href="">{{ $paid->Title }}</a></h4>
-                                <p>{{ $paid->Content }}</p>
-                                <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view',[$paid->Type, $paid->Language]) }}">Explore More</a>
-                            </div>
+        <!-- Start Navigation Content PAID -->
+        <div id="section2" class="section axil-service-area bg-color-lightest ax-section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-left">
+                            <span class="sub-title extra04-color wow" data-splitting>Paid Projects</span>
+                            <h2 class="title wow" data-splitting>Paid Projects</h2>
                         </div>
                     </div>
                 </div>
-                @endif
-                @endforeach
-                @else
-                <div>No Projects Available.</div>
-                @endif
-                <!-- End Single Service  -->
-            </div>
-            <!-- End Service Wrapper  -->
-        </div>
-    </div>
-    <!-- End Navigation Content  -->
-
-    <!-- Start Navigation Content  -->
-    <div id="section3" class="section axil-service-area bg-color-white ax-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-left">
-                        <span class="sub-title extra04-color wow" data-splitting>services</span>
-                        <h2 class="title wow" data-splitting>Custom Projects</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Start Service Wrapper  -->
-            <div class="row">
-                <!-- Start Single Service CUSTOM -->
-                @if(count($Projects))
-                @foreach ($Projects as $key => $custom )
-                @if ($custom->Type === 'custom')
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="axil-service text-left axil-control paralax-image active">
-                        <div class="inner">
-                            <div class="icon">
-                                <div class="icon-inner">
-                                    <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                    <div class="image-2"><img src="assets/images/icons/{{ $custom->ImageName }}" alt="Shape Images"></div>
+                <!-- Start Service Wrapper  -->
+                <div class="row">
+                    <!-- Start Single Service  -->
+                    @if(count($Projects) > 0)
+                    @foreach ($Projects as $key => $paid )
+                    @if($paid->Type == 'paid')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="axil-service text-left axil-control paralax-image active">
+                            <div class="inner">
+                                <img src="assets/images/icons/{{ $paid->ImageName }}" alt="Icon Images" class="logo_ic">
+                                <div class="content">
+                                    <h4 class="title"><a href="">{{ $paid->Title }}</a></h4>
+                                    <p>{{ $paid->Content }}</p>
+                                    <a class="axil-button" data-hover="Learn More" href="{{ route('paidproject.view',[$paid->Type, $paid->Language]) }}">Explore More</a>
                                 </div>
                             </div>
-                            <div class="content">
-                                <h4 class="title"><a href="single-service.html">{{ $custom->Title }}</a></h4>
-                                <p>{{ $custom->Content }}</p>
-                                <a class="axil-button" data-hover="Learn More" href="javascript:void(0)">Learn More</a>
-                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @else
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <p class="no-project-text wow">No Projects Available</p>
+                    </div>
+                    @endif
+                    <!-- End Single Service  -->
+                </div>
+                <!-- End Service Wrapper  -->
+            </div>
+        </div>
+        <!-- End Navigation Content  -->
+
+        <!-- Start Navigation Content  -->
+        <div id="section3" class="section axil-service-area bg-color-white ax-section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-left">
+                            <span class="sub-title extra04-color wow" data-splitting>Custom Project</span>
+                            <h2 class="title wow" data-splitting>Custom Projects</h2>
                         </div>
                     </div>
                 </div>
-                @endif
-                @endforeach
-                @else
-                <div>No Projects Available.</div>
-                @endif
-                <!-- End Single Service  -->
+                <!-- Start Service Wrapper  -->
+                <div class="row">
+                    <!-- Start Single Service CUSTOM -->
+                    @if(count($Projects))
+                    @foreach ($Projects as $key => $custom )
+                    @if ($custom->Type === 'custom')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="axil-service text-left axil-control paralax-image active">
+                            <div class="inner">
+                                <div class="icon">
+                                    <div class="icon-inner">
+                                        <img src="assets/images/icons/layer.svg" alt="Icon Images">
+                                        <div class="image-2"><img src="assets/images/icons/{{ $custom->ImageName }}" alt="Shape Images"></div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-service.html">{{ $custom->Title }}</a></h4>
+                                    <p>{{ $custom->Content }}</p>
+                                    <a class="axil-button" data-hover="Learn More" href="javascript:void(0)">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @else
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <p class="no-project-text wow">No Projects Available</p>
+                    </div>
+                    @endif
+                    <!-- End Single Service  -->
+                </div>
+                <!-- End Service Wrapper  -->
             </div>
-            <!-- End Service Wrapper  -->
         </div>
     </div>
-</div>
     <!-- End Navigation Content  -->
 
     <!-- Axil Scroll Navigation Area  -->
 
-    <!-- Start Call To Action -->
-    <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="axil-call-to-action">
-                        <div class="section-title text-center">
-                            <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
-                            <h2 class="title wow" data-splitting>Need a successful project?</h2>
-                            <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
-                            <div class="callto-action">
-                                <span class="text wow" data-splitting>Or call us now</span>
-                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                        456 7890</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="shape-group">
-            <div class="shape shape-01">
-                <i class="icon icon-shape-14"></i>
-            </div>
-            <div class="shape shape-02">
-                <i class="icon icon-shape-09"></i>
-            </div>
-            <div class="shape shape-03">
-                <i class="icon icon-shape-10"></i>
-            </div>
-            <div class="shape shape-04">
-                <i class="icon icon-shape-11"></i>
-            </div>
-        </div>
-    </div>
-    <!-- End Call To Action -->
+    
 
 </main>
 <!-- End Page Wrapper -->
