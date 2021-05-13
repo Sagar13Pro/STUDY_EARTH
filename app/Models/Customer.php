@@ -12,6 +12,7 @@ class Customer extends Model
     protected $fillable = [
         'device',
         'project_details_id',
+        'course_details_id',
         'payment_status',
         'user_id'
     ];
