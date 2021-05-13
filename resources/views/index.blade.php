@@ -99,7 +99,7 @@ use App\Models\Customer;
                     <div class="axil-case-study wow">
                         <div class="thumbnail">
                             <a href="single-case-study.html">
-                                <img class="w-100 paralax-image" src="assets/images/portfolio/20944158_.jpg" alt="Axil Case Study Images">
+                                <img class="w-100 paralax-image" src="assets/images/portfolio/iot_2.jpg" alt="Axil Case Study Images">
                             </a>
                         </div>
                         <div class="content">
