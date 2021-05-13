@@ -17,19 +17,31 @@ use App\Models\Customer;
     $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
     }
     @endphp
-    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px;"></i>
+    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248"></i>
         @if($customerProductCount ?? '' > 0)
         <span class="aw-cart-count">{{ $customerProductCount  }}</span>
         @endif
     </a>
 </div>
-<div class="ax-menubar popup-navigation-activation d-block d-lg-none ml_sm--20 ml_md--20">
+
+<script src="https://unpkg.com/feather-icons"></script>
+<a class="login-btn pl-15" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"><i data-feather="user"></i></a>
+<script>
+    feather.replace({'stroke-width':2,'stroke':'#000248'})
+</script>
+
+<div class="ax-menubar popup-navigation-activation d-block d-lg-none pl-15 ml--0">
     <div>
         <i></i>
     </div>
 </div>
+
+
 <div class="ax-header-button ml--40 ml_lg--10 d-none d-sm-block">
-    <a class="axil-button btn-solid btn-extra02-color" href="#"><span class="button-text">Let's Talk</span><span class="button-icon"></span></a>
+    <a class="axil-button btn-solid btn-extra02-color" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"><span class="button-text">Let's Talk</span><span class="button-icon"></span></a>
+    <!-- <a href="#" class="btn-block" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button">
+        <img src="vendors/images/modal-img2.jpg" alt="modal">
+    </a> -->
 </div>
 @endsection
 
@@ -493,6 +505,45 @@ use App\Models\Customer;
     </div>
     <!-- End Copyright -->
 </footer>
+
+<!-- Login Model -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png"/></a>
+            <div class="login-box bg-white border-radius-10">
+                
+                <h3 class="title text-center">Login To StudyEarth</h3>
+
+                <form action="#" class="mt--30">
+                    <div class="form-group">
+                        <input type="email" class="pl-15">
+                        <label>Email</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="pl-15">
+                        <label>Password</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group">
+                        
+                        <a href="forgot-password.html" class="font-weight-500">Forgot Password</a>
+                        
+                    </div>
+                    <div class="form-group">
+                        <button class="axil-button btn-medium btn-transparent w-100">
+                            <span class="button-text">Get Pricing Now</span><span
+                                class="button-icon"></span>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 <script type="text/javascript">
 
