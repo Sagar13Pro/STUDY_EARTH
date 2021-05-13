@@ -11,6 +11,7 @@
             <form id="billing-details-form" method="post">
                 @csrf
                 <div class="row mt--80">
+                    @if (count($projectFetched) > 0)
                     <div class="col-xl-6">
                         <div class="card card-user">
                             <div class="card-body">
@@ -58,7 +59,7 @@
                     <div class="col-xl-6">
                         <div class="card bill-details">
                             <div class="card-body">
-                                @if (count($projectFetched) > 0)
+                                
                                 <h4 class="mb-3">Billing Amount</h4>
                                 <ul class="list-group list-group-flush">
                                     <div class="table-responsive">
@@ -109,17 +110,17 @@
                                     </li>
                                 </ul>
                                 <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
-                                @else
-                                <div class="container">
-                                    <div class="row">
-                                        <img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{ asset('assets/images/CartEmpty.jpg') }}" alt="">
-                                        <h3 class="mt-5 mx-auto">Looks like the cart is empty!</h3>
-                                    </div>
-                                </div>
-                                @endif
                             </div>
                         </div>
                     </div>
+                     @else
+                    <div class="container" align="center" style="max-width: 700px;">
+                        <div class="row">
+                            <img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{ asset('assets/images/CartEmpty.jpg') }}" alt="">
+                            <h3 class="mt-5 mx-auto">Looks like the cart is empty!</h3>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </form>
             <!--Grid row-->
@@ -131,17 +132,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.remove-from-cart').click(function() {
-                let product_id = $(this).data('product-id');
-                console.log(product_id);
-                document.getElementById('remove-from-cart-' + product_id).submit();
-            });
-        });
-
-    </script>
 
     <script>
         $(document).ready(function() {

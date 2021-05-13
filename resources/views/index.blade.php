@@ -180,7 +180,7 @@ use App\Models\Customer;
     <!-- End Case Study Area -->
 
     <!-- Course Section Start -->
-    <div class="axil-testimonial-area ax-section-gap bg-color-lightest">
+    <div id=course_details class="axil-testimonial-area ax-section-gap bg-color-lightest">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -205,7 +205,7 @@ use App\Models\Customer;
                             <a href="single-services.html">Engineering Subjects </a>
                         </h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','eng']) }}">Explore More</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -217,7 +217,7 @@ use App\Models\Customer;
                             <a href="single-services.html">Web Development</a>
                         </h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','web']) }}">Explore More</a>
                     </div>
                 </div>
 
@@ -230,7 +230,7 @@ use App\Models\Customer;
                             <a href="single-services.html">Mobile App Development</a>
                         </h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="single-service.html">Explore More</a>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','mobile']) }}">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -495,6 +495,11 @@ use App\Models\Customer;
 </footer>
 @endsection
 <script type="text/javascript">
+
+    function generate() {
+       window.location.href = '#course_details';
+     }
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {

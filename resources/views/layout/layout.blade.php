@@ -77,7 +77,9 @@ use App\Models\Customer;
                                                 <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="">About Us</a></li>
+                                        <li class="has-dropdown">
+                                            <a href="#course_details" onclick="generate();">Courses</a>
+                                        </li>
                                         <li><a href="">Contact</a></li>
                                         {{-- DARK/LIGHT MODE --}}
                                         <li>
@@ -163,7 +165,9 @@ use App\Models\Customer;
                                 <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
                             </ul>
                         </li>
-                        <li><a href="">About Us</a></li>
+                        <li class="has-dropdown">
+                            <a href="#course_details" onclick="generate();">Courses</a>
+                        </li>
                         <li><a href="">Contact</a></li>
                         <!-- {{-- DARK/LIGHT MODE --}}
                         <li>

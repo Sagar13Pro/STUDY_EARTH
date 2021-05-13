@@ -23792,9 +23792,9 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
 }
 
 .aw-cart-count{
-  position: absolute;
-  top: 4px;
-  left: 26px;
+  position: relative;
+  top: -20px;
+  left: -22px;
   z-index: 2;
   min-width: 18px;
   height: 18px;

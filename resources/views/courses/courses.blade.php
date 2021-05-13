@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth - Free Course')
+@section('title','StudyEarth - Courses')
 
 @section('content')
 <div class="main-wrapper">
@@ -10,17 +10,18 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
-                        <h2 class="title">{{ $langName }} Free Course</h2>
-                        <p>We have list of free Courses in <code style="font-size: 24px;">{{ $langName }}</code>. </p>
+                        @if (!is_null($coursesImage))
+                        <img src="{{ asset('assets/images/icons/'. $coursesImage) }}" style="max-width: 200px;">
+                        @endif
+                        <h2 class="title">{{ $langName }}- Courses</h2>
+                        <!-- <p>We have list of free projects in <code style="font-size: 24px;">c++</code>. </p> -->
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
                     <div class="thumbnail text-left text-lg-right">
                         <div class="image-group">
                             <img class="image-1 paralax-image" src="{{ asset('assets/images/slider/single-service-02.png') }}" alt="Slider images">
-
                             <img class="image-2 paralax-image" src="{{ asset('assets/images/slider/single-service-01.svg') }}" alt="Slider images">
-
                         </div>
                         <div class="shape-group">
                             <div class="shape shape-1">
@@ -47,58 +48,79 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    @if(count($freeCourses) > 0)
-                    @foreach ($freeCourses as $key => $course)
-                    @if($key % 2 == 0)
+
+                    @if (count($Courses) > 0)
+                    @foreach ($Courses as $key => $item)
+                    @if ($key % 2 == 0)
+                    <!-- Start Working Process ODD ONE -->
                     <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
                             <div class="image paralax-image">
                                 <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
                             </div>
                         </div>
+                        <!-- <img src="assets/images/process/9858.jpg" alt="Process Images"> -->
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">OpenCV</span>
-                                    <span class="sub-title extra04-color">Face Detection</span>
-                                    <h3 class="title">{{ $course->course_title }}</h3>
+                                    <span class="sub-title extra04-color">IoT</span>
+                                    <span class="sub-title extra04-color">Python</span>
+                                    <h3 class="title">{{ $item->courseTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
-                                            {{ $course->course_content }}
+                                            {{ $item->courseContent }}
                                             <div class="show-more-btn hide" id="btn-container-{{ $key }}">
                                                 <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                             </div>
                                         </p>
+                                        <form action="{{ $key }}"></form>
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
-                                        <span class="button-text">Download Now</span><span class="button-icon"></span>
-                                    </a>
-                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
-                                </div>
+                                    <div class="pricing-details">
+                                        <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->coursePrice }}/-
+                                    </div>
+                                    <button type="button" class="axil-button btn-large btn-transparent mt--20 add-to-cart" data-product-id={{ $item->id }}>
+                                        <span class="button-text">Add To Cart</span><span class="button-icon"></span>
+                                    </button>
+                                    <form id="add-to-cart-form-{{ $item->id }}" class="hide" action="{{ route('course_cart.add.product') }}" method="POST">
+                                        @csrf
+                                        <input type="text" name="id" value="{{ $item->id }}">
+                                    </form>
 
+                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
+                                        <span class="button-text">More Info</span><span class="button-icon"></span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End Working Process  -->
                     @else
+                    <!-- Start Working Process EVEN ODD -->
                     <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">OpenCV</span>
-                                    <span class="sub-title extra04-color">Face Detection</span>
-                                    <h3 class="title">{{ $course->course_title }}</h3>
+                                    <span class="sub-title extra04-color">IoT</span>
+                                    <span class="sub-title extra04-color">Python</span>
+                                    <h3 class="title">{{ $item->courseTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
-                                            {{ $course->course_content }}
+                                            {{ $item->coursetContent }}
                                             <div class="show-more-btn hide" id="btn-container-{{ $key }}">
                                                 <h6 type="button" id="showBtn-{{ $key }}" class="showBtn" data-id="{{ $key }}">Read More</h6>
                                             </div>
                                         </p>
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
-                                        <span class="button-text">Download Now</span><span class="button-icon"></span>
-                                    </a>
+                                    <div class="pricing-details">
+                                        <h3 class="mt--20 price-text"><img src="{{ asset('assets/images/icons/rupee.svg') }}" class="rupee" /><img src="{{ asset('assets/images/icons/rupee-28.svg') }}" class="rupee-alt" />{{ $item->coursePrice }}/-
+                                    </div>
+                                    <button type="button" class="axil-button btn-large btn-transparent mt--20 add-to-cart" data-product-id={{ $item->id }}>
+                                        <span class="button-text">Add To Cart</span><span class="button-icon"></span>
+                                    </button>
+                                    <form id="add-to-cart-form-{{ $item->id }}" class="hide" action="{{ route('course_cart.add.product') }}" method="POST">
+                                        @csrf
+                                        <input type="text" name="id" value="{{ $item->id }}">
+                                    </form>
                                     <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
                                         <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
@@ -106,59 +128,21 @@
                         </div>
                         <div class="thumbnail order-1 order-lg-2">
                             <div class="image paralax-image">
-                                <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
+                                <img src="{{ asset('assets/images/process/process-02.jpg') }}" alt="Process Images">
                             </div>
                         </div>
                     </div>
-                    @endif
                     <!-- End Working Process  -->
+                    @endif
                     @endforeach
                     @else
-                    <div>No Projects Avaiable for {{ $name }}</div>
+                    <div>No Course Available.</div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
     <!-- End Working Process  -->
-
-    <!-- Start Call To Action -->
-    <div class="axil-call-to-action-area shape-position ax-section-gap theme-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="axil-call-to-action">
-                        <div class="section-title text-center">
-                            <span class="sub-title extra04-color wow" data-splitting>Let's work together</span>
-                            <h2 class="title wow" data-splitting>Need a successful project?</h2>
-                            <a class="axil-button btn-large btn-transparent" href="#"><span class="button-text">Estimate Project</span><span class="button-icon"></span></a>
-                            <div class="callto-action">
-                                <span class="text wow" data-splitting>Or call us now</span>
-                                <span class="wow" data-splitting><i class="fal fa-phone-alt"></i> <a href="#">(123)
-                                        456 7890</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="shape-group">
-            <div class="shape shape-01">
-                <i class="icon icon-shape-14"></i>
-            </div>
-            <div class="shape shape-02">
-                <i class="icon icon-shape-09"></i>
-            </div>
-            <div class="shape shape-03">
-                <i class="icon icon-shape-10"></i>
-            </div>
-            <div class="shape shape-04">
-                <i class="icon icon-shape-11"></i>
-            </div>
-        </div>
-    </div>
-    <!-- End Call To Action -->
 </div>
 
 <!-- Model Area Start-->
@@ -189,11 +173,11 @@
 <script>
     //Show More And Less Content
     $(document).ready(function() {
-        //Adding Dynamic Read More button 
-        totalCourses = '{{ count($freeCourses) }}';
+        //Adding Dynamic Read More button
+        totalCourses = '{{ count($Courses) }}';
         for (let $i = 0; $i < totalCourses; $i++) {
             let contentPara = document.getElementById($i);
-
+            //console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
             if (contentPara.innerHTML.length > 462) {
                 let addReadMoreBtn = document.getElementById('btn-container-' + $i);
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
@@ -215,6 +199,16 @@
                     $('#showBtn-' + id).html('Read More');
                 }
             }
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function() {
+            let product_id = $(this).data('product-id');
+            console.log(product_id);
+            document.getElementById('add-to-cart-form-' + product_id).submit();
         });
     });
 

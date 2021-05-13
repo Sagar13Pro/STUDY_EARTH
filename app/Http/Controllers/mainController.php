@@ -106,7 +106,7 @@ class mainController extends Controller
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
-                'user' => $request->fnameInput . ' ' . $request->lnameInput,
+                'user' => $request->fnameInput . $request->lnameInput,
                 'mobile_number' => $request->mobileNoInput,
                 'email' => $request->emailInput,
                 'amount' => $request->amount,
@@ -146,6 +146,7 @@ class mainController extends Controller
     {
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
+        dd($response);
         $data = [];
         $email = session('session_email');
         if ($transaction->isSuccessful()) {
@@ -160,7 +161,7 @@ class mainController extends Controller
 
             dd("done");
         } else if ($transaction->isFailed()) {
-            dd('failed');
+            dd($transaction->isFailed());
         } else if ($transaction->isOpen()) {
             dd('open');
         }
