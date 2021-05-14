@@ -63,7 +63,6 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="process-step-number">{{ $key  }}</span>
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
@@ -101,7 +100,6 @@
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="process-step-number">{{ $key }}</span>
                                     <span class="sub-title extra04-color">IoT</span>
                                     <span class="sub-title extra04-color">Python</span>
                                     <h3 class="title">{{ $item->projectTitle }}</h3>

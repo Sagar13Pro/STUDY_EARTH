@@ -137,8 +137,8 @@ class mainController extends Controller
                 return true;
             }
         } catch (Exception $error) {
-            dd($error);
-            return false;
+            //dd('Already register');
+            return true;
         }
     }
 
