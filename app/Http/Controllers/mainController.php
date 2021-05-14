@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
 use App\Models\Customer;
 use App\Models\ProjectDetails;
+use App\Models\CourseDetails;
 use App\Models\Projects;
 use App\Models\User;
 use Exception;
@@ -52,7 +53,11 @@ class mainController extends Controller
             ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
             ->where([['customers.device', $_COOKIE['device']], ['customers.payment_status', 'unpaid']])
             ->get();
-        return view('cart', compact('projectFetched'));
+        $courseFetched = CourseDetails::select('*')
+            ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
+            ->where([['customers.device', $_COOKIE['device']], ['customers.payment_status', 'unpaid']])
+            ->get();
+        return view('cart', compact('projectFetched') ,compact('courseFetched'));
     }
     //Adding to Cart
     public function AddToCart(Request $request)

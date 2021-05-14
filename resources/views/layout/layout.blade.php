@@ -78,7 +78,7 @@ use App\Models\Customer;
                                             </ul>
                                         </li>
                                         <li class="has-dropdown">
-                                            <a href="#course_details" onclick="generate();">Courses</a>
+                                            <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a> 
                                         </li>
                                         <li><a href="">Contact</a></li>
                                         {{-- DARK/LIGHT MODE --}}
@@ -166,7 +166,7 @@ use App\Models\Customer;
                             </ul>
                         </li>
                         <li class="has-dropdown">
-                            <a href="#course_details" onclick="generate();">Courses</a>
+                            <a href="{{ route('index.view') }}#course_details" onclick="generate();">Courses</a>
                         </li>
                         <li><a href="">Contact</a></li>
                         <!-- {{-- DARK/LIGHT MODE --}}

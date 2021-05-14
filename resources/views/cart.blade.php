@@ -11,7 +11,7 @@
             <form id="billing-details-form" method="post">
                 @csrf
                 <div class="row mt--80">
-                    @if (count($projectFetched) > 0)
+                    @if (count($projectFetched) > 0 || count($courseFetched) > 0)
                     <div class="col-xl-6">
                         <div class="card card-user">
                             <div class="card-body">
@@ -88,7 +88,25 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <a class="cancel_btn" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
+                                                        <a class="cancel_btn project_cancel" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
+                                                        <form id="remove-from-cart-{{ $item->id }}" class="hide" action="{{ route('cart.remove.product') }}" method="POST">
+                                                            @csrf
+                                                            <input type="text" class="hide" name="id" value="{{ $item->id }}">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                                @foreach ($courseFetched as $key => $item )
+                                                <tr>
+                                                    <td class="product_name">{{ $item->courseTitle }}</td>
+
+                                                    <td>
+                                                        <span class="product_name font-20 mt--10">
+                                                            <strong>{{ $item->coursePrice }}/-</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a class="cancel_btn course_cancel" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
                                                         <form id="remove-from-cart-{{ $item->id }}" class="hide" action="{{ route('cart.remove.product') }}" method="POST">
                                                             @csrf
                                                             <input type="text" class="hide" name="id" value="{{ $item->id }}">
@@ -105,7 +123,7 @@
                                             <h5 class="mb-0 font-18 ml--25">The total amount of</h5>
                                             <sub class="ml--25">(including TAX)</sub>
                                         </div>
-                                        <h4 id="total_amount">{{ $projectFetched->pluck('projectPrice')->sum() }}/-</h4>
+                                        <h4 id="total_amount">{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum() }}/-</h4>
                                         <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum() }}">
                                     </li>
                                 </ul>
@@ -179,9 +197,17 @@
     {{-- Script for Cancel --}}
     <script>
         $(document).ready(function() {
-            $('.cancel_btn').click(function() {
+            $('.project_cancel').click(function() {
                 const id = $(this).data('id');
                 let url = "{{ route('cart.remove.product', ':id') }}";
+                url = url.replace(':id', id);
+                $('#cancel-product-form').attr('action', url).submit();
+            });
+        });
+         $(document).ready(function() {
+            $('.course_cancel').click(function() {
+                const id = $(this).data('id');
+                let url = "{{ route('course_cart.remove.product', ':id') }}";
                 url = url.replace(':id', id);
                 $('#cancel-product-form').attr('action', url).submit();
             });

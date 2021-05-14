@@ -528,13 +528,13 @@ use App\Models\Customer;
                     </div>
                     <div class="form-group">
                         
-                        <a href="forgot-password.html" class="font-weight-500">Forgot Password</a>
+                        <a href="#" class="font-weight-500">Forgot Password</a>
                         
                     </div>
                     <div class="form-group">
                         <button class="axil-button btn-medium btn-transparent w-100">
-                            <span class="button-text">Get Pricing Now</span><span
-                                class="button-icon"></span>
+                            <span class="button-text">Submit</span><span
+                                class="button-icon"></span> 
                         </button>
                     </div>
                 </form>
