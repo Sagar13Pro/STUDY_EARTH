@@ -42,7 +42,7 @@ use App\Models\Customer;
                                             <g transform="translate(-315.000000, -40.000000)">
                                                 <g>
                                                     <g id="logo" transform="translate(315.000000, 40.000000)">
-                                                        <text id="Keystroke-Startup-la" font-family="DMSans-Bold, DM Sans" font-size="20" font-weight="bold" fill="#000248">
+                                                        <text id="Keystroke-Startup-la" font-family="DMSans-Bold, DM Sans" font-size="24" font-weight="bold" fill="#000248">
                                                             <tspan x="75" y="35">StudyEarth</tspan>
                                                         </text>
                                                         <g id="Favicon">
