@@ -11440,7 +11440,7 @@ ul.mainmenu li.has-dropdown ul.axil-submenu {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 250px;
+  min-width: 200px;
   background: #ffffff;
   padding: 20px 0;
   list-style: none;
@@ -12455,7 +12455,7 @@ button.axil-button span.button-text {
 @media only screen and (max-width: 767px) {
   a.axil-button span.button-text,
   button.axil-button span.button-text {
-    padding-right: 12px;
+    padding-right: 12px !important;
   }
 }
 
@@ -24034,10 +24034,33 @@ a.explore_more:hover:after {
 }
 
 .login-btn{
+  display: block;
+}
+.shopping-btn{
   display: none;
+}
+.sp-margin{
+  margin-left: 25px;
 }
 @media only screen and (max-width: 767px) {
   .login-btn{
     display: block;
   }
+  .shopping-btn{
+    display: flex;
+  }
+  .sp-margin{
+    margin-left: -15px !important;
+  }
 }
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.mr-15{
+  margin-right: 15px;
+}
+
+
+

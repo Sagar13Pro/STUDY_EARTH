@@ -21,6 +21,9 @@ use App\Models\Customer;
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icomoon.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+
+
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body @yield('class') @yield('data-spy') @yield('data-target') @yield('data-offset')>
@@ -101,37 +104,59 @@ use App\Models\Customer;
                                             </div>
                                         </li>
                                         <li>
+                                           @php
                                             
+	                                        if(isset($_COOKIE['device'])){
+	                                        $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+	                                        }
+	                                        @endphp
+	                                        
+	                                        <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
+	                                            @if($customerProductCount ?? '' > 0)
+	                                            <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+	                                            @endif
+	                                        </a> 
+                                        </li>
+
+                                        <li class="has-dropdown">
+                                            <a class="login-btn"><i data-feather="user"></i></a>
+                                            <ul class="axil-submenu">
+                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
+				                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
+				                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>
-                                <!-- End Mainmanu Nav -->
                                 @section('search-LetTalks')
-                                <div class="axil-header-extra d-flex align-items-center">
-                                    <div class="ax-search-area ml--40 ml_sm--10">
-                                        @php
-                                            
-                                        if(isset($_COOKIE['device'])){
-                                        $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
-                                        }
-                                        @endphp
-                                        <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
-                                            @if($customerProductCount ?? '' > 0)
-                                            <span class="aw-cart-count">{{ $customerProductCount  }}</span>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <!-- Start Menu Bar  -->
-                                    <div class="ax-menubar popup-navigation-activation d-block d-lg-none ml_sm--20 ml_md--20">
-                                        <div>
-                                            <i></i>
-                                        </div>
-                                    </div>
-                                    <!-- End Menu Bar  -->
-                                    
-                                </div>
                                 @show
-                            </div>
+                                <!-- <div class="ax-search-area ml--40 ml_sm--10 ">
+						                                    
+						                                        
+						            <ul class="mainmenu">
+						                <li class="has-dropdown">
+						                    <a class="login-btn pl-15" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"><i data-feather="user"></i></a>
+						                    <ul class="axil-submenu">
+						                        <li><a href="{{ route('projects.view') }}#section1">Free Projects</a></li>
+						                        <li><a href="{{ route('projects.view') }}#section2">Paid Projects</a></li>
+						                        <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
+						                    </ul>
+						                </li-->
+						                <!-- <li class="has-dropdown">
+						                    <div class="ax-menubar popup-navigation-activation d-block d-lg-none">    
+						                        <div>
+						                            <i></i>
+						                        </div>
+						                    </div>
+						                </li> -->
+						            
+						        
+						    
+						    <!-- Start Menu Bar  -->
+						    
+						    <!-- End Menu Bar  -->
+						<!-- div -->
+						</div>
                         </div>
                     </div>
                 </div>
@@ -154,7 +179,16 @@ use App\Models\Customer;
                 </div>
                 <div class="menu-item">
                     <ul class="mainmenu-item">
+                    	<li class="has-children">
+                            <a class="login-btn"><i data-feather="user" stroke="#fff"></i></a>
+                            <ul class="submenu">
+                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
+                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
+                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                            </ul>
+                        </li>
                      @section('link-home')
+
                         <li><a href="{{ route('index.view') }}">Home</a></li>
                         @show
                         <li class="has-children">
@@ -334,6 +368,9 @@ use App\Models\Customer;
     </div>
 
     <!-- JS ============================================ -->
+    <script>
+		feather.replace({'stroke-width':2,'stroke':'#000248'})
+	</script>
     <!-- Modernizer JS -->
     <script src="{{ asset('assets/js/vendor/modernizr.min.js') }}"></script>
     <!-- jQuery JS -->
@@ -357,12 +394,18 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/scrollup.js') }}"></script>
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
+    <!-- Development version -->
+	
+
+
+
     <script src="{{ asset('assets/js/contactform.js') }}"></script>
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     @section('scripts')
     @show
 </body>

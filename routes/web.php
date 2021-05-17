@@ -35,3 +35,8 @@ Route::post('payment-status/{cookie}', [mainController::class, 'PaymentCallback'
 Route::get('/courses/courses/type={type}/language={lang}/', [CourseController::class, 'CoursesView'])->name('courses.view');
 Route::post('/courses/cart/add-product/', [CourseController::class, 'AddToCart'])->name('course_cart.add.product');
 Route::post('/courses/cart/remove-product/', [CourseController::class, 'RemoveFromCart'])->name('course_cart.remove.product');
+
+//this is temporery you can delete it 
+Route::get('/purchase', function () {
+    return view('purchase');
+});
