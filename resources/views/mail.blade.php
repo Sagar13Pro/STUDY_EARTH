@@ -125,7 +125,7 @@
 						</table>                 
 					</td>             
 				</tr>                          
-					<table>             
+					<table>        
 						<tr class="heading">                 
 							<td>                     Payment Details                 
 							</td>                                               
@@ -133,27 +133,35 @@
 						<tr class="details">                 
 							<td>                     Payment ID                
 							</td>                                  
-							<td>                                      
+							<td>                     {{ $data['payment_id'] }}            
 							</td>             
 						</tr>                          
 						<tr class="details">                 
 							<td>                     Total Amount                
 							</td>                                  
-							<td>                                     
+							<td>                      {{ $data['amount'] }}              
 							</td>             
-						</tr>   
-						<tr class="details">                 
+						</tr>
+						@if (!empty($data['paid_for_project']) || !empty($data['paid_for_course']))
+						<tr class="details" >                 
 							<td>                     Paid For                
-							</td>                                  
-							<td>                                     
-							</td>             
-						</tr>    
+							</td>
+							@if(!empty($data['paid_for_project']))
+							<td>                      {{ $data['paid_for_project'] }}               
+							</td>  
+							@endif
+							@if(!empty($data['paid_for_course']))
+							<td>                      {{ $data['paid_for_course'] }}               
+							</td>
+							@endif            
+						</tr>
+						@endif		
 						<tr class="details">                 
 							<td>                     Paid To                
 							</td>                                  
-							<td>                                  
+							<td>                     Study Earth             
 							</td>             
-						</tr>                      
+						</tr>                 
 						</table> 		
 						<p>Reply to this email to get in touch with <strong>Study Earth</strong></p><br><br>
 						<p>Share this on social media

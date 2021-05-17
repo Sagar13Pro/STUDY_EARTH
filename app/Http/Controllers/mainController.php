@@ -8,6 +8,7 @@ use App\Models\ProjectDetails;
 use App\Models\CourseDetails;
 use App\Models\Projects;
 use App\Models\User;
+use App\Models\Transaction;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -108,6 +109,7 @@ class mainController extends Controller
     {
         $stored = $this->Store($request);
         if ($stored) {
+            //dd($request);
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
@@ -135,7 +137,8 @@ class mainController extends Controller
                 'lastName' => $request->lnameInput,
                 'email' => $request->emailInput,
                 'mobileNo' => $request->mobileNoInput,
-                'address' => $request->addressInput
+                'address' => $request->addressInput,
+                'password' => $request->passwordInput
             ]);
 
             if ($user) {
@@ -147,26 +150,68 @@ class mainController extends Controller
         }
     }
 
+    //Storing details of transactions
+    public function StoreTransactions($request,$user_id)
+    {
+        //dd($user_id);
+        try {
+            $transaction = Transaction::create([
+                'user_id' => $user_id,
+                'order_id' => $request['ORDERID'],
+                'txn_id' => $request['TXNID'],
+                'txn_amount' => $request['TXNAMOUNT'],
+                'payment_mode' => $request['PAYMENTMODE'],
+                'currency' => $request['CURRENCY'],
+                'txn_date' => $request['TXNDATE'],
+                'status' => $request['STATUS'],
+                'resp_code' => $request['RESPCODE'],
+                'resp_msg' => $request['RESPMSG'],
+                'bank_txn_id' => $request['BANKTXNID'],
+                'bank_name' => $request['BANKNAME'],
+                'checksum' => $request['CHECKSUMHASH']
+            ]);
+        } catch (Exception $error) {
+            //dd('Already register');
+            return true;
+        }
+    }
+
     public function PaymentCallback($cookie)
     {
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
-        dd($response);
-        $data = [];
+        //dd($response);
+        
+        //$data[0]=$response;
         $email = session('session_email');
+        $user_id = User::where('email', $email)->value('id');
+        //dd($email);
         if ($transaction->isSuccessful()) {
-            Mail::send('mail', $data, function ($message) use ($email) {
+            //dd($user_id);
+            $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
+
+            $projectFetched = ProjectDetails::select('*')
+            ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
+            ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
+            ->value('projectTitle');
+            $courseFetched = CourseDetails::select('*')
+            ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
+            ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
+            ->value('courseTitle');
+            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']); 
+            //dd($projectFetched);
+            $stored = $this->StoreTransactions($response,$user_id);
+            $data = array('payment_id'=>$response['TXNID'],'amount'=>$response['TXNAMOUNT'],'paid_for_project'=>$projectFetched,'paid_for_course'=>$courseFetched);
+            //dd($data);
+            Mail::send('mail',["data"=>$data] , function ($message) use ($email) {
                 $message->to($email)
                     ->subject('invoice');
-            });
-            //$user_id = DB::table('user')->where('email', $email)->value('id');
-            $user_id = User::where('email', $email)->value('id');
-            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid', 'user_id' => $user_id]);
+            });  
 
 
             dd("done");
         } else if ($transaction->isFailed()) {
-            dd($transaction->isFailed());
+            dd($transaction);
         } else if ($transaction->isOpen()) {
             dd('open');
         }

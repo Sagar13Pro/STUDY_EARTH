@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->bigInteger('mobileNo');
             $table->string('address');
+            $table->string('password');
             $table->timestamps();
         });
     }

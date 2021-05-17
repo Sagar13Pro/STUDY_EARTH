@@ -46,11 +46,17 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-lg-12 col-md-12 {{ is_null(old('addressInput')) ? '' : 'focused' }}">
+                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('addressInput')) ? '' : 'focused' }}">
                                         <input type="text" name="addressInput" value="{{ old('addressInput') }}">
                                         <label>Address<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert />
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
+                                        <input type="text" name="passwordInput" value="{{ old('passwordInput') }}">
+                                        <label>Password<span class="asterik">*</span></label>
+                                        <span class="focus-border"></span>
+                                        <x-alert type="password" />
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +130,7 @@
                                             <sub class="ml--25">(including TAX)</sub>
                                         </div>
                                         <h4 id="total_amount">{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum() }}/-</h4>
-                                        <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum() }}">
+                                        <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum()  }}">
                                     </li>
                                 </ul>
                                 <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
