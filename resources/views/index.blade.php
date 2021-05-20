@@ -12,7 +12,7 @@ use App\Models\Customer;
 @section('search-LetTalks')
 <div class=" d-block d-lg-none ml--40 ml_sm--10">
     @php
-        
+
     if(isset($_COOKIE['device'])){
     $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
     }
@@ -32,7 +32,7 @@ use App\Models\Customer;
 @endsection
 
 @section('content')
-<main class="page-wrappper"> 
+<main class="page-wrappper">
     <!-- Start Slider Area -->
     <div class="axil-slider-area axil-slide-activation">
         <!-- Start Single Slide -->
@@ -41,11 +41,9 @@ use App\Models\Customer;
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-12 order-2 order-lg-1 mt_md--40 mt_sm--30">
                         <div class="content">
-                            <h1 class="axil-display-1 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Think the design, design the thinking.</h1>
+                            <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Welcoming everyone in an experience that’s more than an education.</h1>
                             <p class="layer2 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">
-                                Create live segments and target the right people for messages based on
-                                their
-                                behaviors.</p>
+                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                             <div class="slider-button wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1300ms">
                                 <a class="axil-button btn-large btn-solid btn-extra07-color" href="javascrit:void(0)">
                                     <span class="button-text">See Our Projects</span>
@@ -96,74 +94,74 @@ use App\Models\Customer;
                 </div>
                 <div class="col-lg-12">
                     <div class="row">
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                            <img src="https://img.icons8.com/cotton/64/000000/student-male--v3.png"/>
-                          </div>
-                          <h3>
-                            <a href="#">Engineers</a>
-                          </h3>
-                          <p>Engineers use our kits to upgrade their knowledge on desired software algorithms, electronics concepts & mechanical concepts to enhance their skills and open up career options for a better future.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="https://img.icons8.com/cotton/64/000000/student-male--v3.png" />
+                                </div>
+                                <h3>
+                                    <a href="#">Engineers</a>
+                                </h3>
+                                <p>Engineers use our kits to upgrade their knowledge on desired software algorithms, electronics concepts & mechanical concepts to enhance their skills and open up career options for a better future.</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                          <img src="assets/images/icons/programming.svg" alt="programming_icon" style="max-width: 64px;"> 
-                          </div>
-                          <h3>
-                            <a href="#">Students</a>
-                          </h3>
-                          <p>Our Self learning project kits help students learn practical software, electronics and mechanical development by providing all necessary materials needed to make it themselves with detailed video tutorials and learning documents in one single kit.</p>
-                          <p hidden="">Apart from this nevon projects provides free projects ideas and innovative concepts to boost student creativity and enthusiasm towards technology.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="assets/images/icons/programming.svg" alt="programming_icon" style="max-width: 64px;">
+                                </div>
+                                <h3>
+                                    <a href="#">Students</a>
+                                </h3>
+                                <p>Our Self learning project kits help students learn practical software, electronics and mechanical development by providing all necessary materials needed to make it themselves with detailed video tutorials and learning documents in one single kit.</p>
+                                <p hidden="">Apart from this nevon projects provides free projects ideas and innovative concepts to boost student creativity and enthusiasm towards technology.</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                            <img src="https://img.icons8.com/cotton/64/000000/company.png"/>
-                          </div>
-                          <h3>
-                            <a href="#">Companies</a>
-                          </h3>
-                          <p>Companies researching particular software algorithms, electronics technologies or mechanical concepts buy our kits to help in R & D. Also we offer customized R & D services, product research & prototyping as well as free technical consultation to companies.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="https://img.icons8.com/cotton/64/000000/company.png" />
+                                </div>
+                                <h3>
+                                    <a href="#">Companies</a>
+                                </h3>
+                                <p>Companies researching particular software algorithms, electronics technologies or mechanical concepts buy our kits to help in R & D. Also we offer customized R & D services, product research & prototyping as well as free technical consultation to companies.</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                           <img src="https://img.icons8.com/dusk/100/000000/student-center.png"/> 
-                          </div>
-                          <h3>
-                            <a href="#">Institutes</a>
-                          </h3>
-                          <p>Institutes need our kits to practically demonstrate the latest electronics concepts, mechanical motions and mechanisms while allowing students to work on our kits which enables practical hands on learning experience for students. </p>
-                          <p hidden="">Also institutes order customized systems to automate various operations.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="https://img.icons8.com/dusk/100/000000/student-center.png" />
+                                </div>
+                                <h3>
+                                    <a href="#">Institutes</a>
+                                </h3>
+                                <p>Institutes need our kits to practically demonstrate the latest electronics concepts, mechanical motions and mechanisms while allowing students to work on our kits which enables practical hands on learning experience for students. </p>
+                                <p hidden="">Also institutes order customized systems to automate various operations.</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                            <img src="assets/images/icons/coaching.svg" alt="programming_icon" style="max-width: 100px;"> 
-                          </div>
-                          <h3>
-                            <a href="#">Speakers</a>
-                          </h3>
-                          <p>Our kits and robotic chassis are loved by speakers to help them conduct practical workshops in schools & colleges all over the globe. Our kits and robotic chassis help make workshops more fun and interesting than ever.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="assets/images/icons/coaching.svg" alt="programming_icon" style="max-width: 100px;">
+                                </div>
+                                <h3>
+                                    <a href="#">Speakers</a>
+                                </h3>
+                                <p>Our kits and robotic chassis are loved by speakers to help them conduct practical workshops in schools & colleges all over the globe. Our kits and robotic chassis help make workshops more fun and interesting than ever.</p>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-lg-4">
-                        <div class="service-card-one bg-white center">
-                          <div class="icon">
-                           <img src="assets/images/icons/enthu.png" alt="programming_icon" style="max-width: 100px;">  
-                          </div>
-                          <h3>
-                            <a href="#">Enthusiasts & Hobbyists</a>
-                          </h3>
-                          <p>There are many enthusiasts and hobbyists out there who wouldn’t be able to practically implement desired software, electronics and electronics systems if it weren’t for our self learning project kits. Our kits help them bring their dreams to reality.</p>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="service-card-one bg-white center">
+                                <div class="icon">
+                                    <img src="assets/images/icons/enthu.png" alt="programming_icon" style="max-width: 100px;">
+                                </div>
+                                <h3>
+                                    <a href="#">Enthusiasts & Hobbyists</a>
+                                </h3>
+                                <p>There are many enthusiasts and hobbyists out there who wouldn’t be able to practically implement desired software, electronics and electronics systems if it weren’t for our self learning project kits. Our kits help them bring their dreams to reality.</p>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
@@ -436,7 +434,6 @@ use App\Models\Customer;
                         <div class="logo">
                             <a href="home-01.html">
                                 <svg width="247px" height="72px" viewBox="0 0 247 72" version="1.1">
-                                    <!-- Generator: sketchtool 57.1 (101010) - https://sketch.com -->
                                     <title>EAB575CA-61F4-4E68-97E4-378387DEE1D0</title>
                                     <desc>Created with sketchtool.</desc>
                                     <defs>
@@ -469,9 +466,9 @@ use App\Models\Customer;
                                                 <g transform="translate(315.000000, 536.000000)">
                                                     <g class="logo">
                                                         <text font-family="DMSans-Bold, DM Sans" font-size="20" font-weight="bold" fill="#FFFFFF">
-                                                            <tspan x="75" y="24">Keystroke</tspan>
+                                                            <tspan x="75" y="24">StudyEarth</tspan>
                                                             <tspan x="175.14" y="24.5001221" font-family="DMSans-Regular, DM Sans" font-weight="normal"></tspan>
-                                                            <tspan x="76.16" y="49.5001221" font-family="DMSans-Regular, DM Sans" font-size="18" font-weight="normal">Small agency studio</tspan>
+                                                            {{-- <tspan x="76.16" y="49.5001221" font-family="DMSans-Regular, DM Sans" font-size="18" font-weight="normal">Small agency studio</tspan> --}}
                                                         </text>
                                                         <g>
                                                             <g>
@@ -526,7 +523,7 @@ use App\Models\Customer;
                 <!-- End Single Widget -->
 
                 <!-- Start Single Widget -->
-                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30">
+                {{-- <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30">
                     <div class="footer-widget-item">
                         <h6 class="title">Resourses</h6>
                         <div class="footer-menu-container">
@@ -537,7 +534,7 @@ use App\Models\Customer;
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- End Single Widget -->
 
                 <!-- Start Single Widget -->
@@ -586,9 +583,9 @@ use App\Models\Customer;
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content mr-15">
-            <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png"/></a>
+            <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
             <div class="login-box bg-white border-radius-10">
-                
+
                 <h3 class="title text-center">Login To StudyEarth</h3>
 
                 <form action="#" class="mt--30">
@@ -603,18 +600,17 @@ use App\Models\Customer;
                         <span class="focus-border"></span>
                     </div>
                     <div class="form-group">
-                        
+
                         <a href="#" class="font-weight-500">Forgot Password</a>
-                        
+
                     </div>
                     <div class="form-group">
                         <button class="axil-button btn-medium btn-transparent w-100">
-                            <span class="button-text">Submit</span><span
-                                class="button-icon"></span> 
+                            <span class="button-text">Submit</span><span class="button-icon"></span>
                         </button>
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
@@ -624,38 +620,35 @@ use App\Models\Customer;
 <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content mr-15">
-            <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png"/></a>
+            <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
             <div class="login-box bg-white border-radius-10">
-                
+
                 <h3 class="title text-center">Are you sure</h3>
 
-                
-                    <div class="row sp-margin mt--30">
-                        <div class="form-group pl-15">
-                            <button class="axil-button btn-small btn-transparent">
-                                <span class="button-text">Cancel</span><span
-                                    class="button-icon"></span> 
-                            </button>
-                        </div>
-                        <div class="form-group pl-15">
-                            <button class="axil-button btn-small btn-transparent ">
-                                <span class="button-text">Logout</span><span
-                                    class="button-icon"></span> 
-                            </button>
-                        </div>
+
+                <div class="row sp-margin mt--30">
+                    <div class="form-group pl-15">
+                        <button class="axil-button btn-small btn-transparent">
+                            <span class="button-text">Cancel</span><span class="button-icon"></span>
+                        </button>
                     </div>
-                
-                
+                    <div class="form-group pl-15">
+                        <button class="axil-button btn-small btn-transparent ">
+                            <span class="button-text">Logout</span><span class="button-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
 </div>
 @endsection
 <script type="text/javascript">
-
     function generate() {
-       window.location.href = '#course_details';
-     }
+        window.location.href = '#course_details';
+    }
 
     function getCookie(name) {
         var cookieValue = null;
@@ -687,7 +680,6 @@ use App\Models\Customer;
     }
     let CookieExpireDate = new Date();
     CookieExpireDate.getMonth() == 11 ? CookieExpireDate.setMonth(0) : CookieExpireDate.setMonth(CookieExpireDate.getMonth() + 1);
-    console.log(CookieExpireDate.toUTCString());
     document.cookie = 'device=' + device + ';expires=' + CookieExpireDate.toUTCString() + ';domain;path=/'
 
 </script>

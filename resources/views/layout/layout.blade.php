@@ -81,7 +81,7 @@ use App\Models\Customer;
                                             </ul>
                                         </li>
                                         <li class="has-dropdown">
-                                            <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a> 
+                                            <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a>
                                         </li>
                                         <li><a href="">Contact</a></li>
                                         {{-- DARK/LIGHT MODE --}}
@@ -104,26 +104,26 @@ use App\Models\Customer;
                                             </div>
                                         </li>
                                         <li>
-                                           @php
-                                            
-	                                        if(isset($_COOKIE['device'])){
-	                                        $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
-	                                        }
-	                                        @endphp
-	                                        
-	                                        <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
-	                                            @if($customerProductCount ?? '' > 0)
-	                                            <span class="aw-cart-count">{{ $customerProductCount  }}</span>
-	                                            @endif
-	                                        </a> 
+                                            @php
+
+                                            if(isset($_COOKIE['device'])){
+                                            $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+                                            }
+                                            @endphp
+
+                                            <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
+                                                @if($customerProductCount ?? '' > 0)
+                                                <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+                                                @endif
+                                            </a>
                                         </li>
 
                                         <li class="has-dropdown">
                                             <a class="login-btn"><i data-feather="user"></i></a>
                                             <ul class="axil-submenu">
                                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
-				                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
-				                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
+                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -142,21 +142,21 @@ use App\Models\Customer;
 						                        <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
 						                    </ul>
 						                </li-->
-						                <!-- <li class="has-dropdown">
+                                <!-- <li class="has-dropdown">
 						                    <div class="ax-menubar popup-navigation-activation d-block d-lg-none">    
 						                        <div>
 						                            <i></i>
 						                        </div>
 						                    </div>
 						                </li> -->
-						            
-						        
-						    
-						    <!-- Start Menu Bar  -->
-						    
-						    <!-- End Menu Bar  -->
-						<!-- div -->
-						</div>
+
+
+
+                                <!-- Start Menu Bar  -->
+
+                                <!-- End Menu Bar  -->
+                                <!-- div -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@ use App\Models\Customer;
                 </div>
                 <div class="menu-item">
                     <ul class="mainmenu-item">
-                    	<li class="has-children">
+                        <li class="has-children">
                             <a class="login-btn"><i data-feather="user" stroke="#fff"></i></a>
                             <ul class="submenu">
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
@@ -187,7 +187,7 @@ use App\Models\Customer;
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
                             </ul>
                         </li>
-                     @section('link-home')
+                        @section('link-home')
 
                         <li><a href="{{ route('index.view') }}">Home</a></li>
                         @show
@@ -308,7 +308,7 @@ use App\Models\Customer;
                             <!-- End Single Widget -->
 
                             <!-- Start Single Widget -->
-                            <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                            {{-- <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
                                 <div class="footer-widget-item">
                                     <h6 class="title">Resourses</h6>
                                     <div class="footer-menu-container">
@@ -319,7 +319,7 @@ use App\Models\Customer;
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- End Single Widget -->
 
                             <!-- Start Single Widget -->
@@ -369,8 +369,12 @@ use App\Models\Customer;
 
     <!-- JS ============================================ -->
     <script>
-		feather.replace({'stroke-width':2,'stroke':'#000248'})
-	</script>
+        feather.replace({
+            'stroke-width': 2
+            , 'stroke': '#000248'
+        })
+
+    </script>
     <!-- Modernizer JS -->
     <script src="{{ asset('assets/js/vendor/modernizr.min.js') }}"></script>
     <!-- jQuery JS -->
@@ -395,9 +399,6 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
     <!-- Development version -->
-	
-
-
 
     <script src="{{ asset('assets/js/contactform.js') }}"></script>
     <!-- Plugins JS -->
