@@ -1,0 +1,18 @@
+We will divide our case study into five parts:
+Part-1. Visualizing longitude and latitude data of the gulls.
+Part-2. Visualize the variation of the speed of the gulls.
+Part-3. Visualize the time required by the gulls to cover equal distances over the journey.
+Part-4. Visualize the daily mean speed of the gulls.
+Part-5. Cartographic view of the journey of the gulls.
+
+Dependencies: 
+-Matplotlib, 
+-Pandas, 
+-Numpy, 
+-Cartopy, -
+Shapely
+
+Above libraries are required before that it must on your local pc.
+
+Dataset used:
+-bird_tracking.csv

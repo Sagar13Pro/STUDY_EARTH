@@ -1,0 +1,4 @@
+Dependencies:
+-cv2
+-numpy  
+Those are required libraries that must on your local PC.

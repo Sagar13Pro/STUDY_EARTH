@@ -1,0 +1,15 @@
+The objective of the program given is to detect object of interest(Car) in video frames and to keep tracking the same object. This is an example of how to detect vehicles in Python
+
+Step-1: Library Dependencies:
+	-cv2
+	-numpy
+
+Note: cv2 module is changed to opencv on later python version.
+Try running pip install opencv-python just for installing with pip.But it can import to your code as import cv2.
+For More information visit: https://pypi.org/project/opencv-python/
+
+Step-2: Put the cars.xml file in the same folder. Save this as .xml file.
+
+Step-3: Download this video from here as input.
+
+Step-4: Execute the program.
