@@ -11,7 +11,9 @@ use App\Models\User;
 use App\Models\Transaction;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class mainController extends Controller
@@ -58,7 +60,7 @@ class mainController extends Controller
             ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
             ->where([['customers.device', $_COOKIE['device']], ['customers.payment_status', 'unpaid']])
             ->get();
-        return view('cart', compact('projectFetched') ,compact('courseFetched'));
+        return view('cart', compact('projectFetched'), compact('courseFetched'));
     }
     //Adding to Cart
     public function AddToCart(Request $request)
@@ -151,7 +153,7 @@ class mainController extends Controller
     }
 
     //Storing details of transactions
-    public function StoreTransactions($request,$user_id)
+    public function StoreTransactions($request, $user_id)
     {
         //dd($user_id);
         try {
@@ -181,7 +183,7 @@ class mainController extends Controller
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
         //dd($response);
-        
+
         //$data[0]=$response;
         $email = session('session_email');
         $user_id = User::where('email', $email)->value('id');
@@ -191,29 +193,50 @@ class mainController extends Controller
             $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
 
             $projectFetched = ProjectDetails::select('*')
-            ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-            ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
-            ->value('projectTitle');
+                ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
+                ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
+                ->value('projectTitle');
             $courseFetched = CourseDetails::select('*')
-            ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
-            ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
-            ->value('courseTitle');
-            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']); 
+                ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
+                ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
+                ->value('courseTitle');
+            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
             //dd($projectFetched);
-            $stored = $this->StoreTransactions($response,$user_id);
-            $data = array('payment_id'=>$response['TXNID'],'amount'=>$response['TXNAMOUNT'],'paid_for_project'=>$projectFetched,'paid_for_course'=>$courseFetched);
+            $stored = $this->StoreTransactions($response, $user_id);
+            $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for_project' => $projectFetched, 'paid_for_course' => $courseFetched);
             //dd($data);
-            Mail::send('mail',["data"=>$data] , function ($message) use ($email) {
+            Mail::send('mail', ["data" => $data], function ($message) use ($email) {
                 $message->to($email)
                     ->subject('invoice');
-            });  
-
-
+            });
             dd("done");
         } else if ($transaction->isFailed()) {
             dd($transaction);
         } else if ($transaction->isOpen()) {
             dd('open');
         }
+    }
+    //Free projects download 
+    public function FreeProjectsDownloadable($id)
+    {
+        if (!is_null($id)) {
+            $file_name = ProjectDetails::findOrFail($id);
+            $file = 'Free Projects/' . $file_name->projectLanguage . '/' . $file_name->file_path;
+
+            if (Storage::disk('public')->exists($file)) {
+                return Storage::disk('public')->download($file);
+            } else {
+                return abort(404);
+            }
+        }
+    }
+    //Modal Showcast
+    public function ModalContent(ProjectDetails $id)
+    {
+        return response()->json([
+            'success' => true,
+            'content' => $id->requirements,
+            'title' => $id->projectTitle
+        ]);
     }
 }

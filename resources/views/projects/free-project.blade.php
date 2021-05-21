@@ -40,8 +40,6 @@
     </div>
     <!-- End Breadcrumb Area -->
 
-
-
     <!-- Start Working Process  -->
     <div class="axil-working-process-area ax-section-gap theme-gradient-4">
         <div class="container">
@@ -49,7 +47,7 @@
                 <div class="col-lg-12">
                     @if(count($freeProjects) > 0)
                     @foreach ($freeProjects as $key => $project)
-                    @if($key % 2 == 0)
+                    @if($loop->odd)
                     <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
                             <div class="image paralax-image">
@@ -59,8 +57,12 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">OpenCV</span>
-                                    <span class="sub-title extra04-color">Face Detection</span>
+                                    @if(!is_null($project->tag_1))
+                                    <span class="sub-title extra04-color">{{ $project->tag_1 }}</span>
+                                    @endif
+                                    @if(!is_null($project->tag_2))
+                                    <span class="sub-title extra04-color">{{ $project->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $project->projectTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
@@ -70,11 +72,15 @@
                                             </div>
                                         </p>
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
+                                    <button class="axil-button btn-large btn-transparent mt--20 download-btn" data-id="{{ $project->id }}">
                                         <span class="button-text">Download Now</span><span class="button-icon"></span>
+                                    </button>
+                                    <form class="d-none" id="download-form-{{ $project->id }}" action="{{ route('free.projects.download',$project->id) }}" method="POST">
+                                        @csrf
+                                    </form>
+                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal" data-id={{ $project->id }}>
+                                        <span class="button-text">More Info</span><span class="button-icon"></span>
                                     </a>
-                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
 
                             </div>
@@ -85,8 +91,12 @@
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">OpenCV</span>
-                                    <span class="sub-title extra04-color">Face Detection</span>
+                                    @if(!is_null($project->tag_1))
+                                    <span class="sub-title extra04-color">{{ $project->tag_1 }}</span>
+                                    @endif
+                                    @if(!is_null($project->tag_2))
+                                    <span class="sub-title extra04-color">{{ $project->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $project->projectTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
@@ -96,11 +106,15 @@
                                             </div>
                                         </p>
                                     </div>
-                                    <a class="axil-button btn-large btn-transparent mt--20" href="#">
+                                    <button class="axil-button btn-large btn-transparent mt--20 download-btn" data-id="{{ $project->id }}">
                                         <span class="button-text">Download Now</span><span class="button-icon"></span>
+                                    </button>
+                                    <form class="d-none" id="download-form-{{ $project->id }}" action="{{ route('free.projects.download',$project->id) }}" method="POST">
+                                        @csrf
+                                    </form>
+                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal" data-id={{ $project->id }}>
+                                        <span class="button-text">More Info</span><span class="button-icon"></span>
                                     </a>
-                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -128,16 +142,11 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center font-18">
-                <h4 class="padding-top-30 mb-30 weight-500">C++ Program for Face Detection using OpenCV</h4>
+                <h4 id="modalTitle" class="padding-top-30 mb-30 weight-500"></h4>
                 <hr>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h5>Requirements for running the program:</h5>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
+                    <div id="modalContent" class="col-lg-12">
+
                     </div>
                 </div>
             </div>
@@ -177,6 +186,31 @@
                     $('#showBtn-' + id).html('Read More');
                 }
             }
+        });
+        //Download form submit jquery;
+        $('.download-btn').click(function() {
+            let download_id = $(this).data('id');
+            $('#download-form-' + download_id).submit();
+        });
+        //More Info ajax call
+        $('.more-info-btn').click(function() {
+            let modal_id = $(this).data('id');
+            console.log(modal_id);
+            let url = "{{ route('free.projects.modal',':id') }}";
+            url = url.replace(':id', modal_id);
+            $.get({
+                url: url
+                , success: function(response) {
+                    if (response.success) {
+                        $('#modalTitle').html(response.title);
+                        if (response.content !== null) {
+                            $('#modalContent').html(response.content);
+                        } else {
+                            $('#modalContent').html("No Requirements Needed!");
+                        }
+                    }
+                }
+            });
         });
     });
 

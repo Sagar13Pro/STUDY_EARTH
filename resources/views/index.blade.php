@@ -488,16 +488,14 @@ use App\Models\Customer;
                                         </g>
                                     </g>
                                 </svg>
-
-
-
                             </a>
                         </div>
                         <div class="axil-ft-address">
                             <div class="address">
-                                <p><span>A.</span>3078 Simpson Square, Clinton, Oklahoma, <br /> 73601, Londan</p>
-                                <p><span>T.</span><a href="#">+123 4567 8901</a></p>
-                                <p><span>E.</span><a href="#">contact@Keystroke.com</a></p>
+                                <p>Vadodara, Gujarat</p>
+                                <p><a href="tel:940-846-3208">940-846-3208</a></p>
+                                <p><a href="mailto:">contact@Keystroke.com</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -510,31 +508,15 @@ use App\Models\Customer;
                         <h6 class="title">Services</h6>
                         <div class="footer-menu-container">
                             <ul class="ft-menu liststyle link-hover color-var--2">
-                                <li><a href="#">Logo & Branding</a></li>
                                 <li><a href="#">Website Development</a></li>
                                 <li><a href="#">Mobile App Development</a></li>
-                                <li><a href="#">Search Engine Optimization</a></li>
-                                <li><a href="#">Pay-Per-Click</a></li>
-                                <li><a href="#">Social Media Marketing</a></li>
+                                <li><a href="#">Product design</a></li>
+                                <li><a href="#">Product development</a></li>
+                                <li><a href="#">Internet of things</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- End Single Widget -->
-
-                <!-- Start Single Widget -->
-                {{-- <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30">
-                    <div class="footer-widget-item">
-                        <h6 class="title">Resourses</h6>
-                        <div class="footer-menu-container">
-                            <ul class="ft-menu liststyle link-hover color-var--2">
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Case Studies</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> --}}
                 <!-- End Single Widget -->
 
                 <!-- Start Single Widget -->

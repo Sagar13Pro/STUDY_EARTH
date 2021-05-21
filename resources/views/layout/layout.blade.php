@@ -295,31 +295,15 @@ use App\Models\Customer;
                                     <h6 class="title">Services</h6>
                                     <div class="footer-menu-container">
                                         <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="#">Logo & Branding</a></li>
                                             <li><a href="#">Website Development</a></li>
                                             <li><a href="#">Mobile App Development</a></li>
-                                            <li><a href="#">Search Engine Optimization</a></li>
-                                            <li><a href="#">Pay-Per-Click</a></li>
-                                            <li><a href="#">Social Media Marketing</a></li>
+                                            <li><a href="#">Product design</a></li>
+                                            <li><a href="#">Product development</a></li>
+                                            <li><a href="#">Internet of things</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Single Widget -->
-
-                            <!-- Start Single Widget -->
-                            {{-- <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
-                                <div class="footer-widget-item">
-                                    <h6 class="title">Resourses</h6>
-                                    <div class="footer-menu-container">
-                                        <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="case-study.html">Case Studies</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <!-- End Single Widget -->
 
                             <!-- Start Single Widget -->
