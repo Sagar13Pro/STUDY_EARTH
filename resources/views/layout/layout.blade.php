@@ -122,7 +122,7 @@ use App\Models\Customer;
                                             <a class="login-btn"><i data-feather="user"></i></a>
                                             <ul class="axil-submenu">
                                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
-                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
+                                                <li><a class="login-btn" href="/purchase"> My purchase </a></li>
                                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
                                             </ul>
                                         </li>

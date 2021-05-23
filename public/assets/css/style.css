@@ -1,83 +1,3 @@
-/*****************************************************************************
-
-	Template Name: Keystroke Creative Agency Bootstrap4 Html5 Template
-	Note: This is style css.
-
-******************************************************************************/
-/**************************************************************
-	
-	STYLESHEET INDEXING
-	|
-	|
-	|___ Default Styles
-	|	|
-	|	|___ variables Styles
-	|	|___ mixins
-	|	|___ reset
-	|	|___ typography
-	|	|___ extend
-	|	|___ animations
-	|	|___ animation-text
-	|	|___ shortcode
-	|	|___ spacing
-	|	|___ common
-	|	|___ forms
-	|	|___ typography
-	|
-	|
-	|___Header Styles
-	|	|___ header
-	|	|___ nav
-	|	|___ sidebar
-	|	|___ search
-	|	|___ scrollnavigation
-	|	|___ menubar
-	|
-	|
-	|___Elements Styles
-	|	|___ button 
-	|	|___ section-title 
-	|	|___ dividers 
-	|	|___ social-icon 
-	|	|___ contact 
-	|	|___ portfolio 
-	|	|___ counterup 
-	|	|___ testimonial 
-	|	|___ brand 
-	|	|___ blog 
-	|	|___ blog-list 
-	|	|___ call-to-action 
-	|	|___ case-study 
-	|	|___ axil-slick 
-	|	|___ pricingtable 
-	|	|___ video 
-	|	|___ cuntdown 
-	|	|___ accordion 
-	|
-	|
-	|
-	|___Template Styles
-	|	|___ banner 
-	|	|___ breadcrumb
-	|	|___ featured
-	|	|___ aboutUs
-	|	|___ contact
-	|	|___ single-service
-	|	|___ team-details
-	|	|___ commingsoon
-	|	|___ single-case-study
-	|	|___ blog-sidebar
-	|	|___ blog-details
-	|	|___ error
-	|	|___ preview
-	|
-	|___Footer Styles
-	|	|___ footer 
-	|
-	|
-	|___ END STYLESHEET INDEXING
-
-***************************************************************/
 /**************************************
     Default Styles
 ***************************************/
@@ -11440,7 +11360,7 @@ ul.mainmenu li.has-dropdown ul.axil-submenu {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 200px;
+  min-width: 170px;
   background: #ffffff;
   padding: 20px 0;
   list-style: none;
@@ -24064,3 +23984,111 @@ a.explore_more:hover:after {
 
 
 
+
+/*Reading section*/
+.faq-accordion .accordion {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0
+}
+
+.faq-accordion .accordion .accordion-item {
+  display: block;
+  -webkit-box-shadow: 0 0 1.25rem rgba(108, 118, 134, .1);
+  box-shadow: 0 0 1.25rem rgba(108, 118, 134, .1);
+  background: #fff;
+  margin-bottom: 20px
+}
+
+.faq-accordion .accordion .accordion-item:last-child {
+  margin-bottom: 0
+}
+
+.faq-accordion .accordion .accordion-item:nth-child(2) .accordion-title i,
+.faq-accordion .accordion .accordion-item:nth-child(4) .accordion-title i,
+.faq-accordion .accordion .accordion-item:nth-child(6) .accordion-title i,
+.faq-accordion .accordion .accordion-item:nth-child(8) .accordion-title i {
+  background: #fa7070
+}
+
+.faq-accordion .accordion .accordion-title {
+  padding: 20px 20px 20px 30px;
+  color: #212529;
+  position: relative;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.faq-accordion .accordion .accordion-title i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  text-align: center;
+  height: 100%;
+  background: #00f;
+  color: #fff
+}
+
+.faq-accordion .accordion .accordion-title i::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 13px
+}
+
+.faq-accordion .accordion .accordion-title.active {
+  border-bottom-color: #eee
+}
+
+.faq-accordion .accordion .accordion-title.active i::before {
+  content: "\f068"
+}
+
+.faq-accordion .accordion .accordion-content {
+  display: none;
+  position: relative;
+  padding: 20px 25px;
+  
+}
+
+.faq-accordion .accordion .accordion-content.show {
+  display: block;
+
+}
+
+.faq-area .col-lg-6:nth-child(2) .faq-accordion .accordion .accordion-item:nth-child(2) .accordion-title i,
+.faq-area .col-lg-6:nth-child(2) .faq-accordion .accordion .accordion-item:nth-child(4) .accordion-title i,
+.faq-area .col-lg-6:nth-child(2) .faq-accordion .accordion .accordion-item:nth-child(6) .accordion-title i,
+.faq-area .col-lg-6:nth-child(2) .faq-accordion .accordion .accordion-item:nth-child(8) .accordion-title i {
+  background: #00f
+}
+
+.faq-area .col-lg-6:nth-child(2) .faq-accordion .accordion .accordion-title i {
+  background: #fa7070
+}
+
+@media only screen and (max-width: 767px) {
+  .faq-accordion .accordion .accordion-title {
+    font-size: 15px
+  }
+}
+
+.table th, td{
+  border-top: 0px !important;
+}
+
+.w-60{
+  width: 60%;
+}
+
+.w-20{
+  width: 10%;
+}

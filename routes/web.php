@@ -31,3 +31,7 @@ Route::post('/courses/cart/remove-product/', [CourseController::class, 'RemoveFr
 
 
 Route::view('/contact', 'contact');
+
+Route::view('/purchase','purchase');
+
+Route::view('/reading','reading');
