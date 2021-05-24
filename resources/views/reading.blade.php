@@ -13,7 +13,7 @@
                     <div class="content-wrapper">
                         <div class="inner">
                             <div class="section-title text-left">
-                                <h2 class="title wow" data-splitting><span>Projects</span>
+                                <h2 class="title wow" data-splitting><span>Courses</span>
                                 </h2>
                                 <p class="layer2 wow slideFadeInUp"></p>
                             </div>
@@ -30,26 +30,26 @@
                                             <ul class="accordion">
                                                 <li class="accordion-item">
                                                     <a class="accordion-title" href="javascript:void(0)">
-                                                    Which material types can you work with?
+                                                        Which material types can you work with?
                                                     </a>
                                                     <div class="accordion-content">
                                                         <table class="table border-less">
                                                             <tbody>
                                                                 <tr>
-                                                                  <th class="w-20">1</th>
-                                                                  <td class="w-60">Mark</td>
-                                                                  <!-- <td class="w-20">@mdo</td> -->
+                                                                    <th class="w-20">1</th>
+                                                                    <td class="w-60">Mark</td>
+                                                                    <!-- <td class="w-20">@mdo</td> -->
                                                                 </tr>
                                                                 <tr>
-                                                                  <th scope="row">2</th>
-                                                                  <td>Jacob</td>
-                                                                  
-                                                                  <!-- <td>@fat</td> -->
+                                                                    <th scope="row">2</th>
+                                                                    <td>Jacob</td>
+
+                                                                    <!-- <td>@fat</td> -->
                                                                 </tr>
                                                                 <tr>
-                                                                  <th scope="row">3</th>
-                                                                  </td>
-                                                                  <!-- <td>@twitter</td> -->
+                                                                    <th scope="row">3</th>
+                                                                    </td>
+                                                                    <!-- <td>@twitter</td> -->
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -69,5 +69,5 @@
     <!-- End Counterup Area  -->
 </div>
 
-    
+
 @endsection

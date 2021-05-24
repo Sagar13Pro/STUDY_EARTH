@@ -24092,3 +24092,20 @@ a.explore_more:hover:after {
 .w-20{
   width: 10%;
 }
+
+.tracker {
+  margin: 5px 0;
+  color: #ff6969;
+  font-weight: bolder;
+}
+.tracker::before {
+  content: "!";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: solid 2px #ff6969;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 0.2rem;
+}

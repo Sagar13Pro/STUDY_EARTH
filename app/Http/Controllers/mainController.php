@@ -6,12 +6,15 @@ use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
 use App\Models\Customer;
 use App\Models\ProjectDetails;
 use App\Models\CourseDetails;
+use App\Models\CourseMaterial;
 use App\Models\Projects;
 use App\Models\User;
 use App\Models\Transaction;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -62,6 +65,37 @@ class mainController extends Controller
             ->get();
         return view('cart', compact('projectFetched'), compact('courseFetched'));
     }
+    public function PurchaseView()
+    {
+        if (!is_null('session_email')) {
+            $user_id = User::where('email', session('session_email'))->value('id');
+            $project_products = ProjectDetails::select("*")
+                ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
+                ->where('customers.payment_status', 'paid')
+                ->get();
+            $course_products =
+                CourseDetails::select("*")
+                ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
+                ->where('customers.payment_status', 'paid')
+                ->get();
+            //dd($course_products, $project_products);
+            return view('purchase', compact(['project_products', 'course_products']));
+        }
+    }
+    public function CourseReading($course = null, $id = null)
+    {
+        if (!is_null($id)) {
+            $titles = DB::table('course_materials')
+                ->groupBy('title')
+                ->where('course_detail_id', $id)
+                ->get();
+            $topics = CourseMaterial::where('course_detail_id', $id)
+                ->orderBy('display_order', 'asc')
+                ->get();
+            return view('reading', compact(['topics', 'titles']));
+        }
+    }
+
     //Adding to Cart
     public function AddToCart(Request $request)
     {
@@ -121,7 +155,7 @@ class mainController extends Controller
                 'amount' => $request->amount,
                 'callback_url' => route('payment.callback', $_COOKIE['device'])
             ]);
-            session()->put('session_email', $request->emailInput);
+            session()->put('temporary_email', $request->emailInput);
             return $payment->receive();
         }
     }
@@ -130,7 +164,8 @@ class mainController extends Controller
     {
         Validator::make($request->all(), [
             'mobileNoInput' => 'integer|digits:10',
-            'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/'
+            'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            'passwordInput' => 'min:8'
         ])->validated();
 
         try {
@@ -147,7 +182,7 @@ class mainController extends Controller
                 return true;
             }
         } catch (Exception $error) {
-            //dd('Already register');
+            dd($error);
             return true;
         }
     }
@@ -155,7 +190,6 @@ class mainController extends Controller
     //Storing details of transactions
     public function StoreTransactions($request, $user_id)
     {
-        //dd($user_id);
         try {
             $transaction = Transaction::create([
                 'user_id' => $user_id,
@@ -173,7 +207,7 @@ class mainController extends Controller
                 'checksum' => $request['CHECKSUMHASH']
             ]);
         } catch (Exception $error) {
-            //dd('Already register');
+            dd($error);
             return true;
         }
     }
@@ -182,16 +216,11 @@ class mainController extends Controller
     {
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
-        //dd($response);
-
-        //$data[0]=$response;
-        $email = session('session_email');
+        $email = session('temporary_email');
         $user_id = User::where('email', $email)->value('id');
-        //dd($email);
-        if ($transaction->isSuccessful()) {
-            //dd($user_id);
-            $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
 
+        if ($transaction->isSuccessful()) {
+            $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
             $projectFetched = ProjectDetails::select('*')
                 ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
                 ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
@@ -201,14 +230,13 @@ class mainController extends Controller
                 ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
                 ->value('courseTitle');
             $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
-            //dd($projectFetched);
-            $stored = $this->StoreTransactions($response, $user_id);
+            //$stored = $this->StoreTransactions($response, $user_id);
             $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for_project' => $projectFetched, 'paid_for_course' => $courseFetched);
-            //dd($data);
-            Mail::send('mail', ["data" => $data], function ($message) use ($email) {
-                $message->to($email)
-                    ->subject('invoice');
-            });
+
+            // Mail::send('mail', ["data" => $data], function ($message) use ($email) {
+            //     $message->to($email)
+            //         ->subject('invoice');
+            // });
             dd("done");
         } else if ($transaction->isFailed()) {
             dd($transaction);
@@ -220,11 +248,13 @@ class mainController extends Controller
     public function FreeProjectsDownloadable($id)
     {
         if (!is_null($id)) {
-            $file_name = ProjectDetails::findOrFail($id);
-            $file = 'Free Projects/' . $file_name->projectLanguage . '/' . $file_name->file_path;
+            $getFileName = ProjectDetails::findOrFail($id);
+            $file = 'Free Projects/' . $getFileName->projectLanguage . '/' . $getFileName->file_path;
 
             if (Storage::disk('public')->exists($file)) {
-                return Storage::disk('public')->download($file);
+                //return Storage::disk('public')->download($file);
+                return response()
+                    ->download($file, $getFileName->file_path, ['content-type' => 'application/pdf']);
             } else {
                 return abort(404);
             }
@@ -238,5 +268,25 @@ class mainController extends Controller
             'content' => $id->requirements,
             'title' => $id->projectTitle
         ]);
+    }
+    //User Related
+    public function Login(Request $request)
+    {
+        $isUserExist = User::where('email', $request->login_emailInput)->first();
+        if (!is_null($isUserExist) && Hash::check($request->login_passwordInput, $isUserExist->password)) {
+            session()->put('session_email', $request->login_emailInput);
+            return redirect()->route('index.view', compact('isUserExist'));
+        } else {
+            return back()
+                ->withInput($request->all())
+                ->with('error', 'Email or password is not correct.');
+        }
+    }
+    public function Logout()
+    {
+        if (session()->has('session_email')) {
+            session()->pull('session_email');
+        }
+        return redirect(route('index.view'));
     }
 }

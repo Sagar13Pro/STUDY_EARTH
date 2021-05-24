@@ -1,0 +1,3 @@
+"id","course_detail_id","title","subtitle","pdf_path","display_order","isDeleted","created_at","updated_at"
+1,1,"Complex Int","sub-1","",1,"No",NULL,NULL
+2,1,"Probality Dist","sub-2","",2,"No",NULL,NULL

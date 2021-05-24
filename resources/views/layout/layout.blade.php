@@ -121,41 +121,24 @@ use App\Models\Customer;
                                         <li class="has-dropdown">
                                             <a class="login-btn"><i data-feather="user"></i></a>
                                             <ul class="axil-submenu">
-                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
-                                                <li><a class="login-btn" href="/purchase"> My purchase </a></li>
-                                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                                                @if (!session()->has('session_email'))
+                                                <li><a class="login-btn" href="javascript:void(0)" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button">Login </a></li>
+                                                @endif
+                                                @if (session()->has('session_email'))
+                                                <li><a class="login-btn" href="{{ route('user.purchases') }}">My Purchase</a></li>
+                                                <li><a class="login-btn" href="javascript:void(0)" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                                                @endif
                                             </ul>
+                                        </li>
+                                        <li>
+                                            @if(session()->has('session_email'))
+                                            {{ session('session_email')}}
+                                            @endif
                                         </li>
                                     </ul>
                                 </nav>
                                 @section('search-LetTalks')
                                 @show
-                                <!-- <div class="ax-search-area ml--40 ml_sm--10 ">
-						                                    
-						                                        
-						            <ul class="mainmenu">
-						                <li class="has-dropdown">
-						                    <a class="login-btn pl-15" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"><i data-feather="user"></i></a>
-						                    <ul class="axil-submenu">
-						                        <li><a href="{{ route('projects.view') }}#section1">Free Projects</a></li>
-						                        <li><a href="{{ route('projects.view') }}#section2">Paid Projects</a></li>
-						                        <li><a href="{{ route('projects.view') }}#section3">Custom Projects</a></li>
-						                    </ul>
-						                </li-->
-                                <!-- <li class="has-dropdown">
-						                    <div class="ax-menubar popup-navigation-activation d-block d-lg-none">    
-						                        <div>
-						                            <i></i>
-						                        </div>
-						                    </div>
-						                </li> -->
-
-
-
-                                <!-- Start Menu Bar  -->
-
-                                <!-- End Menu Bar  -->
-                                <!-- div -->
                             </div>
                         </div>
                     </div>
@@ -183,7 +166,7 @@ use App\Models\Customer;
                             <a class="login-btn"><i data-feather="user" stroke="#fff"></i></a>
                             <ul class="submenu">
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
-                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button"> My purchase </a></li>
+                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button">My purchase </a></li>
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
                             </ul>
                         </li>
@@ -244,6 +227,66 @@ use App\Models\Customer;
         {{-- MAIN CONTENT START--}}
         @section('content')
         @show
+        <!-- Login Model -->
+        <div class="modal fade " id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content mr-15">
+                    <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
+                    <div class="login-box bg-white border-radius-10">
+                        <h3 class="title text-center">Login To StudyEarth</h3>
+                        <x-alert type="message" />
+                        <form action="{{ route('user.login') }}" method="POST" class="mt--30">
+                            @csrf
+                            <div class="form-group {{ is_null(old('login_emailInput')) ? '' : 'focused' }}">
+                                <input type=" email" name="login_emailInput" value="{{ old('login_emailInput') }}" class="pl-15">
+                                <label>Email</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="login_passwordInput" class="pl-15">
+                                <label>Password</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="axil-button btn-medium btn-transparent w-100">
+                                    <span class="button-text">Submit</span><span class="button-icon"></span>
+                                </button>
+                            </div>
+                        </form>
+                        <div style="display: flex;justify-content:center;">
+                            <a href="#" class="font-weight-500">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Model -->
+        <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content mr-15">
+                    <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
+                    <div class="login-box bg-white border-radius-10">
+                        <h3 class="title text-center">Are you sure</h3>
+                        <div class="row sp-margin mt--30">
+                            <div class="form-group pl-15">
+                                <button class="axil-button btn-small btn-transparent">
+                                    <span class="button-text">Cancel</span><span class="button-icon"></span>
+                                </button>
+                            </div>
+                            <div class="form-group pl-15">
+                                <a href="{{ route('user.logout') }}" class="axil-button btn-small btn-transparent ">
+                                    <span class="button-text">Logout</span><span class="button-icon"></span>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {{-- MAIN CONTENT END --}}
 
         {{-- FOOTER SECTION START --}}
@@ -390,7 +433,6 @@ use App\Models\Customer;
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
     @section('scripts')
     @show
 </body>

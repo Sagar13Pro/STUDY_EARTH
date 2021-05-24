@@ -53,7 +53,7 @@
                                         <x-alert />
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
-                                        <input type="text" name="passwordInput" value="{{ old('passwordInput') }}">
+                                        <input type="password" name="passwordInput">
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert type="password" />
@@ -65,7 +65,7 @@
                     <div class="col-xl-6">
                         <div class="card bill-details">
                             <div class="card-body">
-                                
+
                                 <h4 class="mb-3">Billing Amount</h4>
                                 <ul class="list-group list-group-flush">
                                     <div class="table-responsive">
@@ -137,17 +137,12 @@
                             </div>
                         </div>
                     </div>
-                     @else
+                    @else
                     <div class="container" align="center" style="max-width: 700px;">
                         <div class="row">
                             <!-- <img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{ asset('assets/images/CartEmpty.jpg') }}" alt=""> -->
                             <h3 class="mt-5 mx-auto">Looks like the cart is empty!</h3>
                             <img class="mx-auto" src="{{ asset('assets/images/icons/empty-cart.svg') }}" width="250" height="200" alt="">
-                            <div class="empty">
-                            <!-- <img src="https://img.icons8.com/emoji/96/000000/warning-emoji.png"/>
-                            <img src="https://img.icons8.com/color/240/000000/shopping-cart--v1.png"/> -->
-
-                            </div>
                         </div>
                     </div>
                     @endif
@@ -172,11 +167,9 @@
                 inputs_field.forEach((element, index) => {
                     if (element.value.length === 0) {
                         console.log(element.nextElementSibling.nextElementSibling.nextElementSibling)
-
-                        if (element.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling === null) {
+                        if (element.nextElementSibling.nextElementSibling.nextElementSibling === null) {
                             let divElem = document.createElement('div');
                             divElem.setAttribute('class', ' tracker prompt-error-' + index);
-                            divElem.style.cssText = "margin: 5px 0;color: #ff0000";
                             let divText = document.createTextNode('This is required.');
                             divElem.appendChild(divText);
                             positionSpan[index].insertAdjacentElement('afterend', divElem);
@@ -199,8 +192,8 @@
                 }
             });
             setInterval(() => {
-                if ($('.alert').length > 0) {
-                    $('.alert').remove()
+                if ($('.tracker').length > 0) {
+                    $('.tracker').remove()
                 }
             }, 10000);
         });
@@ -216,7 +209,7 @@
                 $('#cancel-product-form').attr('action', url).submit();
             });
         });
-         $(document).ready(function() {
+        $(document).ready(function() {
             $('.course_cancel').click(function() {
                 const id = $(this).data('id');
                 let url = "{{ route('course_cart.remove.product', ':id') }}";
