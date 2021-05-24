@@ -42,8 +42,6 @@ use App\Models\Customer;
                     <div class="col-lg-8 col-12 order-2 order-lg-1 mt_md--40 mt_sm--30">
                         <div class="content">
                             <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Welcoming everyone in an experience that’s more than an education.</h1>
-                            <p class="layer2 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                             <div class="slider-button wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1300ms">
                                 <a class="axil-button btn-large btn-solid btn-extra07-color" href="javascrit:void(0)">
                                     <span class="button-text">See Our Projects</span>

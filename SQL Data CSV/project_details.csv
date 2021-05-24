@@ -43,7 +43,7 @@ Detecting vehicles in images acquired from a moving platform is a challenging pr
 14,"paid","iot","IOT Temperature Mask Scan Entry System","Manual mask and temperature is a tiring an not accurate system for large crowds. So here we automate the system using thermal sensors and camera for automatic safety check entry.",NULL,62430,NULL,NULL,NULL,NULL,NULL
 15,"paid","iot","IOT Smart Dustbin","In this smart age why should your dustbin be dumb. Just tap your feet to open the bin & get IOT status of bin garbage levels through wifi using the IOT smart dustbin project.",NULL,34600,NULL,NULL,NULL,NULL,NULL
 16,"paid","iot","IOT Instant Contactless Covid Testing Booth Automation","In view of current pandemic covid testing plays a key role in fighting the pandemic. Covid teting is done in covid testing booths that provide a safe covid testing environment. ",NULL,36505,NULL,NULL,NULL,NULL,NULL
-17,"paid","andriod","Android Bookaholics Circle","",NULL,NULL,NULL,"Andriod",NULL,NULL,NULL
+17,"paid","andriod","Android Bookaholics Circle","",NULL,12345,NULL,"Andriod",NULL,NULL,NULL
 18,"paid","andriod","Advanced CRM Android Application","",NULL,NULL,NULL,NULL,NULL,NULL,NULL
 19,"paid","andriod","Daily Route Planner","",NULL,NULL,NULL,NULL,NULL,NULL,NULL
 20,"paid","andriod","Android College Attendance System","",NULL,NULL,NULL,NULL,NULL,NULL,NULL

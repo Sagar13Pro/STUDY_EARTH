@@ -1,1 +1,4 @@
-"id","firstName","lastName","email","mobileNo","address","created_at","updated_at"
+"id","firstName","lastName","email","mobileNo","address","password","created_at","updated_at"
+1,"sagar","patel","sagarpatel@mail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$sFZUQ9bvb470d5wyAU5UguRt2or8VRZcvzpp77vnAGnWYJGa5n/Pu","2021-05-23 20:44:19","2021-05-23 20:44:19"
+3,"sagar","sas","sagarvanesa@gmail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$sSB0EVWOcXgdSpJ2CwSyYuCeAXn/km4jfXVCrHpDgKnEAMOVaN3Du","2021-05-23 21:41:45","2021-05-23 21:41:45"
+5,"sagar","s","sagaarpatel@mail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$rkz5ElYjq7wxvIZaoNyvV.Z43sxWKTvYecW1Lerfg9Tok/0pMkiZ.","2021-05-23 21:42:29","2021-05-23 21:42:29"

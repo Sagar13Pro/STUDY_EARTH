@@ -85,13 +85,14 @@ class mainController extends Controller
     public function CourseReading($course = null, $id = null)
     {
         if (!is_null($id)) {
-            $titles = DB::table('course_materials')
+            $titles = CourseMaterial::select('title')
                 ->groupBy('title')
                 ->where('course_detail_id', $id)
                 ->get();
             $topics = CourseMaterial::where('course_detail_id', $id)
                 ->orderBy('display_order', 'asc')
                 ->get();
+                //dd($topics);
             return view('reading', compact(['topics', 'titles']));
         }
     }

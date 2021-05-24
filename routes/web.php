@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\CourseController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,3 +36,7 @@ Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middlewa
 Route::get('/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 //==============================================================================================
 Route::view('/contact', 'contact');
+
+Route::get('migrate',function() {
+    Artisan::call('migrate');
+});

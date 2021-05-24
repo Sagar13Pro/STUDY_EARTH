@@ -28,33 +28,29 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="faq-accordion">
                                             <ul class="accordion">
-                                                <li class="accordion-item">
-                                                    <a class="accordion-title" href="javascript:void(0)">
-                                                        Which material types can you work with?
-                                                    </a>
-                                                    <div class="accordion-content">
-                                                        <table class="table border-less">
-                                                            <tbody>
+                                              @foreach ($titles as $key => $title)
+                                               <li class="accordion-item">
+                                                <a class="accordion-title" href="javascript:void(0)">
+                                                    {{ $title->title }}
+                                                </a>
+                                                <div class="accordion-content">
+                                                    <table class="table border-less">
+                                                        <tbody>
+                                                            @foreach ($topics as $item)
+                                                    @if($item->title == $title->title)
+                                                   
                                                                 <tr>
-                                                                    <th class="w-20">1</th>
-                                                                    <td class="w-60">Mark</td>
-                                                                    <!-- <td class="w-20">@mdo</td> -->
+                                                                    <th class="w-20">{{ $key.'.'.$item->display_order + 1 }}</th>
+                                                                    <td class="w-60">{{ $item->subtitle }}</td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th scope="row">2</th>
-                                                                    <td>Jacob</td>
-
-                                                                    <!-- <td>@fat</td> -->
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">3</th>
-                                                                    </td>
-                                                                    <!-- <td>@twitter</td> -->
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                    @endif
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                          </div>
+                                                
                                                 </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -71,3 +67,5 @@
 
 
 @endsection
+
+   
