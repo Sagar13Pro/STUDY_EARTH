@@ -30,7 +30,7 @@ class CourseController extends Controller
     public function AddToCart(Request $request)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device' => $_COOKIE['device'], 'course_details_id' => $request->id])->count() == 0) {
+            if (Customer::where(['device' => $_COOKIE['device'], 'course_details_id' => $request->id ,'payment_status' => 'paid'])->count() == 0 || 1) {
                 try {
                     $addToCart = Customer::create([
                         'device' => $_COOKIE['device'],
