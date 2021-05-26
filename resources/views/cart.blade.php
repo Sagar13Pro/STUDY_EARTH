@@ -52,11 +52,36 @@
                                         <span class="focus-border"></span>
                                         <x-alert />
                                     </div>
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
-                                        <input type="password" name="passwordInput">
+                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('birthdateInput')) ? '' : 'focused' }}">
+                                        <input type="date" name="birthdateInput" value="{{ old('birthdateInput') }}">
+                                        <label>Birth Date<span class="asterik">*</span></label>
+                                        <span class="focus-border"></span>
+                                        <x-alert />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group password_container col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
+                                        <input type="password" id="Pass" name="passwordInput" placeholder="Password">
+                                        <span class="input-group-btn" id="eyeSlash">
+                                           <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                        </span>
+                                        <span class="input-group-btn" id="eyeShow" style="display: none;">
+                                          <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                        </span>
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert type="password" />
+                                    </div>
+                                    <div class="form-group password_container col-lg-6 col-md-6">
+                                        <input type="password" id="Pass_Confirm" name="confirmpasswordInput" placeholder="Confirm Password">
+                                        <span class="input-group-btn" id="eyeSlashConfirm">
+                                           <button class="btn btn-default reveal" onclick="visibility4()" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                        </span>
+                                        <span class="input-group-btn" id="eyeShowConfirm" style="display: none;">
+                                          <button class="btn btn-default reveal" onclick="visibility4()" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                        </span>
+                                        <label>Confirm Password<span class="asterik">*</span></label>
+                                        <span class="focus-border"></span>
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +136,9 @@
                                                             <strong>{{ $item->coursePrice }}/-</strong>
                                                         </span>
                                                     </td>
-                                                    <td>
+                                                    <td> 
                                                         <a class="cancel_btn course_cancel" id="cancel_btn_{{ $key }}" data-id="{{ $item->id }}">Cancel</a>
-                                                        <form id="remove-from-cart-{{ $item->id }}" class="hide" action="{{ route('cart.remove.product') }}" method="POST">
+                                                        <form id="remove-from-cart-{{ $item->id }}" class="hide" action="{{ route('course_cart.remove.product') }}" method="POST">
                                                             @csrf
                                                             <input type="text" class="hide" name="id" value="{{ $item->id }}">
                                                         </form>
@@ -213,10 +238,34 @@
             $('.course_cancel').click(function() {
                 const id = $(this).data('id');
                 let url = "{{ route('course_cart.remove.product', ':id') }}";
+                //console.log(id);
                 url = url.replace(':id', id);
                 $('#cancel-product-form').attr('action', url).submit();
             });
         });
-
+        function visibility3() {
+          var x = document.getElementById('Pass');
+          if (x.type === 'password') {
+            x.type = "text";
+            $('#eyeShow').show();
+            $('#eyeSlash').hide();
+          }else {
+            x.type = "password";
+            $('#eyeShow').hide();
+            $('#eyeSlash').show();
+          }
+        }
+        function visibility4() {
+          var x = document.getElementById('Pass_Confirm');
+          if (x.type === 'password') {
+            x.type = "text";
+            $('#eyeShowConfirm').show();
+            $('#eyeSlashConfirm').hide();
+          }else {
+            x.type = "password";
+            $('#eyeShowConfirm').hide();
+            $('#eyeSlashConfirm').show();
+          }
+        }
     </script>
     @endsection

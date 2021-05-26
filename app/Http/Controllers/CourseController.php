@@ -50,12 +50,12 @@ class CourseController extends Controller
         }
     }
     //Removing From Cart
-    public function RemoveFromCart(Request $request)
+    public function RemoveFromCart(Request $request,$id=null)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device' => $_COOKIE['device'], 'course_details_id' => $request->id])->count() == 0) {
+            if (Customer::where(['device'  => $_COOKIE['device'], 'course_details_id' => $id])->count() == 0) {
                 try {
-                    $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->delete();
+                    $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $id])->delete();
 
                     if ($removeFromCart == 1) {
                         return back();

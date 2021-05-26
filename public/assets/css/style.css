@@ -23645,6 +23645,7 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
   font-weight: 500;
   font-family: 'Poppins',sans-serif;
   margin-top: 7px;
+  cursor: pointer;
 }
 
 .cancel_btn:hover{
@@ -24108,4 +24109,11 @@ a.explore_more:hover:after {
   text-align: center;
   line-height: 18px;
   margin-right: 0.2rem;
+}
+.password_container button {
+    top: -37px;
+    margin-right: 10px;
+    float: right;
+    cursor: pointer;
+    position: relative;
 }

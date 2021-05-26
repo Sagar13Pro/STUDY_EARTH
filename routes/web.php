@@ -28,7 +28,7 @@ Route::get('/free-projects/modal/content/{id}', [mainController::class, 'ModalCo
 //Route::get('/courses', [CourseController::class, 'CourseView'])->name('courses.view');
 Route::get('/courses/courses/type={type}/language={lang}/', [CourseController::class, 'CoursesView'])->name('courses.view');
 Route::post('/courses/cart/add-product/', [CourseController::class, 'AddToCart'])->name('course_cart.add.product');
-Route::post('/courses/cart/remove-product/', [CourseController::class, 'RemoveFromCart'])->name('course_cart.remove.product');
+Route::post('/courses/cart/remove-product/{id?}', [CourseController::class, 'RemoveFromCart'])->name('course_cart.remove.product');
 //=======================================USER REALTED===========================================
 Route::post('/user/login/', [mainController::class, 'Login'])->name('user.login');
 Route::get('/user/logout/', [mainController::class, 'Logout'])->name('user.logout');

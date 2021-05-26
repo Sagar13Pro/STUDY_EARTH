@@ -166,7 +166,8 @@ class mainController extends Controller
         Validator::make($request->all(), [
             'mobileNoInput' => 'integer|digits:10',
             'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
-            'passwordInput' => 'min:8'
+            'passwordInput' => 'min:8|required_with:confirmpasswordInput|same:confirmpasswordInput',
+            'confirmpasswordInput' => 'min:8'
         ])->validated();
 
         try {
@@ -176,6 +177,7 @@ class mainController extends Controller
                 'email' => $request->emailInput,
                 'mobileNo' => $request->mobileNoInput,
                 'address' => $request->addressInput,
+                'birthdate' => $request->birthdateInput,
                 'password' => $request->passwordInput
             ]);
 
