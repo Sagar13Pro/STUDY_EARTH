@@ -221,6 +221,7 @@ class mainController extends Controller
         $response = $transaction->response();
         $email = session('temporary_email');
         $user_id = User::where('email', $email)->value('id');
+        //dd($transaction);
 
         if ($transaction->isSuccessful()) {
             $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
@@ -233,7 +234,7 @@ class mainController extends Controller
                 ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
                 ->value('courseTitle');
             $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
-            //$stored = $this->StoreTransactions($response, $user_id);
+            $stored = $this->StoreTransactions($response, $user_id);
             $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for_project' => $projectFetched, 'paid_for_course' => $courseFetched);
 
             // Mail::send('mail', ["data" => $data], function ($message) use ($email) {
