@@ -4,3 +4,5 @@
 3,1,"Probality Dist","Discrete Random Variable in Probability Distribution","",2,"No",NULL,NULL
 4,1,"Complex Int","Complex integration along a Circle with Solved Example","",2,"No",NULL,NULL
 7,2,"NFA","Creation","",1,"No",NULL,NULL
+8,3,"Cipher","Symmetric Cipher Model","Information Security/Unit 1 Symmetric Cipher Model.pdf",1,"Yes",NULL,NULL
+9,3,"Cipher","Block Cipher","Information Security/Unit 2 Block Cipher.pdf",2,"Yes",NULL,NULL
