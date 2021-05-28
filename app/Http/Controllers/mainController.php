@@ -145,20 +145,42 @@ class mainController extends Controller
     //Checkout for cart
     public function Checkout(Request $request)
     {
+        //$session_email = session('session_email');
+        $firstName=User::where('email' , $request->emailInput)->value('firstName');
+        $lastName=User::where('email' , $request->emailInput)->value('lastName');
+        $mobileNo=User::where('email' , $request->emailInput)->value('mobileNo');
         if(!session()->has('session_email'))
         {
-            $stored = $this->Store($request);
-            $payment = PaytmWallet::with('receive');
-            $payment->prepare([
-                'order' => rand(0, 1000000),
-                'user' => $request->fnameInput . $request->lnameInput,
-                'mobile_number' => $request->mobileNoInput,
-                'email' => $request->emailInput,
-                'amount' => $request->amount,
-                'callback_url' => route('payment.callback', $_COOKIE['device'])
-            ]);
-            session()->put('temporary_email', $request->emailInput);
-            return $payment->receive();
+            if(User::where('email' , $request->emailInput)->count() == 0)
+            {
+                //dd(User::where('email' , $session_email)->count());
+                $stored = $this->Store($request);
+                $payment = PaytmWallet::with('receive');
+                $payment->prepare([
+                    'order' => rand(0, 1000000),
+                    'user' => $request->fnameInput . $request->lnameInput,
+                    'mobile_number' => $request->mobileNoInput,
+                    'email' => $request->emailInput,
+                    'amount' => $request->amount,
+                    'callback_url' => route('payment.callback', $_COOKIE['device'])
+                ]);
+                session()->put('temporary_email', $request->emailInput);
+                return $payment->receive();
+            }
+            else
+            {
+                $payment = PaytmWallet::with('receive');
+                $payment->prepare([
+                    'order' => rand(0, 1000000),
+                    'user' => $firstName . $lastName,
+                    'mobile_number' => $mobileNo,
+                    'email' => $request->emailInput,
+                    'amount' => $request->amount,
+                    'callback_url' => route('payment.callback', $_COOKIE['device'])
+                ]);
+                session()->put('temporary_email', $request->emailInput);
+                return $payment->receive();
+            }
         }
         $session_email = session('session_email');
         $firstName=User::where('email' , $session_email)->value('firstName');
