@@ -28,27 +28,31 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="faq-accordion">
                                             <ul class="accordion">
-                                              @foreach ($titles as $key => $title)
-                                               <li class="accordion-item">
-                                                <a class="accordion-title" href="javascript:void(0)">
-                                                    {{ $title->title }}
-                                                </a>
-                                                <div class="accordion-content">
-                                                    <table class="table border-less">
-                                                        <tbody>
-                                                            @foreach ($topics as $item)
-                                                    @if($item->title == $title->title)
-                                                   
+                                                @foreach ($titles as $key => $title)
+                                                <li class="accordion-item">
+                                                    <a class="accordion-title" href="javascript:void(0)">
+                                                        {{ $title->title }}
+                                                    </a>
+                                                    <div class="accordion-content">
+                                                        <table class="table border-less">
+                                                            <tbody>
+                                                                @foreach ($topics as $index => $item)
+                                                                @if($item->title == $title->title)
+
                                                                 <tr>
                                                                     <th class="w-20">{{ $key.'.'.$item->display_order + 1 }}</th>
-                                                                    <td class="w-60">{{ $item->subtitle }}</td>
+                                                                    <td class="w-60"><a class="pdf-view-link" href="#" data-id={{ $index }}>{{ $item->subtitle }}</a></td>
+
+                                                                    <form method="post" id="viewer-course-form-{{ $index }}" action="{{ route('pdf.viewer',[$item->title,$item->subtitle]) }}">
+                                                                        @csrf
+                                                                    </form>
                                                                 </tr>
-                                                    @endif
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                          </div>
-                                                
+                                                                @endif
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -64,8 +68,14 @@
     </div>
     <!-- End Counterup Area  -->
 </div>
-
-
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.pdf-view-link').click(function() {
+            let id = $(this).data('id');
+            $('#viewer-course-form-' + id).submit();
+        });
+    });
 
-   
+</script>

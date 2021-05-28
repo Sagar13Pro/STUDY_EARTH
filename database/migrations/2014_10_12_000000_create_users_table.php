@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('mobileNo');
             $table->string('address');
             $table->string('password');
+            $table->date('dob');
             $table->timestamps();
         });
     }

@@ -23,8 +23,8 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="row">
+                        @foreach ($project_products as $key => $item )
                         <div class="col-sm-6 col-lg-4">
-                            @foreach ($project_products as $key => $item )
                             <div class="service-card-one bg-white center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/cotton/64/000000/student-male--v3.png" />
@@ -32,11 +32,11 @@
                                 <h3>
                                     <a href="#">{{ $item->projectTitle }}</a>
                                 </h3>
-                                {{ $item->id }}
                                 <p>{{ $item->projectContent }}</p>
                             </div>
-                            @endforeach
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -57,8 +57,8 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="row">
+                        @foreach ($course_products as $key => $items )
                         <div class="col-sm-6 col-lg-3">
-                            @foreach ($course_products as $key => $items )
                             <div class="service-card-one bg-white center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/flat-round/80/000000/book.png" />
@@ -69,8 +69,8 @@
                                 </h3>
                                 <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('user.read.course',[$items->courseTitle,$items->id]) }}">Start Reading</a>
                             </div>
-                            @endforeach
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -1,2 +1,4 @@
 "id","courseType","courseLanguage","courseTitle","courseContent","coursePrice","created_at","updated_at"
-1,"paid","eng","TOC","",5,NULL,NULL
+1,"paid","eng","eng-4","",5,NULL,NULL
+2,"paid","eng","toc","",10,NULL,NULL
+3,"paid","eng","IT","IT Course.",15,NULL,NULL

@@ -1,2 +1,4 @@
 "id","device","project_details_id","course_details_id","user_id","payment_status","created_at","updated_at"
-3,"7ec6bdc4-91b1-4a79-a9a7-b204ae518507",NULL,1,NULL,"paid","2021-05-23 21:41:23","2021-05-23 21:44:34"
+1,"7ec6bdc4-91b1-4a79-a9a7-b204ae518507",NULL,1,NULL,"paid","2021-05-23 21:41:23","2021-05-23 21:44:34"
+4,"7ec6bdc4-91b1-4a79-a9a7-b204ae518507",NULL,2,NULL,"unpaid","2021-05-24 12:27:53","2021-05-24 12:27:53"
+6,"7ec6bdc4-91b1-4a79-a9a7-b204ae518507",NULL,3,NULL,"unpaid","2021-05-28 09:21:55","2021-05-28 09:21:55"

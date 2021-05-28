@@ -8,31 +8,16 @@
     <style>
         .pdfobject-container {
             width: 100%;
-            max-width: 600px;
-            height: 600px;
-            margin: 2em 0;
+            height: 100vh;
+
         }
 
         .pdfobject {
             border: solid 6px #666;
         }
 
-        #results {
-            padding: 1rem;
-        }
-
         .hidden {
             display: none;
-        }
-
-        .success {
-            color: #4F8A10;
-            background-color: #DFF2BF;
-        }
-
-        .fail {
-            color: #D8000C;
-            background-color: #FFBABA;
         }
 
     </style>
@@ -41,7 +26,7 @@
 
 <body>
 
-    <div id="pdf" style="border: solid 3px red"></div>
+    <div id="pdf" style="border: solid 1px black"></div>
 
     <script src="https://unpkg.com/pdfobject@2.2.5/pdfobject.min.js"></script>
     <script>
@@ -52,11 +37,10 @@
                 , statusbar: 0
             , }
             , forcePDFJS: true
-            , PDFJS_URL: "{{ $path }}"
-            //PDFJS_URL: "./pdfjs/web/viewer.html"
+            , PDFJS_URL: "{{ $viewer }}"
         };
 
-        var myPDF = PDFObject.embed("1.pdf", "#pdf", options);
+        var myPDF = PDFObject.embed('{{ $pdf_name }}', "#pdf", options);
 
     </script>
 

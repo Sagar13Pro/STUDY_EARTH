@@ -1,4 +1,6 @@
 "id","course_detail_id","title","subtitle","pdf_path","display_order","isDeleted","created_at","updated_at"
-1,1,"Complex Int","sub-1","",1,"No",NULL,NULL
-2,1,"Probality Dist","sub-2","",2,"No",NULL,NULL
-3,1,"Probality Dist","sub-1","",1,"No",NULL,NULL
+1,1,"Complex Int","Complex integration along a Line or Parabola with Solved Example","",1,"No",NULL,NULL
+2,1,"Probality Dist","Introduction to Probability Distribution","",1,"No",NULL,NULL
+3,1,"Probality Dist","Discrete Random Variable in Probability Distribution","",2,"No",NULL,NULL
+4,1,"Complex Int","Complex integration along a Circle with Solved Example","",2,"No",NULL,NULL
+7,2,"NFA","Creation","",1,"No",NULL,NULL
