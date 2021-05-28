@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class mainController extends Controller
 {
@@ -144,9 +145,9 @@ class mainController extends Controller
     //Checkout for cart
     public function Checkout(Request $request)
     {
-        $stored = $this->Store($request);
-        if ($stored) {
-            //dd($request);
+        if(!session()->has('session_email'))
+        {
+            $stored = $this->Store($request);
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
@@ -159,6 +160,21 @@ class mainController extends Controller
             session()->put('temporary_email', $request->emailInput);
             return $payment->receive();
         }
+        $session_email = session('session_email');
+        $firstName=User::where('email' , $session_email)->value('firstName');
+        $lastName=User::where('email' , $session_email)->value('lastName');
+        $mobileNo=User::where('email' , $session_email)->value('mobileNo');
+        $payment = PaytmWallet::with('receive');
+        $payment->prepare([
+            'order' => rand(0, 1000000),
+            'user' => $firstName . $lastName,
+            'mobile_number' => $mobileNo,
+            'email' => $session_email,
+            'amount' => $request->amount,
+            'callback_url' => route('payment.callback', $_COOKIE['device'])
+        ]);
+        session()->put('temporary_email', $session_email);
+        return $payment->receive();
     }
     //Storing details of user
     public function Store($request)
