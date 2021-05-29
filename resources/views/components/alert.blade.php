@@ -23,4 +23,13 @@
 @if(session('error'))
 <div class="tracker">{{ session('error') }}</div>
 @endif
+@if(session('info'))
+<div class="alerts-info">{{ session('info') }}</div>
+@endif
+@endif
+
+@if($type == 'login')
+@if(session()->has('login_failed'))
+<div class="tracker">{{ session('login_failed') }}</div>
+@endif
 @endif

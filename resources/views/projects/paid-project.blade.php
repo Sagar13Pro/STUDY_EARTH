@@ -4,6 +4,30 @@
 
 @section('content')
 <div class="main-wrapper">
+    <div class="modal fade {{ session()->has('info') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('info') ? 'style=display:block' : 'style=display:none' }}>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <x-alert type="message" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+                </div>
+                <script>
+                    $('.btn-close').click(function() {
+                        console.log('o')
+                        $('#exampleModal').fadeOut(1000);
+                    })
+
+                </script>
+            </div>
+        </div>
+    </div>
+
     <!-- Start Breadcrumb Area -->
     <div class="axil-breadcrumb-area breadcrumb-style-2 single-service pt--170 pb--70 theme-gradient">
         <div class="container">
@@ -40,15 +64,11 @@
         </div>
     </div>
     <!-- End Breadcrumb Area -->
-
-
-
     <!-- Start Working Process  -->
     <div class="axil-working-process-area ax-section-gap theme-gradient-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
                     @if (count($paidProjects) > 0)
                     @foreach ($paidProjects as $key => $item)
                     @if ($key % 2 == 0)
@@ -150,7 +170,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center font-18">
-                <h4 class="padding-top-30 mb-30 weight-500">C++ Program for Face Detection using OpenCV</h4>
+                <h4 class="padding-top-30 mb-30 weight-500"></h4>
                 <hr>
                 <div class="row">
                     <div class="col-lg-12">

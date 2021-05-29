@@ -34,7 +34,7 @@ Route::post('/courses/cart/remove-product/{id?}', [CourseController::class, 'Rem
 Route::post('/user/login/', [mainController::class, 'Login'])->name('user.login');
 Route::get('/user/logout/', [mainController::class, 'Logout'])->name('user.logout');
 Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middleware('LoginSession')->name('user.purchases');
-Route::get('/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
+Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 Route::match(['GET', 'POST'], '/user/course/{title}/{subtitle}/view', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
 //==============================================================================================
 Route::view('/contact', 'contact');

@@ -77,9 +77,14 @@ class CourseController extends Controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] === "POST" && (!is_null($title) && !is_null($subtitle))) {
-            $pdf_name = '../PDFs/' . CourseMaterial::where(['title' => $title, 'subtitle' => $subtitle])->first()['pdf_path'];
-            $viewer = Storage::url('public/pdfjs/web/viewer.html');
-            return view("pdf", compact(["pdf_name", "viewer"]));
+            $pdf = CourseMaterial::where(['title' => $title, 'subtitle' => $subtitle])->first();
+            if ($pdf['isDeleted'] == 'No') {
+                $pdf_name = '../PDFs/' . $pdf['pdf_path'];
+                $viewer = Storage::url('public/pdfjs/web/viewer.html');
+                return view("pdf", compact(["pdf_name", "viewer"]));
+            } else {
+                return abort(404);
+            }
         } else {
             return abort(404);
         }

@@ -21,6 +21,7 @@ use App\Models\Customer;
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icomoon.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
     <script src="https://unpkg.com/feather-icons"></script>
@@ -228,13 +229,13 @@ use App\Models\Customer;
         @section('content')
         @show
         <!-- Login Model -->
-        <div class="modal fade " id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal fade {{ session()->has('login_failed') ? 'show' : '' }}" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" {{ session()->has('login_failed') ? 'style=display:block' : 'style=display:none' }}>
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content mr-15">
                     <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
                     <div class="login-box bg-white border-radius-10">
                         <h3 class="title text-center">Login To StudyEarth</h3>
-                        <x-alert type="message" />
+                        <x-alert type="login" />
                         <form action="{{ route('user.login') }}" method="POST" class="mt--30">
                             @csrf
                             <div class="form-group {{ is_null(old('login_emailInput')) ? '' : 'focused' }}">
@@ -400,6 +401,9 @@ use App\Models\Customer;
             'stroke-width': 2
             , 'stroke': '#000248'
         })
+        $('.close-btn').click(function() {
+            $('#login-modal').fadeOut(1000);
+        });
 
     </script>
     <!-- Modernizer JS -->
@@ -426,13 +430,11 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
     <!-- Development version -->
-
     <script src="{{ asset('assets/js/contactform.js') }}"></script>
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     @section('scripts')
     @show
 </body>

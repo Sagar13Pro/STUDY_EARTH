@@ -65,9 +65,11 @@
                                 </div>
                                 <h3>
                                     <a href="#">{{ $items->courseTitle }}</a>
-                                    {{ $items->id }}
                                 </h3>
-                                <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('user.read.course',[$items->courseTitle,$items->id]) }}">Start Reading</a>
+                                <a class="explore_more mt--10 text-left course-btn" data-hover="Learn More" data-id="{{ $key }}" href="#">Start Reading</a>
+                                <form id="course-form-{{ $key}}" action="{{ route('user.read.course',[$items->courseTitle,$items->id])  }}" method="POST">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                         @endforeach
@@ -79,6 +81,14 @@
     </div>
     <!-- End Counterup Area  -->
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.course-btn').click(function() {
+            let id = $(this).data('id');
+            $('#course-form-' + id).submit();
+        });
+    });
 
-
+</script>
 @endsection

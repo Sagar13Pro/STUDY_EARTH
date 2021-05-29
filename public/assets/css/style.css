@@ -12442,15 +12442,15 @@ button.axil-button.btn-transparent::after {
 }
 
 a.axil-button.btn-transparent:hover,
-button.axil-button.btn-transparent:hover {
+button.axil-button.btn-transparent:hover,svg:hover{
   color: #FFFFFF;
+  fill: #ffffff;
 }
 
 a.axil-button.btn-transparent:hover span.button-icon,
 button.axil-button.btn-transparent:hover span.button-icon {
   border-color: transparent transparent transparent #ffffff;
 }
-
 a.axil-button.btn-transparent:hover::before,
 button.axil-button.btn-transparent:hover::before {
   opacity: 0;
@@ -22359,10 +22359,12 @@ body.active-dark-mode .ax-search-area a.search-trigger i {
 }
 
 body.active-dark-mode a.axil-button,
-body.active-dark-mode button.axil-button {
+body.active-dark-mode button.axil-button{
   color: #D3D3D4;
 }
-
+body.active-dark-mode svg{
+  fill: #d3d3d4;
+}
 body.active-dark-mode a.axil-button.btn-transparent::before,
 body.active-dark-mode button.axil-button.btn-transparent::before {
   border: 2px solid #4E4E4E;
@@ -23644,7 +23646,6 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
   padding-right: 5px;
   font-weight: 500;
   font-family: 'Poppins',sans-serif;
-  margin-top: 7px;
   cursor: pointer;
 }
 
@@ -24116,4 +24117,10 @@ a.explore_more:hover:after {
     float: right;
     cursor: pointer;
     position: relative;
+}
+
+.alerts-info {
+       color: #055160;
+    font-size: 20px;
+    font-weight: bolder;
 }

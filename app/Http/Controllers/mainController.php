@@ -69,27 +69,31 @@ class mainController extends Controller
             $user_id = User::where('email', session('session_email'))->value('id');
             $project_products = ProjectDetails::select("*")
                 ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-                ->where('customers.payment_status', 'paid')
+                ->where(['customers.user_id' => $user_id, 'customers.payment_status' => 'paid'])
                 ->get();
-            $course_products =
-                CourseDetails::select("*")
-                ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
-                ->where('customers.payment_status', 'paid')
+            $course_products = Customer::select("*")
+                ->join('course_details', 'customers.course_details_id', '=', 'course_details.id')
+                ->where(['customers.user_id' => $user_id, 'customers.payment_status' => 'paid'])
                 ->get();
-            return view('purchase', compact(['project_products', 'course_products']));
+            return view('courses.purchase', compact(['project_products', 'course_products']));
         }
     }
     public function CourseReading($course = null, $id = null)
     {
-        if (!is_null($id)) {
-            $titles = CourseMaterial::select('title')
-                ->groupBy('title')
-                ->where('course_detail_id', $id)
-                ->get();
-            $topics = CourseMaterial::where('course_detail_id', $id)
-                ->orderBy('display_order', 'asc')
-                ->get();
-            return view('reading', compact(['topics', 'titles']));
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (!is_null($id)) {
+                $titles = CourseMaterial::select('title')
+                    ->groupBy('title')
+                    ->where('course_detail_id', $id)
+                    ->get();
+
+                $topics = CourseMaterial::where('course_detail_id', $id)
+                    ->orderBy('display_order', 'asc')
+                    ->get();
+                return view('courses.reading', compact(['topics', 'titles']));
+            }
+        } else {
+            return abort(404);
         }
     }
 
@@ -97,7 +101,8 @@ class mainController extends Controller
     public function AddToCart(Request $request)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id, 'payment_status' => 'paid'])->count() == 0 || 1) {
+            $already_in_cart = Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->get();
+            if ($already_in_cart->count() == 0 || ($already_in_cart->pluck('payment_status')->contains('unpaid') ? false : true)) {
                 try {
                     $addToCart = Customer::create([
                         'device' => $_COOKIE['device'],
@@ -110,10 +115,9 @@ class mainController extends Controller
                     dd('Error Occured while creating customer', $error);
                 }
             } else {
-                dd('Already in your cart');
+                return back()
+                    ->with('info', 'The item is already in your cart.');
             }
-        } else {
-            dd('No cookie');
         }
     }
     //Removing From Cart
@@ -221,7 +225,13 @@ class mainController extends Controller
         $email = session('temporary_email');
         $user_id = User::where('email', $email)->value('id');
         if ($transaction->isSuccessful()) {
-            $customers_model = Customer::where('device', $cookie)->update(['user_id' => $user_id]);
+            $customers_model = Customer::where(['device' => $cookie, 'payment_status' => 'unpaid'])->get();
+            foreach ($customers_model as $key => $items) {
+                $items->payment_status = "paid";
+                $items->user_id = $user_id;
+                $items->save();
+            }
+            dd($customers_model, $user_id, $email);
             $projectFetched = ProjectDetails::select('*')
                 ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
                 ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
@@ -230,7 +240,7 @@ class mainController extends Controller
                 ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
                 ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
                 ->value('courseTitle');
-            $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
+            // $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
             $stored = $this->StoreTransactions($response, $user_id, $email);
             $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for_project' => $projectFetched, 'paid_for_course' => $courseFetched);
 
@@ -280,7 +290,7 @@ class mainController extends Controller
         } else {
             return back()
                 ->withInput($request->all())
-                ->with('error', 'Email or password is not correct.');
+                ->with('login_failed', 'Email or password is not correct.');
         }
     }
     public function Logout()
