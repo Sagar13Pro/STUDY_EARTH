@@ -175,7 +175,6 @@ use Illuminate\Support\Facades\Auth;
                     @else
                     <div class="container" align="center" style="max-width: 700px;">
                         <div class="row">
-                            <!-- <img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{{ asset('assets/images/CartEmpty.jpg') }}" alt=""> -->
                             <h3 class="mt-5 mx-auto">Looks like the cart is empty!</h3>
                             <img class="mx-auto" src="{{ asset('assets/images/icons/empty-cart.svg') }}" width="250" height="200" alt="">
                         </div>

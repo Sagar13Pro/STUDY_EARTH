@@ -86,7 +86,6 @@ class mainController extends Controller
                     ->groupBy('title')
                     ->where('course_detail_id', $id)
                     ->get();
-
                 $topics = CourseMaterial::where('course_detail_id', $id)
                     ->orderBy('display_order', 'asc')
                     ->get();
