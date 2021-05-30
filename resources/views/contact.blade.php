@@ -1,8 +1,6 @@
 @extends('layout.layout')
 
 @section('content')
-
-
 <!-- Start Breadcrumb Area -->
 <div class="axil-breadcrumb-area breadcrumb-style-default pt--170 pb--70 theme-gradient">
     <div class="container">
@@ -37,25 +35,34 @@
                         <!-- Start Contact Form -->
                         <div class="axil-contact-form contact-form-style-1">
                             <h3 class="title">Get a free Keystroke quote now</h3>
+                            <script type="text/javascript">
+                                var submitted = false;
+                                var styles = document.getElementById("alert-box");
+                                console.log("Styles:", styles);
 
-                            <form id="contact-form" method="POST" action="http://axilthemes.com/demo/template/keystroke/mail.php">
+                            </script>
+                            <iframe name="iframe-hidden" id="iframe-hidden" style="display: none" onload="if(submitted) {console.log('ok')}"></iframe>
+                            <form id="contact-form" method="POST" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKZJeXUCYmWCLaO2yCqFPDPD3O5DUm265ltyfr4zBH-ryDbg/formResponse" onsubmit="submitted=true;" target="iframe-hidden">
                                 <div class="form-group">
-                                    <input name="con_name" type="text">
+                                    <input name="con_name" type="text" name="entry.1129134342">
                                     <label>Name</label>
                                     <span class="focus-border"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input name="con_email" type="email">
+                                    <input type="email" name="entry.124588102">
+
                                     <label>Email</label>
                                     <span class="focus-border"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text">
+                                    <input type="text" name="entry.583196216">
+
                                     <label>Phone</label>
                                     <span class="focus-border"></span>
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="con_message"></textarea>
+                                    <textarea name="entry.542001325"></textarea>
+
                                     <label>Your message</label>
                                     <span class="focus-border"></span>
                                 </div>
