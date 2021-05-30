@@ -24124,3 +24124,105 @@ a.explore_more:hover:after {
     font-size: 20px;
     font-weight: bolder;
 }
+
+.custom-toast {
+  display: none;
+  max-width: 350px;
+    overflow: hidden;
+    font-size: .875rem;
+    background-color: rgba(255,255,255,.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+     margin: -10px 16px;
+     position: relative;
+}
+.custom-toast.show {
+    display: block;
+    opacity: 1;
+}
+.fade {
+    transition: opacity .15s linear;
+}
+.custom-toast-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .25rem .75rem;
+    color: #0a0b0c;
+    background-color: rgba(255,255,255,.85);
+    background-clip: padding-box;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+   
+}
+.custom-toast-body {
+  padding: 0.75rem;
+}
+.custom-toast-body > .pass-validator {
+  display: block;
+  margin: 0 .4rem;
+}
+.custom-toast-body > .pass-validator > .pass-validator-icon,
+.custom-toast-body > .pass-validator > .pass-validator-text {
+  font-size: 1.1rem;
+  
+}
+.custom-toast-body > .pass-validator > .pass-validator-text {
+  margin-left: .4rem;
+}
+.pass-validator.invalid{
+  color: #da1717;
+}
+.pass-validator > .pass-validator-icon.valid, .pass-validator > .pass-validator-text.valid {
+  color: #0cb33b;
+}
+
+.custom-progress-container {
+  margin: .4rem;
+}
+.custom-progress-container > .custom-progress{
+    display: -ms-flexbox;
+    display: flex;
+    height: 0.5rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+.custom-progress-container > .custom-progress-header {
+  font-size: 1rem;
+  color: #000000;
+}
+.custom-progress-container > .custom-progress-header > .status {
+  transition: 1s ease-out;
+}
+.custom-progress-container > .custom-progress > .custom-progress-bar {
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    transition: width .6s ease;
+}
+@media (max-width: 768px) {
+  .custom-toast{
+    top: -795px;
+    z-index: 99999;
+  }
+}
+
+@media(min-width: 769px) {
+  .custom-toast {
+        top: -180px;
+    left: 81px;
+    max-width: 280px;
+  }
+}

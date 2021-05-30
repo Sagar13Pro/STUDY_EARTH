@@ -374,7 +374,7 @@ use App\Models\Customer;
                         <div class="row row--0 ptb--20 axil-basic-thine-line">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="inner text-center text-md-left">
-                                    <p>© 2020. All rights reserved by Your Company.</p>
+                                    <p>© {{ date('Y') }}. All rights reserved by Your Company.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">

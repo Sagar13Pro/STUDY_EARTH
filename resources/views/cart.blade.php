@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Auth;
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-6 {{ is_null(old('emailInput')) ? '' : 'focused' }}">
                                         <input type="email" name="emailInput" value="{{ old('emailInput') }}">
-                                        <label>Email I'd<span class="asterik">*</span></label>
+                                        <label>name@example.com<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert type="email" />
                                     </div>
@@ -57,7 +57,7 @@ use Illuminate\Support\Facades\Auth;
                                         <x-alert />
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 {{ is_null(old('birthdateInput')) ? '' : 'focused' }}">
-                                        <input type="date" name="birthdateInput" value="{{ old('birthdateInput') }}">
+                                        <input type="text" name="birthdateInput" value="{{ old('birthdateInput') }}" onfocus="(this.type = 'date')" onblur="(this.type = 'text')">
                                         <label>Birth Date<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert />
@@ -65,25 +65,12 @@ use Illuminate\Support\Facades\Auth;
                                 </div>
                                 <div class="row">
                                     <div class="form-group password_container col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
-                                        <input type="password" id="Pass" name="passwordInput" placeholder="Password">
-                                        <span class="input-group-btn" id="eyeSlash">
-                                            <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
-                                        </span>
-                                        <span class="input-group-btn" id="eyeShow" style="display: none;">
-                                            <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                        </span>
+                                        <input type="password" id="Pass" name="passwordInput">
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert type="password" />
                                     </div>
-                                    <div class="form-group password_container col-lg-6 col-md-6">
-                                        <input type="password" id="Pass_Confirm" name="confirmpasswordInput" placeholder="Confirm Password">
-                                        <span class="input-group-btn" id="eyeSlashConfirm">
-                                            <button class="btn btn-default reveal" onclick="visibility4()" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
-                                        </span>
-                                        <span class="input-group-btn" id="eyeShowConfirm" style="display: none;">
-                                            <button class="btn btn-default reveal" onclick="visibility4()" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                        </span>
+                                    <div class="form-group cpassword_container col-lg-6 col-md-6">
+                                        <input type="password" id="Pass_Confirm" name="confirmpasswordInput">
                                         <label>Confirm Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                     </div>
@@ -168,7 +155,7 @@ use Illuminate\Support\Facades\Auth;
                                         <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum()  }}">
                                     </li>
                                 </ul>
-                                <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
+                                <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn disabled"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
                             </div>
                         </div>
                     </div>
@@ -189,95 +176,163 @@ use Illuminate\Support\Facades\Auth;
             </form>
         </div>
     </div>
+    <div class="custom-toast fade">
+        <div class="custom-toast-header">
+            Your passsword must have:
+        </div>
+        <div class="custom-toast-body">
+            <span class="pass-validator invalid">
+                <i class="fas fa-check-circle pass-validator-icon characters"></i>
+                <span class="pass-validator-text characters">8 or more characters</span>
+            </span>
+            <span class="pass-validator invalid">
+                <i class="fas fa-check-circle pass-validator-icon lower-upper"></i>
+                <span class="pass-validator-text lower-upper">upper or lowercase letters</span>
+            </span>
+            <span class="pass-validator invalid">
+                <i class="fas fa-check-circle pass-validator-icon atleast-number"></i>
+                <span class="pass-validator-text atleast-number">at least one number</span>
+            </span>
+        </div>
+        <div class="custom-progress-container">
+            <div class="custom-progress-header">Password Strength: <span class="status"></span></div>
+            <div class="custom-progress">
+                <div class="custom-progress-bar" style="width:0%"></div>
+            </div>
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </div>
 
-    <script>
-        $(document).ready(function() {
-            let hasError = null;
-            const addErrorElement = () => {
-                let positionSpan = document.querySelectorAll('.form-group .focus-border');
-                let inputs_field = document.querySelectorAll('.form-group input');
-                inputs_field.forEach((element, index) => {
-                    if (element.value.length === 0) {
-                        console.log(element.nextElementSibling.nextElementSibling.nextElementSibling)
-                        if (element.nextElementSibling.nextElementSibling.nextElementSibling === null) {
-                            let divElem = document.createElement('div');
-                            divElem.setAttribute('class', ' tracker prompt-error-' + index);
-                            let divText = document.createTextNode('This is required.');
-                            divElem.appendChild(divText);
-                            positionSpan[index].insertAdjacentElement('afterend', divElem);
-                            hasError = false;
-                        }
-                    } else {
-                        $('.prompt-error-' + index).remove();
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let hasError = null;
+        const addErrorElement = () => {
+            let positionSpan = document.querySelectorAll('.form-group .focus-border');
+            let inputs_field = document.querySelectorAll('.form-group input');
+            inputs_field.forEach((element, index) => {
+                if (element.value.length === 0) {
+                    console.log(element.nextElementSibling.nextElementSibling.nextElementSibling)
+                    if (element.nextElementSibling.nextElementSibling.nextElementSibling === null) {
+                        let divElem = document.createElement('div');
+                        divElem.setAttribute('class', ' tracker prompt-error-' + index);
+                        let divText = document.createTextNode('This is required.');
+                        divElem.appendChild(divText);
+                        positionSpan[index].insertAdjacentElement('afterend', divElem);
+                        hasError = false;
                     }
-                });
-                let hasErrorCount = document.querySelectorAll('div .tracker').length;
-                if (hasErrorCount === 0) {
-                    hasError = true;
-                }
-            }
-            $('.buy-now-btn').click(function() {
-                addErrorElement();
-                if (hasError) {
-                    $('#billing-details-form').attr('action', "{{ route('cart.checkout') }}")
-                    $('#billing-details-form').submit();
+                } else {
+                    $('.prompt-error-' + index).remove();
                 }
             });
-            setInterval(() => {
-                if ($('.tracker').length > 0) {
-                    $('.tracker').remove()
-                }
-            }, 10000);
-        });
-
-    </script>
-    {{-- Script for Cancel --}}
-    <script>
-        $(document).ready(function() {
-            $('.project_cancel').click(function() {
-                const id = $(this).data('id');
-                let url = "{{ route('cart.remove.product', ':id') }}";
-                url = url.replace(':id', id);
-                $('#cancel-product-form').attr('action', url).submit();
-            });
-        });
-        $(document).ready(function() {
-            $('.course_cancel').click(function() {
-                const id = $(this).data('id');
-                let url = "{{ route('course_cart.remove.product', ':id') }}";
-                //console.log(id);
-                url = url.replace(':id', id);
-                $('#cancel-product-form').attr('action', url).submit();
-            });
-        });
-
-        function visibility3() {
-            var x = document.getElementById('Pass');
-            if (x.type === 'password') {
-                x.type = "text";
-                $('#eyeShow').show();
-                $('#eyeSlash').hide();
+            let hasErrorCount = document.querySelectorAll('div .tracker').length;
+            if (hasErrorCount === 0) {
+                hasError = true;
             } else {
-                x.type = "password";
-                $('#eyeShow').hide();
-                $('#eyeSlash').show();
+                $('.buy-now-btn').attr('disabled');
             }
         }
+        $('.buy-now-btn').click(function() {
+            addErrorElement();
+            if (hasError) {
+                $('#billing-details-form').attr('action', "{{ route('cart.checkout') }}")
+                $('#billing-details-form').submit();
+            }
+        });
+        // setInterval(() => {
+        //     if ($('.tracker').length > 0) {
+        //         $('.tracker').remove()
+        //     }
+        // }, 10000);
+    });
 
-        function visibility4() {
-            var x = document.getElementById('Pass_Confirm');
-            if (x.type === 'password') {
-                x.type = "text";
-                $('#eyeShowConfirm').show();
-                $('#eyeSlashConfirm').hide();
+</script>
+{{-- Script for Cancel --}}
+<script>
+    $(document).ready(function() {
+        $('.project_cancel').click(function() {
+            const id = $(this).data('id');
+            let url = "{{ route('cart.remove.product', ':id') }}";
+            url = url.replace(':id', id);
+            $('#cancel-product-form').attr('action', url).submit();
+        });
+    });
+    $(document).ready(function() {
+        $('.course_cancel').click(function() {
+            const id = $(this).data('id');
+            let url = "{{ route('course_cart.remove.product', ':id') }}";
+            url = url.replace(':id', id);
+            $('#cancel-product-form').attr('action', url).submit();
+        });
+    });
+    $(document).ready(function() {
+        let pass = document.getElementById('Pass');
+        pass.addEventListener("focus", function() {
+            $('.custom-toast').addClass('show');
+        });
+        pass.addEventListener("blur", function() {
+            $('.custom-toast').removeClass('show');
+        })
+        pass.addEventListener("keyup", function() {
+            if (pass.value.match(/[a-z]/g) && pass.value.match(/[A-Z]/g)) {
+                $('.lower-upper').addClass("valid");
+                $('.lower-upper').removeClass("invalid");
             } else {
-                x.type = "password";
-                $('#eyeShowConfirm').hide();
-                $('#eyeSlashConfirm').show();
+                $('.lower-upper').addClass("invalid");
+                $('.lower-upper').removeClass("valid");
+            }
+            if (pass.value.match(/[0-9]/g)) {
+                $('.atleast-number').addClass("valid");
+                $('.atleast-number').removeClass("invalid");
+            } else {
+                $('.atleast-number').addClass("invalid");
+                $('.atleast-number').removeClass("valid");
+            }
+            if (pass.value.length >= 8) {
+                $('.characters').addClass("valid");
+                $('.characters').removeClass("invalid");
+            } else {
+                $('.characters').addClass("invalid");
+                $('.characters').removeClass("valid");
+            }
+            progressBar();
+        });
+        const progressBar = () => {
+            let bar = $('.custom-progress-bar');
+            let status = $('.status');
+
+            if (pass.value.length >= 1 && pass.value.length < 8) {
+                bar.css('background', '#ff0000');
+                status.css('color', '#ff0000');
+                bar.css('width', '30%');
+                status.text('weak')
+            }
+            if (pass.value.match(/[a-z]/g) && pass.value.match(/[A-Z]/g) && pass.value.match(/[0-9]/g) && pass.value.length >= 8) {
+                bar.css('background', '#ff8c00')
+                status.css('color', '#ff8c00')
+                bar.css('width', '60%');
+                status.text('moderate')
+            } else {
+                bar.css('background', '#ff0000')
+                status.css('color', '#ff0000')
+                bar.css('width', '30%');
+                status.text('weak');
+            }
+            if (pass.value.match(/[a-z]/g) && pass.value.match(/[A-Z]/g) && pass.value.match(/[0-9]/g) && pass.value.match(/['!@#$%^&*()']/g) && pass.value.length >= 8) {
+                bar.css('background', '#09ae00')
+                status.css('color', '#09ae00')
+                bar.css('width', '90%');
+                status.text('strong')
+            }
+            if (pass.value.match(/[a-z]/g) && pass.value.match(/[A-Z]/g) && pass.value.match(/[0-9]/g) && pass.value.match(/['!@#$%^&*()']/g) && pass.value.length >= 16) {
+                bar.css('background', '#09ae00')
+                status.css('color', '#09ae00')
+                bar.css('width', '100%');
+                status.text('strong')
             }
         }
+    });
 
-    </script>
-    @endsection
+</script>
+@endsection
