@@ -25,6 +25,7 @@ Route::post('payment-status/{cookie}', [mainController::class, 'PaymentCallback'
 Route::post('/free-projects/download/{id}', [mainController::class, 'FreeProjectsDownloadable'])->name('free.projects.download');
 //Request modal data free projects
 Route::get('/free-projects/modal/content/{id}', [mainController::class, 'ModalContent'])->name('free.projects.modal');
+Route::get('/contact', [mainController::class, 'ContactView'])->name('contact.view');
 //===================================COURSE ROUTES==============================================
 //Route::get('/courses', [CourseController::class, 'CourseView'])->name('courses.view');
 Route::get('/courses/courses/type={type}/language={lang}/', [CourseController::class, 'CoursesView'])->name('courses.view');
@@ -37,9 +38,3 @@ Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middlewa
 Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 Route::match(['GET', 'POST'], '/user/course/{title}/{subtitle}/view', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
 //==============================================================================================
-Route::view('/contact', 'contact');
-
-Route::get('migrate', function () {
-    $s  = Storage::url('/public/pdfjs/web/viewer.html');
-    return $s;
-});

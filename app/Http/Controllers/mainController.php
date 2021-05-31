@@ -78,6 +78,10 @@ class mainController extends Controller
             return view('courses.purchase', compact(['project_products', 'course_products']));
         }
     }
+    public function ContactView()
+    {
+        return view('contact');
+    }
     public function CourseReading($course = null, $id = null)
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -226,17 +230,15 @@ class mainController extends Controller
         if ($transaction->isSuccessful()) {
             $customers_model = Customer::where(['device' => $cookie, 'payment_status' => 'unpaid'])->get();
             foreach ($customers_model as $key => $value) {
-                if(!empty($value->project_details_id))
-                {
+                if (!empty($value->project_details_id)) {
                     $paid_for[$key] = ProjectDetails::select('*')
-                                        ->where(['id'=>$value->project_details_id])
-                                        ->value('projectTitle');
+                        ->where(['id' => $value->project_details_id])
+                        ->value('projectTitle');
                 }
-                if(!empty($value->course_details_id))
-                {
+                if (!empty($value->course_details_id)) {
                     $paid_for[$key] = CourseDetails::select('*')
-                                        ->where(['id'=>$value->course_details_id])
-                                        ->value('courseTitle');
+                        ->where(['id' => $value->course_details_id])
+                        ->value('courseTitle');
                 }
             }
             foreach ($customers_model as $key => $items) {

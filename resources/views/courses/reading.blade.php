@@ -43,7 +43,7 @@
                                                                     <th class="w-20">{{ $key.'.'.$item->display_order + 1 }}</th>
                                                                     <td class="w-60">{{ $item->subtitle }}</td>
                                                                     <td>
-                                                                        <button class="btn btn-info pdf-view-link" data-id={{ $index }}>click</button>
+                                                                        <button class="btn btn-info pdf-view-link" data-id={{ $index }}>View</button>
                                                                     </td>
 
                                                                     <form method="post" id="viewer-course-form-{{ $index }}" action="{{ route('pdf.viewer',[$item->title,$item->subtitle]) }}">

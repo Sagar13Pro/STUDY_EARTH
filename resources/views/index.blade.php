@@ -398,8 +398,7 @@ use App\Models\Customer;
                             <div class="address">
                                 <p>Vadodara, Gujarat</p>
                                 <p><a href="tel:940-846-3208">940-846-3208</a></p>
-                                <p><a href="mailto:">contact@Keystroke.com</a></p>
-
+                                <p><a href="mailto:info@studyearth.co.in">info@studyearth.co.in</a></p>
                             </div>
                         </div>
                     </div>
@@ -429,9 +428,8 @@ use App\Models\Customer;
                         <h6 class="title">Support</h6>
                         <div class="footer-menu-container">
                             <ul class="ft-menu liststyle link-hover color-var--2">
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="#">Sitemap</a></li>
+                                <li><a href="{{ route('contact.view') }}">Contact</a></li>
+                                <li><a href="">Privacy Policy</a></li>
                             </ul>
                         </div>
                     </div>

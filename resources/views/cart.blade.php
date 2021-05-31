@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Auth;
                 @csrf
                 <div class="row mt--80">
                     @if (count($projectFetched) > 0 || count($courseFetched) > 0)
-                    @if(!session()->has('session_email'))
-                    <div class="col-xl-6">
+                    <div class="col-xl-6" {{ session()->has('session_email') ? "style=display:none": 'style=display:block' }}>
                         <div class="card card-user">
                             <div class="card-body">
                                 <h4>Billing Details<b style="color: #f00">*</b></h4>
                                 <div class="row">
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('fnameInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('fnameInput')) ? '' : 'focused' }}">
                                         <input type="text" name="fnameInput" value="{{ old('fnameInput') }}">
                                         <label>First name<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert />
                                     </div>
 
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('lnameInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('lnameInput')) ? '' : 'focused' }}">
+
                                         <input type="text" name="lnameInput" value="{{ old('lnameInput') }}">
                                         <label>Last name<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
@@ -36,13 +36,13 @@ use Illuminate\Support\Facades\Auth;
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('emailInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('emailInput')) ? '' : 'focused' }}">
                                         <input type="email" name="emailInput" value="{{ old('emailInput') }}">
                                         <label>name@example.com<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert type="email" />
                                     </div>
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('mobileNoInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('mobileNoInput')) ? '' : 'focused' }}">
                                         <input type="text" name="mobileNoInput" value="{{ old('mobileNoInput') }}">
                                         <label>Mobile<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
@@ -50,13 +50,13 @@ use Illuminate\Support\Facades\Auth;
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('addressInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('addressInput')) ? '' : 'focused' }}">
                                         <input type="text" name="addressInput" value="{{ old('addressInput') }}">
                                         <label>Address<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert />
                                     </div>
-                                    <div class="form-group col-lg-6 col-md-6 {{ is_null(old('birthdateInput')) ? '' : 'focused' }}">
+                                    <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('birthdateInput')) ? '' : 'focused' }}">
                                         <input type="text" name="birthdateInput" value="{{ old('birthdateInput') }}" onfocus="(this.type = 'date')" onblur="(this.type = 'text')">
                                         <label>Birth Date<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
@@ -64,21 +64,22 @@ use Illuminate\Support\Facades\Auth;
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group password_container col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
+                                    <div class="form-group bill password_container col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
                                         <input type="password" id="Pass" name="passwordInput">
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
+                                        <x-alert />
                                     </div>
-                                    <div class="form-group cpassword_container col-lg-6 col-md-6">
+                                    <div class="form-group bill cpassword_container col-lg-6 col-md-6">
                                         <input type="password" id="Pass_Confirm" name="confirmpasswordInput">
                                         <label>Confirm Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
+                                        <x-alert type="password" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endif
                     <div class="{{ session()->has('session_email') ? 'col-xl-12' : 'col-xl-6' }}">
                         <div class="card bill-details">
                             <div class="card-body">
@@ -155,7 +156,7 @@ use Illuminate\Support\Facades\Auth;
                                         <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum()  }}">
                                     </li>
                                 </ul>
-                                <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn disabled"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
+                                <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
                             </div>
                         </div>
                     </div>
@@ -167,6 +168,7 @@ use Illuminate\Support\Facades\Auth;
                         </div>
                     </div>
                     @endif
+
                 </div>
             </form>
             <!--Grid row-->
@@ -209,12 +211,12 @@ use Illuminate\Support\Facades\Auth;
     $(document).ready(function() {
         let hasError = null;
         const addErrorElement = () => {
-            let positionSpan = document.querySelectorAll('.form-group .focus-border');
-            let inputs_field = document.querySelectorAll('.form-group input');
+            let positionSpan = document.querySelectorAll('.bill .focus-border');
+            let inputs_field = document.querySelectorAll('.bill input');
             inputs_field.forEach((element, index) => {
                 if (element.value.length === 0) {
-                    console.log(element.nextElementSibling.nextElementSibling.nextElementSibling)
-                    if (element.nextElementSibling.nextElementSibling.nextElementSibling === null) {
+                    console.log(element)
+                    if (element.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling === null) {
                         let divElem = document.createElement('div');
                         divElem.setAttribute('class', ' tracker prompt-error-' + index);
                         let divText = document.createTextNode('This is required.');
@@ -229,8 +231,8 @@ use Illuminate\Support\Facades\Auth;
             let hasErrorCount = document.querySelectorAll('div .tracker').length;
             if (hasErrorCount === 0) {
                 hasError = true;
-            } else {
-                $('.buy-now-btn').attr('disabled');
+            } else if ("{{ session()->has('session_email') }}") {
+                hasError = true;
             }
         }
         $('.buy-now-btn').click(function() {
