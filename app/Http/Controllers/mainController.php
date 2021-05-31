@@ -225,28 +225,33 @@ class mainController extends Controller
         $user_id = User::where('email', $email)->value('id');
         if ($transaction->isSuccessful()) {
             $customers_model = Customer::where(['device' => $cookie, 'payment_status' => 'unpaid'])->get();
+            foreach ($customers_model as $key => $value) {
+                if(!empty($value->project_details_id))
+                {
+                    $paid_for[$key] = ProjectDetails::select('*')
+                                        ->where(['id'=>$value->project_details_id])
+                                        ->value('projectTitle');
+                }
+                if(!empty($value->course_details_id))
+                {
+                    $paid_for[$key] = CourseDetails::select('*')
+                                        ->where(['id'=>$value->course_details_id])
+                                        ->value('courseTitle');
+                }
+            }
             foreach ($customers_model as $key => $items) {
                 $items->payment_status = "paid";
                 $items->user_id = $user_id;
                 $items->save();
             }
-            dd($customers_model, $user_id, $email);
-            $projectFetched = ProjectDetails::select('*')
-                ->join('customers', 'customers.project_details_id', '=', 'project_details.id')
-                ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
-                ->value('projectTitle');
-            $courseFetched = CourseDetails::select('*')
-                ->join('customers', 'customers.course_details_id', '=', 'course_details.id')
-                ->where([['customers.user_id', $user_id], ['customers.payment_status', 'unpaid']])
-                ->value('courseTitle');
-            // $customers_model = Customer::where('device', $cookie)->update(['payment_status' => 'paid']);
+            $paid_for = implode(', ', $paid_for);
             $stored = $this->StoreTransactions($response, $user_id, $email);
-            $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for_project' => $projectFetched, 'paid_for_course' => $courseFetched);
+            $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for' => $paid_for);
 
-            // Mail::send('mail', ["data" => $data], function ($message) use ($email) {
-            //     $message->to($email)
-            //         ->subject('invoice');
-            // });
+            Mail::send('mail', ["data" => $data], function ($message) use ($email) {
+                $message->to($email)
+                    ->subject('invoice');
+            });
             session()->pull('temporary_email');
             dd("done");
         } else if ($transaction->isFailed()) {

@@ -235,7 +235,7 @@ use App\Models\Customer;
                 <!-- End Single Case Study  -->
                 <div class="col-lg-12">
                     <div class="view-all-portfolio-button mt--60 text-center">
-                        <a class="axil-button btn-large btn-transparent btn-xl" href="services.html"><span class="button-text">Discover More Projects</span><span class="button-icon"></span></a>
+                        <a class="axil-button btn-large btn-transparent btn-xl" href="#"><span class="button-text">Discover More Projects</span><span class="button-icon"></span></a>
                     </div>
                 </div>
             </div>
@@ -286,7 +286,7 @@ use App\Models\Customer;
                             <img src="assets/images/portfolio/boxes-img2.png" alt="box_img_2">
                         </div>
                         <h3>
-                            <a href="single-services.html">Mobile App Development</a>
+                            <a href="">Mobile App Development</a>
                         </h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
                         <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','mobile']) }}">Explore More</a>
@@ -295,7 +295,7 @@ use App\Models\Customer;
             </div>
             <div class="col-lg-12">
                 <div class="view-all-portfolio-button mt--60 text-center">
-                    <a class="axil-button btn-large btn-transparent btn-xl" href="services.html">
+                    <a class="axil-button btn-large btn-transparent btn-xl" href="">
                         <span class="button-text">Discover More Courses</span>
                         <span class="button-icon"></span>
                     </a>

@@ -159,18 +159,13 @@
                         <td> {{ $data['amount'] }}
                         </td>
                     </tr>
-                    @if (!empty($data['paid_for_project']) || !empty($data['paid_for_course']))
-                    <tr class="details">
+                    @if (!empty($data['paid_for']))
+                    <tr class="details"> 
                         <td> Paid For
                         </td>
-                        @if(!empty($data['paid_for_project']))
-                        <td> {{ $data['paid_for_project'] }}
+                        <td>
+                        {{ $data['paid_for'] }}
                         </td>
-                        @endif
-                        @if(!empty($data['paid_for_course']))
-                        <td> {{ $data['paid_for_course'] }}
-                        </td>
-                        @endif
                     </tr>
                     @endif
                     <tr class="details">
