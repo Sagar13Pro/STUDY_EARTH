@@ -84,7 +84,7 @@ use App\Models\Customer;
                                         <li class="has-dropdown">
                                             <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a>
                                         </li>
-                                        <li><a href="">Contact</a></li>
+                                        <li><a href="{{ route('contact.view') }}">Contact</a></li>
                                         {{-- DARK/LIGHT MODE --}}
                                         <li>
                                             <div id="my_switcher" class="my_switcher">
@@ -430,7 +430,6 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
     <!-- Development version -->
-    <script src="{{ asset('assets/js/contactform.js') }}"></script>
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->

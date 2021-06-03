@@ -4,6 +4,12 @@
 @enderror
 @endif
 
+@if ($type == 'mobileNo')
+@error('con_mobile')
+<div class="tracker custom-error my-1">{{ $message }}</div>
+@enderror
+@endif
+
 @if ($type == 'email')
 @error('emailInput')
 <div class="tracker custom-error my-1">{{ $message }}</div>

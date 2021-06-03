@@ -35,41 +35,37 @@
                         <!-- Start Contact Form -->
                         <div class="axil-contact-form contact-form-style-1">
                             <h3 class="title">Get a free Keystroke quote now</h3>
-                            <script type="text/javascript">
-                                var submitted = false;
-                                var styles = document.getElementById("alert-box");
-                                console.log("Styles:", styles);
-
-                            </script>
-                            <iframe name="iframe-hidden" id="iframe-hidden" style="display: none" onload="if(submitted) {console.log('ok')}"></iframe>
-                            <form id="contact-form" method="POST" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKZJeXUCYmWCLaO2yCqFPDPD3O5DUm265ltyfr4zBH-ryDbg/formResponse" onsubmit="submitted=true;" target="iframe-hidden">
-                                <div class="form-group">
-                                    <input name="con_name" type="text" name="entry.1129134342">
-                                    <label>Name</label>
+                            <form id="contact-form" method="POST" action="{{ route('contact.details') }}">
+                                @csrf
+                                <div class="form-group bill">
+                                    <input type="text" name="con_name" required>
+                                    <label>Name<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
+                                        <x-alert />
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" name="entry.124588102">
-
-                                    <label>Email</label>
+                                <div class="form-group bill">
+                                    <input type="email" name="con_email" required>
+                                    <label>Email<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
+                                        <x-alert />
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="entry.583196216">
-
-                                    <label>Phone</label>
+                                <div class="form-group bill">
+                                    <input type="tel" name="con_mobile"  pattern="[0-9]{10}" required>
+                                    <label>Phone<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
+                                        <x-alert />
                                 </div>
-                                <div class="form-group">
-                                    <textarea name="entry.542001325"></textarea>
-
-                                    <label>Your message</label>
+                                <div class="form-group bill">
+                                    <input type="text" name="con_message" required>
+                                    <label>Your message<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
+                                        <x-alert />
                                 </div>
-
-                                <div class="form-group">
+                                <div class="form-group bill">
                                     <input type="submit" value="Send message">
                                     <p class="form-messege"></p>
+                                    <span class="focus-border"></span>
+                                        <x-alert />
                                 </div>
                             </form>
 
@@ -210,4 +206,34 @@
 
 
 </main>
+<!-- <script type="text/javascript">
+    $(document).ready(function() {
+        let hasError = null;
+        const addErrorElement = () => {
+            let positionSpan = document.querySelectorAll('.bill .focus-border');
+            let inputs_field = document.querySelectorAll('.bill input');
+            inputs_field.forEach((element, index) => {
+                if (element.value.length === 0) {
+                    console.log(element)
+                    if (element.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling === null) {
+                        let divElem = document.createElement('div');
+                        divElem.setAttribute('class', ' tracker prompt-error-' + index);
+                        let divText = document.createTextNode('This is required.');
+                        divElem.appendChild(divText);
+                        positionSpan[index].insertAdjacentElement('afterend', divElem);
+                        hasError = false;
+                    }
+                } else {
+                    $('.prompt-error-' + index).remove();
+                }
+            });
+            let hasErrorCount = document.querySelectorAll('div .tracker').length;
+            if (hasErrorCount === 0) {
+                hasError = true;
+            } else if ("{{ session()->has('session_email') }}") {
+                hasError = true;
+            }
+        }
+    });
+</script> -->
 @endsection

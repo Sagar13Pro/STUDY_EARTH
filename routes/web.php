@@ -37,4 +37,5 @@ Route::get('/user/logout/', [mainController::class, 'Logout'])->name('user.logou
 Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middleware('LoginSession')->name('user.purchases');
 Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 Route::match(['GET', 'POST'], '/user/course/{title}/{subtitle}/view', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
+Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('contact.details');
 //==============================================================================================

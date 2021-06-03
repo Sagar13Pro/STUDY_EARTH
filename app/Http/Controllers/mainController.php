@@ -10,6 +10,7 @@ use App\Models\CourseMaterial;
 use App\Models\Projects;
 use App\Models\User;
 use App\Models\Transaction;
+use App\Models\Contact;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -306,4 +307,32 @@ class mainController extends Controller
         }
         return redirect(route('index.view'));
     }
+    //contact details
+    public function contactDetails(Request $request)
+    {
+        Validator::make($request->all(), [
+            'con_mobile' => 'integer|digits:10',
+            'con_email' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+        ])->validated();
+        $email = 'akashtarapara222@gmail.com';
+        try {
+            $contact = Contact::create([
+                'name' => $request->con_name,
+                'email' => $request->con_email,
+                'mobile' => $request->con_mobile,
+                'message' => $request->con_message,
+            ]);
+            if ($contact) {
+                Mail::send('mail-contact', ["data" => $request], function ($message) use ($email) {
+                    $message->to($email)
+                        ->subject('Contact');
+                });
+                return Redirect::to('contact.details')->with('success', true)->with('message','That was great!');
+            }
+        } catch (Exception $error) {
+            dd($error);
+            return false;
+        }
+    }
 }
+ 
