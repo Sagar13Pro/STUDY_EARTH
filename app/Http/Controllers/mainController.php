@@ -327,7 +327,8 @@ class mainController extends Controller
                     $message->to($email)
                         ->subject('Contact');
                 });
-                return Redirect::to('contact.details')->with('success', true)->with('message','That was great!');
+                return redirect(route('contact.details'));
+                //return Redirect::to('contact.details')->with('success', true)->with('message','That was great!');
             }
         } catch (Exception $error) {
             dd($error);
