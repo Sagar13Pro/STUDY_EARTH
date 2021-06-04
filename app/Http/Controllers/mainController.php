@@ -11,12 +11,14 @@ use App\Models\Projects;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Contact;
+use App\Models\CustomProjectsForm;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\CustomProjectFormMailable as custom_project_mail;
 
 class mainController extends Controller
 {
@@ -128,7 +130,7 @@ class mainController extends Controller
     public function RemoveFromCart(Request $request)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device' => $_COOKIE['device'], 'project_details_id' => $request->id])->count() == 0) {
+            if (Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->count() == 1) {
                 try {
                     $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $request->id])->delete();
 
@@ -138,11 +140,7 @@ class mainController extends Controller
                 } catch (Exception $error) {
                     dd('Error Occured while removing customer from cart', $error);
                 }
-            } else {
-                dd('Already delete from your cart');
             }
-        } else {
-            dd('No cookie');
         }
     }
     //Checkout for cart
@@ -169,12 +167,25 @@ class mainController extends Controller
     //Storing details of user
     public function Store($request)
     {
-        Validator::make($request->all(), [
-            'mobileNoInput' => 'integer|digits:10',
-            'emailInput' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
-            'passwordInput' => 'min:8|required_with:confirmpasswordInput|same:confirmpasswordInput',
-            'confirmpasswordInput' => 'min:8'
-        ])->validated();
+        $rules = [
+            'fnameInput' => 'required',
+            'lnameInput' => 'required',
+            'mobileNoInput' => 'required|integer|digits:10',
+            'emailInput' => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            'passwordInput' => 'required|min:8|required_with:confirmpasswordInput|',
+            'confirmpasswordInput' => 'required|min:8|same:confirmpassword',
+            'addressInput' => 'required',
+            'birthdateInput' => 'required',
+        ];
+        $message = [
+            '*.required' => 'This is required.',
+            'emailInput.regex' => 'The email format is invalid.',
+            'mobileNoInput.integer' => 'The mobile number must be an integer.',
+            'mobileNoInput.digits' => 'The mobile number must be 10 digits.',
+            'passwordInput.min' => 'The password  must be at least 8 characters.',
+            'confirmpasswordInput.same' => 'The password must match.'
+        ];
+        Validator::make($request->all(), $rules, $message)->validated();
 
         try {
             $user = User::create([
@@ -335,5 +346,48 @@ class mainController extends Controller
             return false;
         }
     }
+    //Custom Project Form
+    public function CustomProjectForm(Request $request)
+    {
+        $rules = [
+            "full_nameInput" => 'required',
+            "emailInput" => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            "mobile_numberInput" => 'required|integer|digits:10',
+            "project_platformInput" => 'required',
+            "project_requirementsInput" => 'required|max:255'
+        ];
+        $message = [
+            '*.required' => 'This is required.',
+            'email.regex' => 'The email format is invalid.',
+            'mobile_numberInput.digits' => 'The mobile number must be 10 digits.'
+        ];
+        $validate = Validator::make($request->all(), $rules, $message)->validated();
+        try {
+            $isFormCreated = CustomProjectsForm::create([
+                'full_name' => $request->full_nameInput,
+                'email' => $request->emailInput,
+                'contact_number' => $request->mobile_numberInput,
+                'selected_platform' => $request->project_platformInput,
+                'project_description' => $request->project_requirementsInput
+            ]);
+        } catch (Exception $error) {
+            $isFormCreated = false;
+        }
+        if ($isFormCreated) {
+            try {
+                Mail::to($request->emailInput)->cc('sagarpatel_30@yahoo.com')->send(new custom_project_mail($request->full_nameInput, $request->emailInput, $request->mobile_numberInput, $request->project_platformInput, $request->project_requirementsInput));
+                $isMailSent = true;
+            } catch (Exception $error) {
+                $isMailSent = false;
+            }
+            if ($isMailSent) {
+                CustomProjectsForm::where('email', $request->emailInput)->orderBy('created_at', 'desc')->first()->update(['isMailSent' => 'Yes']);
+                return back()
+                    ->with('custom_message', 'Your request for custom project form submited.Kindly wait for 24hr for reply.');
+            } else {
+                return back()
+                    ->with('custom_message', 'ERROR_MAIL');
+            }
+        }
+    }
 }
- 

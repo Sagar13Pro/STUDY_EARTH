@@ -13805,14 +13805,15 @@ Contact Form Style
 .axil-contact-form.contact-form-style-1 {
   padding: 50px;
   position: relative;
-  z-index: 1;
   max-width: 490px;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   padding-left: 60px;
   z-index: 2;
 }
-
+.axil-contact-form.contact-form-style-1.w-100 {
+  max-width: 100%;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .axil-contact-form.contact-form-style-1 {
     padding: 30px 35px;
@@ -14067,7 +14068,14 @@ Contact Form Style
   font-size: 18px;
   line-height: 28px;
 }
-
+@media (max-width: 768px) {
+  .form-group label {
+    font-size: 14px;
+  }
+  .form-group select {
+    font-size: 14px !important;
+  }
+}
 .form-group input {
   border: 0;
   border-bottom: 2px solid #C7C7D5;
@@ -14091,6 +14099,24 @@ Contact Form Style
 .form-group input[type="submit"]:hover {
   background: #000248;
   color: #ffffff;
+}
+.form-group select {
+  border: 0;
+  border-bottom: 2px solid #C7C7D5;
+  background-color: transparent;
+  padding-bottom: 8px;
+  background: #ffffff;
+  font-size: 16px;
+  height: 46px;
+  line-height: 44px;
+  padding: 0;
+  text-transform: capitalize;
+  padding-top: 8px;
+}
+.active-dark-mode .form-group select {
+  background-color: transparent;
+  color: #D3D3D4;
+  border-bottom: 2px solid #4E4E4E;
 }
 
 .form-group textarea {
@@ -22780,10 +22806,15 @@ body.active-dark-mode .axil-pricing-table.active button.axil-button.btn-transpar
 }
 
 body.active-dark-mode .card {
-  background: transparent;
+  background: #1a1a1a;
   border-bottom: 1px solid #242526;
 }
-
+body.active-dark-mode .card .product_name {
+  color: #ffffff !important ;
+}
+body.active-dark-mode .card .checkOut {
+  background-color: #1a1a1a !important ;
+}
 body.active-dark-mode .axil-accordion--2 .card {
   border: 1px solid #4E4E4E;
 }
@@ -23743,7 +23774,6 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
 .service-card-one .icon {
   position: relative
 }
-
 .service-card-one .icon img {
   /*background-color: #ececff;*/
   height: auto;
@@ -23758,7 +23788,12 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
   margin-bottom: 25px;
   margin-top: 25px;
 }
-
+.service-card-one.bg-color{
+  background-color: #ffffff !important;
+}
+.active-dark-mode .service-card-one.bg-color {
+  background-color: #000000 !important;
+}
 .service-card-one .icon .check-icon {
   position: absolute;
   background: 0 0;
@@ -23778,7 +23813,7 @@ body.active-dark-mode .portfolio-slider .thumbnail img.dark-image {
   margin-bottom: -6px
 }
 
-.service-card-one.bg-white {
+.service-card-one.bg-color {
   padding: 30px
 }
 
@@ -23824,6 +23859,10 @@ a.explore_more{
   background: #ffffff;
   font-weight: 600;
 }
+.active-dark-mode a.explore_more {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
 a.explore_more:after {    
   background: none repeat scroll 0 0 #702FFF !important;
   bottom: 0;
@@ -23865,7 +23904,7 @@ a.explore_more:hover:after {
   margin: 5px auto;
 }
 
-..bg-white {
+.bg-white {
   background: #fff
 }
 
@@ -23889,7 +23928,12 @@ a.explore_more:hover:after {
   padding-top: 15px;
   transition: transform .5s;
 }
-
+.active-dark-mode .close-btn{
+  color: #ffffff !important;
+}
+.active-dark-mode .txt-white {
+  color: #ffffff !important;
+}
 @-webkit-keyframes swing {
     15% {
         -webkit-transform: translateY(5px);
@@ -24137,8 +24181,8 @@ a.explore_more:hover:after {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     opacity: 0;
-     margin: -10px 16px;
-     position: relative;
+    margin: -10px 16px;
+    position: relative;
 }
 .custom-toast.show {
     display: block;
@@ -24221,8 +24265,23 @@ a.explore_more:hover:after {
 
 @media(min-width: 769px) {
   .custom-toast {
-        top: -180px;
+    top: -164px;
     left: 81px;
     max-width: 280px;
   }
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active-dark-mode .modal-content {
+  background-color: #18191A !important;
+  color: #ffffff !important;
 }

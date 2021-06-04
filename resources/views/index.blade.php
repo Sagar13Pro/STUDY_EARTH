@@ -93,7 +93,7 @@ use App\Models\Customer;
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/cotton/64/000000/student-male--v3.png" />
                                 </div>
@@ -104,7 +104,7 @@ use App\Models\Customer;
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="assets/images/icons/programming.svg" alt="programming_icon" style="max-width: 64px;">
                                 </div>
@@ -116,7 +116,7 @@ use App\Models\Customer;
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/cotton/64/000000/company.png" />
                                 </div>
@@ -127,7 +127,7 @@ use App\Models\Customer;
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/dusk/100/000000/student-center.png" />
                                 </div>
@@ -139,7 +139,7 @@ use App\Models\Customer;
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="assets/images/icons/coaching.svg" alt="programming_icon" style="max-width: 100px;">
                                 </div>
@@ -150,7 +150,8 @@ use App\Models\Customer;
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
+
                                 <div class="icon">
                                     <img src="assets/images/icons/enthu.png" alt="programming_icon" style="max-width: 100px;">
                                 </div>
@@ -256,7 +257,7 @@ use App\Models\Customer;
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
-                    <div class="service-card-one bg-white center">
+                    <div class="service-card-one bg-color center">
                         <div class="icon">
                             <img src="assets/images/portfolio/boxes-img3.png" alt="box_img_3">
                         </div>
@@ -268,7 +269,7 @@ use App\Models\Customer;
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <div class="service-card-one bg-white center">
+                    <div class="service-card-one bg-color center">
                         <div class="icon">
                             <img src="assets/images/portfolio/boxes-img1.png" alt="box_img_1">
                         </div>
@@ -281,7 +282,7 @@ use App\Models\Customer;
                 </div>
 
                 <div class="col-lg-4 col-sm-6">
-                    <div class="service-card-one bg-white center">
+                    <div class="service-card-one bg-color center">
                         <div class="icon">
                             <img src="assets/images/portfolio/boxes-img2.png" alt="box_img_2">
                         </div>

@@ -25,7 +25,7 @@
                     <div class="row">
                         @foreach ($project_products as $key => $item )
                         <div class="col-sm-6 col-lg-4">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/cotton/64/000000/student-male--v3.png" />
                                 </div>
@@ -59,7 +59,7 @@
                     <div class="row">
                         @foreach ($course_products as $key => $items )
                         <div class="col-sm-6 col-lg-3">
-                            <div class="service-card-one bg-white center">
+                            <div class="service-card-one bg-color center">
                                 <div class="icon">
                                     <img src="https://img.icons8.com/flat-round/80/000000/book.png" />
                                 </div>

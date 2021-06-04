@@ -171,45 +171,109 @@
                 <!-- Start Service Wrapper  -->
                 <div class="row">
                     <!-- Start Single Service CUSTOM -->
-                    @if(count($Projects))
-                    @foreach ($Projects as $key => $custom )
-                    @if ($custom->Type === 'custom')
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="col-12">
                         <div class="axil-service text-left axil-control paralax-image active">
-                            <div class="inner">
-                                <div class="icon">
-                                    <div class="icon-inner">
-                                        <img src="assets/images/icons/layer.svg" alt="Icon Images">
-                                        <div class="image-2"><img src="assets/images/icons/{{ $custom->ImageName }}" alt="Shape Images"></div>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="single-service.html">{{ $custom->Title }}</a></h4>
-                                    <p>{{ $custom->Content }}</p>
-                                    <a class="axil-button" data-hover="Learn More" href="javascript:void(0)">Learn More</a>
+                            <div class="contact-form-wrapper">
+                                <!-- Start Contact Form -->
+                                <div class="axil-contact-form contact-form-style-1 w-100">
+                                    <form id="contact-form" method="POST" action="{{ route('custom-project-form') }}">
+                                        @csrf
+                                        <div class="row ml-3">
+                                            <div class="form-group col-12 col-md-6 {{ !is_null(old('full_nameInput')) ? 'focused' : '' }}">
+                                                <input type="text" name="full_nameInput" value="{{ old('full_nameInput') }}">
+                                                <label>Full Name<span class="asterik">*</span></label>
+                                                <span class="focus-border"></span>
+                                                <x-alert type="full_name_error" />
+                                            </div>
+                                            <div class="form-group col-12 col-md-6 {{ !is_null(old('emailInput')) ? 'focused' : '' }}">
+                                                <input type="email" name="emailInput" value="{{ old('emailInput') }}">
+                                                <label>Email<span class="asterik">*</span></label>
+                                                <span class="focus-border"></span>
+                                                <x-alert type="email_error" />
+                                            </div>
+                                        </div>
+                                        <div class="row ml-3">
+                                            <div class="form-group col-12 col-md-6 {{ !is_null(old('mobile_numberInput')) ? 'focused' : '' }}">
+                                                <input type="text" name="mobile_numberInput" value="{{ old('mobile_numberInput') }}">
+                                                <label>Contact Number<span class="asterik">*</span></label>
+                                                <span class="focus-border"></span>
+                                                <x-alert type="contact_no_error" />
+                                            </div>
+                                            <div class="form-group col-12 col-md-6">
+                                                <select name="project_platformInput" id="">
+                                                    <option value="">Custom Project Platform</option>
+                                                    <option value="Andriod" {{ old('project_platformInput') == 'Andriod' ? 'selected' : '' }}>Andriod</option>
+                                                    <option value="PHP" {{ old('project_platformInput') == 'PHP' ? 'selected' : '' }}>PHP</option>
+                                                    <option value="Machine Learning" {{ old('project_platformInput') == 'Machine Learning' ? 'selected' : '' }}>Machine Learning</option>
+                                                    <option value="IOT" {{ old('project_platformInput') == 'IOT' ? 'selected' : '' }}>IOT</option>
+                                                    <option value="AR/VR" {{ old('project_platformInput') == 'AR/VR' ? 'selected' : '' }}>AR/VR</option>
+                                                    <option value="iOS" {{ old('project_platformInput') == 'iOS' ? 'selected' : '' }}>iOS</option>
+                                                    <option value="DotNet" {{ old('project_platformInput') == 'DotNet' ? 'selected' : '' }}>DotNet</option>
+                                                    <option value="Python" {{ old('project_platformInput') == 'Python' ? 'selected' : '' }}>Python</option>
+                                                    <option value="Artificial Intelligence" {{ old('project_platformInput') == 'Artificial Intelligence' ? 'selected' : '' }}>Artificial Intelligence</option>
+                                                    <option value="Information Security" {{ old('project_platformInput') == 'Information Security' ? 'selected' : '' }}>Information Security</option>
+                                                    <option value="Cloud Computing" {{ old('project_platformInput') == 'Cloud Computing' ? 'selected' : '' }}>Cloud Computing</option>
+                                                    <option value="Blockchain" {{ old('project_platformInput') == 'AndrBlockchainiod' ? 'selected' : '' }}>Blockchain</option>
+                                                    <option value="Matlab" {{ old('project_platformInput') == 'Matlab' ? 'selected' : '' }}>Matlab</option>
+                                                    <option value="Data Science" {{ old('project_platformInput') == 'Data Science' ? 'selected' : '' }}>Data Science</option>
+                                                    <option value="Others" {{ old('project_platformInput') == 'Others' ? 'selected' : '' }}>Others</option>
+                                                </select>
+                                                <span class="focus-border"></span>
+                                                <x-alert type="select_platform_error" />
+                                            </div>
+                                        </div>
+                                        <div class="row ml-3">
+                                            <div class="form-group col-12 {{ !is_null(old('project_requirementsInput')) ? 'focused' : '' }}">
+                                                <Textarea rows="2" cols="12" name="project_requirementsInput">{{ old('project_requirementsInput') }}</Textarea>
+                                                <label for="">Describe your requirements specifications<span class="asterik">*</span></label>
+                                                <span class="focus-border"></span>
+                                                <x-alert type="project_req_error" />
+                                            </div>
+                                        </div>
+                                        <div class="row ml-3">
+                                            <div class="form-group col-8 col-md-4">
+                                                <button class="btn btn-outline-success w-50" type="submit">Send</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endif
-                    @endforeach
-                    @else
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <p class="no-project-text wow">No Projects Available</p>
-                    </div>
-                    @endif
-                    <!-- End Single Service  -->
                 </div>
-                <!-- End Service Wrapper  -->
+                <!-- End Single Service  -->
             </div>
+            <!-- End Service Wrapper  -->
         </div>
+    </div>
     </div>
     <!-- End Navigation Content  -->
 
-    <!-- Axil Scroll Navigation Area  -->
+    <!--Modal -->
+    <div class="modal fade  {{ session()->has('custom_message') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('custom_message') ? 'style=display:block' : 'style=display:none' }} style="display:block">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @if(session()->has('custom_message'))
+                    <div class="">{{ session('custom_message') }}</div>
+                    @endif
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+                </div>
+                <script>
+                    $('.btn-close').click(function() {
+                        $('#exampleModal').fadeOut(1000);
+                    })
 
-    
-
+                </script>
+            </div>
+        </div>
+    </div>
 </main>
 <!-- End Page Wrapper -->
 <script src="{{ asset('assets/js/stickysidebar.js') }}"></script>

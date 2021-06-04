@@ -26,6 +26,7 @@ Route::post('/free-projects/download/{id}', [mainController::class, 'FreeProject
 //Request modal data free projects
 Route::get('/free-projects/modal/content/{id}', [mainController::class, 'ModalContent'])->name('free.projects.modal');
 Route::get('/contact', [mainController::class, 'ContactView'])->name('contact.view');
+Route::post('projects/custom-projects/form', [mainController::class, 'CustomProjectForm'])->name('custom-project-form');
 //===================================COURSE ROUTES==============================================
 //Route::get('/courses', [CourseController::class, 'CourseView'])->name('courses.view');
 Route::get('/courses/courses/type={type}/language={lang}/', [CourseController::class, 'CoursesView'])->name('courses.view');

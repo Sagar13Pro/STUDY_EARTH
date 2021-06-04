@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
     <div class="axil-contact-form ax-section-gap theme-gradient">
         <div class="container">
             <x-alert type="message" />
-            <form id="billing-details-form" method="post">
+            <form id="billing-details-form" method="post" action="{{ route('cart.checkout') }}">
                 @csrf
                 <div class="row mt--80">
                     @if (count($projectFetched) > 0 || count($courseFetched) > 0)
@@ -24,29 +24,28 @@ use Illuminate\Support\Facades\Auth;
                                         <input type="text" name="fnameInput" value="{{ old('fnameInput') }}">
                                         <label>First name<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="fname_error" />
                                     </div>
 
                                     <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('lnameInput')) ? '' : 'focused' }}">
-
                                         <input type="text" name="lnameInput" value="{{ old('lnameInput') }}">
                                         <label>Last name<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="lname_error" />
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class=" row">
                                     <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('emailInput')) ? '' : 'focused' }}">
                                         <input type="email" name="emailInput" value="{{ old('emailInput') }}">
                                         <label>name@example.com<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert type="email" />
+                                        <x-alert type="mail_error" />
                                     </div>
                                     <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('mobileNoInput')) ? '' : 'focused' }}">
                                         <input type="text" name="mobileNoInput" value="{{ old('mobileNoInput') }}">
                                         <label>Mobile<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert type="mobileNo" />
+                                        <x-alert type="mobileNo_error" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -54,13 +53,13 @@ use Illuminate\Support\Facades\Auth;
                                         <input type="text" name="addressInput" value="{{ old('addressInput') }}">
                                         <label>Address<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="address_error" />
                                     </div>
                                     <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('birthdateInput')) ? '' : 'focused' }}">
                                         <input type="text" name="birthdateInput" value="{{ old('birthdateInput') }}" onfocus="(this.type = 'date')" onblur="(this.type = 'text')">
                                         <label>Birth Date<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="dob_error" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -68,13 +67,13 @@ use Illuminate\Support\Facades\Auth;
                                         <input type="password" id="Pass" name="passwordInput">
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="passwd" />
                                     </div>
                                     <div class="form-group bill cpassword_container col-lg-6 col-md-6">
                                         <input type="password" id="Pass_Confirm" name="confirmpasswordInput">
                                         <label>Confirm Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
-                                        <x-alert type="password" />
+                                        <x-alert type="cpasswd" />
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +146,7 @@ use Illuminate\Support\Facades\Auth;
                                         </table>
                                     </div>
                                     <hr style="border-bottom: 1px solid;">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 checkOut">
                                         <div>
                                             <h5 class="mb-0 font-18 ml--25">The total amount of</h5>
                                             <sub class="ml--25">(including TAX)</sub>
@@ -156,7 +155,7 @@ use Illuminate\Support\Facades\Auth;
                                         <input class="d-none" type="text" name="amount" value="{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum()  }}">
                                     </li>
                                 </ul>
-                                <button type="button" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
+                                <button type="submit" class="axil-button btn-solid float-right btn-extra02-color buy-now-btn"><span class="button-text">Buy Now</span><span class="button-icon"></span></button>
                             </div>
                         </div>
                     </div>
@@ -164,7 +163,7 @@ use Illuminate\Support\Facades\Auth;
                     <div class="container" align="center" style="max-width: 700px;">
                         <div class="row">
                             <h3 class="mt-5 mx-auto">Looks like the cart is empty!</h3>
-                            <img class="mx-auto" src="{{ asset('assets/images/icons/empty-cart.svg') }}" width="250" height="200" alt="">
+                            <img class="mx-auto" src="{{ asset('assets/images/icons/empty-cart.svg') }}" width="250" height="200" alt="Empty Cart">
                         </div>
                     </div>
                     @endif
@@ -207,49 +206,6 @@ use Illuminate\Support\Facades\Auth;
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        let hasError = null;
-        const addErrorElement = () => {
-            let positionSpan = document.querySelectorAll('.bill .focus-border');
-            let inputs_field = document.querySelectorAll('.bill input');
-            inputs_field.forEach((element, index) => {
-                if (element.value.length === 0) {
-                    console.log(element)
-                    if (element.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling === null) {
-                        let divElem = document.createElement('div');
-                        divElem.setAttribute('class', ' tracker prompt-error-' + index);
-                        let divText = document.createTextNode('This is required.');
-                        divElem.appendChild(divText);
-                        positionSpan[index].insertAdjacentElement('afterend', divElem);
-                        hasError = false;
-                    }
-                } else {
-                    $('.prompt-error-' + index).remove();
-                }
-            });
-            let hasErrorCount = document.querySelectorAll('div .tracker').length;
-            if (hasErrorCount === 0) {
-                hasError = true;
-            } else if ("{{ session()->has('session_email') }}") {
-                hasError = true;
-            }
-        }
-        $('.buy-now-btn').click(function() {
-            addErrorElement();
-            if (hasError) {
-                $('#billing-details-form').attr('action', "{{ route('cart.checkout') }}")
-                $('#billing-details-form').submit();
-            }
-        });
-        // setInterval(() => {
-        //     if ($('.tracker').length > 0) {
-        //         $('.tracker').remove()
-        //     }
-        // }, 10000);
-    });
-
-</script>
 {{-- Script for Cancel --}}
 <script>
     $(document).ready(function() {

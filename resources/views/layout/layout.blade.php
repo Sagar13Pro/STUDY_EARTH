@@ -11,7 +11,8 @@ use App\Models\Customer;
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+
     <!-- CSS
 	============================================ -->
     <!-- Bootstrap CSS -->
@@ -28,7 +29,9 @@ use App\Models\Customer;
 </head>
 
 <body @yield('class') @yield('data-spy') @yield('data-target') @yield('data-offset')>
-
+    {{-- <div class="preloader">
+        <img id="loader-gif" src="{{ asset('assets/images/preloader.gif') }}" alt="">
+    </div> --}}
     <div class="main-content">
         {{-- HEADER SECTION START --}}
         @section('header')
@@ -228,12 +231,12 @@ use App\Models\Customer;
         {{-- MAIN CONTENT START--}}
         @section('content')
         @show
-        <!-- Login Model -->
+        <!-- Login Modal -->
         <div class="modal fade {{ session()->has('login_failed') ? 'show' : '' }}" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" {{ session()->has('login_failed') ? 'style=display:block' : 'style=display:none' }}>
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content mr-15">
-                    <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
-                    <div class="login-box bg-white border-radius-10">
+                    <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img id="login-cancel-btn-image" src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
+                    <div class="login-box bg-color border-radius-10">
                         <h3 class="title text-center">Login To StudyEarth</h3>
                         <x-alert type="login" />
                         <form action="{{ route('user.login') }}" method="POST" class="mt--30">
@@ -255,23 +258,23 @@ use App\Models\Customer;
                             </div>
                         </form>
                         <div style="display: flex;justify-content:center;">
-                            <a href="#" class="font-weight-500">Forgot Password?</a>
+                            <a href="#" class="font-weight-500 text-white">Forgot Password?</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Logout Model -->
+        <!-- Logout Modal -->
         <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content mr-15">
                     <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn"><img src="https://img.icons8.com/pastel-glyph/32/000000/cancel.png" /></a>
-                    <div class="login-box bg-white border-radius-10">
+                    <div class="login-box bg-color border-radius-10">
                         <h3 class="title text-center">Are you sure</h3>
                         <div class="row sp-margin mt--30">
                             <div class="form-group pl-15">
-                                <button class="axil-button btn-small btn-transparent">
+                                <button type="button" data-dismiss="modal" class="axil-button btn-small btn-transparent">
                                     <span class="button-text">Cancel</span><span class="button-icon"></span>
                                 </button>
                             </div>
@@ -404,6 +407,18 @@ use App\Models\Customer;
         $('.close-btn').click(function() {
             $('#login-modal').fadeOut(1000);
         });
+        setTimeout(function() {
+            let dark = $('body').hasClass('active-dark-mode')
+            if (dark) {
+                $("#loader-gif").attr('src', "{{ asset('assets/images/preloader-dark.gif') }}")
+                $('.preloader').css('background-color', '#000000ff');
+                $('#login-cancel-btn-image').attr('src', 'https://img.icons8.com/fluent/48/000000/cancel.png')
+
+            }
+        }, 94)
+        setTimeout(function() {
+            $('.preloader').fadeOut(2000);
+        }, 4000)
 
     </script>
     <!-- Modernizer JS -->
@@ -429,7 +444,6 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/scrollup.js') }}"></script>
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
-    <!-- Development version -->
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->

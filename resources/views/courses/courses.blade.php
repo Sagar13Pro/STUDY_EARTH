@@ -166,6 +166,30 @@
         </div>
     </div>
 </div>
+<div class="modal fade {{ session()->has('info') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('info') ? 'style=display:block' : 'style=display:none' }}>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <x-alert type="message" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+            </div>
+            <script>
+                $('.btn-close').click(function() {
+                    console.log('o')
+                    $('#exampleModal').fadeOut(1000);
+                })
+
+            </script>
+        </div>
+    </div>
+</div>
+
 <!-- /Model Area End -->
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -207,7 +231,6 @@
     $(document).ready(function() {
         $('.add-to-cart').click(function() {
             let product_id = $(this).data('product-id');
-            console.log(product_id);
             document.getElementById('add-to-cart-form-' + product_id).submit();
         });
     });

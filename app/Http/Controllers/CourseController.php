@@ -33,7 +33,8 @@ class CourseController extends Controller
     public function AddToCart(Request $request)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device' => $_COOKIE['device'], 'course_details_id' => $request->id, 'payment_status' => 'paid'])->count() == 0 || 1) {
+            $already_in_cart = Customer::where(['device' => $_COOKIE['device'], 'course_details_id' => $request->id])->get();
+            if ($already_in_cart->count() == 0 || ($already_in_cart->pluck('payment_status')->contains('unpaid') ? false : true)) {
                 try {
                     $addToCart = Customer::create([
                         'device' => $_COOKIE['device'],
@@ -46,17 +47,16 @@ class CourseController extends Controller
                     dd('Error Occured while creating customer', $error);
                 }
             } else {
-                dd('Already in your cart');
+                return back()
+                    ->with('info', 'The item is already in your cart.');
             }
-        } else {
-            dd('No cookie');
         }
     }
     //Removing From Cart
-    public function RemoveFromCart(Request $request, $id = null)
+    public function RemoveFromCart($id = null)
     {
         if (isset($_COOKIE['device'])) {
-            if (Customer::where(['device'  => $_COOKIE['device'], 'course_details_id' => $id])->count() == 0) {
+            if (Customer::where(['device'  => $_COOKIE['device'], 'id' => $id])->count() == 1) {
                 try {
                     $removeFromCart = Customer::where(['device' => $_COOKIE['device'], 'id' => $id])->delete();
 
@@ -66,11 +66,7 @@ class CourseController extends Controller
                 } catch (Exception $error) {
                     dd('Error Occured while removing customer from cart', $error);
                 }
-            } else {
-                dd('Already delete from your cart');
             }
-        } else {
-            dd('No cookie');
         }
     }
     public function PDFViewer($title = null, $subtitle = null)
