@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Auth;
                                         <x-alert type="lname_error" />
                                     </div>
                                 </div>
-                                <div class=" row">
+                                <div class="row">
                                     <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('emailInput')) ? '' : 'focused' }}">
                                         <input type="email" name="emailInput" value="{{ old('emailInput') }}">
                                         <label>name@example.com<span class="asterik">*</span></label>

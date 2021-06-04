@@ -142,6 +142,24 @@ use App\Models\Customer;
                                     </ul>
                                 </nav>
                                 @section('search-LetTalks')
+                                <div class=" d-block d-lg-none ml--40 ml_sm--10">
+                                    @php
+
+                                    if(isset($_COOKIE['device'])){
+                                    $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
+                                    }
+                                    @endphp
+                                    <a class="cart-icon" href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248"></i>
+                                        @if($customerProductCount ?? '' > 0)
+                                        <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="ax-menubar popup-navigation-activation d-block d-lg-none pl-15 ml--0 mr-10">
+                                    <div>
+                                        <i></i>
+                                    </div>
+                                </div>
                                 @show
                             </div>
                         </div>
@@ -158,7 +176,7 @@ use App\Models\Customer;
             <div class="inner">
                 <div class="mobileheader">
                     <div class="logo">
-                        <a href="home-01.html">
+                        <a href="{{ route('index.view') }}">
                             <img src="{{ asset('assets/images/logo/keystoke.svg') }}" alt="Logo images">
                         </a>
                     </div>
@@ -167,15 +185,18 @@ use App\Models\Customer;
                 <div class="menu-item">
                     <ul class="mainmenu-item">
                         <li class="has-children">
-                            <a class="login-btn"><i data-feather="user" stroke="#fff"></i></a>
+                            <a class="login-btn"><i data-feather="user" stroke="#fff"></i>User</a>
                             <ul class="submenu">
-                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login </a></li>
+                                @if (!session()->has('session_email'))
+                                <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#login-modal" type="button"> Login</a></li>
+                                @endif
+                                @if (session()->has('session_email'))
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#-modal" type="button">My purchase </a></li>
                                 <li><a class="login-btn" href="#" data-backdrop="static" data-toggle="modal" data-target="#logout-modal" type="button"> Logout </a></a></li>
+                                @endif
                             </ul>
                         </li>
                         @section('link-home')
-
                         <li><a href="{{ route('index.view') }}">Home</a></li>
                         @show
                         <li class="has-children">
@@ -189,13 +210,13 @@ use App\Models\Customer;
                         <li class="has-dropdown">
                             <a href="{{ route('index.view') }}#course_details" onclick="generate();">Courses</a>
                         </li>
-                        <li><a href="">Contact</a></li>
-                        <!-- {{-- DARK/LIGHT MODE --}}
+                        <li><a href="{{ route('contact.view') }}">Contact</a></li>
+                        @section('theme')
                         <li>
-                            <div id="my_switcher" class="my_switcher">
+                            <div id="my_switcher" class="my_switcher popup-mobile">
                                 <ul>
                                     <li>
-                                        <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                                        <a href="javascript: void(0);" data-theme="light" class="setColor light active">
                                             <i class="far fa-sun"></i>
                                             <span title="Light Mode"> Light</span>
                                         </a>
@@ -208,19 +229,8 @@ use App\Models\Customer;
                                     </li>
                                 </ul>
                             </div>
-                        </li> -->
-                        <!-- <li>
-                            @php
-                            if(isset($_COOKIE['device'])){
-                            $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
-                            }
-                            @endphp
-                            <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 22px;"></i>
-                                @if($customerProductCount ?? '' > 0)
-                                <span class="aw-cart-count">{{ $customerProductCount  }}</span>
-                                @endif
-                            </a>
-                        </li>    -->
+                        </li>
+                        @show
                     </ul>
                 </div>
             </div>

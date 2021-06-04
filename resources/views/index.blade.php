@@ -17,18 +17,38 @@ use App\Models\Customer;
     $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
     }
     @endphp
-    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248"></i>
+    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248;position: relative;top:8px;"></i>
         @if($customerProductCount ?? '' > 0)
-        <span class="aw-cart-count">{{ $customerProductCount  }}</span>
+        <span class="aw-cart-count" style="top: -32px;left:5px">{{ $customerProductCount  }}</span>
         @endif
     </a>
 </div>
-
 <div class="ax-menubar popup-navigation-activation d-block d-lg-none pl-15 ml--0 mr-10">
     <div>
         <i></i>
     </div>
 </div>
+@endsection
+
+@section('theme')
+<li>
+    <div id="my_switcher" class="my_switcher popup-mobile">
+        <ul>
+            <li>
+                <a href="javascript: void(0);" data-theme="light" class="setColor light active">
+                    <i class="far fa-sun" style="top: 12px;"></i>
+                    <span title="Light Mode"> Light</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                    <i class="far fa-moon" style="top:12px;"></i>
+                    <span title="Dark Mode"> Dark</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
 @endsection
 
 @section('content')

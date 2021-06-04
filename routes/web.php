@@ -40,3 +40,4 @@ Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::cla
 Route::match(['GET', 'POST'], '/user/course/{title}/{subtitle}/view', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
 Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('contact.details');
 //==============================================================================================
+Route::view('/s', 'payment.payment-success');
