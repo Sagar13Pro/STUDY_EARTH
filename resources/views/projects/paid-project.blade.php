@@ -174,12 +174,12 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5>Requirements for running the program:</h5>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
-                        <p>1) OpenCV must be installed on the local machine.</p>
+                        <h2>Important Points to be noted</h2>
+                        </p>Entire Project Source Codes with Database, Delivered to your Registered Email.</p>
+                        <p>Project Documentation Data in Word File (approx 70-80 Pages).</p>
+                        <p>Project Setup Troubleshooting & Doubt Solving Support- via Skype & Teamviewer.</p>
+                        <p>Online Technical Support.</p>
+
                     </div>
                 </div>
             </div>
@@ -190,14 +190,14 @@
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+@section('scripts')
 <script>
     //Show More And Less Content
     $(document).ready(function() {
-        //Adding Dynamic Read More button
         totalProjects = '{{ count($paidProjects) }}';
         for (let $i = 0; $i < totalProjects; $i++) {
             let contentPara = document.getElementById($i);
-            //console.log(contentPara.innerHTML.length, $i, contentPara.innerHTML.trim().length);
+
             if (contentPara.innerHTML.length > 462) {
                 let addReadMoreBtn = document.getElementById('btn-container-' + $i);
                 addReadMoreBtn.setAttribute('class', 'show-more-btn');
@@ -207,7 +207,6 @@
                 contentPara.style.height = '100px';
             }
         }
-        //For Read MORE/LESS button
         $('.showBtn').click(function() {
             let id = $(this).data('id');
             if (id != " " || id == 0) {
@@ -233,3 +232,4 @@
     });
 
 </script>
+@endsection

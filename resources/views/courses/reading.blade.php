@@ -40,7 +40,7 @@
                                                                 @if($item->title == $title->title)
 
                                                                 <tr>
-                                                                    <th class="w-20">{{ $key.'.'.$item->display_order + 1 }}</th>
+                                                                    <th class="w-20">{{ $key+1 }}.{{ $item->display_order }}</th>
                                                                     <td class="w-60">{{ $item->subtitle }}</td>
                                                                     <td>
                                                                         <button class="btn btn-info pdf-view-link" data-id={{ $index }}>View</button>

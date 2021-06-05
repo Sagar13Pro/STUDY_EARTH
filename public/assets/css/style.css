@@ -12456,11 +12456,11 @@ button.axil-button.btn-transparent::after {
       transform: scale(0.5, 0.5);
 }
 
-a.axil-button.btn-transparent:hover,
+/* a.axil-button.btn-transparent:hover,
 button.axil-button.btn-transparent:hover,svg:hover{
   color: #FFFFFF;
   fill: #ffffff;
-}
+} */
 
 a.axil-button.btn-transparent:hover span.button-icon,
 button.axil-button.btn-transparent:hover span.button-icon {
@@ -17890,7 +17890,7 @@ Slider Style One
   position: absolute;
   left: 0;
   height: 1px;
-  width: 73%;
+  width: 72%;
   background-color: #C7C7D6;
   content: "";
   top: 50%;
@@ -17901,13 +17901,13 @@ Slider Style One
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .axil-slide.slide-style-4 .follow-us::before {
-    width: 63%;
+    width: 62%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .axil-slide.slide-style-4 .follow-us::before {
-    width: 50%;
+    width: 49%;
   }
 }
 
@@ -24323,4 +24323,6 @@ a.explore_more:hover:after {
   background-color: #18191A !important;
   color: #ffffff !important;
 }
-
+.mx--100{
+  margin: 100px 0 !important;
+}

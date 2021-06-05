@@ -2,10 +2,7 @@
 
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\CourseController;
-use App\Models\CourseMaterial;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 //==================================PROJECTS ROUTES=============================================
 Route::get('/', [mainController::class, 'IndexView'])->name('index.view');
@@ -37,7 +34,7 @@ Route::post('/user/login/', [mainController::class, 'Login'])->name('user.login'
 Route::get('/user/logout/', [mainController::class, 'Logout'])->name('user.logout');
 Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middleware('LoginSession')->name('user.purchases');
 Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
-Route::match(['GET', 'POST'], '/user/course/{title}/{subtitle}/view', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
+Route::match(['GET', 'POST'], '{title}/{subtitle}', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
 Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('contact.details');
 //==============================================================================================
-Route::view('/s', 'payment.payment-success');
+Route::get('/payment-{slug}', [mainController::class, 'PaymentStatusView'])->name('payment.status');

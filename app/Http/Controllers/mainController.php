@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\CustomProjectFormMailable as custom_project_mail;
+use App\Mail\InvoiceMailable;
 
 class mainController extends Controller
 {
@@ -102,7 +103,10 @@ class mainController extends Controller
             return abort(404);
         }
     }
-
+    public function PaymentStatusView()
+    {
+        return view('payment.payment-status');
+    }
     //Adding to Cart
     public function AddToCart(Request $request)
     {
@@ -172,8 +176,8 @@ class mainController extends Controller
             'lnameInput' => 'required',
             'mobileNoInput' => 'required|integer|digits:10',
             'emailInput' => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
-            'passwordInput' => 'required|min:8|required_with:confirmpasswordInput|',
-            'confirmpasswordInput' => 'required|min:8|same:confirmpassword',
+            'passwordInput' => 'required|min:8|',
+            'confirmpasswordInput' => 'required|min:8|same:passwordInput',
             'addressInput' => 'required',
             'birthdateInput' => 'required',
         ];
@@ -260,18 +264,41 @@ class mainController extends Controller
             }
             $paid_for = implode(', ', $paid_for);
             $stored = $this->StoreTransactions($response, $user_id, $email);
-            $data = array('payment_id' => $response['TXNID'], 'amount' => $response['TXNAMOUNT'], 'paid_for' => $paid_for);
-
-            Mail::send('mail', ["data" => $data], function ($message) use ($email) {
-                $message->to($email)
-                    ->subject('invoice');
-            });
+            Mail::to($email)->send(new InvoiceMailable(
+                $response['TXNID'],
+                $response['TXNAMOUNT'],
+                $paid_for,
+                $response['ORDERID'],
+                $response['TXNDATE'],
+                $user_id
+            ));
             session()->pull('temporary_email');
-            dd("done");
+            session()->pull('fnia');
+            return redirect(route('payment.status', 'successful'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => $response['TXNDATE']
+            ]);
         } else if ($transaction->isFailed()) {
-            dd($transaction);
-        } else if ($transaction->isOpen()) {
-            dd('open');
+            return redirect(route('payment.status', 'failed'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => $response['TXNDATE'],
+                'message' => $response['RESPMSG']
+            ]);
+        } else if ($transaction->isPending()) {
+            return redirect(route('payment.status', 'pending'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => $response['TXNDATE'],
+                'message' => $response['RESPMSG']
+            ]);
         }
     }
     //Free projects download 
@@ -282,8 +309,7 @@ class mainController extends Controller
             $file = 'Free Projects/' . $getFileName->projectLanguage . '/' . $getFileName->file_path;
 
             if (Storage::disk('public')->exists($file)) {
-                return response()
-                    ->download($file, $getFileName->file_path, ['content-type' => 'application/pdf']);
+                return Storage::disk('public')->download($file);
             } else {
                 return abort(404);
             }
@@ -334,7 +360,7 @@ class mainController extends Controller
                 'message' => $request->con_message,
             ]);
             if ($contact) {
-                Mail::send('mail-contact', ["data" => $request], function ($message) use ($email) {
+                Mail::send('email.mail-contact', ["data" => $request], function ($message) use ($email) {
                     $message->to($email)
                         ->subject('Contact');
                 });

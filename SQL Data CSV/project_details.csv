@@ -17,7 +17,7 @@ The data stored using this code are:
 4,"free","python","Make Notepad using Tkinter","Let’s see how to create a simple notepad in Python using Tkinter. This notepad GUI will consist of various menu like file and edit, using which all functionalities like saving the file, opening a file, editing, cut and paste can be done.
 
 Now for creating this notepad, Python 3 and Tkinter should already be installed in your system. You can download suitable python package as per system requirement. After you have successfully installed python you need to install Tkinter (a Python’s GUI package).",NULL,NULL,"notepad_using_tkinter_python.zip","Notepad","Tkinter",NULL,NULL
-5,"free","python","Tracking bird migration using Python-3","",NULL,NULL,"tracking_bird_migration_python.zip","Tracking Bird","Python",NULL,NULL
+5,"free","python","Tracking bird migration using Python-3","Track the movement of three gulls namely – Eric, Nico & Sanne",NULL,NULL,"tracking_bird_migration_python.zip","Tracking Bird","Python",NULL,NULL
 6,"free","python","Cartooning an Image using OpenCV – Python","Computer Vision as you know (or even if you don’t) is a very powerful tool with immense possibilities. So, when I set up to prepare a comic of one of my friend’s college life, I soon realized that I needed something that would reduce my efforts of actually painting it but will retain the quality and I came up with the following solution.",NULL,NULL,"cartooning_image_opencv_python.zip","Cartooning Image","OpenCV",NULL,NULL
 7,"free","python","Implementing Web Scraping in Python with BeautifulSoup","There are mainly two ways to extract data from a website:
 
@@ -36,7 +36,7 @@ Why Vehicle Detection?
 
 The startling losses both in human lives and finance caused by vehicle accidents.
 Detecting vehicles in images acquired from a moving platform is a challenging problem.",NULL,NULL,"car_detection_using_opencv_python.zip","Car Detection","OpenCV",NULL,NULL
-10,"free","c++","Creating a PortScanner in C","",NULL,NULL,"port_scanner_c++.cpp","Port Scanner",NULL,NULL,NULL
+10,"free","c++","Creating a PortScanner in C","Picture a bay where lots of private boats are docked. The location is called a seaport, literally a port at or on the sea. Everyone wanting to dock there, requesting landing services uses the same port. Seaports work with berth numbers assigned to individual boats. The port name and the berth number combine into the “who, what, and where” of boat identification",NULL,NULL,"port_scanner_c++.cpp","Port Scanner",NULL,NULL,NULL
 11,"paid","iot","IOT based Manhole Detection and Monitoring System","Manholes are not monitored properly in developing countries. These accidents can lead to serious injuries and also death. Hence, here we propose a system to overcome this problem.",NULL,33545,NULL,NULL,NULL,NULL,NULL
 12,"paid","iot","IOT Smart Garbage Segregation Dustbin Level Indicator System","An important step in grabage recycling is garbage segregation. To ensure people dispose garbage in segregated way this raspberry pi based project provides and innovative way to do it.",NULL,36500,NULL,NULL,NULL,NULL,NULL
 13,"paid","iot","IOT Wheelchair Fall Detector & Alert","A useful IOT project to help the elderly/disabled send automatic alert if they fall so help arrives instantly. Using microcontroller based circuitry with interfaced sensors.",NULL,31405,NULL,NULL,NULL,NULL,NULL

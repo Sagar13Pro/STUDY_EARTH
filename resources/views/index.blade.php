@@ -43,7 +43,7 @@ use App\Models\Customer;
             <li>
                 <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
                     <i class="far fa-moon" style="top:12px;"></i>
-                    <span title="Dark Mode"> Dark</span>
+                    <span title="Dark Mode">Dark</span>
                 </a>
             </li>
         </ul>
@@ -53,6 +53,7 @@ use App\Models\Customer;
 
 @section('content')
 <main class="page-wrappper">
+    <i class="fab fa-circle-notch-g"></i>
     <!-- Start Slider Area -->
     <div class="axil-slider-area axil-slide-activation">
         <!-- Start Single Slide -->
@@ -83,7 +84,7 @@ use App\Models\Customer;
                         <div class="follow-us">
                             <ul class="social-share social-share-style-2">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i><span>twitter</span></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
                                 <li><a href="#"><i class="fab fa-google-plus-g"></i><span>Google+</span></a></li>
                             </ul>
                         </div>

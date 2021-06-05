@@ -148,23 +148,23 @@
                         </td>
                     </tr><br>
                     <tr class="details">
-                        <td> Payment ID
+                        <td> Transaction ID
                         </td>
-                        <td> {{ $data['payment_id'] }}
+                        <td> {{ $txn_id }}
                         </td>
                     </tr>
                     <tr class="details">
                         <td> Total Amount
                         </td>
-                        <td> {{ $data['amount'] }}
+                        <td> {{ $amount }}
                         </td>
                     </tr>
                     @if (!empty($data['paid_for']))
-                    <tr class="details"> 
+                    <tr class="details">
                         <td> Paid For
                         </td>
                         <td>
-                        {{ $data['paid_for'] }}
+                            {{ $paid_for }}
                         </td>
                     </tr>
                     @endif

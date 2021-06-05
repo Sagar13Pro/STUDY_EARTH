@@ -33,6 +33,6 @@ class CustomProjectFormMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('mail-custom-projects');
+        return $this->view('email.mail-custom-projects');
     }
 }

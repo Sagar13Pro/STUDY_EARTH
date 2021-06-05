@@ -162,11 +162,10 @@
 <!-- /Model Area End -->
 @endsection
 
+@section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-    //Show More And Less Content
     $(document).ready(function() {
-        //Adding Dynamic Read More button 
         totalProjects = '{{ count($freeProjects) }}';
         for (let $i = 0; $i < totalProjects; $i++) {
             let contentPara = document.getElementById($i);
@@ -193,12 +192,10 @@
                 }
             }
         });
-        //Download form submit jquery;
         $('.download-btn').click(function() {
             let download_id = $(this).data('id');
             $('#download-form-' + download_id).submit();
         });
-        //More Info ajax call
         $('.more-info-btn').click(function() {
             let modal_id = $(this).data('id');
             console.log(modal_id);
@@ -221,3 +218,5 @@
     });
 
 </script>
+
+@endsection
