@@ -344,13 +344,38 @@ class mainController extends Controller
         }
         return redirect(route('index.view'));
     }
+    public function ForgetPassword(Request $request)
+    {
+        $isUserExist = User::where('email', $request->forget_emailInput)->first();
+        if (!is_null($isUserExist)) {
+            session()->put('session_email', $request->login_emailInput);
+            $email = $request->login_emailInput;
+            // Mail::send('email.forgot-password-mail', ["data" => $request], function ($message) use ($email) {
+            //         $message->to($email)
+            //             ->subject('Forget Password');
+            //     });
+            return redirect()->route('index.view');
+        } else {
+            return back()
+                ->withInput($request->all())
+                ->with('forget_password_failed', 'Email is not registered.');
+        }
+    }
     //contact details
     public function contactDetails(Request $request)
     {
-        Validator::make($request->all(), [
-            'con_mobile' => 'integer|digits:10',
-            'con_email' => 'regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
-        ])->validated();
+        $rules = [
+            "con_name" => 'required',
+            "con_email" => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            "con_mobile" => 'required|integer|digits:10',
+            "con_message" => 'required'
+        ];
+        $message = [
+            '*.required' => 'This is required.',
+            'con_email.regex' => 'The email format is invalid.',
+            'con_mobile.digits' => 'The mobile number must be 10 digits.'
+        ];
+        $validate = Validator::make($request->all(), $rules, $message)->validated();
         $email = 'akashtarapara222@gmail.com';
         try {
             $contact = Contact::create([
@@ -359,17 +384,28 @@ class mainController extends Controller
                 'mobile' => $request->con_mobile,
                 'message' => $request->con_message,
             ]);
-            if ($contact) {
+        } catch (Exception $error) {
+            $contact = false;
+        }
+        if ($contact) {
+            try {
                 Mail::send('email.mail-contact', ["data" => $request], function ($message) use ($email) {
                     $message->to($email)
                         ->subject('Contact');
-                });
-                return redirect(route('contact.details'));
-                //return Redirect::to('contact.details')->with('success', true)->with('message','That was great!');
+                }); 
+                $isMailSent = true;
+
+            } catch (Exception $error) {
+                $isMailSent = false;
             }
-        } catch (Exception $error) {
-            dd($error);
-            return false;
+            if ($isMailSent) {
+                return back()
+                    ->withInput($request->all())
+                    ->with('success_contact', 'Your contact details submited successfully.Kindly wait for 24hr for reply.');
+            } else {
+                return back()
+                    ->with('success_contact', 'ERROR_MAIL');
+            }
         }
     }
     //Custom Project Form

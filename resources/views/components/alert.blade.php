@@ -98,3 +98,39 @@
 <div class="tracker custom-error my-1">{{ $message }}</div>
 @enderror
 @endif
+
+{{-- CONTACT ERROR BLOCK START --}}
+@if ($type == 'con_name_error')
+@error('con_name')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'con_email_error')
+@error('con_email')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'con_mobile_error')
+@error('con_mobile')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'con_message_error')
+@error('con_message')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if($type == 'contact_details')
+@if(session()->has('success_contact'))
+<div class="tracker">{{ session('success_contact') }}</div>
+@endif
+@endif
+{{-- CONTACT ERROR BLOCK END --}}
+
+{{-- FORGET PASSWORD ERROR BLOCK START --}}
+@if($type == 'forget_password')
+@if(session()->has('forget_password_failed'))
+<div class="tracker">{{ session('forget_password_failed') }}</div>
+@endif
+@endif
+{{-- FORGET PASSWORD ERROR BLOCK END --}}

@@ -32,6 +32,7 @@ Route::post('/courses/cart/remove-product/{id?}', [CourseController::class, 'Rem
 //=======================================USER REALTED===========================================
 Route::post('/user/login/', [mainController::class, 'Login'])->name('user.login');
 Route::get('/user/logout/', [mainController::class, 'Logout'])->name('user.logout');
+Route::post('/user/forget-password/', [mainController::class, 'ForgetPassword'])->name('user.forget_password');
 Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middleware('LoginSession')->name('user.purchases');
 Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 Route::match(['GET', 'POST'], '{title}/{subtitle}', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');

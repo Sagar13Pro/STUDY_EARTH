@@ -23930,6 +23930,13 @@ a.explore_more:hover:after {
   padding-top: 15px;
   transition: transform .5s;
 }
+.close-forget-btn{
+  width: 100%;
+  text-align: end;
+  padding-right: 15px;
+  padding-top: 15px;
+  transition: transform .5s;
+}
 .active-dark-mode .close-btn{
   color: #ffffff !important;
 }

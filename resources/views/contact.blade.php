@@ -35,37 +35,37 @@
                         <!-- Start Contact Form -->
                         <div class="axil-contact-form contact-form-style-1">
                             <h3 class="title">Get a free Keystroke quote now</h3>
+                            <x-alert type="contact_details" />
                             <form id="contact-form" method="POST" action="{{ route('contact.details') }}">
                                 @csrf
-                                <div class="form-group bill">
-                                    <input type="text" name="con_name" required>
+                                <div class="form-group bill {{ !is_null(old('con_name')) ? 'focused' : '' }}">
+                                    <input type="text" name="con_name" value="{{ old('con_name') }}">
                                     <label>Name<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="con_name_error" />
                                 </div>
-                                <div class="form-group bill">
-                                    <input type="email" name="con_email" required>
+                                <div class="form-group bill {{ !is_null(old('con_email')) ? 'focused' : '' }}">
+                                    <input type="email" name="con_email" value="{{ old('con_email') }}">
                                     <label>Email<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="con_email_error"/>
                                 </div>
-                                <div class="form-group bill">
-                                    <input type="tel" name="con_mobile"  pattern="[0-9]{10}" required>
+                                <div class="form-group bill {{ !is_null(old('con_mobile')) ? 'focused' : '' }}">
+                                    <input type="tel" name="con_mobile" value="{{ old('con_mobile') }}">
                                     <label>Phone<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="con_mobile_error"/>
                                 </div>
-                                <div class="form-group bill">
-                                    <input type="text" name="con_message" required>
+                                <div class="form-group bill {{ !is_null(old('con_message')) ? 'focused' : '' }}">
+                                    <input type="text" name="con_message" value="{{ old('con_message') }}">
                                     <label>Your message<span class="asterik">*</span></label>
                                     <span class="focus-border"></span>
-                                        <x-alert />
+                                        <x-alert type="con_message_error"/>
                                 </div>
                                 <div class="form-group bill">
                                     <input type="submit" value="Send message">
                                     <p class="form-messege"></p>
                                     <span class="focus-border"></span>
-                                        <x-alert />
                                 </div>
                             </form>
 
