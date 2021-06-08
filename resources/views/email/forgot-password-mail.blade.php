@@ -1014,14 +1014,14 @@
             <table width="600" align="center" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; background-color: #F3F4F5; text-align: center;"
             border="0" valign="top" bgcolor="#F3F4F5">
               <tbody>
-                <tr>
+                <!-- <tr>
                   <td style="padding: 0;">
                     <div class="sc-bdVaJa gilyel" display="block" style="box-sizing: border-box; position: static; border-radius: 0; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); overflow: inherit; padding: 3rem 3rem 3rem 3rem; margin: 0rem 0rem 0rem 0rem; border-top: none; border-right: none; border-bottom: none; border-left: none; display: block;">
                       <img class="sc-bwzfXH evpGNr" src="https://c5.patreon.com/external/logo/rebrandLogoWordmarkNavy@2x.png"
                       alt="Patreon trademark" width="20" style="border: 0; width: 10rem;">
                     </div>
                   </td>
-                </tr>
+                </tr> -->
                 <tr>
                   <td style="padding: 0;">
                     <div class="sc-bdVaJa byGfxM" display="block" style="box-sizing: border-box; position: static; border-radius: 0; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); overflow: inherit; padding: 0rem 3rem 0rem 3rem; margin: 0rem 0rem 0rem 0rem; border-top: none; border-right: none; border-bottom: none; border-left: none; display: block;"><span class="sc-bxivhb jFgvCd" color="gray1" scale="1" style="color: #052D49; font-family: America, sans-serif; -webkit-letter-spacing: inherit; -moz-letter-spacing: inherit; -ms-letter-spacing: inherit; letter-spacing: inherit; margin: 0; opacity: 1; position: relative; text-align: inherit; text-transform: inherit; text-shadow: none; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); -webkit-user-select: inherit; -moz-user-select: inherit; -ms-user-select: inherit; user-select: inherit; font-size: 1rem; font-weight: 400; line-height: 1.5;"><div class="sc-kgoBCf kktUDF" overflow="hidden" style="border-top: none; border-bottom: none; border-left: none; border-right: none; border-radius: 0; box-shadow: 0 2px 0 0 rgba(5, 45, 73, 0.06999999999999995); background-color: #FFFFFF; overflow: hidden;"><div class="sc-bdVaJa jlPFGn" display="block" style="box-sizing: border-box; position: static; border-radius: 0; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); overflow: inherit; padding: 2rem 2rem 2rem 2rem; margin: 0rem 0rem 0rem 0rem; border-top: none; border-right: none; border-bottom: none; border-left: none; display: block;"><div class="sc-htpNat cpoSvg" color="gray1" scale="1" style="color: #052D49; font-family: America, sans-serif; -webkit-letter-spacing: inherit; -moz-letter-spacing: inherit; -ms-letter-spacing: inherit; letter-spacing: inherit; margin: 0; opacity: 1; position: relative; text-align: left; text-transform: inherit; text-shadow: none; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); -webkit-user-select: inherit; -moz-user-select: inherit; -ms-user-select: inherit; user-select: inherit; font-size: 1rem; font-weight: 400; line-height: 1.5;"><span class="sc-bxivhb eWjzRU" color="gray3" scale="1" size="2" style="color: #4F687A; font-family: America, sans-serif; -webkit-letter-spacing: inherit; -moz-letter-spacing: inherit; -ms-letter-spacing: inherit; letter-spacing: inherit; margin: 0; opacity: 1; position: relative; text-align: inherit; text-transform: inherit; text-shadow: none; -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1); -webkit-user-select: inherit; -moz-user-select: inherit; -ms-user-select: inherit; user-select: inherit; font-size: 1.3090000000000002rem; font-weight: 400; line-height: 1.25;">We received a request to reset your password.</span>
@@ -1035,6 +1035,15 @@
                       <div class="sc-fjdhpX ktKmOq" style="visibility: visible;">Set New Password</div>
                     </a>
                     </div>
+                      <p>Reply to this email to get in touch with <strong>Study Earth</strong></p><br><br>
+                        <p>Share this on social media
+                            <a href="#">
+                                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png" align="middle" style="width:10%; max-width:50px;">
+                            </a>
+                            <a href="#">
+                                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/google_circle_color-128.png" align="middle" style="width:10%; max-width:50px;">
+                            </a>
+                        </p>
                     </div>
                     </span>
                     </div>
@@ -1042,15 +1051,6 @@
                 </tr>
               </tbody>
             </table>
-            <p>Reply to this email to get in touch with <strong>Study Earth</strong></p><br><br>
-                <p>Share this on social media
-                    <a href="#">
-                        <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png" align="middle" style="width:10%; max-width:50px;">
-                    </a>
-                    <a href="#">
-                        <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/google_circle_color-128.png" align="middle" style="width:10%; max-width:50px;">
-                    </a>
-                </p>
           </td>
         </tr>
       </tbody>

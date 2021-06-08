@@ -349,12 +349,18 @@ class mainController extends Controller
         $isUserExist = User::where('email', $request->forget_emailInput)->first();
         if (!is_null($isUserExist)) {
             session()->put('session_email', $request->login_emailInput);
-            $email = $request->login_emailInput;
-            // Mail::send('email.forgot-password-mail', ["data" => $request], function ($message) use ($email) {
-            //         $message->to($email)
-            //             ->subject('Forget Password');
-            //     });
-            return redirect()->route('index.view');
+            $email = $request->forget_emailInput;
+            try {
+                Mail::send('email.forgot-password-mail', ["data" => $request], function ($message) use ($email) {
+                        $message->to($email)
+                            ->subject('Forget Password');
+                    });
+                return redirect()->route('index.view');
+            }
+            catch (Exception $error)
+            {
+                dd('Please provide valid email.');
+            }
         } else {
             return back()
                 ->withInput($request->all())
