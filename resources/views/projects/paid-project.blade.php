@@ -73,7 +73,7 @@
                     @foreach ($paidProjects as $key => $item)
                     @if ($key % 2 == 0)
                     <!-- Start Working Process ODD ONE -->
-                    <div class="axil-working-process mb--100 mb_md--50 mb_sm--40">
+                    <div id={{ $item->id }} class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
                             <div class="image paralax-image">
                                 <img src="{{ asset('assets/images/process/9858_.jpg') }}" alt="Process Images">
@@ -83,8 +83,12 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">IoT</span>
-                                    <span class="sub-title extra04-color">Python</span>
+                                    @if (!is_null($item->tag_1))
+                                    <span class="sub-title extra04-color">{{ $item->tag_1 }}</span>
+                                    @endif
+                                    @if (!is_null($item->tag_2))
+                                    <span class="sub-title extra04-color">{{ $item->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
@@ -116,12 +120,16 @@
                     <!-- End Working Process  -->
                     @else
                     <!-- Start Working Process EVEN ODD -->
-                    <div class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
+                    <div id={{ $item->id }} class="axil-working-process mb--100 text-left mb_md--50 mb_sm--40">
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">IoT</span>
-                                    <span class="sub-title extra04-color">Python</span>
+                                    @if (!is_null($item->tag_1))
+                                    <span class="sub-title extra04-color">{{ $item->tag_1 }}</span>
+                                    @endif
+                                    @if (!is_null($item->tag_2))
+                                    <span class="sub-title extra04-color">{{ $item->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $item->projectTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>

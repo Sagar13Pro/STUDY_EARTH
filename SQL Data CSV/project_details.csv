@@ -65,3 +65,6 @@ Detecting vehicles in images acquired from a moving platform is a challenging pr
 37,"paid","andriod","Pill Reminder and Medication Tracker using OCR","",NULL,NULL,NULL,NULL,NULL,NULL,NULL
 38,"paid","andriod","Restaurant Table Booking Android Application","",NULL,NULL,NULL,NULL,NULL,NULL,NULL
 39,"paid","andriod","Calorie Calculator & Suggester Android App","",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+40,"paid","iot","Electricity Generator Tiles Project","",NULL,123,NULL,"Tiles","Electricity",NULL,NULL
+41,"paid","iot","IOT Color Based Product Sorting Machine Project","",NULL,213,NULL,"Sorting","Machine",NULL,NULL
+42,"paid","iot","IOT Air & Sound Pollution Monitoring System","",NULL,45,NULL,"Air & Sound","Pollution",NULL,NULL

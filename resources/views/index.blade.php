@@ -204,7 +204,7 @@ use App\Models\Customer;
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="axil-case-study wow">
                         <div class="thumbnail">
-                            <a href="#">
+                            <a href="{{ route('paidproject.view',['paid','iot']) }}#40">
                                 <img class="w-100 paralax-image" src="assets/images/1.png" alt="Axil Case Study Images">
                             </a>
                         </div>
@@ -213,7 +213,7 @@ use App\Models\Customer;
                                 <span class="category">IOT</span>
                                 <span class="category">Tiles</span>
                                 <span class="category">Electricity</span>
-                                <h4 class="wow title"><a href="">Electricity Generator Tiles Project</a></h4>
+                                <h4 class="wow title"><a href="{{ route('paidproject.view',['paid','iot']) }}#40">Electricity Generator Tiles Project</a></h4>
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,8 @@ use App\Models\Customer;
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="axil-case-study wow">
                         <div class="thumbnail">
-                            <a href="#">
+                            <a href="{{ route('paidproject.view',['paid','iot']) }}#41">
+
                                 <img class="w-100 paralax-image" src="assets/images/2.png" alt="Axil Case Study Images">
                             </a>
                         </div>
@@ -230,7 +231,7 @@ use App\Models\Customer;
                                 <span class="category">IOT</span>
                                 <span class="category">Sorting</span>
                                 <span class="category">Machine</span>
-                                <h4 class="wow title"><a href="">IOT Color Based Product Sorting Machine
+                                <h4 class="wow title"><a href="{{ route('paidproject.view',['paid','iot']) }}#41">IOT Color Based Product Sorting Machine
                                         Project</a></h4>
                             </div>
                         </div>
@@ -239,7 +240,7 @@ use App\Models\Customer;
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="axil-case-study wow">
                         <div class="thumbnail">
-                            <a href="#">
+                            <a href="{{ route('paidproject.view',['paid','iot']) }}#42">
                                 <img class="w-100 paralax-image" src="assets/images/3.png" alt="Axil Case Study Images">
                             </a>
                         </div>
@@ -247,7 +248,7 @@ use App\Models\Customer;
                             <div class="inner">
                                 <span class="category">IOT</span>
                                 <span class="category">Pollution</span>
-                                <h4 class="wow title"><a href="">IOT Air &amp; Sound Pollution Monitoring
+                                <h4 class="wow title"><a href="{{ route('paidproject.view',['paid','iot']) }}#42">IOT Air &amp; Sound Pollution Monitoring
                                         System</a></h4>
 
                             </div>
