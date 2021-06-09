@@ -25,7 +25,8 @@ class mainController extends Controller
 {
     public function IndexView()
     {
-        return view('index');
+        $Imp_projects = ProjectDetails::where('projectType', 'imp')->get();
+        return view('index', compact('Imp_projects'));
     }
     public function ProjectView()
     {
@@ -352,18 +353,15 @@ class mainController extends Controller
             $email = $request->forget_emailInput;
             try {
                 Mail::send('email.forgot-password-mail', ["data" => $request], function ($message) use ($email) {
-                        $message->to($email)
-                            ->subject('Forget Password');
-                    });
+                    $message->to($email)
+                        ->subject('Forget Password');
+                });
                 return redirect()->route('index.view');
-            }
-            catch (Exception $error)
-            {
+            } catch (Exception $error) {
                 dd('Please provide valid email.');
             }
         } else {
             return back()
-                ->withInput($request->all())
                 ->with('forget_password_failed', 'Email is not registered.');
         }
     }
@@ -398,9 +396,8 @@ class mainController extends Controller
                 Mail::send('email.mail-contact', ["data" => $request], function ($message) use ($email) {
                     $message->to($email)
                         ->subject('Contact');
-                }); 
+                });
                 $isMailSent = true;
-
             } catch (Exception $error) {
                 $isMailSent = false;
             }

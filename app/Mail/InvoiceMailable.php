@@ -19,13 +19,13 @@ class InvoiceMailable extends Mailable
      *
      * @return void
      */
-    public $txn_id, $amount, $paid_for, $order_id, $date;
+    public $txn_id, $amount, $product, $order_id, $date, $user_name;
     public function __construct($txn_id, $amount, $paid_for, $order_id, $date, $user_id)
     {
         $user = User::findORFail($user_id);
         $pdf = PDF::loadView('email.invoice', [
             'date' => $date,
-            'txn_id' => $txn_id,
+            'txn_id' => $order_id,
             'amount' => $amount,
             'product' => $paid_for,
             'name' => $user->firstName,
@@ -37,9 +37,10 @@ class InvoiceMailable extends Mailable
         $file_name  = $user_id . '_' . now() . '.pdf';
         session()->put('fnia', $file_name);
         Storage::put('/invoices/' . $file_name, $pdf->output());
-        $this->paid_for  = $paid_for;
-        $this->txn_id = $txn_id;
+        $this->product  = $paid_for;
+        $this->order_id = $order_id;
         $this->amount = $amount;
+        $this->user_name = $user->firstName;
     }
 
     /**
@@ -50,6 +51,7 @@ class InvoiceMailable extends Mailable
     public function build()
     {
         return $this->view('email.mail')
-            ->attachFromStorage('/invoices/' . session('fnia'), session('fnia'), ['mime' => 'application/pdf']);
+            ->attachFromStorage('/invoices/' . session('fnia'), session('fnia'), ['mime' => 'application/pdf'])
+            ->subject('Template Chalse!!');
     }
 }

@@ -114,7 +114,7 @@
     <div class="header">
         <table class="table-width-100">
             <tr>
-                <img class="logo" src="assets/images/logo.png" alt="" style="margin: 0 14rem">
+                <img class="logo" src="https://www.studyearth.co.in/assets/images/logo.png" alt="" style="margin: 0 14rem">
             </tr>
         </table>
     </div>

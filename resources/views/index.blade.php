@@ -64,7 +64,7 @@ use App\Models\Customer;
                         <div class="content">
                             <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Welcoming everyone in an experience that’s more than an education.</h1>
                             <div class="slider-button wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1300ms">
-                                <a class="axil-button btn-large btn-solid btn-extra07-color" href="javascrit:void(0)">
+                                <a class="axil-button btn-large btn-solid btn-extra07-color" href="{{ route('projects.view') }}">
                                     <span class="button-text">See Our Projects</span>
                                     <span class="button-icon"></span></a>
                             </div>
@@ -257,7 +257,7 @@ use App\Models\Customer;
                 <!-- End Single Case Study  -->
                 <div class="col-lg-12">
                     <div class="view-all-portfolio-button mt--60 text-center">
-                        <a class="axil-button btn-large btn-transparent btn-xl" href="#"><span class="button-text">Discover More Projects</span><span class="button-icon"></span></a>
+                        <a class="axil-button btn-large btn-transparent btn-xl" href="{{ route('projects.view').'#section2' }}"><span class="button-text">Discover More Projects</span><span class="button-icon"></span></a>
                     </div>
                 </div>
             </div>
@@ -315,14 +315,6 @@ use App\Models\Customer;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="view-all-portfolio-button mt--60 text-center">
-                    <a class="axil-button btn-large btn-transparent btn-xl" href="">
-                        <span class="button-text">Discover More Courses</span>
-                        <span class="button-icon"></span>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Course section end -->
@@ -332,25 +324,6 @@ use App\Models\Customer;
 
 @section('footer')
 <footer class="axil-footer footer-default footer-style-3 bg-color-extra09">
-    <!-- Start Call To Action  -->
-    <div class="axil-call-to-action callaction-style-2 pt--110 pt_sm--60 pt_md--80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner">
-                        <div class="text">
-                            <h2 class="title">Interested in collaborations?</h2>
-                        </div>
-                        <div class="button-wrapper">
-                            <a class="axil-button btn-large btn-solid bgextra07-color" href="#"><span class="button-text">Let's Talk</span><span class="button-icon"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Call To Action  -->
-
     <!-- Start Footer Top Area -->
     <div class="footer-top ax-section-gap">
         <div class="container">
@@ -359,7 +332,7 @@ use App\Models\Customer;
                 <div class="col-xl-5 col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-widget-item">
                         <div class="logo">
-                            <a href="home-01.html">
+                            <a href="{{ route('index.view') }}">
                                 <svg width="247px" height="72px" viewBox="0 0 247 72" version="1.1">
                                     <title>EAB575CA-61F4-4E68-97E4-378387DEE1D0</title>
                                     <desc>Created with sketchtool.</desc>
@@ -466,17 +439,9 @@ use App\Models\Customer;
     <div class="copyright copyright-default">
         <div class="container">
             <div class="row row--0 ptb--20 axil-basic-thine-line">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="inner text-center text-md-left">
-                        <p>© {{ date('Y') }}. All rights reserved by Your Company.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="quick-contact">
-                        <ul class="link-hover color-var--2 d-flex justify-content-md-end justify-content-center liststyle">
-                            <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
+                <div class="col-12">
+                    <div class="inner text-center">
+                        <p>© {{ date('Y') }}. All rights reserved by Your StudyEarth.</p>
                     </div>
                 </div>
             </div>

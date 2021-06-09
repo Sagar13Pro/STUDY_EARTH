@@ -406,9 +406,8 @@ use App\Models\Customer;
                                     <h6 class="title">Support</h6>
                                     <div class="footer-menu-container">
                                         <ul class="ft-menu liststyle link-hover">
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{{ route('contact.view') }}">Contact</a></li>
                                             <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                            <li><a href="#">Sitemap</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -422,17 +421,9 @@ use App\Models\Customer;
                 <div class="copyright copyright-default">
                     <div class="container">
                         <div class="row row--0 ptb--20 axil-basic-thine-line">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="inner text-center text-md-left">
-                                    <p>© {{ date('Y') }}. All rights reserved by Your Company.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="quick-contact">
-                                    <ul class="link-hover d-flex justify-content-center justify-content-md-end liststyle">
-                                        <li><a data-hover="Privacy Policy" href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                    </ul>
+                            <div class="col-12">
+                                <div class="inner text-center">
+                                    <p>© {{ date('Y') }}. All rights reserved by Your StudyEarth.</p>
                                 </div>
                             </div>
                         </div>

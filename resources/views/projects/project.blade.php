@@ -24,7 +24,7 @@
                         <div class="content">
                             <h1 class="page-title mb--20">Best solutions for your business</h1>
                             <p class="subtitle-2">A quick view of industry specific problems solved with design
-                                by the awesome team at Keystroke.</p>
+                                by the awesome team at StudyEarth.</p>
                         </div>
                     </div>
                 </div>

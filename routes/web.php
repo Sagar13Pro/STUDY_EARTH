@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\CourseController;
+use App\Mail\InvoiceMailable;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Mail;
 //==================================PROJECTS ROUTES=============================================
 Route::get('/', [mainController::class, 'IndexView'])->name('index.view');
 Route::get('/projects', [mainController::class, 'ProjectView'])->name('projects.view');
@@ -39,3 +40,10 @@ Route::match(['GET', 'POST'], '{title}/{subtitle}', [CourseController::class, 'P
 Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('contact.details');
 //==============================================================================================
 Route::get('/payment-{slug}', [mainController::class, 'PaymentStatusView'])->name('payment.status');
+
+Route::get('/send', function () {
+    Mail::to('prashant.sahatiya270187@paruluniversity.ac.in')->send(new InvoiceMailable('12', '1234', 'okok', 'adsf', '222', '1'));
+});
+Route::get('mail', function () {
+    return view('email.mail-custom-projects', ['full_name' => 12, 'email' => 12020, 'contact_number' => 'o', 'selected_platform' => 'php', 'requirements' => 'sdajkgj']);
+});
