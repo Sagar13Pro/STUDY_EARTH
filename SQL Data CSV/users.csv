@@ -1,5 +1,4 @@
 "id","firstName","lastName","email","mobileNo","address","password","dob","created_at","updated_at"
-1,"sagar","patel","sagarpatel@mail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$5kSZJHSgRh/YQfTQbh8IreA8XYuCrs/ApRgDT9.pcTwEyV027S2/W","2021-05-28","2021-05-28 10:28:54","2021-05-28 10:28:54"
-2,"shyam","patel","shyam@mail.com",7359569019,"asas","$2y$10$Ge3wyVDPaE8BgNDjwieX/eG8L0tp/oU/CNRSIPN.QE834fINeOpbq","2021-05-29","2021-05-29 13:05:48","2021-05-29 13:05:48"
-3,"akash","tara","akash@mail.com",7359569019,"sa","$2y$10$Yd0Yo6971GYcWZGKOJvvqeYHmpuP1QVhZcycuKzC27OgRDH44JYvq","2021-06-05","2021-05-29 21:37:21","2021-05-29 21:37:21"
-4,"sagar","patel","sagarvanesa@gmail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$2qiiOD3lFViMmD8VzCHMu.giv8foHlUWt7FakIO0V57KyiaW0Qfm2","2021-05-25","2021-05-31 10:38:01","2021-05-31 10:38:01"
+1,"sagar","patel","sagarvanesa@gmail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$3reI00E5fAA2Lz2au0h7/eRvguxgPLjtl8UHD8OPTjkFU55.qy91u","2021-06-22","2021-06-05 18:14:17","2021-06-05 18:14:17"
+2,"sagar","patel","sagarpatel@mail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$1rk/P2Z7SVBqspw2dNJaXuPb4BHBLE8Iok78UYee9ytA63dKANIiC","2021-06-11","2021-06-05 18:29:52","2021-06-05 18:29:52"
+3,"sagar","patel","emal@mail.com",7359569019,"At post: vanesa, taluka: palsana, district: surat 394310","$2y$10$lnSXmZ6YmC4befG1NLeDBut6ksMXrWJiYw8ofgEFzgyD0HuuWsSNi","2021-06-08","2021-06-08 20:50:46","2021-06-08 20:50:46"

@@ -45,5 +45,5 @@ Route::get('/send', function () {
     Mail::to('prashant.sahatiya270187@paruluniversity.ac.in')->send(new InvoiceMailable('12', '1234', 'okok', 'adsf', '222', '1'));
 });
 Route::get('mail', function () {
-    return view('email.mail-custom-projects', ['full_name' => 12, 'email' => 12020, 'contact_number' => 'o', 'selected_platform' => 'php', 'requirements' => 'sdajkgj']);
+    return view('email.reset-password', ['full_name' => 'Sagar', 'email' => 12020, 'contact_number' => 'o', 'selected_platform' => 'php', 'requirements' => 'sdajkgj']);
 });

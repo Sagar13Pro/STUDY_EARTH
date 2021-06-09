@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use App\Mail\CustomProjectFormMailable as custom_project_mail;
 use App\Mail\InvoiceMailable;
+use App\Mail\ResetPasswordMailable;
+use App\Models\ResetPassword;
 
 class mainController extends Controller
 {
@@ -347,22 +350,24 @@ class mainController extends Controller
     }
     public function ForgetPassword(Request $request)
     {
-        $isUserExist = User::where('email', $request->forget_emailInput)->first();
-        if (!is_null($isUserExist)) {
-            session()->put('session_email', $request->login_emailInput);
-            $email = $request->forget_emailInput;
-            try {
-                Mail::send('email.forgot-password-mail', ["data" => $request], function ($message) use ($email) {
-                    $message->to($email)
-                        ->subject('Forget Password');
-                });
+        $validator = Validator::make(
+            $request->all(),
+            ['forget_emailInput' => 'required'],
+        );
+        if (!$validator->fails()) {
+            $token = uniqid() . '-' . uniqid();
+            $isUserExist = User::where('email', $request->forget_emailInput)->first();
+            if (!is_null($isUserExist)) {
+                $user_id = User::where('email', $request->forget_emailInput)->value('id');
+                ResetPassword::create([
+                    'email' => $request->forget_emailInput,
+                    'token' => ''
+                ]);
+                Mail::to($request->login_emailInput)->send(new ResetPasswordMailable($user_id));
                 return redirect()->route('index.view');
-            } catch (Exception $error) {
-                dd('Please provide valid email.');
             }
         } else {
-            return back()
-                ->with('forget_password_failed', 'Email is not registered.');
+            return back()->with('validation_error', 'This is required.');
         }
     }
     //contact details

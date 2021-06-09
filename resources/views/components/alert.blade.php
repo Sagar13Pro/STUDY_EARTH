@@ -129,8 +129,8 @@
 
 {{-- FORGET PASSWORD ERROR BLOCK START --}}
 @if($type == 'forget_password')
-@if(session()->has('forget_password_failed'))
-<div class="tracker">{{ session('forget_password_failed') }}</div>
+@if(session()->has('validation_error'))
+<div class="tracker">{{ session('validation_error') }}</div>
 @endif
 @endif
 {{-- FORGET PASSWORD ERROR BLOCK END --}}
