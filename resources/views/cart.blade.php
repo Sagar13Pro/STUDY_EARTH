@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 
 @extends('layout.layout')
 
-@section('title','StudyEarth - Paid Projects')
+@section('title','StudyEarth - Cart')
 
 @section('content')
 <div class="main-wrapper">

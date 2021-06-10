@@ -12,6 +12,10 @@ class Contact extends Model
         'name',
         'email',
         'mobile',
-        'message'
+        'message',
+        'isMailSent'
+    ];
+    protected $hidden = [
+        'isMailSent'
     ];
 }

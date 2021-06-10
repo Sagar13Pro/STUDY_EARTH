@@ -52,6 +52,9 @@ use App\Models\Customer;
 @endsection
 
 @section('content')
+<div class="preloader">
+    <img id="loader-gif" src="{{ asset('assets/images/preloader.gif') }}" alt="">
+</div>
 <main class="page-wrappper">
     <i class="fab fa-circle-notch-g"></i>
     <!-- Start Slider Area -->
@@ -222,7 +225,6 @@ use App\Models\Customer;
                     <div class="axil-case-study wow">
                         <div class="thumbnail">
                             <a href="{{ route('paidproject.view',['paid','iot']) }}#41">
-
                                 <img class="w-100 paralax-image" src="assets/images/2.png" alt="Axil Case Study Images">
                             </a>
                         </div>
@@ -330,57 +332,23 @@ use App\Models\Customer;
         <div class="container">
             <div class="row">
                 <!-- Start Single Widget -->
-                <div class="col-xl-5 col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="footer-widget-item">
-                        <div class="logo">
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="footer-widget-item d-flex flex-column justify-content-between position-relative" style="top:-60px">
+                        <div class="logo my-5">
                             <a href="{{ route('index.view') }}">
-                                <svg width="247px" height="72px" viewBox="0 0 247 72" version="1.1">
-                                    <title>EAB575CA-61F4-4E68-97E4-378387DEE1D0</title>
-                                    <desc>Created with sketchtool.</desc>
-                                    <defs>
-                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%">
-                                            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
-                                            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
-                                        </linearGradient>
-                                        <rect x="0" y="0" width="60" height="60" rx="14"></rect>
-                                        <filter x="-18.3%" y="-11.7%" width="136.7%" height="136.7%" filterUnits="objectBoundingBox">
-                                            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                                            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-                                            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
-                                            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
-                                            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
-                                            <feMerge>
-                                                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                                                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
-                                            </feMerge>
-                                        </filter>
-                                        <filter x="-10.8%" y="-4.2%" width="121.7%" height="121.7%" filterUnits="objectBoundingBox">
-                                            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
-                                            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-                                            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-                                        </filter>
-                                    </defs>
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-309.000000, -6452.000000)">
-                                            <g transform="translate(0.000000, 5918.000000)">
-                                                <g transform="translate(315.000000, 536.000000)">
-                                                    <g class="logo">
-                                                        <text font-family="DMSans-Bold, DM Sans" font-size="20" font-weight="bold" fill="#FFFFFF">
-                                                            <tspan x="75" y="24">StudyEarth</tspan>
-                                                            <tspan x="175.14" y="24.5001221" font-family="DMSans-Regular, DM Sans" font-weight="normal"></tspan>
-                                                        </text>
-                                                        <g>
-                                                            <g>
-                                                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
-                                                                <use fill="#FF8A5B" fill-rule="evenodd" xlink:href="#path-2"></use>
-                                                                <use fill-opacity="0.100000001" fill="url(#linearGradient-1)" fill-rule="evenodd" style="mix-blend-mode: overlay;" xlink:href="#path-2"></use>
-                                                                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-2"></use>
-                                                            </g>
-                                                            <g class="Group-3" transform="translate(15.000000, 11.000000)">
-                                                                <circle class="icon-oval-lg" stroke="#FFFFFF" stroke-width="7" cx="15" cy="15" r="11.5"></circle>
-                                                                <circle class="icon-oval-sm" fill="#FFFFFF" cx="4" cy="34" r="4"></circle>
-                                                            </g>
+                                <svg width="281px" height="60px" viewBox="0 0 281 60" version="1.1">
+                                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-315.000000, -40.000000)">
+                                            <g>
+                                                <g id="logo" transform="translate(315.000000, 40.000000)">
+                                                    <text id="Keystroke-Startup-la" font-family="DMSans-Bold, DM Sans" font-size="24" font-weight="bold" fill="#ffffff">
+                                                        <tspan x="75" y="35">StudyEarth</tspan>
+                                                    </text>
+                                                    <g id="Favicon">
+                                                        <rect id="Base" fill="#702FFF" x="0" y="0" width="60" height="60" rx="14"></rect>
+                                                        <g id="Group-3" transform="translate(15.000000, 11.000000)">
+                                                            <circle id="icon-oval-lg" class="icon-oval-lg" stroke="#FFFFFF" stroke-width="7" cx="15" cy="15" r="11.5"></circle>
+                                                            <circle id="icon-oval-sm" class="icon-oval-sm" fill="#FFFFFF" cx="4" cy="34" r="4"></circle>
                                                         </g>
                                                     </g>
                                                 </g>
@@ -388,6 +356,8 @@ use App\Models\Customer;
                                         </g>
                                     </g>
                                 </svg>
+
+
                             </a>
                         </div>
                         <div class="axil-ft-address">
@@ -400,13 +370,13 @@ use App\Models\Customer;
                     </div>
                 </div>
                 <!-- End Single Widget -->
-
+                <div class="col-2 col-md-2 col-lg-2 mb-1"></div>
                 <!-- Start Single Widget -->
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mt_mobile--30">
+                <div class="col-12 col-md-4 col-lg-3">
                     <div class="footer-widget-item">
                         <h6 class="title">Services</h6>
                         <div class="footer-menu-container">
-                            <ul class="ft-menu liststyle link-hover color-var--2">
+                            <ul class="ft-menu liststyle link-hover">
                                 <li><a href="#">Website Development</a></li>
                                 <li><a href="#">Mobile App Development</a></li>
                                 <li><a href="#">Product design</a></li>
@@ -417,22 +387,22 @@ use App\Models\Customer;
                     </div>
                 </div>
                 <!-- End Single Widget -->
-
+                <div class="col-2 col-md-1 col-lg-2 mb-5"></div>
                 <!-- Start Single Widget -->
-                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30">
-                    <div class="footer-widget-item">
+                <div class="col-12 col-md-2 col-lg-2">
+                    <div class="footer-widget-item widget-support">
                         <h6 class="title">Support</h6>
                         <div class="footer-menu-container">
-                            <ul class="ft-menu liststyle link-hover color-var--2">
+                            <ul class="ft-menu liststyle link-hover">
                                 <li><a href="{{ route('contact.view') }}">Contact</a></li>
-                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- End Single Widget -->
-
             </div>
+
         </div>
     </div>
     <!-- End Footer Top Area -->
@@ -487,5 +457,16 @@ use App\Models\Customer;
     let CookieExpireDate = new Date();
     CookieExpireDate.getMonth() == 11 ? CookieExpireDate.setMonth(0) : CookieExpireDate.setMonth(CookieExpireDate.getMonth() + 1);
     document.cookie = 'device=' + device + ';expires=' + CookieExpireDate.toUTCString() + ';domain;path=/'
+    setTimeout(function() {
+        let dark = $('body').hasClass('active-dark-mode')
+        console.log(dark);
+        if (dark) {
+            $("#loader-gif").attr('src', "{{ asset('assets/images/preloader-dark.gif') }}")
+            $('.preloader').css('background-color', '#000000ff');
+        }
+    }, 95);
+    setTimeout(function() {
+        $('.preloader').fadeOut(2000);
+    }, 4000)
 
 </script>

@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth - Free Projects')
+@section('title','StudyEarth | Free Projects')
 
 @section('content')
 <div class="main-wrapper">

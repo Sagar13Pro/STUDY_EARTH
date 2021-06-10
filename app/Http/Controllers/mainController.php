@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
+use App\Mail\ContactMailable;
 use App\Models\Customer;
 use App\Models\ProjectDetails;
 use App\Models\CourseDetails;
@@ -18,7 +19,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use App\Mail\CustomProjectFormMailable as custom_project_mail;
 use App\Mail\InvoiceMailable;
 use App\Mail\ResetPasswordMailable;
@@ -110,6 +110,15 @@ class mainController extends Controller
     public function PaymentStatusView()
     {
         return view('payment.payment-status');
+    }
+    public function ResetPasswordView(Request $request, $token)
+    {
+        // if (!$request->hasValidSignature()) {
+        //     return abort(401);
+        // }
+        if (!is_null($token)) {
+            return view('new-password', compact('token'));
+        }
     }
     //Adding to Cart
     public function AddToCart(Request $request)
@@ -355,19 +364,44 @@ class mainController extends Controller
             ['forget_emailInput' => 'required'],
         );
         if (!$validator->fails()) {
-            $token = uniqid() . '-' . uniqid();
+            $token = uniqid();
             $isUserExist = User::where('email', $request->forget_emailInput)->first();
             if (!is_null($isUserExist)) {
                 $user_id = User::where('email', $request->forget_emailInput)->value('id');
-                ResetPassword::create([
-                    'email' => $request->forget_emailInput,
-                    'token' => ''
-                ]);
-                Mail::to($request->login_emailInput)->send(new ResetPasswordMailable($user_id));
+                $reset = ResetPassword::where('email', $request->forget_emailInput)->first();
+                if ($reset == null) {
+                    ResetPassword::create([
+                        'email' => $request->forget_emailInput,
+                        'token' => $token,
+                    ]);
+                } else {
+                    $reset->update([
+                        'token' => $token,
+                    ]);
+                }
+                Mail::to($request->forget_emailInput)->send(new ResetPasswordMailable($user_id, $token));
                 return redirect()->route('index.view');
+            } else {
+                return back();
             }
         } else {
             return back()->with('validation_error', 'This is required.');
+        }
+    }
+    public function UpdatePassword(Request $request)
+    {
+        Validator::make($request->all(), [
+            'new_passwordInput' => 'required'
+        ], [
+            'new_passwordInput.required' => 'This is required.'
+        ])->validated();
+        $getEmail = ResetPassword::where('token', $request->token)->first();
+        $getEmail->DeleteOldReset();
+        $update_password = User::where('email', $getEmail->email)
+            ->first()
+            ->update(['password' => $request->new_passwordInput]);
+        if ($update_password) {
+            return redirect(route('index.view'));
         }
     }
     //contact details
@@ -375,17 +409,18 @@ class mainController extends Controller
     {
         $rules = [
             "con_name" => 'required',
-            "con_email" => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            "con_email" => 'required|regex:/^[A-z]+?[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
             "con_mobile" => 'required|integer|digits:10',
             "con_message" => 'required'
         ];
         $message = [
             '*.required' => 'This is required.',
             'con_email.regex' => 'The email format is invalid.',
-            'con_mobile.digits' => 'The mobile number must be 10 digits.'
+            'con_mobile.digits' => 'The contact number must be 10 digits.',
+            'con_mobile.integer' => 'The contact mobile must be an digit.'
         ];
         $validate = Validator::make($request->all(), $rules, $message)->validated();
-        $email = 'akashtarapara222@gmail.com';
+        $email = 'sagarvanesa@gmail.com';
         try {
             $contact = Contact::create([
                 'name' => $request->con_name,
@@ -394,28 +429,28 @@ class mainController extends Controller
                 'message' => $request->con_message,
             ]);
         } catch (Exception $error) {
+            dd($error);
             $contact = false;
         }
         if ($contact) {
             try {
-                Mail::send('email.mail-contact', ["data" => $request], function ($message) use ($email) {
-                    $message->to($email)
-                        ->subject('Contact');
-                });
-                $isMailSent = true;
+                Mail::to(config('custom_configs.notifier_email'))->send(new ContactMailable($request->con_name, $request->con_email, $request->con_mobile, $request->con_message));
+                $isMailSent = $contact->update(['isMailSent' => 'Yes']);
             } catch (Exception $error) {
+                dd($error);
                 $isMailSent = false;
             }
+
             if ($isMailSent) {
                 return back()
-                    ->withInput($request->all())
-                    ->with('success_contact', 'Your contact details submited successfully.Kindly wait for 24hr for reply.');
+                    ->with('success_contact', 'Your contact details submitted successfully. Kindly wait for 24hr for reply.');
             } else {
                 return back()
-                    ->with('success_contact', 'ERROR_MAIL');
+                    ->with('success_contact', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
             }
         }
     }
+
     //Custom Project Form
     public function CustomProjectForm(Request $request)
     {
@@ -445,7 +480,8 @@ class mainController extends Controller
         }
         if ($isFormCreated) {
             try {
-                Mail::to($request->emailInput)->cc('sagarpatel_30@yahoo.com')->send(new custom_project_mail($request->full_nameInput, $request->emailInput, $request->mobile_numberInput, $request->project_platformInput, $request->project_requirementsInput));
+                Mail::to($request->emailInput)->send(new custom_project_mail($request->full_nameInput, $request->emailInput, $request->mobile_numberInput, $request->project_platformInput, $request->project_requirementsInput));
+                Mail::to(config('custom_configs.notifier_email'))->send(new custom_project_mail($request->full_nameInput, $request->emailInput, $request->mobile_numberInput, $request->project_platformInput, $request->project_requirementsInput));
                 $isMailSent = true;
             } catch (Exception $error) {
                 $isMailSent = false;
@@ -453,10 +489,10 @@ class mainController extends Controller
             if ($isMailSent) {
                 CustomProjectsForm::where('email', $request->emailInput)->orderBy('created_at', 'desc')->first()->update(['isMailSent' => 'Yes']);
                 return back()
-                    ->with('custom_message', 'Your request for custom project form submited.Kindly wait for 24hr for reply.');
+                    ->with('custom_message', 'Your request for custom project form submited. Kindly wait for 24hr for reply.');
             } else {
                 return back()
-                    ->with('custom_message', 'ERROR_MAIL');
+                    ->with('custom_message', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
             }
         }
     }

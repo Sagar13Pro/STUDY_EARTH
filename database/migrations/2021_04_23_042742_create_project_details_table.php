@@ -21,7 +21,7 @@ class CreateProjectDetailsTable extends Migration
             $table->longText('projectContent');
             $table->longText('requirements')->nullable();
             $table->integer('projectPrice')->nullable();
-            $table->string('file_path', 255);
+            $table->string('file_path', 255)->nullable();
             $table->string('tag_1', 100)->nullable();
             $table->string('tag_2', 100)->nullable();
             $table->timestamps();

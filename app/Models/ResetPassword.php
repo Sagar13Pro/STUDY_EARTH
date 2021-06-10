@@ -10,6 +10,12 @@ class ResetPassword extends Model
     use HasFactory;
     protected $fillable = [
         'email',
-        'token'
+        'token',
     ];
+    public function DeleteOldReset()
+    {
+        ResetPassword::where('email', $this->email)
+            ->where('created_at', '<', now()->subMinutes(config('temporayLink.delete_old')))
+            ->delete();
+    }
 }

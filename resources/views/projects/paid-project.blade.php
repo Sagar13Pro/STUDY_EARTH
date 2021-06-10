@@ -1,34 +1,9 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth - Paid Projects')
+@section('title','StudyEarth | Paid Projects')
 
 @section('content')
 <div class="main-wrapper">
-    <div class="modal fade {{ session()->has('info') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('info') ? 'style=display:block' : 'style=display:none' }}>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Info</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <x-alert type="message" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
-                </div>
-                <script>
-                    $('.btn-close').click(function() {
-                        console.log('o')
-                        $('#exampleModal').fadeOut(1000);
-                    })
-
-                </script>
-            </div>
-        </div>
-    </div>
-
-    <!-- Start Breadcrumb Area -->
     <div class="axil-breadcrumb-area breadcrumb-style-2 single-service pt--170 pb--70 theme-gradient">
         <div class="container">
             <div class="row align-items-center">
@@ -38,7 +13,6 @@
                         <img src="{{ asset('assets/images/icons/'. $projectsImage) }}" style="max-width: 200px;">
                         @endif
                         <h2 class="title">{{ $langName }}- Projects</h2>
-                        <!-- <p>We have list of free projects in <code style="font-size: 24px;">c++</code>. </p> -->
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
@@ -173,7 +147,7 @@
     <!-- End Working Process  -->
 </div>
 
-<!-- Model Area Start-->
+<!-- Modal Area Start-->
 <div class="modal fade bs-example-modal-lg" id="confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -187,7 +161,6 @@
                         <p>Project Documentation Data in Word File (approx 70-80 Pages).</p>
                         <p>Project Setup Troubleshooting & Doubt Solving Support- via Skype & Teamviewer.</p>
                         <p>Online Technical Support.</p>
-
                     </div>
                 </div>
             </div>
@@ -195,6 +168,31 @@
     </div>
 </div>
 <!-- /Model Area End -->
+{{-- Modal Notifications --}}
+<div class="modal fade {{ session()->has('info') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('info') ? 'style=display:block' : 'style=display:none' }}>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <x-alert type="message" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+            </div>
+            <script>
+                $('.btn-close').click(function() {
+                    console.log('o')
+                    $('#exampleModal').fadeOut(1000);
+                })
+
+            </script>
+        </div>
+    </div>
+</div>
+{{-- Modal Notifcation End --}}
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 

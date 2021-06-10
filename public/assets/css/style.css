@@ -24164,6 +24164,22 @@ a.explore_more:hover:after {
   line-height: 18px;
   margin-right: 0.2rem;
 }
+.tracker-success {
+  margin: 5px 0;
+  color: #00D09C;
+  font-weight: bolder;
+}
+.tracker-success::before {
+  content: "\2713";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 2px solid #00D09c;
+  border-radius: 50%;;
+  text-align: center;
+  line-height: 18px;
+  margin-right: .2rem;
+}
 .password_container button {
     top: -37px;
     margin-right: 10px;
@@ -24173,7 +24189,7 @@ a.explore_more:hover:after {
 }
 
 .alerts-info {
-       color: #055160;
+    color: #03aed0;
     font-size: 20px;
     font-weight: bolder;
 }

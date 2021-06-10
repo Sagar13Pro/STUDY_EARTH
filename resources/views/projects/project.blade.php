@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth - Projects')
+@section('title','StudyEarth | Projects')
 
 {{-- <body> PARAMETERS START --}}
 @section('class','class=position-relative')
@@ -249,7 +249,7 @@
     </div>
     <!-- End Navigation Content  -->
 
-    <!--Modal -->
+    <!--Notification Modal -->
     <div class="modal fade  {{ session()->has('custom_message') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('custom_message') ? 'style=display:block' : 'style=display:none' }} style="display:block">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -258,9 +258,7 @@
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    @if(session()->has('custom_message'))
-                    <div class="">{{ session('custom_message') }}</div>
-                    @endif
+                    <x-alert type="custom_error" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>

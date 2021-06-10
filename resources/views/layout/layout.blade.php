@@ -6,7 +6,7 @@ use App\Models\Customer;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>@yield('title','StudyEarth')</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,9 +29,7 @@ use App\Models\Customer;
 </head>
 
 <body @yield('class') @yield('data-spy') @yield('data-target') @yield('data-offset')>
-    {{-- <div class="preloader">
-        <img id="loader-gif" src="{{ asset('assets/images/preloader.gif') }}" alt="">
-    </div> --}}
+
 
     <div class="main-content">
         {{-- HEADER SECTION START --}}
@@ -65,7 +63,6 @@ use App\Models\Customer;
                                             </g>
                                         </g>
                                     </svg>
-
                                 </a>
                             </div>
                         </div>
@@ -251,7 +248,6 @@ use App\Models\Customer;
                 <div class="modal-content mr-15">
                     <a type="button" data-dismiss="modal" aria-hidden="true" class="close-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" id="login-cancel-btn-image" width="24" height="24" viewBox="0 0 24 24">
-
                             <path fill-rule="evenodd" d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M7.29325,7.29325 C7.65417308,6.93232692 8.22044527,6.90456361 8.61296051,7.20996006 L8.70725,7.29325 L12.00025,10.58625 L15.29325,7.29325 C15.68425,6.90225 16.31625,6.90225 16.70725,7.29325 C17.0681731,7.65417308 17.0959364,8.22044527 16.7905399,8.61296051 L16.70725,8.70725 L13.41425,12.00025 L16.70725,15.29325 C17.09825,15.68425 17.09825,16.31625 16.70725,16.70725 C16.51225,16.90225 16.25625,17.00025 16.00025,17.00025 C15.7869167,17.00025 15.5735833,16.9321944 15.3955509,16.796662 L15.29325,16.70725 L12.00025,13.41425 L8.70725,16.70725 C8.51225,16.90225 8.25625,17.00025 8.00025,17.00025 C7.74425,17.00025 7.48825,16.90225 7.29325,16.70725 C6.93232692,16.3463269 6.90456361,15.7800547 7.20996006,15.3875395 L7.29325,15.29325 L10.58625,12.00025 L7.29325,8.70725 C6.90225,8.31625 6.90225,7.68425 7.29325,7.29325 Z" />
                         </svg></a>
 
@@ -303,8 +299,6 @@ use App\Models\Customer;
                                 </a>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -341,8 +335,6 @@ use App\Models\Customer;
         </div>
         @show
 
-
-
         {{-- FOOTER SECTION START --}}
         @section('footer')
         <footer class="axil-footer footer-default theme-gradient-2">
@@ -368,22 +360,49 @@ use App\Models\Customer;
                     <div class="container">
                         <div class="row">
                             <!-- Start Single Widget -->
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="footer-widget-item axil-border-right">
-                                    <h2>Get in touch!</h2>
-                                    <p>Fusce varius, dolor tempor interdum tristique, dui urna <br /> bibendum magna, ut ullamcorper purus</p>
-                                    <div class="axil-newsletter">
-                                        <form class="newsletter-form" action="#">
-                                            <input type="email" placeholder="Email">
-                                            <a class="axil-button btn-transparent" href="#"><span class="button-text">Subscribe</span><span class="button-icon"></span></a>
-                                        </form>
+                            <div class="col-12 col-md-3 col-lg-3">
+                                <div class="footer-widget-item d-flex flex-column justify-content-between position-relative" style="top:-60px">
+                                    <div class="logo my-5">
+                                        <a href="{{ route('index.view') }}">
+                                            <svg width="281px" height="60px" viewBox="0 0 281 60" version="1.1">
+                                                <title>Logo</title>
+                                                <desc>Created with Sketch.</desc>
+                                                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-315.000000, -40.000000)">
+                                                        <g>
+                                                            <g id="logo" transform="translate(315.000000, 40.000000)">
+                                                                <text id="Keystroke-Startup-la" font-family="DMSans-Bold, DM Sans" font-size="24" font-weight="bold" fill="#000248">
+                                                                    <tspan x="75" y="35">StudyEarth</tspan>
+                                                                </text>
+                                                                <g id="Favicon">
+                                                                    <rect id="Base" fill="#702FFF" x="0" y="0" width="60" height="60" rx="14"></rect>
+                                                                    <g id="Group-3" transform="translate(15.000000, 11.000000)">
+                                                                        <circle id="icon-oval-lg" class="icon-oval-lg" stroke="#FFFFFF" stroke-width="7" cx="15" cy="15" r="11.5"></circle>
+                                                                        <circle id="icon-oval-sm" class="icon-oval-sm" fill="#FFFFFF" cx="4" cy="34" r="4"></circle>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+
+
+                                        </a>
+                                    </div>
+                                    <div class="axil-ft-address">
+                                        <div class="address">
+                                            <p>Vadodara, Gujarat</p>
+                                            <p><a href="tel:940-846-3208">940-846-3208</a></p>
+                                            <p><a href="mailto:info@studyearth.co.in">info@studyearth.co.in</a></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- End Single Widget -->
-
+                            <div class="col-2 col-md-2 col-lg-2 mb-1"></div>
                             <!-- Start Single Widget -->
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--30">
+                            <div class="col-12 col-md-4 col-lg-3">
                                 <div class="footer-widget-item">
                                     <h6 class="title">Services</h6>
                                     <div class="footer-menu-container">
@@ -398,9 +417,9 @@ use App\Models\Customer;
                                 </div>
                             </div>
                             <!-- End Single Widget -->
-
+                            <div class="col-2 col-md-1 col-lg-2 mb-5"></div>
                             <!-- Start Single Widget -->
-                            <div class="col-xl-1 col-lg-6 col-md-6 col-sm-6 col-12 mt_lg--30 mt_md--30 mt_sm--30">
+                            <div class="col-12 col-md-2 col-lg-2">
                                 <div class="footer-widget-item widget-support">
                                     <h6 class="title">Support</h6>
                                     <div class="footer-menu-container">
@@ -450,16 +469,6 @@ use App\Models\Customer;
         $('.close-forget-btn').click(function() {
             $('#forget-modal').fadeOut(1000);
         });
-        setTimeout(function() {
-            let dark = $('body').hasClass('active-dark-mode')
-            if (dark) {
-                $("#loader-gif").attr('src', "{{ asset('assets/images/preloader-dark.gif') }}")
-                $('.preloader').css('background-color', '#000000ff');
-            }
-        }, 94)
-        setTimeout(function() {
-            $('.preloader').fadeOut(2000);
-        }, 4000)
 
     </script>
     <!-- Modernizer JS -->

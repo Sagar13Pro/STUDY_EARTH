@@ -19,6 +19,8 @@ class Contact extends Migration
             $table->string('email');
             $table->bigInteger('mobile');
             $table->longText('message');
+            $table->enum('isMailSent', ['No', 'Yes']);
+            $table->timestamps();
         });
     }
 

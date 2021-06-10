@@ -1,19 +1,19 @@
 {{-- CART ERROR BLOCK START --}}
 @if ($type == 'fname_error')
 @error('fnameInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 
 @if ($type == 'lname_error')
 @error('lnameInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 
 @if ($type == 'address_error')
 @error('addressInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 
@@ -31,20 +31,20 @@
 
 @if ($type == 'dob_error')
 @error('birthdateInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 
 
 @if($type == "passwd")
 @error('passwordInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 
 @if($type == "cpasswd")
 @error('confirmpasswordInput')
-<div class="tracker custom-error my-1">{{ $message }}</div>
+<div class="tracker my-1">{{ $message }}</div>
 @enderror
 @endif
 {{-- CART ERROR BLOCK END --}}
@@ -76,12 +76,13 @@
 @enderror
 @endif
 {{-- CUSTOM PROJECT ERROR BLOCK END --}}
+
 @if($type=='message' )
 @if (session('success'))
-<div class="alert alert-success my-1">{{ session('success') }}</div>
+<div class="tracker-success">{{ session('success') }}</div>
 @endif
 @if(session('error'))
-<div class="tracker custom-error">{{ session('error') }}</div>
+<div class="tracker">{{ session('error') }}</div>
 @endif
 @if(session('info'))
 <div class="alerts-info">{{ session('info') }}</div>
@@ -92,11 +93,6 @@
 @if(session()->has('login_failed'))
 <div class="tracker">{{ session('login_failed') }}</div>
 @endif
-@endif
-@if ($type == 'mobileNo')
-@error('con_mobile')
-<div class="tracker custom-error my-1">{{ $message }}</div>
-@enderror
 @endif
 
 {{-- CONTACT ERROR BLOCK START --}}
@@ -120,11 +116,6 @@
 <div class="tracker">{{ $message }}</div>
 @enderror
 @endif
-@if($type == 'contact_details')
-@if(session()->has('success_contact'))
-<div class="tracker">{{ session('success_contact') }}</div>
-@endif
-@endif
 {{-- CONTACT ERROR BLOCK END --}}
 
 {{-- FORGET PASSWORD ERROR BLOCK START --}}
@@ -133,4 +124,21 @@
 <div class="tracker">{{ session('validation_error') }}</div>
 @endif
 @endif
+@if($type == 'reset_password')
+@error('new_passwordInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
 {{-- FORGET PASSWORD ERROR BLOCK END --}}
+
+@if($type=="custom_error")
+@if(session()->has('custom_message'))
+<div class="tracker-success">{{ session('custom_message') }}</div>
+@endif
+@endif
+
+@if($type == 'contact_details')
+@if(session()->has('success_contact'))
+<div class="tracker-success">{{ session('success_contact') }}</div>
+@endif
+@endif
