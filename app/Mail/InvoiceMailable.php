@@ -52,6 +52,6 @@ class InvoiceMailable extends Mailable
     {
         return $this->view('email.mail')
             ->attachFromStorage('/invoices/' . session('fnia'), session('fnia'), ['mime' => 'application/pdf'])
-            ->subject('Template Chalse!!');
+            ->subject('StudyEarth Payment Details & Receipt');
     }
 }

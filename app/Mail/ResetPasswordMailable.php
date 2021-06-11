@@ -36,6 +36,6 @@ class ResetPasswordMailable extends Mailable
     public function build()
     {
         return $this->view('email.mail-reset-password')
-            ->subject('StudyEarth password reset');
+            ->subject('StudyEarth Password Reset');
     }
 }

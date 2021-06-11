@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','User | Purchases')
+@section('title','StudyEarth | Purchases')
 
 @section('content')
 

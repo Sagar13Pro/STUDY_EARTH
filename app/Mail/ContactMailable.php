@@ -33,6 +33,6 @@ class ContactMailable extends Mailable
     public function build()
     {
         return $this->view('email.mail-contact')
-            ->subject('Contact Form Submission');
+            ->subject('StudyEarth Contact Us');
     }
 }

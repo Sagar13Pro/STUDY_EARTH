@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth - Paid Projects')
+@section('title','StudyEarth | Reading')
 
 @section('content')
 
