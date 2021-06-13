@@ -12,6 +12,16 @@
 
 {{-- MAIN CONTENT SECTION START--}}
 @section('content')
+<div class="notifier {{ session()->has('custom_message') ? 'show-toast bg--color--info' : 'hide' }}">
+    <div class="notifier-header">
+        <div class="notifier-text">Info</div>
+        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
+    </div>
+    <div class="notifier-divider"></div>
+    <div class="notifier-body">
+        {{ session('custom_message') }}
+    </div>
+</div>
 <!-- Start Page Wrapper -->
 <main class="page-wrappper">
 
@@ -248,30 +258,6 @@
     </div>
     </div>
     <!-- End Navigation Content  -->
-
-    <!--Notification Modal -->
-    <div class="modal fade  {{ session()->has('custom_message') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('custom_message') ? 'style=display:block' : 'style=display:none' }} style="display:block">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Info</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <x-alert type="custom_error" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
-                </div>
-                <script>
-                    $('.btn-close').click(function() {
-                        $('#exampleModal').fadeOut(1000);
-                    })
-
-                </script>
-            </div>
-        </div>
-    </div>
 </main>
 <!-- End Page Wrapper -->
 <script src="{{ asset('assets/js/stickysidebar.js') }}"></script>

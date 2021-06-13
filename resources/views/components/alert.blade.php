@@ -130,15 +130,3 @@
 @enderror
 @endif
 {{-- FORGET PASSWORD ERROR BLOCK END --}}
-
-@if($type=="custom_error")
-@if(session()->has('custom_message'))
-<div class="tracker-success">{{ session('custom_message') }}</div>
-@endif
-@endif
-
-@if($type == 'contact_details')
-@if(session()->has('success_contact'))
-<div class="tracker-success">{{ session('success_contact') }}</div>
-@endif
-@endif

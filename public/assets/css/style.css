@@ -24195,8 +24195,8 @@ a.explore_more:hover:after {
 }
 
 .custom-toast {
-  display: none;
-  max-width: 350px;
+    display: none;
+    max-width: 350px;
     overflow: hidden;
     font-size: .875rem;
     background-color: rgba(255,255,255,.85);
@@ -24208,6 +24208,8 @@ a.explore_more:hover:after {
     opacity: 0;
     margin: -10px 16px;
     position: relative;
+    width: 450px;
+    border-radius: .4rem;
 }
 .custom-toast.show {
     display: block;
@@ -24283,36 +24285,38 @@ a.explore_more:hover:after {
 }
 @media (max-width: 768px) {
   .custom-toast{
-    top: -795px;
+   max-width: 93%;
     z-index: 99999;
   }
   .cart-icon {
-    position: relative;
-    top: 16px;
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    height: 18px !important;
   }
   .aw-cart-count{
-    position: relative;
-    top: -48px;
-    left: 5px;
-    z-index: 2;
-    min-width: 18px;
-    height: 18px;
+    min-width: 20px;
     background: #ff6969;
-    border-radius: 10px;
+    border-radius: 64px;
     text-align: center;
     display: inline-block;
     color: #fff;
     padding: 0 5px;
     line-height: 19px;
     font-size: 14px;
+    margin: 0px 4px;
+    width: 20px;
+  }
+  a.cart-icon:hover{
+    text-decoration: none;
+  }
+  body.active-dark-mode .far.fa-shopping-cart {
+    color: #fff !important;
   }
 }
 
 @media(min-width: 769px) {
   .custom-toast {
-    top: -164px;
-    left: 81px;
-    max-width: 280px;
+    max-width: 100%;
   }
   .aw-cart-count{
     position: relative;
@@ -24348,4 +24352,119 @@ a.explore_more:hover:after {
 }
 .mx--100{
   margin: 100px 0 !important;
+}
+
+/* Toast Notifier */
+        .notifier {
+           width: 350px;
+            max-width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 1.25rem;
+            border-radius: .50rem;
+            box-shadow: .5rem .5rem 1rem 0 #d3d3d3;
+            margin-top: 7rem;
+            position: absolute;
+            z-index: 9999;
+          } 
+        .notifier-header {
+            display: flex;
+            align-items: center;
+            padding: 10px !important;
+        }
+
+        .notifier-text {
+            margin-left: .5rem !important;
+            margin-right: auto;
+            font-weight: bolder
+        }
+
+        .close {
+            text-decoration: none;
+            margin-right: .5rem !important;
+        }
+
+        .notifier-divider {
+            border-bottom: 2px #d3d3d3 solid;
+            margin: 0 5px;
+        }
+
+        .notifier-body {
+            padding: 10px;
+        }
+
+        .show-toast {
+            opacity: 1;
+            animation: rtl 2s ease-out;
+            animation-iteration-count: 1;
+        }
+        .show-toast.bg--color--info {
+          background-color: #1ea5fc !important;
+          color: #fff !important;
+        }
+        body.active-dark-mode .show-toast.bg--color--info {
+           box-shadow: .1rem .1rem 0rem 0 #1ea5fc !important;
+        }
+        .show-toast.bg--color--success {
+          background-color: #05ce91 !important;
+          color: #fff !important;
+        }
+        body.active-dark-mode .show-toast.bg--color--success {
+           box-shadow: .1rem .1rem 0rem 0 #05ce91;
+        }
+        @keyframes rtl {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: 72%;
+            }
+        }
+        .hide-toast {
+            opacity: 0;
+            display: none;
+        }
+        .font-weight-700 {
+          font-weight: 700 !important;
+      }
+/* Mobile */
+@media screen and (max-width: 420px) {
+  .notifier {
+    left: 1%;
+    margin-top: 5.5rem;
+    margin-left: .4em !important;
+    max-width: 93%;
+  }
+  .show-toast {
+            opacity: 1;
+            animation: ttb 1s ease-out;
+            animation-iteration-count: 1;
+        }
+  @keyframes ttb {
+    0% {top:-30%}
+    100%{top:0%}
+  }
+}
+@media screen and (min-width: 421px) and (max-width: 968px) {
+  .notifier {
+    left: 50%;
+    margin-top: 5.5rem;
+    max-width: 100%;
+  }
+  @keyframes rtl {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: 50%;
+            }
+        }
+}
+/*Desktop */
+@media screen and (min-width: 969px) {
+  .notifier {
+    left: 72%;
+  }
+  
 }

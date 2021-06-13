@@ -17,11 +17,12 @@ use App\Models\Customer;
     $customerProductCount = Customer::where([['device',$_COOKIE['device']],['payment_status','unpaid']])->count();
     }
     @endphp
-    <a href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248;position: relative;top:8px;"></i>
+    <a class="cart-icon" href="{{ route('cart.view') }}"><i class="far fa-shopping-cart" style="font-size: 21px; color: #000248"></i>
         @if($customerProductCount ?? '' > 0)
-        <span class="aw-cart-count" style="top: -32px;left:5px">{{ $customerProductCount  }}</span>
+        <span class="aw-cart-count">{{ $customerProductCount  }}</span>
         @endif
     </a>
+
 </div>
 <div class="ax-menubar popup-navigation-activation d-block d-lg-none pl-15 ml--0 mr-10">
     <div>
@@ -395,7 +396,7 @@ use App\Models\Customer;
                         <div class="footer-menu-container">
                             <ul class="ft-menu liststyle link-hover">
                                 <li><a href="{{ route('contact.view') }}">Contact</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="{{ route('privacy_policy.view') }}">Privacy Policy</a></li>
                             </ul>
                         </div>
                     </div>

@@ -63,11 +63,38 @@ use Illuminate\Support\Facades\Auth;
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group bill password_container col-lg-6 col-md-6 {{ is_null(old('password')) ? '' : 'focused' }}">
+                                    <div class="form-group bill password_container col-lg-6 col-md-6 d-flex flex-column {{ is_null(old('password')) ? '' : 'focused' }}">
                                         <input type="password" id="Pass" name="passwordInput">
                                         <label>Password<span class="asterik">*</span></label>
                                         <span class="focus-border"></span>
                                         <x-alert type="passwd" />
+                                        <div class="custom-toast fade mt-3 mx-0">
+                                            <div class="custom-toast-header">
+                                                Your passsword must have:
+                                            </div>
+                                            <div class="custom-toast-body">
+                                                <span class="pass-validator invalid">
+                                                    <i class="fas fa-check-circle pass-validator-icon characters"></i>
+                                                    <span class="pass-validator-text characters">8 or more characters</span>
+                                                </span>
+                                                <span class="pass-validator invalid">
+                                                    <i class="fas fa-check-circle pass-validator-icon lower-upper"></i>
+                                                    <span class="pass-validator-text lower-upper">upper or lowercase letters</span>
+                                                </span>
+                                                <span class="pass-validator invalid">
+                                                    <i class="fas fa-check-circle pass-validator-icon atleast-number"></i>
+                                                    <span class="pass-validator-text atleast-number">at least one number</span>
+                                                </span>
+                                            </div>
+                                            <div class="custom-progress-container">
+                                                <div class="custom-progress-header">Password Strength: <span class="status"></span></div>
+                                                <div class="custom-progress">
+                                                    <div class="custom-progress-bar" style="width:0%"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                     <div class="form-group bill cpassword_container col-lg-6 col-md-6">
                                         <input type="password" id="Pass_Confirm" name="confirmpasswordInput">
@@ -177,32 +204,7 @@ use Illuminate\Support\Facades\Auth;
             </form>
         </div>
     </div>
-    <div class="custom-toast fade">
-        <div class="custom-toast-header">
-            Your passsword must have:
-        </div>
-        <div class="custom-toast-body">
-            <span class="pass-validator invalid">
-                <i class="fas fa-check-circle pass-validator-icon characters"></i>
-                <span class="pass-validator-text characters">8 or more characters</span>
-            </span>
-            <span class="pass-validator invalid">
-                <i class="fas fa-check-circle pass-validator-icon lower-upper"></i>
-                <span class="pass-validator-text lower-upper">upper or lowercase letters</span>
-            </span>
-            <span class="pass-validator invalid">
-                <i class="fas fa-check-circle pass-validator-icon atleast-number"></i>
-                <span class="pass-validator-text atleast-number">at least one number</span>
-            </span>
-        </div>
-        <div class="custom-progress-container">
-            <div class="custom-progress-header">Password Strength: <span class="status"></span></div>
-            <div class="custom-progress">
-                <div class="custom-progress-bar" style="width:0%"></div>
-            </div>
-        </div>
 
-    </div>
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

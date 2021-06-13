@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title','StudyEarth | 404')
+@section('title','StudyEarth | 401')
 
 @section('content')
 <main class="page-wrapper page-error">
@@ -11,12 +11,9 @@
                 <div class="col-lg-12">
                     <div class="axil-error text-center">
                         <div class="inner">
-                            <h1 class="title mb--20">Page not Found</h1>
-                            {{-- <p class="subtitle-2 mb--30">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                elit. Enim, recusandae <br /> consectetur nesciunt magnam facilis aliquid amet
-                                earum alias?</p> --}}
+                            <h1 class="title mb--20">Page Expired</h1>
                             <a class="axil-button btn-large btn-transparent" href="{{ route('index.view') }}"><span class="button-text">Go Home</span><span class="button-icon"></span></a>
-                            <img class="text-image" src="{{ asset('assets/images/others/404.svg') }}" alt="404 Images">
+                            <img class="text-image" src="{{ asset('assets/images/others/401.svg') }}" alt="404 Images">
                         </div>
                     </div>
                 </div>

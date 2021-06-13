@@ -113,12 +113,16 @@ class mainController extends Controller
     }
     public function ResetPasswordView(Request $request, $token)
     {
-        // if (!$request->hasValidSignature()) {
-        //     return abort(401);
-        // }
+        if (!$request->hasValidSignature()) {
+            return abort(401);
+        }
         if (!is_null($token)) {
             return view('new-password', compact('token'));
         }
+    }
+    public function PrivacyPolicyView()
+    {
+        return view('privacy-policy');
     }
     //Adding to Cart
     public function AddToCart(Request $request)
@@ -135,7 +139,6 @@ class mainController extends Controller
                         return back();
                     }
                 } catch (Exception $error) {
-                    dd('Error Occured while creating customer', $error);
                 }
             } else {
                 return back()
@@ -155,7 +158,6 @@ class mainController extends Controller
                         return back();
                     }
                 } catch (Exception $error) {
-                    dd('Error Occured while removing customer from cart', $error);
                 }
             }
         }
@@ -219,7 +221,6 @@ class mainController extends Controller
                 return true;
             }
         } catch (Exception $error) {
-            dd($error);
             return false;
         }
     }
@@ -244,9 +245,10 @@ class mainController extends Controller
                 'bank_name' => $request['BANKNAME'],
                 'checksum' => $request['CHECKSUMHASH']
             ]);
-        } catch (Exception $error) {
-            dd($error);
             return true;
+        } catch (Exception $error) {
+
+            return false;
         }
     }
 
@@ -343,7 +345,7 @@ class mainController extends Controller
         $isUserExist = User::where('email', $request->login_emailInput)->first();
         if (!is_null($isUserExist) && Hash::check($request->login_passwordInput, $isUserExist->password)) {
             session()->put('session_email', $request->login_emailInput);
-            return redirect()->route('index.view', compact('isUserExist'));
+            return back()->with('user_name', $isUserExist->Full_Name);
         } else {
             return back()
                 ->withInput($request->all())
@@ -355,7 +357,8 @@ class mainController extends Controller
         if (session()->has('session_email')) {
             session()->pull('session_email');
         }
-        return redirect(route('index.view'));
+        //return redirect(route('index.view'));
+        return back();
     }
     public function ForgetPassword(Request $request)
     {
@@ -429,7 +432,6 @@ class mainController extends Controller
                 'message' => $request->con_message,
             ]);
         } catch (Exception $error) {
-            dd($error);
             $contact = false;
         }
         if ($contact) {
@@ -437,7 +439,6 @@ class mainController extends Controller
                 Mail::to(config('custom_configs.notifier_email'))->send(new ContactMailable($request->con_name, $request->con_email, $request->con_mobile, $request->con_message));
                 $isMailSent = $contact->update(['isMailSent' => 'Yes']);
             } catch (Exception $error) {
-                dd($error);
                 $isMailSent = false;
             }
 
@@ -463,8 +464,9 @@ class mainController extends Controller
         ];
         $message = [
             '*.required' => 'This is required.',
-            'email.regex' => 'The email format is invalid.',
-            'mobile_numberInput.digits' => 'The mobile number must be 10 digits.'
+            'emailInput.regex' => 'The email format is invalid.',
+            'mobile_numberInput.digits' => 'The mobile number must be 10 digits.',
+            'mobile_numberInput.integer' => 'The mobile number must be an integer.'
         ];
         $validate = Validator::make($request->all(), $rules, $message)->validated();
         try {

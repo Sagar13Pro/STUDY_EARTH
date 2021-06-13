@@ -3,6 +3,17 @@
 @section('title','StudyEarth | Paid Projects')
 
 @section('content')
+<div class="notifier {{ session()->has('info') ? 'show-toast bg--color--info' : 'hide' }}">
+    <div class="notifier-header">
+        <div class="notifier-text">Info</div>
+        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
+    </div>
+    <div class="notifier-divider"></div>
+    <div class="notifier-body">
+        {{ session('info') }}
+    </div>
+</div>
+
 <div class="main-wrapper">
     <div class="axil-breadcrumb-area breadcrumb-style-2 single-service pt--170 pb--70 theme-gradient">
         <div class="container">
@@ -168,31 +179,7 @@
     </div>
 </div>
 <!-- /Model Area End -->
-{{-- Modal Notifications --}}
-<div class="modal fade {{ session()->has('info') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('info') ? 'style=display:block' : 'style=display:none' }}>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <x-alert type="message" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
-            </div>
-            <script>
-                $('.btn-close').click(function() {
-                    console.log('o')
-                    $('#exampleModal').fadeOut(1000);
-                })
 
-            </script>
-        </div>
-    </div>
-</div>
-{{-- Modal Notifcation End --}}
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -238,4 +225,5 @@
     });
 
 </script>
+
 @endsection

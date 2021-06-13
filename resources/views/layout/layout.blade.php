@@ -9,7 +9,7 @@ use App\Models\Customer;
     <title>@yield('title','StudyEarth')</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 
@@ -175,7 +175,7 @@ use App\Models\Customer;
                 <div class="mobileheader">
                     <div class="logo">
                         <a href="{{ route('index.view') }}">
-                            <img src="{{ asset('assets/images/logo/keystoke.svg') }}" alt="Logo images">
+                            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo images">
                         </a>
                     </div>
                     <a class="close-menu" href="#"></a>
@@ -237,6 +237,17 @@ use App\Models\Customer;
         {{-- MOBILE NAV SECTION END --}}
 
         {{-- MAIN CONTENT START--}}
+        <div class="notifier {{ session()->has('user_name') ? 'show-toast bg--color--success' : 'hide' }}">
+            <div class="notifier-header">
+                <div class="notifier-text">Info</div>
+                <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
+            </div>
+            <div class="notifier-divider"></div>
+            <div class="notifier-body">
+                Hello, <span class="font-weight--700">{{ session('user_name') }}</span>
+
+            </div>
+        </div>
         @section('content')
         @show
         {{-- MAIN CONTENT END --}}
@@ -428,7 +439,7 @@ use App\Models\Customer;
                                     <div class="footer-menu-container">
                                         <ul class="ft-menu liststyle link-hover">
                                             <li><a href="{{ route('contact.view') }}">Contact</a></li>
-                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                            <li><a href="{{ route('privacy_policy.view') }}">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -472,6 +483,12 @@ use App\Models\Customer;
         $('.close-forget-btn').click(function() {
             $('#forget-modal').fadeOut(1000);
         });
+        let timeout = 5000;
+        setTimeout(function() {
+            if ($('.notifier').length > 0) {
+                $('.notifier').fadeOut();
+            }
+        }, timeout)
 
     </script>
     <!-- Modernizer JS -->

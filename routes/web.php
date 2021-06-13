@@ -46,3 +46,4 @@ Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('conta
 Route::get('/payment-{slug}', [mainController::class, 'PaymentStatusView'])->name('payment.status');
 Route::post('/password-reset/update/password/{token?}', [mainController::class, 'UpdatePassword'])->name('update.password');
 Route::get('password/resets/{token}', [mainController::class, 'ResetPasswordView'])->name('reset.password.view');
+Route::get('privacy-policy', [mainController::class, 'PrivacyPolicyView'])->name('privacy_policy.view');

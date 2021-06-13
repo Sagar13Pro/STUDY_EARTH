@@ -26,12 +26,14 @@ class User extends Authenticatable
         'dob',
         'password'
     ];
+    //Mutator
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
     }
+    //Accessor
     public function getFullNameAttribute()
     {
-        return "{$this->firstName} {$this->lastName}";
+        return ucwords("{$this->firstName} {$this->lastName}");
     }
 }

@@ -3,6 +3,17 @@
 @section('title','StudyEarth | Contact')
 
 @section('content')
+<div class="notifier {{ session()->has('success_contact') ? 'show-toast bg--color--info' : 'hide' }}">
+    <div class="notifier-header">
+        <div class="notifier-text">Info</div>
+        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
+    </div>
+    <div class="notifier-divider"></div>
+    <div class="notifier-body">
+        {{ session('success_contact') }}
+    </div>
+</div>
+
 <!-- Start Breadcrumb Area -->
 <div class="axil-breadcrumb-area breadcrumb-style-default pt--170 pb--70 theme-gradient">
     <div class="container">
@@ -121,28 +132,28 @@
             </div>
         </div>
     </div>
-    <div class="modal fade  {{ session()->has('success_contact') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('success_contact') ? 'style=display:block' : 'style=display:none' }} style="display:block">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Info</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <x-alert type="contact_details" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
-                </div>
-                <script>
-                    $('.btn-close').click(function() {
-                        $('#exampleModal').fadeOut(1000);
-                    })
-
-                </script>
+    {{-- <div class="modal fade  {{ session()->has('success_contact') ? 'show' : '' }}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" {{ session()->has('success_contact') ? 'style=display:block' : 'style=display:none' }} style="display:block">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
             </div>
+            <div class="modal-body">
+                <x-alert type="contact_details" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+            </div>
+            <script>
+                $('.btn-close').click(function() {
+                    $('#exampleModal').fadeOut(1000);
+                })
+
+            </script>
         </div>
     </div>
+    </div> --}}
 
 </main>
 @endsection
