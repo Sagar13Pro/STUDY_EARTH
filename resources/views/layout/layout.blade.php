@@ -186,11 +186,11 @@ use App\Models\Customer;
                             <a class="login-btn"><i data-feather="user" stroke="#fff"></i>User</a>
                             <ul class="submenu">
                                 @if (!session()->has('session_email'))
-                                <li><a class="login-btn" href="{{ route('user.login') }}" data-backdrop="static" data-toggle="modal" data-target="#login-modal"> Login</a></li>
+                                <li><a class="login-btn user" href="{{ route('user.login') }}" data-backdrop="static" data-toggle="modal" data-target="#login-modal"> Login</a></li>
                                 @endif
                                 @if (session()->has('session_email'))
-                                <li><a class="login-btn" href="{{ route('user.purchases') }}" data-backdrop="static" data-toggle="modal" data-target="#-modal">My purchase </a></li>
-                                <li><a class="login-btn" href="{{ route('user.logout') }}" data-backdrop="static" data-toggle="modal" data-target="#logout-modal"> Logout </a></a></li>
+                                <li><a class="login-btn user" href="{{ route('user.purchases') }}" data-backdrop="static" data-toggle="modal" data-target="#-modal">My purchase </a></li>
+                                <li><a class="login-btn user" href="{{ route('user.logout') }}" data-backdrop="static" data-toggle="modal" data-target="#logout-modal"> Logout </a></a></li>
                                 @endif
                             </ul>
                         </li>
@@ -481,7 +481,8 @@ use App\Models\Customer;
             $("#login-modal").fadeOut(1000);
         });
         $('.close-forget-btn').click(function() {
-            $('#forget-modal').fadeOut(1000);
+            $('#forget-modal').remove();
+            location.reload()
         });
         let timeout = 5000;
         setTimeout(function() {

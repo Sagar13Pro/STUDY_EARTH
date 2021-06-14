@@ -6,7 +6,7 @@ use App\Models\Customer;
 @section('title','StudyEarth')
 
 @section('link-home')
-<li><a href="javascript:void(0)">Home</a></li>
+{{-- <li><a href="javascript:void(0)">Home</a></li> --}}
 @endsection
 
 @section('search-LetTalks')
