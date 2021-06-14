@@ -47,3 +47,11 @@ Route::get('/payment-{slug}', [mainController::class, 'PaymentStatusView'])->nam
 Route::post('/password-reset/update/password/{token?}', [mainController::class, 'UpdatePassword'])->name('update.password');
 Route::get('password/resets/{token}', [mainController::class, 'ResetPasswordView'])->name('reset.password.view');
 Route::get('privacy-policy', [mainController::class, 'PrivacyPolicyView'])->name('privacy_policy.view');
+
+Route::get('/send', function () {
+    $tomail = 'sagarvanesa@gmail.com';
+    $data = ['order_id' => 1, 'amount' => 2, 'product' => 'hhd'];
+    Mail::send('email.mail', $data, function ($message) use ($tomail) {
+        $message->to($tomail)->subject('test');
+    });
+});

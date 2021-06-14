@@ -22,157 +22,80 @@
                                 <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_7W0ppe.json" background="transparent" speed="1" style="width: 300px;height: 250px" loop autoplay></lottie-player>
                                 <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Paid Successfully</h1>
                                 <div class="m-3">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</h4>
-                                                </td>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</h4>
-                                                </td>
-                                            </tr>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</div>
+                                    </div>
 
-                                            <tr>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</h4>
-                                                </td>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</h4>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</h4>
-                                                </td>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</h4>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</h4>
-                                                </td>
-                                                <td>
-                                                    <h4 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</h4>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                             @elseif(session('status') == 'TXN_FAILURE')
                             <div class="cards d-flex align-items-center flex-column">
-                                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_Dum1s3.json" background="transparent" speed="1" style="width: 300px;" loop autoplay></lottie-player>
+                                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_imrP4H.json" background="transparent" speed="1" style="width: 300px; height: 250px;" loop autoplay></lottie-player>
                                 <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Payment Failed</h1>
-                                <div class="mx-4 mt-3">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</h5>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</h5>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</h5>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</h5>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Message</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('message') }}</h5>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="m-3">
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">Message</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">{{ session('message') }}</div>
+                                    </div>
                                 </div>
-
                             </div>
                             @elseif (session('status') == 'PENDING')
                             <div class="cards d-flex align-items-center flex-column">
-                                <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_imlwk5lf.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+                                <lottie-player src="https://assets6.lottiefiles.com/temp/lf20_cLJq7R.json" background="transparent" speed="1" style="width: 300px; height: 250px;" loop autoplay></lottie-player>
                                 <h1 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="500ms">Payment Pending</h1>
-                                <div class="mx-4 mt-3">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</h5>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</h5>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</h5>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</h5>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Message</h5>
-                                                </td>
-                                                <td>
-                                                    <h5 class="axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('message') }}</h5>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="m-3">
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">Transaction ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="600ms">{{ session('txn_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">Order ID</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="700ms">{{ session('order_id') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">Message</div>
+                                        <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">{{ session('message') }}</div>
+                                    </div>
                                 </div>
-
                             </div>
+
                             @else
                             <div class="row mt-100 p-5">
                                 <div class="col-12">

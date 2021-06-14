@@ -439,6 +439,7 @@ class mainController extends Controller
                 Mail::to(config('custom_configs.notifier_email'))->send(new ContactMailable($request->con_name, $request->con_email, $request->con_mobile, $request->con_message));
                 $isMailSent = $contact->update(['isMailSent' => 'Yes']);
             } catch (Exception $error) {
+                dd($error);
                 $isMailSent = false;
             }
 
