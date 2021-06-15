@@ -95,7 +95,7 @@
                                 <div class="content">
                                     <h4 class="title">Phone</h4>
                                     <p>Our customer care is open from Mon-Fri, 10:00 am to 6:00 pm</p>
-                                    <p><a class="axil-link" href="tel:1234567890">(123) 456 7890</a></p>
+                                    <p><a class="axil-link" href="tel:940-846-3208">940-846-3208</a></p>
                                 </div>
                             </div>
                         </div>
