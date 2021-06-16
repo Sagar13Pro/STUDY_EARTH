@@ -58,10 +58,12 @@
                                         <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">Amount Paid</div>
                                         <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="800ms">{{ session('amount') }}</div>
                                     </div>
+                                    @if(!is_null(session('date')))
                                     <div class="row mt-2">
                                         <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">Date</div>
                                         <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="900ms">{{ session('date') }}</div>
                                     </div>
+                                    @endif
                                     <div class="row mt-2">
                                         <div class="col-4 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">Message</div>
                                         <div class="col-8 axil-display-5 layer1 wow slideFadeInUp" data-wow-duration="1s" data-wow-delay="1000ms">{{ session('message') }}</div>
@@ -97,9 +99,9 @@
                             </div>
 
                             @else
-                            <div class="row mt-100 p-5">
-                                <div class="col-12">
-                                    <a href="{{ route('index.view') }}">RETURN HOME</a>
+                            <div class="row mt-5 p-5">
+                                <div class="col-12 m-5 p-5">
+                                    <a href="{{ route('index.view') }}" class="btn btn-outline-primary">RETURN HOME</a>
                                 </div>
                             </div>
                             @endif

@@ -302,7 +302,7 @@ class mainController extends Controller
                 'txn_id' => $response['TXNID'],
                 'order_id' => $response['ORDERID'],
                 'amount' => $response['TXNAMOUNT'],
-                'date' => $response['TXNDATE'],
+                'date' => isset($response['TXNDATE']) ? $response['TXNDATE'] : null,
                 'message' => $response['RESPMSG']
             ]);
         } else if ($transaction->isPending()) {
@@ -439,7 +439,7 @@ class mainController extends Controller
                 Mail::to(config('custom_configs.notifier_email'))->send(new ContactMailable($request->con_name, $request->con_email, $request->con_mobile, $request->con_message));
                 $isMailSent = $contact->update(['isMailSent' => 'Yes']);
             } catch (Exception $error) {
-                dd($error);
+                //dd($error);
                 $isMailSent = false;
             }
 
