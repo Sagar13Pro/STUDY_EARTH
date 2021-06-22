@@ -211,8 +211,6 @@ use Illuminate\Support\Facades\Auth;
 {{-- Script for Cancel --}}
 <script>
     $(document).ready(function() {
-        console.log("{{ $projectFetched->pluck('projectPrice')->sum()+$courseFetched->pluck('coursePrice')->sum()  }}");
-
         $('.project_cancel').click(function() {
             const id = $(this).data('id');
             let url = "{{ route('cart.remove.product', ':id') }}";
