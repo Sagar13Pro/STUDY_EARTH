@@ -544,9 +544,16 @@ class mainController extends Controller
             $contact = false;
         }
         if ($interest) {
-            dd('Complete');
-            return back()
-                ->with('success_interest', 'Your interest details submitted successfully. Kindly wait for 24hr for reply.');
+            $payment = PaytmWallet::with('receive');
+            $payment->prepare([
+                'order' => rand(0, 1000000),
+                'user' => $interest->interest_fname . $interest->interest_lname,
+                'mobile_number' => $interest->interest_mobile,
+                'email' => $interest->interest_mail,
+                'amount' => $interest->interest_amount,
+                'callback_url' => route('payment.callback', $_COOKIE['device'])
+            ]);
+            return $payment->receive();
         } else {
             dd('Something Wrong');
             return back()
