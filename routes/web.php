@@ -28,6 +28,7 @@ Route::post('/free-projects/download/{id}', [mainController::class, 'FreeProject
 //Request modal data free projects
 Route::get('/free-projects/modal/content/{id}', [mainController::class, 'ModalContent'])->name('free.projects.modal');
 Route::get('/contact', [mainController::class, 'ContactView'])->name('contact.view');
+Route::get('/interest', [mainController::class, 'InterestView'])->name('interest.view');
 Route::post('projects/custom-projects/form', [mainController::class, 'CustomProjectForm'])->name('custom-project-form');
 //===================================COURSE ROUTES==============================================
 //Route::get('/courses', [CourseController::class, 'CourseView'])->name('courses.view');
@@ -42,6 +43,7 @@ Route::get('/user/purchase/', [mainController::class, 'PurchaseView'])->middlewa
 Route::match(["POST", "GET"], '/user/course/{course}/{id}', [mainController::class, 'CourseReading'])->name('user.read.course')->middleware('LoginSession');
 Route::match(['GET', 'POST'], '{title}/{subtitle}', [CourseController::class, 'PDFViewer'])->name('pdf.viewer')->middleware('LoginSession');
 Route::post('/contact/', [mainController::class, 'ContactDetails'])->name('contact.details');
+Route::post('/interest/', [mainController::class, 'InterestDetails'])->name('interest.details');
 //==============================================================================================
 Route::get('/payment-{slug}', [mainController::class, 'PaymentStatusView'])->name('payment.status');
 Route::post('/password-reset/update/password/{token?}', [mainController::class, 'UpdatePassword'])->name('update.password');

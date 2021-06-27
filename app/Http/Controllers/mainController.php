@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Contact;
 use App\Models\CustomProjectsForm;
+use App\Models\interestDetails;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -497,6 +498,59 @@ class mainController extends Controller
                 return back()
                     ->with('custom_message', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
             }
+        }
+    }
+
+    //Akash Interest Form
+    public function InterestView()
+    {
+        return view('interest');
+    }
+
+    //contact details
+    public function interestDetails(Request $request)
+    {
+        $rules = [
+            'interestfnameInput' => 'required',
+            'interestlnameInput' => 'required',
+            'interestpurposeInput' => 'required',
+            'interestamountInput' => 'required|integer|min:1000',
+            'interestmobileNoInput' => 'required|integer|digits:10',
+            'interestemailInput' => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
+            'interestaddressInput' => 'required',
+            'interestbirthdateInput' => 'required',
+        ];
+        $message = [
+            '*.required' => 'This is required.',
+            'interestemailInput.regex' => 'The email format is invalid.',
+            'interestmobileNoInput.digits' => 'The number must be 10 digits.',
+            'interestmobileNoInput.integer' => 'The mobile must be an digit.',
+            'interestamountInput.integer' => 'The Amount must be an digit.',
+            'interestamountInput.min' => 'The Amount is greater than Equal to 1000'
+        ];
+        $validate = Validator::make($request->all(), $rules, $message)->validated();
+        try {
+            $interest = interestDetails::create([
+                'interest_fname' => $request->interestfnameInput,
+                'interest_lname' => $request->interestlnameInput,
+                'interest_mail' => $request->interestemailInput,
+                'interest_mobile' => $request->interestmobileNoInput,
+                'interest_address' => $request->interestaddressInput,
+                'interest_dob' => $request->interestbirthdateInput,
+                'interest_purpose' => $request->interestpurposeInput,
+                'interest_amount' => $request->interestamountInput,
+            ]);
+        } catch (Exception $error) {
+            $contact = false;
+        }
+        if ($interest) {
+            dd('Complete');
+            return back()
+                ->with('success_interest', 'Your interest details submitted successfully. Kindly wait for 24hr for reply.');
+        } else {
+            dd('Something Wrong');
+            return back()
+                ->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
         }
     }
 }

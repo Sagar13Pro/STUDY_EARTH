@@ -130,3 +130,46 @@
 @enderror
 @endif
 {{-- FORGET PASSWORD ERROR BLOCK END --}}
+
+{{-- INTEREST ERROR BLOCK START --}}
+@if ($type == 'interestfname_error')
+@error('interestfnameInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestlname_error')
+@error('interestlnameInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestmail_error')
+@error('interestemailInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestmobileNo_error')
+@error('interestmobileNoInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestaddress_error')
+@error('interestaddressInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestdob_error')
+@error('interestbirthdateInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestpurpose_error')
+@error('interestpurposeInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+@if ($type == 'interestamount_error')
+@error('interestamountInput')
+<div class="tracker">{{ $message }}</div>
+@enderror
+@endif
+{{-- CONTACT ERROR BLOCK END --}}

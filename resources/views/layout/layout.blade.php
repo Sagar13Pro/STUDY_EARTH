@@ -85,7 +85,9 @@ use App\Models\Customer;
                                         <li class="has-dropdown">
                                             <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a>
                                         </li>
-                                        <li><a href="{{ route('contact.view') }}">Contact</a></li>
+                                        <li><a href="{{ route('contact.view') }}">
+                                        Contact</a></li>
+                                        <li><a href="{{ route('interest.view') }}">Interest</a></li>
                                         {{-- DARK/LIGHT MODE --}}
                                         <li>
                                             <div id="my_switcher" class="my_switcher">
@@ -209,6 +211,7 @@ use App\Models\Customer;
                             <a href="{{ route('index.view') }}#course_details" onclick="generate();">Courses</a>
                         </li>
                         <li><a href="{{ route('contact.view') }}">Contact</a></li>
+                        <li><a href="{{ route('interest.view') }}">Interest</a></li>
                         @section('theme')
                         <li>
                             <div id="my_switcher" class="my_switcher popup-mobile">
