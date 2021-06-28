@@ -23,6 +23,13 @@ class InterestDetails extends Migration
             $table->date('interest_dob');
             $table->string('interest_purpose');
             $table->integer('interest_amount');
+            $table->string('order_id')->nullable();
+            $table->string('txn_id')->nullable();
+            $table->string('txn_amount')->nullable();
+            $table->string('payment_mode')->nullable();
+            $table->string('status')->nullable();
+            $table->string('txn_date')->nullable();
+            $table->string('bank_txn_id')->nullable();
             $table->timestamps();
         });
     }

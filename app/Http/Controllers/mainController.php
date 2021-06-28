@@ -13,7 +13,7 @@ use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Contact;
 use App\Models\CustomProjectsForm;
-use App\Models\interestDetails;
+use App\Models\InterestDetails;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -508,7 +508,7 @@ class mainController extends Controller
     }
 
     //contact details
-    public function interestDetails(Request $request)
+    public function InterestDetails(Request $request)
     {
         $rules = [
             'interestfnameInput' => 'required',
@@ -530,7 +530,7 @@ class mainController extends Controller
         ];
         $validate = Validator::make($request->all(), $rules, $message)->validated();
         try {
-            $interest = interestDetails::create([
+            $interest = InterestDetails::create([
                 'interest_fname' => $request->interestfnameInput,
                 'interest_lname' => $request->interestlnameInput,
                 'interest_mail' => $request->interestemailInput,
@@ -541,23 +541,67 @@ class mainController extends Controller
                 'interest_amount' => $request->interestamountInput,
             ]);
         } catch (Exception $error) {
-            $contact = false;
+            $interest = false;
         }
+        $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput,'interest_purpose' => $request->interestpurposeInput,'interest_mobile' => $request->interestmobileNoInput ,'interest_amount' => $request->interestamountInput])->first();
         if ($interest) {
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
-                'user' => $interest->interest_fname . $interest->interest_lname,
-                'mobile_number' => $interest->interest_mobile,
-                'email' => $interest->interest_mail,
-                'amount' => $interest->interest_amount,
-                'callback_url' => route('payment.callback', $_COOKIE['device'])
+                'user' => $request->interestfnameInput . $request->interestlnameInput,
+                'mobile_number' => $request->interestmobileNoInput,
+                'email' => $request->interestemailInput,
+                'amount' => $request->interestamountInput,
+                'callback_url' => route('payment.callbackinterest',$interest_detail->interest_details_id)
             ]);
             return $payment->receive();
         } else {
-            dd('Something Wrong');
+            dd($error);
             return back()
                 ->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
+        }
+    }
+
+    public function PaymentCallbackinterest($id)
+    {
+        dd('hello');
+        $transaction = PaytmWallet::with('receive');
+        $response = $transaction->response();
+        if ($transaction->isSuccessful()) {
+            $interest = InterestDetails::where(['interest_details_id' => $id])->get();
+            $interest->order_id = $response['ORDERID'];
+            $interest->txn_id = $response['TXNID'];
+            $interest->txn_amount = $response['TXNAMOUNT'];
+            $interest->payment_mode = $response['PAYMENTMODE'];
+            $interest->status = $response['STATUS'];
+            $interest->txn_date = $response['TXNDATE'];
+            $interest->bank_txn_id = $response['BANKTXNID'];
+            $interest->save();
+            return redirect(route('payment.status', 'successful'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => $response['TXNDATE']
+            ]);
+        } else if ($transaction->isFailed()) {
+            return redirect(route('payment.status', 'failed'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => isset($response['TXNDATE']) ? $response['TXNDATE'] : null,
+                'message' => $response['RESPMSG']
+            ]);
+        } else if ($transaction->isPending()) {
+            return redirect(route('payment.status', 'pending'))->with([
+                'status' => $response['STATUS'],
+                'txn_id' => $response['TXNID'],
+                'order_id' => $response['ORDERID'],
+                'amount' => $response['TXNAMOUNT'],
+                'date' => $response['TXNDATE'],
+                'message' => $response['RESPMSG']
+            ]);
         }
     }
 }

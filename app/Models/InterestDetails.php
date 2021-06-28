@@ -17,6 +17,13 @@ class InterestDetails extends Model
         'interest_address',
         'interest_dob',
         'interest_purpose',
-        'interest_amount'
+        'interest_amount',
+        'order_id',
+        'txn_id',
+        'txn_amount',
+        'payment_mode',
+        'txn_date',
+        'bank_txn_id',
+        'status'
     ];
 }
