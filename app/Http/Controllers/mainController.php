@@ -507,7 +507,7 @@ class mainController extends Controller
         return view('interest');
     }
 
-    //contact details
+    //Interest details
     public function InterestDetails(Request $request)
     {
         $rules = [
@@ -564,19 +564,18 @@ class mainController extends Controller
 
     public function PaymentCallbackinterest($id)
     {
-        dd('hello');
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
         if ($transaction->isSuccessful()) {
-            $interest = InterestDetails::where(['interest_details_id' => $id])->get();
-            $interest->order_id = $response['ORDERID'];
-            $interest->txn_id = $response['TXNID'];
-            $interest->txn_amount = $response['TXNAMOUNT'];
-            $interest->payment_mode = $response['PAYMENTMODE'];
-            $interest->status = $response['STATUS'];
-            $interest->txn_date = $response['TXNDATE'];
-            $interest->bank_txn_id = $response['BANKTXNID'];
-            $interest->save();
+            $interest = InterestDetails::where(['interest_details_id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
+            // $interest->order_id = $response['ORDERID'];
+            // $interest->txn_id = $response['TXNID'];
+            // $interest->txn_amount = $response['TXNAMOUNT'];
+            // $interest->payment_mode = $response['PAYMENTMODE'];
+            // $interest->status = $response['STATUS'];
+            // $interest->txn_date = $response['TXNDATE'];
+            // $interest->bank_txn_id = $response['BANKTXNID'];
+            // $interest->save();
             return redirect(route('payment.status', 'successful'))->with([
                 'status' => $response['STATUS'],
                 'txn_id' => $response['TXNID'],

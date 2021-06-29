@@ -23,7 +23,7 @@ Route::post('/paid-projects/cart/checkout/', [mainController::class, 'Checkout']
 Route::post('/paid-project/cart/remove-product/{id?}', [mainController::class, 'RemoveFromCart'])->name('cart.remove.product');
 //Payment Callback
 Route::post('payment-status/{cookie}', [mainController::class, 'PaymentCallback'])->name('payment.callback');
-Route::post('payment-status/{id}', [mainController::class, 'PaymentCallbackinterest'])->name('payment.callbackinterest');
+Route::post('payment-status-interest/{id}', [mainController::class, 'PaymentCallbackinterest'])->name('payment.callbackinterest');
 //Free project download
 Route::post('/free-projects/download/{id}', [mainController::class, 'FreeProjectsDownloadable'])->name('free.projects.download');
 //Request modal data free projects
