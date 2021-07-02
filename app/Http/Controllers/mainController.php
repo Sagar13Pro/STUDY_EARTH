@@ -540,11 +540,12 @@ class mainController extends Controller
                 'interest_purpose' => $request->interestpurposeInput,
                 'interest_amount' => $request->interestamountInput,
             ]);
+            $interest = true;
         } catch (Exception $error) {
             $interest = false;
         }
-        $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput,'interest_purpose' => $request->interestpurposeInput,'interest_mobile' => $request->interestmobileNoInput ,'interest_amount' => $request->interestamountInput])->first();
         if ($interest) {
+            $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput, 'interest_purpose' => $request->interestpurposeInput, 'interest_mobile' => $request->interestmobileNoInput, 'interest_amount' => $request->interestamountInput])->first();
             $payment = PaytmWallet::with('receive');
             $payment->prepare([
                 'order' => rand(0, 1000000),
@@ -552,7 +553,7 @@ class mainController extends Controller
                 'mobile_number' => $request->interestmobileNoInput,
                 'email' => $request->interestemailInput,
                 'amount' => $request->interestamountInput,
-                'callback_url' => route('payment.callbackinterest',$interest_detail->interest_details_id)
+                'callback_url' => route('payment.callbackinterest', $interest_detail->id)
             ]);
             return $payment->receive();
         } else {
@@ -567,7 +568,7 @@ class mainController extends Controller
         $transaction = PaytmWallet::with('receive');
         $response = $transaction->response();
         if ($transaction->isSuccessful()) {
-            $interest = InterestDetails::where(['interest_details_id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
+            $interest = InterestDetails::where(['id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
             // $interest->order_id = $response['ORDERID'];
             // $interest->txn_id = $response['TXNID'];
             // $interest->txn_amount = $response['TXNAMOUNT'];

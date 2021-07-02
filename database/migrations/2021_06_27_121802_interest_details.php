@@ -14,7 +14,7 @@ class InterestDetails extends Migration
     public function up()
     {
         Schema::create('interest_details', function (Blueprint $table) {
-            $table->id('interest_details_id');
+            $table->id();
             $table->string('interest_fname');
             $table->string('interest_lname');
             $table->string('interest_mail');
