@@ -15,7 +15,7 @@ class ResetPassword extends Model
     public function DeleteOldReset()
     {
         ResetPassword::where('email', $this->email)
-            ->where('created_at', '<', now()->subMinutes(config('temporayLink.delete_old')))
+            ->where('created_at', '<', now()->subMinutes(config('custom_configs.delete_old')))
             ->delete();
     }
 }

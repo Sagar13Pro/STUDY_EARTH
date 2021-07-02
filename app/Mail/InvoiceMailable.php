@@ -20,7 +20,7 @@ class InvoiceMailable extends Mailable
      * @return void
      */
     public $txn_id, $amount, $product, $order_id, $date, $user_name;
-    public function __construct($txn_id, $amount, $paid_for, $order_id, $date, $user_id)
+    public function __construct($txn_id = null, $amount, $paid_for, $order_id, $date, $user_id)
     {
         $user = User::findORFail($user_id);
         $pdf = PDF::loadView('email.invoice', [
