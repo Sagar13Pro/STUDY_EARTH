@@ -11,7 +11,7 @@
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
                         @if (!is_null($coursesImage))
-                        <img src="{{ asset('assets/images/icons/'. $coursesImage) }}" style="max-width: 200px;">
+                        <img src="{{ asset('assets/images/icons/Course_icons/'. $coursesImage) }}" style="max-width: 200px;">
                         @endif
                         <h2 class="title">{{ $langName }}- Courses</h2>
                         <!-- <p>We have list of free projects in <code style="font-size: 24px;">c++</code>. </p> -->
@@ -63,8 +63,12 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">IoT</span>
-                                    <span class="sub-title extra04-color">Python</span>
+                                    @if (!is_null($item->tag_1))
+                                    <span class="sub-title extra04-color">{{ $item->tag_1 }}</span>
+                                    @endif
+                                    @if (!is_null($item->tag_2))
+                                    <span class="sub-title extra04-color">{{ $item->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $item->courseTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
@@ -86,9 +90,7 @@
                                         <input type="text" name="id" value="{{ $item->id }}">
                                     </form>
 
-                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span>
-                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -100,8 +102,12 @@
                         <div class="content order-2 order-lg-1">
                             <div class="inner">
                                 <div class="section-title">
-                                    <span class="sub-title extra04-color">IoT</span>
-                                    <span class="sub-title extra04-color">Python</span>
+                                    @if (!is_null($item->tag_1))
+                                    <span class="sub-title extra04-color">{{ $item->tag_1 }}</span>
+                                    @endif
+                                    @if (!is_null($item->tag_2))
+                                    <span class="sub-title extra04-color">{{ $item->tag_2 }}</span>
+                                    @endif
                                     <h3 class="title">{{ $item->courseTitle }}</h3>
                                     <div id="description">
                                         <p class="subtitle-2 show-less" id={{ $key }}>
@@ -121,8 +127,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{ $item->id }}">
                                     </form>
-                                    <a class="axil-button btn-large btn-solid mt--20 more-info-btn" href="#" data-toggle="modal" data-target="#confirmation-modal">
-                                        <span class="button-text">More Info</span><span class="button-icon"></span></a>
+                                    
                                 </div>
                             </div>
                         </div>

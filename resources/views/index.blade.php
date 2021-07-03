@@ -281,43 +281,20 @@ use App\Models\Customer;
                 </div>
             </div>
             <div class="row">
+                @foreach ($course_type as $key => $item )
                 <div class="col-lg-4 col-sm-6">
                     <div class="service-card-one bg-color center">
                         <div class="icon">
-                            <img src="assets/images/portfolio/boxes-img3.png" alt="box_img_3">
+                            <img src="assets/images/icons/Course_icons/{{ $item->ImageName }}" alt="Image">
                         </div>
                         <h3>
-                            <a href="">Engineering Subjects </a>
+                            <a href="">{{ $item->Title }}</a>
                         </h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','eng']) }}">Explore More</a>
+                        <p>{{ $item->Content }}</p>
+                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid',$item->Language]) }}">Explore More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-card-one bg-color center">
-                        <div class="icon">
-                            <img src="assets/images/portfolio/boxes-img1.png" alt="box_img_1">
-                        </div>
-                        <h3>
-                            <a href="">Web Development</a>
-                        </h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','web']) }}">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-card-one bg-color center">
-                        <div class="icon">
-                            <img src="assets/images/portfolio/boxes-img2.png" alt="box_img_2">
-                        </div>
-                        <h3>
-                            <a href="">Mobile App Development</a>
-                        </h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a class="explore_more mt--10 text-left" data-hover="Learn More" href="{{ route('courses.view',['paid','mobile']) }}">Explore More</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

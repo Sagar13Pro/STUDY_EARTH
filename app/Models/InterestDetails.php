@@ -15,7 +15,6 @@ class InterestDetails extends Model
         'interest_mail',
         'interest_mobile',
         'interest_address',
-        'interest_dob',
         'interest_purpose',
         'interest_amount',
         'order_id',

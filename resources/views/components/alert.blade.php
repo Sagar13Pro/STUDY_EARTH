@@ -157,11 +157,6 @@
 <div class="tracker">{{ $message }}</div>
 @enderror
 @endif
-@if ($type == 'interestdob_error')
-@error('interestbirthdateInput')
-<div class="tracker">{{ $message }}</div>
-@enderror
-@endif
 @if ($type == 'interestpurpose_error')
 @error('interestpurposeInput')
 <div class="tracker">{{ $message }}</div>

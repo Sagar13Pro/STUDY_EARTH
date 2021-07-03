@@ -6,6 +6,7 @@ use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
 use App\Mail\ContactMailable;
 use App\Models\Customer;
 use App\Models\ProjectDetails;
+use App\Models\Courses;
 use App\Models\CourseDetails;
 use App\Models\CourseMaterial;
 use App\Models\Projects;
@@ -30,7 +31,8 @@ class mainController extends Controller
     public function IndexView()
     {
         $Imp_projects = ProjectDetails::where('projectType', 'imp')->get();
-        return view('index', compact('Imp_projects'));
+        $course_type = Courses::where('type','paid')->get();
+        return view('index', compact('Imp_projects'), compact('course_type'));
     }
     public function ProjectView()
     {
@@ -518,7 +520,6 @@ class mainController extends Controller
             'interestmobileNoInput' => 'required|integer|digits:10',
             'interestemailInput' => 'required|regex:/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/',
             'interestaddressInput' => 'required',
-            'interestbirthdateInput' => 'required',
         ];
         $message = [
             '*.required' => 'This is required.',
@@ -536,7 +537,6 @@ class mainController extends Controller
                 'interest_mail' => $request->interestemailInput,
                 'interest_mobile' => $request->interestmobileNoInput,
                 'interest_address' => $request->interestaddressInput,
-                'interest_dob' => $request->interestbirthdateInput,
                 'interest_purpose' => $request->interestpurposeInput,
                 'interest_amount' => $request->interestamountInput,
             ]);
@@ -544,6 +544,7 @@ class mainController extends Controller
         } catch (Exception $error) {
             $interest = false;
         }
+        $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput,'interest_purpose' => $request->interestpurposeInput,'interest_mobile' => $request->interestmobileNoInput ,'interest_amount' => $request->interestamountInput])->first();
         if ($interest) {
             $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput, 'interest_purpose' => $request->interestpurposeInput, 'interest_mobile' => $request->interestmobileNoInput, 'interest_amount' => $request->interestamountInput])->first();
             $payment = PaytmWallet::with('receive');
@@ -569,14 +570,6 @@ class mainController extends Controller
         $response = $transaction->response();
         if ($transaction->isSuccessful()) {
             $interest = InterestDetails::where(['id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
-            // $interest->order_id = $response['ORDERID'];
-            // $interest->txn_id = $response['TXNID'];
-            // $interest->txn_amount = $response['TXNAMOUNT'];
-            // $interest->payment_mode = $response['PAYMENTMODE'];
-            // $interest->status = $response['STATUS'];
-            // $interest->txn_date = $response['TXNDATE'];
-            // $interest->bank_txn_id = $response['BANKTXNID'];
-            // $interest->save();
             return redirect(route('payment.status', 'successful'))->with([
                 'status' => $response['STATUS'],
                 'txn_id' => $response['TXNID'],

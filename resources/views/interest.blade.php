@@ -72,23 +72,17 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('interestaddressInput')) ? '' : 'focused' }}">
+                                        <div class="form-group bill col-lg-12 col-md-12 {{ is_null(old('interestaddressInput')) ? '' : 'focused' }}">
                                             <input type="text" name="interestaddressInput" value="{{ old('interestaddressInput') }}">
                                             <label>Address<span class="asterik">*</span></label>
                                             <span class="focus-border"></span>
                                             <x-alert type="interestaddress_error" />
                                         </div>
-                                        <div class="form-group bill col-lg-6 col-md-6 {{ is_null(old('interestbirthdateInput')) ? '' : 'focused' }}">
-                                            <input type="text" name="interestbirthdateInput" value="{{ old('interestbirthdateInput') }}" onfocus="(this.type = 'date')" onblur="(this.type = 'text')">
-                                            <label>Birth Date<span class="asterik">*</span></label>
-                                            <span class="focus-border"></span>
-                                            <x-alert type="interestdob_error" />
-                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group bill col-lg-12 col-md-12 {{ is_null(old('interestpurposeInput')) ? '' : 'focused' }}">
                                             <input type="text" name="interestpurposeInput" value="{{ old('purposeInput') }}">
-                                            <label>What is the Purpose for?<span class="asterik">*</span></label>
+                                            <label>Project Title<span class="asterik">*</span></label>
                                             <span class="focus-border"></span>
                                             <x-alert type="interestpurpose_error" />
                                         </div>

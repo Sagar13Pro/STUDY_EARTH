@@ -20,6 +20,8 @@ class CreateCourseDetailsTable extends Migration
             $table->string('courseTitle');
             $table->longText('courseContent');
             $table->integer('coursePrice')->nullable();
+            $table->string('tag_1', 100)->nullable();
+            $table->string('tag_2', 100)->nullable();
             $table->timestamps();
         });
     }

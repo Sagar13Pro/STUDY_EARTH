@@ -20,7 +20,6 @@ class InterestDetails extends Migration
             $table->string('interest_mail');
             $table->bigInteger('interest_mobile');
             $table->string('interest_address');
-            $table->date('interest_dob');
             $table->string('interest_purpose');
             $table->integer('interest_amount');
             $table->string('order_id')->nullable();
