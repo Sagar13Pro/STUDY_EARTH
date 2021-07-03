@@ -561,9 +561,8 @@ class mainController extends Controller
             ]);
             return $payment->receive();
         } else {
-            dd($error);
-            return back()
-                ->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
+            return back();
+                //->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
         }
     }
 
@@ -574,7 +573,7 @@ class mainController extends Controller
         if ($transaction->isSuccessful()) {
             $interest = InterestDetails::where(['id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
             $interest = InterestDetails::where(['id' => $id])->first();
-            Mail::to('akashtarapara222@gmail.com')->send(new InterestMailable($interest->interest_fname, $interest->interest_lname, $interest->interest_mail, $interest->interest_mobile, $interest->interest_address, $interest->interest_purpose, $interest->interest_amount, $interest->order_id, $interest->txn_date));
+            Mail::to('custom_configs.notifier_email')->send(new InterestMailable($interest->interest_fname, $interest->interest_lname, $interest->interest_mail, $interest->interest_mobile, $interest->interest_address, $interest->interest_purpose, $interest->interest_amount, $interest->order_id, $interest->txn_date));
             return redirect(route('payment.status', 'successful'))->with([
                 'status' => $response['STATUS'],
                 'txn_id' => $response['TXNID'],
