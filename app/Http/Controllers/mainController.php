@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Anand\LaravelPaytmWallet\Facades\PaytmWallet;
 use App\Mail\ContactMailable;
+use App\Mail\InterestMailable;
 use App\Models\Customer;
 use App\Models\ProjectDetails;
 use App\Models\Courses;
@@ -100,8 +101,10 @@ class mainController extends Controller
                 $titles = CourseMaterial::select('title')
                     ->groupBy('title')
                     ->where('course_detail_id', $id)
+                    ->where('isDeleted','No')
                     ->get();
                 $topics = CourseMaterial::where('course_detail_id', $id)
+                    ->where('isDeleted','No')
                     ->orderBy('display_order', 'asc')
                     ->get();
                 return view('courses.reading', compact(['topics', 'titles']));
@@ -570,6 +573,8 @@ class mainController extends Controller
         $response = $transaction->response();
         if ($transaction->isSuccessful()) {
             $interest = InterestDetails::where(['id' => $id])->update(['order_id' => $response['ORDERID'], 'txn_id' => $response['TXNID'], 'txn_amount' => $response['TXNAMOUNT'], 'payment_mode' => $response['PAYMENTMODE'], 'status' => $response['STATUS'], 'txn_date' => $response['TXNDATE'], 'bank_txn_id' => $response['BANKTXNID']]);
+            $interest = InterestDetails::where(['id' => $id])->first();
+            Mail::to('akashtarapara222@gmail.com')->send(new InterestMailable($interest->interest_fname, $interest->interest_lname, $interest->interest_mail, $interest->interest_mobile, $interest->interest_address, $interest->interest_purpose, $interest->interest_amount, $interest->order_id, $interest->txn_date));
             return redirect(route('payment.status', 'successful'))->with([
                 'status' => $response['STATUS'],
                 'txn_id' => $response['TXNID'],

@@ -23,9 +23,7 @@ class CourseController extends Controller
             'courseType' => $type,
             'courseLanguage' => $lang
         ])->get();
-        if (count($Courses) > 0) {
-            $coursesImage = Courses::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
-        }
+        $coursesImage = Courses::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
         $langName = strtoupper($lang);
         return view('courses.courses', compact('Courses', 'coursesImage', 'langName'));
     }
