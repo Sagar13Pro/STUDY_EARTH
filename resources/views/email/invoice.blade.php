@@ -124,7 +124,7 @@
             <tr>
                 <td>
                     <div class="font-size-20 font-700">Transaction Receipt</div>
-                    <div>Order ID: 1234567890</div>
+                    <div>Order ID: {{ $order_id }}</div>
                 </td>
                 <td class="details">{{ $date }}</td>
             </tr>

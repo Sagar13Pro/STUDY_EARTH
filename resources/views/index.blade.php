@@ -53,9 +53,9 @@ use App\Models\Customer;
 @endsection
 
 @section('content')
-<div class="preloader">
+{{-- <div class="preloader">
     <img id="loader-gif" src="{{ asset('assets/images/preloader.gif') }}" alt="">
-</div>
+</div> --}}
 <main class="page-wrappper">
     <i class="fab fa-circle-notch-g"></i>
     <!-- Start Slider Area -->
@@ -285,7 +285,7 @@ use App\Models\Customer;
                 <div class="col-lg-4 col-sm-6">
                     <div class="service-card-one bg-color center">
                         <div class="icon">
-                            <img src="assets/images/icons/Course_icons/{{ $item->ImageName }}" alt="Image">
+                            <img src="assets/images/icons/Course_Icons/{{ $item->ImageName }}" alt="Image">
                         </div>
                         <h3>
                             <a href="">{{ $item->Title }}</a>

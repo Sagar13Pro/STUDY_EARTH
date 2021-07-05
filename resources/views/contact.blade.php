@@ -3,17 +3,6 @@
 @section('title','StudyEarth | Contact')
 
 @section('content')
-<div class="notifier {{ session()->has('success_contact') ? 'show-toast bg--color--info' : 'hide' }}">
-    <div class="notifier-header">
-        <div class="notifier-text">Info</div>
-        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
-    </div>
-    <div class="notifier-divider"></div>
-    <div class="notifier-body">
-        {{ session('success_contact') }}
-    </div>
-</div>
-
 <!-- Start Breadcrumb Area -->
 <div class="axil-breadcrumb-area breadcrumb-style-default pt--170 pb--70 theme-gradient">
     <div class="container">

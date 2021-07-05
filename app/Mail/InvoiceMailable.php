@@ -25,7 +25,7 @@ class InvoiceMailable extends Mailable
         $user = User::findORFail($user_id);
         $pdf = PDF::loadView('email.invoice', [
             'date' => $date,
-            'txn_id' => $order_id,
+            'order_id' => $order_id,
             'amount' => $amount,
             'product' => $paid_for,
             'name' => $user->firstName,

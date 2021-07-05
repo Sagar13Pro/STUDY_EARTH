@@ -1,5 +1,2 @@
-"id","courseType","courseLanguage","courseTitle","courseContent","coursePrice","created_at","updated_at"
-1,"paid","eng","eng-4","",5,NULL,NULL
-2,"paid","eng","toc","",10,NULL,NULL
-3,"paid","eng","IS","Info. Secu.",15,NULL,NULL
-4,"paid","eng","pdc","",22,NULL,NULL
+"id","courseType","courseLanguage","courseTitle","courseContent","coursePrice","tag_1","tag_2","created_at","updated_at"
+3,"paid","engineering","IS","Info. Secu.",15,NULL,NULL,NULL,NULL

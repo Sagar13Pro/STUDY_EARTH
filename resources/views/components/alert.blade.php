@@ -168,3 +168,32 @@
 @enderror
 @endif
 {{-- CONTACT ERROR BLOCK END --}}
+
+{{-- TOAST MSG--}}
+@if($type == "toastr")
+@if(session()->has('user_name'))
+<script>
+    toastr.success("Welcome, " + "{{ session('user_name') }}");
+
+</script>
+@endif
+@if(session()->has('success_message'))
+<script>
+    toastr.success("{{ session('success_message') }}");
+
+</script>
+@endif
+@if(session()->has('error_message'))
+<script>
+    toastr.error("{{ session('error_message') }}");
+
+</script>
+@endif
+
+@if(session()->has('info'))
+<script>
+    toastr.info("{{ session('info') }}");
+
+</script>
+@endif
+@endif

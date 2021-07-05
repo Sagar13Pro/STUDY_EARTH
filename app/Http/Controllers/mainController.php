@@ -32,7 +32,7 @@ class mainController extends Controller
     public function IndexView()
     {
         $Imp_projects = ProjectDetails::where('projectType', 'imp')->get();
-        $course_type = Courses::where('type','paid')->get();
+        $course_type = Courses::where('type', 'paid')->get();
         return view('index', compact('Imp_projects'), compact('course_type'));
     }
     public function ProjectView()
@@ -42,25 +42,25 @@ class mainController extends Controller
     }
     public function FreeProjectView($type, $lang)
     {
+        $project_icon = null;
         $freeProjects = ProjectDetails::where([
             'projectType' => $type,
             'projectLanguage' => $lang
         ])->get();
-        $langName = ucfirst($lang);
-        return view('projects.free-project', compact(['freeProjects', 'langName']));
+        $project_icon = Projects::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
+        $langName = strtoupper($lang);
+        return view('projects.free-project', compact(['freeProjects', 'langName', 'project_icon']));
     }
     public function PaidProjectView($type, $lang)
     {
-        $projectsImage = null;
+        $project_icon = null;
         $paidProjects = ProjectDetails::where([
             'projectType' => $type,
             'projectLanguage' => $lang
         ])->get();
-        if (count($paidProjects) > 0) {
-            $projectsImage = Projects::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
-        }
+        $project_icon = Projects::where(['Type' => $type, 'Language' => $lang])->get()[0]['ImageName'];
         $langName = strtoupper($lang);
-        return view('projects.paid-project', compact('paidProjects', 'projectsImage', 'langName'));
+        return view('projects.paid-project', compact('paidProjects', 'project_icon', 'langName'));
     }
 
     public function CartView($id = null)
@@ -101,10 +101,10 @@ class mainController extends Controller
                 $titles = CourseMaterial::select('title')
                     ->groupBy('title')
                     ->where('course_detail_id', $id)
-                    ->where('isDeleted','No')
+                    ->where('isDeleted', 'No')
                     ->get();
                 $topics = CourseMaterial::where('course_detail_id', $id)
-                    ->where('isDeleted','No')
+                    ->where('isDeleted', 'No')
                     ->orderBy('display_order', 'asc')
                     ->get();
                 return view('courses.reading', compact(['topics', 'titles']));
@@ -186,7 +186,7 @@ class mainController extends Controller
             session()->put('temporary_email', session()->has('session_email') ? session('session_email') : $user['emailInput']);
             return $payment->receive();
         } else {
-            dd('error');
+            return redirect(route('index.view'))->with('error_msg', 'Something went wrong. Please try again.');
         }
     }
     //Storing details of user
@@ -410,7 +410,7 @@ class mainController extends Controller
             ->first()
             ->update(['password' => $request->new_passwordInput]);
         if ($update_password) {
-            return redirect(route('index.view'));
+            return redirect(route('index.view'))->with('success_message', 'Your password has been reset.');
         }
     }
     //contact details
@@ -451,10 +451,10 @@ class mainController extends Controller
 
             if ($isMailSent) {
                 return back()
-                    ->with('success_contact', 'Your contact details submitted successfully. Kindly wait for 24hr for reply.');
+                    ->with('success_message', 'Your contact details submitted successfully. Kindly wait for 24hr for reply.');
             } else {
                 return back()
-                    ->with('success_contact', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
+                    ->with('error_message', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
             }
         }
     }
@@ -498,10 +498,10 @@ class mainController extends Controller
             if ($isMailSent) {
                 CustomProjectsForm::where('email', $request->emailInput)->orderBy('created_at', 'desc')->first()->update(['isMailSent' => 'Yes']);
                 return back()
-                    ->with('custom_message', 'Your request for custom project form submited. Kindly wait for 24hr for reply.');
+                    ->with('success_message', 'Your request for custom project form submited. Kindly wait for 24hr for reply.');
             } else {
                 return back()
-                    ->with('custom_message', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
+                    ->with('error_message', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
             }
         }
     }
@@ -547,7 +547,7 @@ class mainController extends Controller
         } catch (Exception $error) {
             $interest = false;
         }
-        $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput,'interest_purpose' => $request->interestpurposeInput,'interest_mobile' => $request->interestmobileNoInput ,'interest_amount' => $request->interestamountInput])->first();
+        $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput, 'interest_purpose' => $request->interestpurposeInput, 'interest_mobile' => $request->interestmobileNoInput, 'interest_amount' => $request->interestamountInput])->first();
         if ($interest) {
             $interest_detail = InterestDetails::where(['interest_mail' => $request->interestemailInput, 'interest_purpose' => $request->interestpurposeInput, 'interest_mobile' => $request->interestmobileNoInput, 'interest_amount' => $request->interestamountInput])->first();
             $payment = PaytmWallet::with('receive');
@@ -562,7 +562,7 @@ class mainController extends Controller
             return $payment->receive();
         } else {
             return back();
-                //->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
+            //->with('success_interest', 'If you don\'t recevie mail don\'t worry. Your data had been submitted successfully.');
         }
     }
 

@@ -16,7 +16,7 @@
                 <div class="content" style="box-sizing: border-box; display: block; max-width: 580px; margin: 0 auto;">
                     <div class="mark" style="text-align: center;" align="center">
                         <a href="https://studyearth.co.in" style="display: block; text-align: center; color: #0366d6; text-decoration: none;">
-                            <img src="https://studyearth.co.in/assets/images/logo.png" width="102" height="28" class="center logo-wordmark" alt="GitHub" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 192px; max-width: 100%; float: none; text-align: center; margin: 0 auto; padding: 25px 0 17px; border: none;height: 92px;" align="none">
+                            <img src="https://studyearth.co.in/assets/images/logo.png" width="102" height="28" class="center logo-wordmark" alt="" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 192px; max-width: 100%; float: none; text-align: center; margin: 0 auto; padding: 25px 0 17px; border: none;height: 92px;" align="none">
 
                         </a>
                     </div>

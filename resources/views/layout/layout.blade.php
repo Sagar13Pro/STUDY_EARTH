@@ -22,6 +22,7 @@ use App\Models\Customer;
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icomoon.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
@@ -86,7 +87,7 @@ use App\Models\Customer;
                                             <a href="{{ route('index.view') }}#course_details " onclick="generate();">Courses</a>
                                         </li>
                                         <li><a href="{{ route('contact.view') }}">
-                                        Contact</a></li>
+                                                Contact</a></li>
                                         <li><a href="{{ route('interest.view') }}">Interest</a></li>
                                         {{-- DARK/LIGHT MODE --}}
                                         <li>
@@ -240,17 +241,6 @@ use App\Models\Customer;
         {{-- MOBILE NAV SECTION END --}}
 
         {{-- MAIN CONTENT START--}}
-        <div class="notifier {{ session()->has('user_name') ? 'show-toast bg--color--success' : 'hide' }}">
-            <div class="notifier-header">
-                <div class="notifier-text">Info</div>
-                <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
-            </div>
-            <div class="notifier-divider"></div>
-            <div class="notifier-body">
-                Hello, <span class="font-weight--700">{{ session('user_name') }}</span>
-
-            </div>
-        </div>
         @section('content')
         @show
         {{-- MAIN CONTENT END --}}
@@ -487,12 +477,6 @@ use App\Models\Customer;
             $('#forget-modal').remove();
             location.reload()
         });
-        let timeout = 5000;
-        setTimeout(function() {
-            if ($('.notifier').length > 0) {
-                $('.notifier').fadeOut();
-            }
-        }, timeout)
 
     </script>
     <!-- Modernizer JS -->
@@ -518,11 +502,13 @@ use App\Models\Customer;
     <script src="{{ asset('assets/js/scrollup.js') }}"></script>
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     @section('scripts')
     @show
+    <x-alert type="toastr" />
 </body>
 </html>

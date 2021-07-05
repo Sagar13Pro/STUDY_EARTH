@@ -74,7 +74,7 @@
                         <div class="contact-form-wrapper d-flex justify-content-center">
                             <!-- Start Contact Form -->
                             <div class="axil-contact-form contact-form-style-1">
-                                <h3 class="title">Get a free Keystroke quote now</h3>
+                                <h3 class="title">Enter New Password</h3>
                                 <form id="contact-form" method="POST" action="{{ route('update.password') }}">
                                     @csrf
                                     <div class="form-group bill">
@@ -103,9 +103,24 @@
     <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.js') }}"></script>
+    <script src="{{ asset('assets/js/counterup.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.js') }}"></script>
+    <script src="{{ asset('assets/js/tilt.js') }}"></script>
+    <script src="{{ asset('assets/js/anime.js') }}"></script>
+    <script src="{{ asset('assets/js/tweenmax.js') }}"></script>
+    <script src="{{ asset('assets/js/slipting.js') }}"></script>
+    <script src="{{ asset('assets/js/scrollmagic.js') }}"></script>
+    <script src="{{ asset('assets/js/addindicators.js') }}"></script>
+    <script src="{{ asset('assets/js/slick.js') }}"></script>
+    <script src="{{ asset('assets/js/youtube.js') }}"></script>
+    <script src="{{ asset('assets/js/countdown.js') }}"></script>
     <script src="{{ asset('assets/js/scrollup.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
     <script src="{{ asset('assets/js/js.cookie.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.style.switcher.js') }}"></script>
+
 
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>

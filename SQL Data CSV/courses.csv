@@ -1,8 +1,4 @@
 "id","Type","Language","ImageName","Title","Content","created_at","updated_at"
-1,"paid","eng","c_plus_plus.png","c++ courses","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-2,"paid","web","python.png","python courses","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-3,"paid","mobile","IOT.png","iot courses","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-4,"paid","andriod","Android.png","andriod courses","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-5,"paid","php","php.jpg","php courses","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-6,"paid","seo","icon-04.svg","seo","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
-7,"paid","Pay-per click","icon-02.svg","Pay-per click","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
+1,"paid","engineering","engineering.png","Engineering Subjects","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
+2,"paid","web","web.png","Web Develeopment","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL
+3,"paid","mobile","mobile.png","Mobile App Development","We design professional looking yet simple websites. Our designs are search engine and user friendly.",NULL,NULL

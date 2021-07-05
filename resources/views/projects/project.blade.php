@@ -12,16 +12,6 @@
 
 {{-- MAIN CONTENT SECTION START--}}
 @section('content')
-<div class="notifier {{ session()->has('custom_message') ? 'show-toast bg--color--info' : 'hide' }}">
-    <div class="notifier-header">
-        <div class="notifier-text">Info</div>
-        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
-    </div>
-    <div class="notifier-divider"></div>
-    <div class="notifier-body">
-        {{ session('custom_message') }}
-    </div>
-</div>
 <!-- Start Page Wrapper -->
 <main class="page-wrappper">
 
@@ -100,7 +90,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="axil-service text-left axil-control paralax-image active">
                             <div class="inner">
-                                <img src="assets/images/icons/{{ $free->ImageName }}" alt="C++ logo" class="logo_ic">
+                                <img src="assets/images/icons/Project_Icons/{{ $free->ImageName }}" alt="logo" class="logo_ic">
                                 <div class="content">
                                     <h4 class="title"><a href="{{ route('freeproject.view',[$free->Type,$free->Language]) }}">{{ $free->Title }}</a></h4>
                                     <p>{{ $free->Content }}</p>
@@ -144,7 +134,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="axil-service text-left axil-control paralax-image active">
                             <div class="inner">
-                                <img src="assets/images/icons/{{ $paid->ImageName }}" alt="Icon Images" class="logo_ic">
+                                <img src="assets/images/icons/Project_Icons/{{ $paid->ImageName }}" alt="Icon Images" class="logo_ic">
                                 <div class="content">
                                     <h4 class="title"><a href="">{{ $paid->Title }}</a></h4>
                                     <p>{{ $paid->Content }}</p>

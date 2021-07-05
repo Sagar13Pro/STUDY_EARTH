@@ -3,16 +3,7 @@
 @section('title','StudyEarth | Paid Projects')
 
 @section('content')
-<div class="notifier {{ session()->has('info') ? 'show-toast bg--color--info' : 'hide' }}">
-    <div class="notifier-header">
-        <div class="notifier-text">Info</div>
-        <button type="button" id="close-toast" class="close" aria-label="Close">&times;</button>
-    </div>
-    <div class="notifier-divider"></div>
-    <div class="notifier-body">
-        {{ session('info') }}
-    </div>
-</div>
+
 
 <div class="main-wrapper">
     <div class="axil-breadcrumb-area breadcrumb-style-2 single-service pt--170 pb--70 theme-gradient">
@@ -20,10 +11,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
-                        @if (!is_null($projectsImage))
-                        <img src="{{ asset('assets/images/icons/'. $projectsImage) }}" style="max-width: 200px;">
+                        @if (!is_null($project_icon))
+                        <img src="{{ asset('assets/images/icons/Project_Icons/'. $project_icon) }}" style="max-width: 200px;">
                         @endif
-                        <h2 class="title">{{ $langName }}- Projects</h2>
+                        <h2 class="title mt-3">{{ $langName }}- Projects</h2>
+                        <p>We have listed of paid projects in <code style="font-size: 24px;">{{ $langName }}</code>. </p>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
@@ -56,7 +48,7 @@
                 <div class="col-lg-12">
                     @if (count($paidProjects) > 0)
                     @foreach ($paidProjects as $key => $item)
-                    @if ($key % 2 == 0)
+                    @if ($loop->odd)
                     <!-- Start Working Process ODD ONE -->
                     <div id={{ $item->id }} class="axil-working-process mb--100 mb_md--50 mb_sm--40">
                         <div class="thumbnail">
@@ -219,7 +211,6 @@
     $(document).ready(function() {
         $('.add-to-cart').click(function() {
             let product_id = $(this).data('product-id');
-            console.log(product_id);
             document.getElementById('add-to-cart-form-' + product_id).submit();
         });
     });

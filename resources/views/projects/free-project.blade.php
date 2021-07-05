@@ -10,8 +10,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1 mt_md--30 mt_sm--20">
                     <div class="inner">
-                        <h2 class="title">{{ $langName }} Free Projects</h2>
-                        <p>We have list of free projects in <code style="font-size: 24px;">{{ $langName }}</code>. </p>
+                        @if (!is_null($project_icon))
+                        <img src="{{ asset('assets/images/icons/Project_Icons/'. $project_icon) }}" style="max-width: 200px;">
+                        @endif
+                        <h2 class="title mt-3">{{ $langName }} Free Projects</h2>
+                        <p>We have listed of free projects in <code style="font-size: 24px;">{{ $langName }}</code>. </p>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
